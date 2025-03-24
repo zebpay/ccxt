@@ -123,6 +123,8 @@ var xt = require('./src/xt.js');
 var yobit = require('./src/yobit.js');
 var zaif = require('./src/zaif.js');
 var zonda = require('./src/zonda.js');
+var zebpayfutures = require('./src/zebpayfutures.js');
+var zebpayspot = require('./src/zebpayspot.js');
 var alpaca$1 = require('./src/pro/alpaca.js');
 var ascendex$1 = require('./src/pro/ascendex.js');
 var bequant$1 = require('./src/pro/bequant.js');
@@ -314,6 +316,8 @@ const exchanges = {
     'yobit': yobit,
     'zaif': zaif,
     'zonda': zonda,
+    'zebpayfutures': zebpayfutures,
+    'zebpayspot': zebpayspot,
 };
 const pro = {
     'alpaca': alpaca$1,
@@ -552,6 +556,8 @@ exports.xt = xt;
 exports.yobit = yobit;
 exports.zaif = zaif;
 exports.zonda = zonda;
+exports.zebpayfutures = zebpayfutures;
+exports.zebpayspot = zebpayspot;
 exports["default"] = ccxt;
 exports.exchanges = exchanges;
 exports.pro = pro;
