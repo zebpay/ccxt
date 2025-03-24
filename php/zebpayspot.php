@@ -341,23 +341,11 @@ class zebpayspot extends Exchange {
             throw new ExchangeError($this->id . ' createOrder() allows limit orders only');
         }
         $market = $this->market($symbol);
-        // $request = array(
-        //     'symbol' => $market['id'],
-        //     'side' => $side,
-        //     'type' => $type,
-        //     'quantity' => $amount,
-        //     'price' => $price,
-        //     'timestamp' => Date.now (),
-        // );
         $request = array(
-            'symbol' => $market['id'],  // Assuming 'market' object contains 'id' for BTC-INR
-            'side' => strtoupper($side),  // Ensure $side is uppercase (BUY/SELL)
-            'type' => 'LIMIT',  // Set $type explicitly
-            'price' => '7754120',  // Ensure $price is correctly assigned
-            'quantity' => '0.002',  // Ensure quantity is passed correctly
-            'stopPrice' => '7500000',  // Ensure stopPrice is included
+            'symbol' => $market['id'],
+            'side' => strtoupper($side),
         );
-        // list($request, $params) = $this->order_request($symbol, $type, $amount, $request, $price, $params);
+        list($request, $params) = $this->order_request($symbol, $type, $amount, $request, $price, $params);
         $response = $this->privatePostExOrders ($this->extend($request, $params));
         return $this->safe_order(array(
             'info' => $response,
@@ -1084,14 +1072,14 @@ class zebpayspot extends Exchange {
 
     public function order_request($symbol, $type, $amount, $request, $price = null, $params = array ()) {
         $upperCaseType = strtoupper($type);
-        $triggerPrice = $this->safe_number($params, 'stopPrice');
+        $triggerPrice = $this->safe_string($params, 'stopPrice');
         $timestamp = $this->safe_number($params, 'timestamp');
         // $quoteOrderQty = $this->safe_number($params, 'quoteOrderQty');
         $params = $this->omit($params, array( 'stopPrice', 'timestamp' ));
         $request['stopPrice'] = $triggerPrice;
         $request['type'] = $upperCaseType;
-        $request['quantity'] = $amount;
-        $request['price'] = $price;
+        $request['quantity'] = 'strval' ($amount);
+        $request['price'] = 'strval' ($price);
         // $request['quoteOrderQty'] = $quoteOrderQty;
         $request['timestamp'] = $timestamp;
         return array( $request, $params );

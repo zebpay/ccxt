@@ -5,7 +5,7 @@ var number = require('./base/functions/number.js');
 var errors = require('./base/errors.js');
 var sha256 = require('./static_dependencies/noble-hashes/sha256.js');
 
-//  ---------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 //  ---------------------------------------------------------------------------
 /**
  * @class zebpayfutures

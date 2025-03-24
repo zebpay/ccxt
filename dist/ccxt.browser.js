@@ -398218,23 +398218,11 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(this.id + ' createOrder() allows limit orders only');
         }
         const market = this.market(symbol);
-        // let request: Dict = {
-        //     'symbol': market['id'],
-        //     'side': side,
-        //     'type': type,
-        //     'quantity': amount,
-        //     'price': price,
-        //     'timestamp': Date.now (),
-        // };
-        const request = {
+        let request = {
             'symbol': market['id'],
             'side': side.toUpperCase(),
-            'type': 'LIMIT',
-            'price': '7754120',
-            'quantity': '0.002',
-            'stopPrice': '7500000', // Ensure stopPrice is included
         };
-        // [ request, params ] = this.orderRequest (symbol, type, amount, request, price, params);
+        [request, params] = this.orderRequest(symbol, type, amount, request, price, params);
         const response = await this.privatePostExOrders(this.extend(request, params));
         return this.safeOrder({
             'info': response,
@@ -398944,14 +398932,14 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
     }
     orderRequest(symbol, type, amount, request, price = undefined, params = {}) {
         const upperCaseType = type.toUpperCase();
-        const triggerPrice = this.safeNumber(params, 'stopPrice');
+        const triggerPrice = this.safeString(params, 'stopPrice');
         const timestamp = this.safeNumber(params, 'timestamp');
         // const quoteOrderQty = this.safeNumber (params, 'quoteOrderQty');
         params = this.omit(params, ['stopPrice', 'timestamp']);
         request['stopPrice'] = triggerPrice;
         request['type'] = upperCaseType;
-        request['quantity'] = amount;
-        request['price'] = price;
+        request['quantity'] = String(amount);
+        request['price'] = String(price);
         // request['quoteOrderQty'] = quoteOrderQty;
         request['timestamp'] = timestamp;
         return [request, params];

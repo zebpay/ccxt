@@ -344,23 +344,11 @@ class zebpayspot(Exchange, ImplicitAPI):
         if type != 'limit':
             raise ExchangeError(self.id + ' createOrder() allows limit orders only')
         market = self.market(symbol)
-        # request: Dict = {
-        #     'symbol': market['id'],
-        #     'side': side,
-        #     'type': type,
-        #     'quantity': amount,
-        #     'price': price,
-        #     'timestamp': Date.now(),
-        # }
         request: dict = {
-            'symbol': market['id'],  # Assuming 'market' object contains 'id' for BTC-INR
-            'side': side.upper(),  # Ensure side is uppercase(BUY/SELL)
-            'type': 'LIMIT',  # Set type explicitly
-            'price': '7754120',  # Ensure price is correctly assigned
-            'quantity': '0.002',  # Ensure quantity is passed correctly
-            'stopPrice': '7500000',  # Ensure stopPrice is included
+            'symbol': market['id'],
+            'side': side.upper(),
         }
-        # request, params = self.order_request(symbol, type, amount, request, price, params)
+        request, params = self.order_request(symbol, type, amount, request, price, params)
         response = self.privatePostExOrders(self.extend(request, params))
         return self.safe_order({
             'info': response,
@@ -1056,14 +1044,14 @@ class zebpayspot(Exchange, ImplicitAPI):
 
     def order_request(self, symbol, type, amount, request, price=None, params={}):
         upperCaseType = type.upper()
-        triggerPrice = self.safe_number(params, 'stopPrice')
+        triggerPrice = self.safe_string(params, 'stopPrice')
         timestamp = self.safe_number(params, 'timestamp')
         # quoteOrderQty = self.safe_number(params, 'quoteOrderQty')
         params = self.omit(params, ['stopPrice', 'timestamp'])
         request['stopPrice'] = triggerPrice
         request['type'] = upperCaseType
-        request['quantity'] = amount
-        request['price'] = price
+        request['quantity'] = str(amount)
+        request['price'] = str(price)
         # request['quoteOrderQty'] = quoteOrderQty
         request['timestamp'] = timestamp
         return [request, params]

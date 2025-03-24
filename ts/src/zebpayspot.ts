@@ -346,23 +346,11 @@ export default class zebpayspot extends Exchange {
             throw new ExchangeError (this.id + ' createOrder() allows limit orders only');
         }
         const market = this.market (symbol);
-        // let request: Dict = {
-        //     'symbol': market['id'],
-        //     'side': side,
-        //     'type': type,
-        //     'quantity': amount,
-        //     'price': price,
-        //     'timestamp': Date.now (),
-        // };
-        const request: Dict = {
-            'symbol': market['id'],  // Assuming 'market' object contains 'id' for BTC-INR
-            'side': side.toUpperCase (),  // Ensure side is uppercase (BUY/SELL)
-            'type': 'LIMIT',  // Set type as MARKET explicitly
-            'price': '7754120',  // Ensure price is correctly assigned
-            'quantity': '0.002',  // Ensure quantity is passed correctly
-            'stopPrice': '7500000',  // Ensure stopPrice is included
+        let request: Dict = {
+            'symbol': market['id'],
+            'side': side.toUpperCase (),
         };
-        // [ request, params ] = this.orderRequest (symbol, type, amount, request, price, params);
+        [ request, params ] = this.orderRequest (symbol, type, amount, request, price, params);
         const response = await this.privatePostExOrders (this.extend (request, params));
         return this.safeOrder ({
             'info': response,
@@ -1089,14 +1077,14 @@ export default class zebpayspot extends Exchange {
 
     orderRequest (symbol, type, amount, request, price = undefined, params = {}) {
         const upperCaseType = type.toUpperCase ();
-        const triggerPrice = this.safeNumber (params, 'stopPrice');
+        const triggerPrice = this.safeString (params, 'stopPrice');
         const timestamp = this.safeNumber (params, 'timestamp');
         // const quoteOrderQty = this.safeNumber (params, 'quoteOrderQty');
         params = this.omit (params, [ 'stopPrice', 'timestamp' ]);
         request['stopPrice'] = triggerPrice;
         request['type'] = upperCaseType;
-        request['quantity'] = amount;
-        request['price'] = price;
+        request['quantity'] = String (amount);
+        request['price'] = String (price);
         // request['quoteOrderQty'] = quoteOrderQty;
         request['timestamp'] = timestamp;
         return [ request, params ];
