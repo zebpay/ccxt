@@ -7,124 +7,124 @@ namespace ccxt\abstract;
 
 
 abstract class zebpayfutures extends \ccxt\Exchange {
-    public function public_get_ccxt_system_time($params = array()) {
-        return $this->request('ccxt/system/time', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function public_get_system_time($params = array()) {
+        return $this->request('system/time', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function public_get_ccxt_system_status($params = array()) {
-        return $this->request('ccxt/system/status', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function public_get_system_status($params = array()) {
+        return $this->request('system/status', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function public_get_ccxt_exchange_tradefee($params = array()) {
-        return $this->request('ccxt/exchange/tradefee', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function public_get_exchange_tradefee($params = array()) {
+        return $this->request('exchange/tradefee', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function public_get_ccxt_exchange_tradefees($params = array()) {
-        return $this->request('ccxt/exchange/tradefees', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function public_get_exchange_tradefees($params = array()) {
+        return $this->request('exchange/tradefees', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function public_get_ccxt_market_orderbook($params = array()) {
-        return $this->request('ccxt/market/orderBook', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function public_get_market_orderbook($params = array()) {
+        return $this->request('market/orderBook', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function public_get_ccxt_market_ticker24hr($params = array()) {
-        return $this->request('ccxt/market/ticker24Hr', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function public_get_market_ticker24hr($params = array()) {
+        return $this->request('market/ticker24Hr', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function public_get_ccxt_market_markets($params = array()) {
-        return $this->request('ccxt/market/markets', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function public_get_market_markets($params = array()) {
+        return $this->request('market/markets', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_get_ccxt_wallet_balance($params = array()) {
-        return $this->request('ccxt/wallet/balance', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function private_get_wallet_balance($params = array()) {
+        return $this->request('wallet/balance', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_get_ccxt_trade_order($params = array()) {
-        return $this->request('ccxt/trade/order', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function private_get_trade_order($params = array()) {
+        return $this->request('trade/order', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_get_ccxt_trade_order_open_orders($params = array()) {
-        return $this->request('ccxt/trade/order/open-orders', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function private_get_trade_order_open_orders($params = array()) {
+        return $this->request('trade/order/open-orders', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_get_ccxt_trade_userleverages($params = array()) {
-        return $this->request('ccxt/trade/userLeverages', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function private_get_trade_userleverages($params = array()) {
+        return $this->request('trade/userLeverages', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_get_ccxt_trade_userleverage($params = array()) {
-        return $this->request('ccxt/trade/userLeverage', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function private_get_trade_userleverage($params = array()) {
+        return $this->request('trade/userLeverage', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_get_ccxt_trade_positions($params = array()) {
-        return $this->request('ccxt/trade/positions', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function private_get_trade_positions($params = array()) {
+        return $this->request('trade/positions', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_post_ccxt_trade_order($params = array()) {
-        return $this->request('ccxt/trade/order', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function private_post_trade_order($params = array()) {
+        return $this->request('trade/order', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function private_post_ccxt_trade_order_addtpsl($params = array()) {
-        return $this->request('ccxt/trade/order/addTPSL', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function private_post_trade_order_addtpsl($params = array()) {
+        return $this->request('trade/order/addTPSL', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function private_post_ccxt_trade_addmargin($params = array()) {
-        return $this->request('ccxt/trade/addMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function private_post_trade_addmargin($params = array()) {
+        return $this->request('trade/addMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function private_post_ccxt_trade_reducemargin($params = array()) {
-        return $this->request('ccxt/trade/reduceMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function private_post_trade_reducemargin($params = array()) {
+        return $this->request('trade/reduceMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function private_post_ccxt_trade_position_close($params = array()) {
-        return $this->request('ccxt/trade/position/close', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function private_post_trade_position_close($params = array()) {
+        return $this->request('trade/position/close', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function private_post_ccxt_trade_update_userleverage($params = array()) {
-        return $this->request('ccxt/trade/update/userLeverage', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function private_post_trade_update_userleverage($params = array()) {
+        return $this->request('trade/update/userLeverage', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function private_delete_ccxt_trade_order($params = array()) {
-        return $this->request('ccxt/trade/order', 'private', 'DELETE', $params, null, null, array("cost" => 10));
+    public function private_delete_trade_order($params = array()) {
+        return $this->request('trade/order', 'private', 'DELETE', $params, null, null, array("cost" => 10));
     }
-    public function publicGetCcxtSystemTime($params = array()) {
-        return $this->request('ccxt/system/time', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function publicGetSystemTime($params = array()) {
+        return $this->request('system/time', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function publicGetCcxtSystemStatus($params = array()) {
-        return $this->request('ccxt/system/status', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function publicGetSystemStatus($params = array()) {
+        return $this->request('system/status', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function publicGetCcxtExchangeTradefee($params = array()) {
-        return $this->request('ccxt/exchange/tradefee', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function publicGetExchangeTradefee($params = array()) {
+        return $this->request('exchange/tradefee', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function publicGetCcxtExchangeTradefees($params = array()) {
-        return $this->request('ccxt/exchange/tradefees', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function publicGetExchangeTradefees($params = array()) {
+        return $this->request('exchange/tradefees', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function publicGetCcxtMarketOrderBook($params = array()) {
-        return $this->request('ccxt/market/orderBook', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function publicGetMarketOrderBook($params = array()) {
+        return $this->request('market/orderBook', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function publicGetCcxtMarketTicker24Hr($params = array()) {
-        return $this->request('ccxt/market/ticker24Hr', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function publicGetMarketTicker24Hr($params = array()) {
+        return $this->request('market/ticker24Hr', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function publicGetCcxtMarketMarkets($params = array()) {
-        return $this->request('ccxt/market/markets', 'public', 'GET', $params, null, null, array("cost" => 10));
+    public function publicGetMarketMarkets($params = array()) {
+        return $this->request('market/markets', 'public', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privateGetCcxtWalletBalance($params = array()) {
-        return $this->request('ccxt/wallet/balance', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function privateGetWalletBalance($params = array()) {
+        return $this->request('wallet/balance', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privateGetCcxtTradeOrder($params = array()) {
-        return $this->request('ccxt/trade/order', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function privateGetTradeOrder($params = array()) {
+        return $this->request('trade/order', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privateGetCcxtTradeOrderOpenOrders($params = array()) {
-        return $this->request('ccxt/trade/order/open-orders', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function privateGetTradeOrderOpenOrders($params = array()) {
+        return $this->request('trade/order/open-orders', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privateGetCcxtTradeUserLeverages($params = array()) {
-        return $this->request('ccxt/trade/userLeverages', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function privateGetTradeUserLeverages($params = array()) {
+        return $this->request('trade/userLeverages', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privateGetCcxtTradeUserLeverage($params = array()) {
-        return $this->request('ccxt/trade/userLeverage', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function privateGetTradeUserLeverage($params = array()) {
+        return $this->request('trade/userLeverage', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privateGetCcxtTradePositions($params = array()) {
-        return $this->request('ccxt/trade/positions', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function privateGetTradePositions($params = array()) {
+        return $this->request('trade/positions', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privatePostCcxtTradeOrder($params = array()) {
-        return $this->request('ccxt/trade/order', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function privatePostTradeOrder($params = array()) {
+        return $this->request('trade/order', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function privatePostCcxtTradeOrderAddTPSL($params = array()) {
-        return $this->request('ccxt/trade/order/addTPSL', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function privatePostTradeOrderAddTPSL($params = array()) {
+        return $this->request('trade/order/addTPSL', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function privatePostCcxtTradeAddMargin($params = array()) {
-        return $this->request('ccxt/trade/addMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function privatePostTradeAddMargin($params = array()) {
+        return $this->request('trade/addMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function privatePostCcxtTradeReduceMargin($params = array()) {
-        return $this->request('ccxt/trade/reduceMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function privatePostTradeReduceMargin($params = array()) {
+        return $this->request('trade/reduceMargin', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function privatePostCcxtTradePositionClose($params = array()) {
-        return $this->request('ccxt/trade/position/close', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function privatePostTradePositionClose($params = array()) {
+        return $this->request('trade/position/close', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function privatePostCcxtTradeUpdateUserLeverage($params = array()) {
-        return $this->request('ccxt/trade/update/userLeverage', 'private', 'POST', $params, null, null, array("cost" => 10));
+    public function privatePostTradeUpdateUserLeverage($params = array()) {
+        return $this->request('trade/update/userLeverage', 'private', 'POST', $params, null, null, array("cost" => 10));
     }
-    public function privateDeleteCcxtTradeOrder($params = array()) {
-        return $this->request('ccxt/trade/order', 'private', 'DELETE', $params, null, null, array("cost" => 10));
+    public function privateDeleteTradeOrder($params = array()) {
+        return $this->request('trade/order', 'private', 'DELETE', $params, null, null, array("cost" => 10));
     }
 }

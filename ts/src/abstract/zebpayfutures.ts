@@ -9,26 +9,26 @@ import { implicitReturnType } from '../base/types.js';
 import { Exchange as _Exchange } from '../base/Exchange.js';
 
 interface Exchange {
-    publicGetCcxtSystemTime (params?: {}): Promise<implicitReturnType>;
-    publicGetCcxtSystemStatus (params?: {}): Promise<implicitReturnType>;
-    publicGetCcxtExchangeTradefee (params?: {}): Promise<implicitReturnType>;
-    publicGetCcxtExchangeTradefees (params?: {}): Promise<implicitReturnType>;
-    publicGetCcxtMarketOrderBook (params?: {}): Promise<implicitReturnType>;
-    publicGetCcxtMarketTicker24Hr (params?: {}): Promise<implicitReturnType>;
-    publicGetCcxtMarketMarkets (params?: {}): Promise<implicitReturnType>;
-    privateGetCcxtWalletBalance (params?: {}): Promise<implicitReturnType>;
-    privateGetCcxtTradeOrder (params?: {}): Promise<implicitReturnType>;
-    privateGetCcxtTradeOrderOpenOrders (params?: {}): Promise<implicitReturnType>;
-    privateGetCcxtTradeUserLeverages (params?: {}): Promise<implicitReturnType>;
-    privateGetCcxtTradeUserLeverage (params?: {}): Promise<implicitReturnType>;
-    privateGetCcxtTradePositions (params?: {}): Promise<implicitReturnType>;
-    privatePostCcxtTradeOrder (params?: {}): Promise<implicitReturnType>;
-    privatePostCcxtTradeOrderAddTPSL (params?: {}): Promise<implicitReturnType>;
-    privatePostCcxtTradeAddMargin (params?: {}): Promise<implicitReturnType>;
-    privatePostCcxtTradeReduceMargin (params?: {}): Promise<implicitReturnType>;
-    privatePostCcxtTradePositionClose (params?: {}): Promise<implicitReturnType>;
-    privatePostCcxtTradeUpdateUserLeverage (params?: {}): Promise<implicitReturnType>;
-    privateDeleteCcxtTradeOrder (params?: {}): Promise<implicitReturnType>;
+    publicGetSystemTime (params?: {}): Promise<implicitReturnType>;
+    publicGetSystemStatus (params?: {}): Promise<implicitReturnType>;
+    publicGetExchangeTradefee (params?: {}): Promise<implicitReturnType>;
+    publicGetExchangeTradefees (params?: {}): Promise<implicitReturnType>;
+    publicGetMarketOrderBook (params?: {}): Promise<implicitReturnType>;
+    publicGetMarketTicker24Hr (params?: {}): Promise<implicitReturnType>;
+    publicGetMarketMarkets (params?: {}): Promise<implicitReturnType>;
+    privateGetWalletBalance (params?: {}): Promise<implicitReturnType>;
+    privateGetTradeOrder (params?: {}): Promise<implicitReturnType>;
+    privateGetTradeOrderOpenOrders (params?: {}): Promise<implicitReturnType>;
+    privateGetTradeUserLeverages (params?: {}): Promise<implicitReturnType>;
+    privateGetTradeUserLeverage (params?: {}): Promise<implicitReturnType>;
+    privateGetTradePositions (params?: {}): Promise<implicitReturnType>;
+    privatePostTradeOrder (params?: {}): Promise<implicitReturnType>;
+    privatePostTradeOrderAddTPSL (params?: {}): Promise<implicitReturnType>;
+    privatePostTradeAddMargin (params?: {}): Promise<implicitReturnType>;
+    privatePostTradeReduceMargin (params?: {}): Promise<implicitReturnType>;
+    privatePostTradePositionClose (params?: {}): Promise<implicitReturnType>;
+    privatePostTradeUpdateUserLeverage (params?: {}): Promise<implicitReturnType>;
+    privateDeleteTradeOrder (params?: {}): Promise<implicitReturnType>;
 }
 abstract class Exchange extends _Exchange {}
 

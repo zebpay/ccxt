@@ -79,34 +79,34 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'api': {
                 'public': {
                     'get': {
-                        'ccxt/system/time': 10,
-                        'ccxt/system/status': 10,
-                        'ccxt/exchange/tradefee': 10,
-                        'ccxt/exchange/tradefees': 10,
-                        'ccxt/market/orderBook': 10,
-                        'ccxt/market/ticker24Hr': 10,
-                        'ccxt/market/markets': 10,
+                        'system/time': 10,
+                        'system/status': 10,
+                        'exchange/tradefee': 10,
+                        'exchange/tradefees': 10,
+                        'market/orderBook': 10,
+                        'market/ticker24Hr': 10,
+                        'market/markets': 10,
                     },
                 },
                 'private': {
                     'get': {
-                        'ccxt/wallet/balance': 10,
-                        'ccxt/trade/order': 10,
-                        'ccxt/trade/order/open-orders': 10,
-                        'ccxt/trade/userLeverages': 10,
-                        'ccxt/trade/userLeverage': 10,
-                        'ccxt/trade/positions': 10,
+                        'wallet/balance': 10,
+                        'trade/order': 10,
+                        'trade/order/open-orders': 10,
+                        'trade/userLeverages': 10,
+                        'trade/userLeverage': 10,
+                        'trade/positions': 10,
                     },
                     'post': {
-                        'ccxt/trade/order': 10,
-                        'ccxt/trade/order/addTPSL': 10,
-                        'ccxt/trade/addMargin': 10,
-                        'ccxt/trade/reduceMargin': 10,
-                        'ccxt/trade/position/close': 10,
-                        'ccxt/trade/update/userLeverage': 10,
+                        'trade/order': 10,
+                        'trade/order/addTPSL': 10,
+                        'trade/addMargin': 10,
+                        'trade/reduceMargin': 10,
+                        'trade/position/close': 10,
+                        'trade/update/userLeverage': 10,
                     },
                     'delete': {
-                        'ccxt/trade/order': 10,
+                        'trade/order': 10,
                     },
                 },
             },
@@ -145,7 +145,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns dict: a `status structure <https://docs.ccxt.com/#/?id=exchange-status-structure>`
         """
-        response = self.publicGetCcxtSystemStatus(params)
+        response = self.publicGetSystemStatus(params)
         #
         # {
         #     "statusDescription": "OK",
@@ -176,7 +176,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns int: the current integer timestamp in milliseconds from the poloniexfutures server
         """
-        response = self.publicGetCcxtSystemTime(params)
+        response = self.publicGetSystemTime(params)
         #
         # {
         #     "statusDescription": "OK",
@@ -209,7 +209,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         request: dict = {
             'symbol': market['id'],
         }
-        response = self.publicGetCcxtExchangeTradefee(self.extend(request, params))
+        response = self.publicGetExchangeTradefee(self.extend(request, params))
         #
         # {
         #     "statusDescription": "OK",
@@ -245,7 +245,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns dict: a `status structure <https://docs.ccxt.com/#/?id=exchange-status-structure>`
         """
-        response = self.publicGetCcxtExchangeTradefees(params)
+        response = self.publicGetExchangeTradefees(params)
         #
         # {
         #     "statusDescription": "OK",
@@ -286,7 +286,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         request: dict = {
             'symbol': market['id'],
         }
-        response = self.publicGetCcxtMarketOrderBook(self.extend(request, params))
+        response = self.publicGetMarketOrderBook(self.extend(request, params))
         #
         # {
         #     "statusDescription": "OK",
@@ -324,7 +324,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         :param dict [params]: extra parameters specific to the exchange api endpoint
         :returns dict[]: an array of objects representing market data
         """
-        response = self.publicGetCcxtMarketMarkets(params)
+        response = self.publicGetMarketMarkets(params)
         #
         #    {
         #        "data": {
@@ -402,7 +402,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         request: dict = {
             'symbol': market['id'],
         }
-        response = self.publicGetCcxtMarketTicker24Hr(self.extend(request, params))
+        response = self.publicGetMarketTicker24Hr(self.extend(request, params))
         #
         #     {
         #         "statusDescription": "OK",
@@ -439,7 +439,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         self.load_markets()
         request: dict = {}
-        response = self.privateGetCcxtWalletBalance(self.extend(request, params))
+        response = self.privateGetWalletBalance(self.extend(request, params))
         #
         #     {
         #         "data": [
@@ -521,9 +521,9 @@ class zebpayfutures(Exchange, ImplicitAPI):
         params = self.omit(params, ['price'])
         response = None
         if takeProfit is True or stopLoss is True:
-            response = self.privatePostCcxtTradeOrderAddTPSL(self.extend(request, params))
+            response = self.privatePostTradeOrderAddTPSL(self.extend(request, params))
         else:
-            response = self.privatePostCcxtTradeOrder(self.extend(request, params))
+            response = self.privatePostTradeOrder(self.extend(request, params))
         #
         #    {
         #        "data": {
@@ -576,7 +576,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'symbol': symbol,
             'timestamp': timestamp,
         }
-        response = self.privateDeleteCcxtTradeOrder(self.extend(request, params))
+        response = self.privateDeleteTradeOrder(self.extend(request, params))
         #
         #    {
         #        "data": {
@@ -613,7 +613,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'positionId': positionId,
             'timestamp': timestamp,
         }
-        response = self.privatePostCcxtTradeAddMargin(self.extend(request, params))
+        response = self.privatePostTradeAddMargin(self.extend(request, params))
         #
         #    {
         #        "code": "200000",
@@ -664,7 +664,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'positionId': positionId,
             'timestamp': timestamp,
         }
-        response = self.privatePostCcxtTradeReduceMargin(self.extend(request, params))
+        response = self.privatePostTradeReduceMargin(self.extend(request, params))
         #
         #    {
         #        "code": "200000",
@@ -707,7 +707,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             request['snce'] = since or Date.now()
         if limit is not None:
             request['limit'] = limit or 100
-        response = self.privateGetCcxtTradeOrderOpenOrders(self.extend(request, params))
+        response = self.privateGetTradeOrderOpenOrders(self.extend(request, params))
         #
         #     {
         #         "data": {
@@ -775,7 +775,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         params = self.omit(params, ['clientOrderId', 'timestamp'])
         request['id'] = clientOrderId
         request['timestamp'] = timestamp
-        response = self.privateGetCcxtTradeOrder(self.extend(request, params))
+        response = self.privateGetTradeOrder(self.extend(request, params))
         #
         #     {
         #         "data": {
@@ -829,7 +829,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'positionId': positionId,
             'timestamp': timestamp,
         }
-        response = self.privatePostCcxtTradePositionClose(self.extend(request, params))
+        response = self.privatePostTradePositionClose(self.extend(request, params))
         data = self.safe_dict(response, 'data')
         return self.parse_order(data, market)
 
@@ -849,7 +849,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         request: dict = {
             'timestamp': timestamp,
         }
-        response = self.privateGetCcxtTradeUserLeverages(self.extend(request, params))
+        response = self.privateGetTradeUserLeverages(self.extend(request, params))
         #
         #     {
         #         "leveragePreferences": [
@@ -885,7 +885,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'symbol': self.market_id(symbol).upper(),
             'timestamp': timestamp,
         }
-        response = self.privateGetCcxtTradeUserLeverage(self.extend(request, params))
+        response = self.privateGetTradeUserLeverage(self.extend(request, params))
         #
         #     {
         #         "data": {symbol: "ETHINR", longLeverage: 1, shortLeverage: 1, marginMode: "isolated"}
@@ -918,7 +918,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         #
         # {data: {"symbol", "longLeverage": 10, "shortLeverage": 1, "marginMode": "isolated"}
         #
-        return self.privatePostCcxtTradeUpdateUserLeverage(self.extend(request, params))
+        return self.privatePostTradeUpdateUserLeverage(self.extend(request, params))
 
     def fetch_positions(self, symbols: Strings = None, params={}):
         """
@@ -938,7 +938,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'status': status,
             'timestamp': timestamp,
         }
-        response = self.privateGetCcxtTradePositions(request)
+        response = self.privateGetTradePositions(request)
         #
         #    {
         #        "data": [

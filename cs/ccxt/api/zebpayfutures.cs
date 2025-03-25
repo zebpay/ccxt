@@ -11,104 +11,104 @@ public partial class zebpayfutures : Exchange
 {
     public zebpayfutures (object args = null): base(args) {}
 
-    public async Task<object> publicGetCcxtSystemTime (object parameters = null)
+    public async Task<object> publicGetSystemTime (object parameters = null)
     {
-        return await this.callAsync ("publicGetCcxtSystemTime",parameters);
+        return await this.callAsync ("publicGetSystemTime",parameters);
     }
 
-    public async Task<object> publicGetCcxtSystemStatus (object parameters = null)
+    public async Task<object> publicGetSystemStatus (object parameters = null)
     {
-        return await this.callAsync ("publicGetCcxtSystemStatus",parameters);
+        return await this.callAsync ("publicGetSystemStatus",parameters);
     }
 
-    public async Task<object> publicGetCcxtExchangeTradefee (object parameters = null)
+    public async Task<object> publicGetExchangeTradefee (object parameters = null)
     {
-        return await this.callAsync ("publicGetCcxtExchangeTradefee",parameters);
+        return await this.callAsync ("publicGetExchangeTradefee",parameters);
     }
 
-    public async Task<object> publicGetCcxtExchangeTradefees (object parameters = null)
+    public async Task<object> publicGetExchangeTradefees (object parameters = null)
     {
-        return await this.callAsync ("publicGetCcxtExchangeTradefees",parameters);
+        return await this.callAsync ("publicGetExchangeTradefees",parameters);
     }
 
-    public async Task<object> publicGetCcxtMarketOrderBook (object parameters = null)
+    public async Task<object> publicGetMarketOrderBook (object parameters = null)
     {
-        return await this.callAsync ("publicGetCcxtMarketOrderBook",parameters);
+        return await this.callAsync ("publicGetMarketOrderBook",parameters);
     }
 
-    public async Task<object> publicGetCcxtMarketTicker24Hr (object parameters = null)
+    public async Task<object> publicGetMarketTicker24Hr (object parameters = null)
     {
-        return await this.callAsync ("publicGetCcxtMarketTicker24Hr",parameters);
+        return await this.callAsync ("publicGetMarketTicker24Hr",parameters);
     }
 
-    public async Task<object> publicGetCcxtMarketMarkets (object parameters = null)
+    public async Task<object> publicGetMarketMarkets (object parameters = null)
     {
-        return await this.callAsync ("publicGetCcxtMarketMarkets",parameters);
+        return await this.callAsync ("publicGetMarketMarkets",parameters);
     }
 
-    public async Task<object> privateGetCcxtWalletBalance (object parameters = null)
+    public async Task<object> privateGetWalletBalance (object parameters = null)
     {
-        return await this.callAsync ("privateGetCcxtWalletBalance",parameters);
+        return await this.callAsync ("privateGetWalletBalance",parameters);
     }
 
-    public async Task<object> privateGetCcxtTradeOrder (object parameters = null)
+    public async Task<object> privateGetTradeOrder (object parameters = null)
     {
-        return await this.callAsync ("privateGetCcxtTradeOrder",parameters);
+        return await this.callAsync ("privateGetTradeOrder",parameters);
     }
 
-    public async Task<object> privateGetCcxtTradeOrderOpenOrders (object parameters = null)
+    public async Task<object> privateGetTradeOrderOpenOrders (object parameters = null)
     {
-        return await this.callAsync ("privateGetCcxtTradeOrderOpenOrders",parameters);
+        return await this.callAsync ("privateGetTradeOrderOpenOrders",parameters);
     }
 
-    public async Task<object> privateGetCcxtTradeUserLeverages (object parameters = null)
+    public async Task<object> privateGetTradeUserLeverages (object parameters = null)
     {
-        return await this.callAsync ("privateGetCcxtTradeUserLeverages",parameters);
+        return await this.callAsync ("privateGetTradeUserLeverages",parameters);
     }
 
-    public async Task<object> privateGetCcxtTradeUserLeverage (object parameters = null)
+    public async Task<object> privateGetTradeUserLeverage (object parameters = null)
     {
-        return await this.callAsync ("privateGetCcxtTradeUserLeverage",parameters);
+        return await this.callAsync ("privateGetTradeUserLeverage",parameters);
     }
 
-    public async Task<object> privateGetCcxtTradePositions (object parameters = null)
+    public async Task<object> privateGetTradePositions (object parameters = null)
     {
-        return await this.callAsync ("privateGetCcxtTradePositions",parameters);
+        return await this.callAsync ("privateGetTradePositions",parameters);
     }
 
-    public async Task<object> privatePostCcxtTradeOrder (object parameters = null)
+    public async Task<object> privatePostTradeOrder (object parameters = null)
     {
-        return await this.callAsync ("privatePostCcxtTradeOrder",parameters);
+        return await this.callAsync ("privatePostTradeOrder",parameters);
     }
 
-    public async Task<object> privatePostCcxtTradeOrderAddTPSL (object parameters = null)
+    public async Task<object> privatePostTradeOrderAddTPSL (object parameters = null)
     {
-        return await this.callAsync ("privatePostCcxtTradeOrderAddTPSL",parameters);
+        return await this.callAsync ("privatePostTradeOrderAddTPSL",parameters);
     }
 
-    public async Task<object> privatePostCcxtTradeAddMargin (object parameters = null)
+    public async Task<object> privatePostTradeAddMargin (object parameters = null)
     {
-        return await this.callAsync ("privatePostCcxtTradeAddMargin",parameters);
+        return await this.callAsync ("privatePostTradeAddMargin",parameters);
     }
 
-    public async Task<object> privatePostCcxtTradeReduceMargin (object parameters = null)
+    public async Task<object> privatePostTradeReduceMargin (object parameters = null)
     {
-        return await this.callAsync ("privatePostCcxtTradeReduceMargin",parameters);
+        return await this.callAsync ("privatePostTradeReduceMargin",parameters);
     }
 
-    public async Task<object> privatePostCcxtTradePositionClose (object parameters = null)
+    public async Task<object> privatePostTradePositionClose (object parameters = null)
     {
-        return await this.callAsync ("privatePostCcxtTradePositionClose",parameters);
+        return await this.callAsync ("privatePostTradePositionClose",parameters);
     }
 
-    public async Task<object> privatePostCcxtTradeUpdateUserLeverage (object parameters = null)
+    public async Task<object> privatePostTradeUpdateUserLeverage (object parameters = null)
     {
-        return await this.callAsync ("privatePostCcxtTradeUpdateUserLeverage",parameters);
+        return await this.callAsync ("privatePostTradeUpdateUserLeverage",parameters);
     }
 
-    public async Task<object> privateDeleteCcxtTradeOrder (object parameters = null)
+    public async Task<object> privateDeleteTradeOrder (object parameters = null)
     {
-        return await this.callAsync ("privateDeleteCcxtTradeOrder",parameters);
+        return await this.callAsync ("privateDeleteTradeOrder",parameters);
     }
 
 }

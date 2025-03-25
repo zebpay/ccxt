@@ -71,34 +71,34 @@ class zebpayfutures extends Exchange {
             'api' => array(
                 'public' => array(
                     'get' => array(
-                        'ccxt/system/time' => 10,
-                        'ccxt/system/status' => 10,
-                        'ccxt/exchange/tradefee' => 10,
-                        'ccxt/exchange/tradefees' => 10,
-                        'ccxt/market/orderBook' => 10,
-                        'ccxt/market/ticker24Hr' => 10,
-                        'ccxt/market/markets' => 10,
+                        'system/time' => 10,
+                        'system/status' => 10,
+                        'exchange/tradefee' => 10,
+                        'exchange/tradefees' => 10,
+                        'market/orderBook' => 10,
+                        'market/ticker24Hr' => 10,
+                        'market/markets' => 10,
                     ),
                 ),
                 'private' => array(
                     'get' => array(
-                        'ccxt/wallet/balance' => 10,
-                        'ccxt/trade/order' => 10,
-                        'ccxt/trade/order/open-orders' => 10,
-                        'ccxt/trade/userLeverages' => 10,
-                        'ccxt/trade/userLeverage' => 10,
-                        'ccxt/trade/positions' => 10,
+                        'wallet/balance' => 10,
+                        'trade/order' => 10,
+                        'trade/order/open-orders' => 10,
+                        'trade/userLeverages' => 10,
+                        'trade/userLeverage' => 10,
+                        'trade/positions' => 10,
                     ),
                     'post' => array(
-                        'ccxt/trade/order' => 10,
-                        'ccxt/trade/order/addTPSL' => 10,
-                        'ccxt/trade/addMargin' => 10,
-                        'ccxt/trade/reduceMargin' => 10,
-                        'ccxt/trade/position/close' => 10,
-                        'ccxt/trade/update/userLeverage' => 10,
+                        'trade/order' => 10,
+                        'trade/order/addTPSL' => 10,
+                        'trade/addMargin' => 10,
+                        'trade/reduceMargin' => 10,
+                        'trade/position/close' => 10,
+                        'trade/update/userLeverage' => 10,
                     ),
                     'delete' => array(
-                        'ccxt/trade/order' => 10,
+                        'trade/order' => 10,
                     ),
                 ),
             ),
@@ -139,7 +139,7 @@ class zebpayfutures extends Exchange {
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {array} a ~@link https://docs.ccxt.com/#/?id=exchange-$status-structure $status structure~
              */
-            $response = Async\await($this->publicGetCcxtSystemStatus ($params));
+            $response = Async\await($this->publicGetSystemStatus ($params));
             //
             // {
             //     "statusDescription" => "OK",
@@ -173,7 +173,7 @@ class zebpayfutures extends Exchange {
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {int} the current integer timestamp in milliseconds from the poloniexfutures server
              */
-            $response = Async\await($this->publicGetCcxtSystemTime ($params));
+            $response = Async\await($this->publicGetSystemTime ($params));
             //
             // {
             //     "statusDescription" => "OK",
@@ -210,7 +210,7 @@ class zebpayfutures extends Exchange {
             $request = array(
                 'symbol' => $market['id'],
             );
-            $response = Async\await($this->publicGetCcxtExchangeTradefee ($this->extend($request, $params)));
+            $response = Async\await($this->publicGetExchangeTradefee ($this->extend($request, $params)));
             //
             // {
             //     "statusDescription" => "OK",
@@ -249,7 +249,7 @@ class zebpayfutures extends Exchange {
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {array} a ~@link https://docs.ccxt.com/#/?id=exchange-status-structure status structure~
              */
-            $response = Async\await($this->publicGetCcxtExchangeTradefees ($params));
+            $response = Async\await($this->publicGetExchangeTradefees ($params));
             //
             // {
             //     "statusDescription" => "OK",
@@ -295,7 +295,7 @@ class zebpayfutures extends Exchange {
             $request = array(
                 'symbol' => $market['id'],
             );
-            $response = Async\await($this->publicGetCcxtMarketOrderBook ($this->extend($request, $params)));
+            $response = Async\await($this->publicGetMarketOrderBook ($this->extend($request, $params)));
             //
             // {
             //     "statusDescription" => "OK",
@@ -336,7 +336,7 @@ class zebpayfutures extends Exchange {
              * @param {array} [$params] extra parameters specific to the exchange api endpoint
              * @return {array[]} an array of objects representing $market $data
              */
-            $response = Async\await($this->publicGetCcxtMarketMarkets ($params));
+            $response = Async\await($this->publicGetMarketMarkets ($params));
             //
             //    {
             //        "data" => {
@@ -419,7 +419,7 @@ class zebpayfutures extends Exchange {
             $request = array(
                 'symbol' => $market['id'],
             );
-            $response = Async\await($this->publicGetCcxtMarketTicker24Hr ($this->extend($request, $params)));
+            $response = Async\await($this->publicGetMarketTicker24Hr ($this->extend($request, $params)));
             //
             //     {
             //         "statusDescription" => "OK",
@@ -459,7 +459,7 @@ class zebpayfutures extends Exchange {
              */
             Async\await($this->load_markets());
             $request = array();
-            $response = Async\await($this->privateGetCcxtWalletBalance ($this->extend($request, $params)));
+            $response = Async\await($this->privateGetWalletBalance ($this->extend($request, $params)));
             //
             //     {
             //         "data" => array(
@@ -549,9 +549,9 @@ class zebpayfutures extends Exchange {
             $params = $this->omit($params, array( 'price' ));
             $response = null;
             if ($takeProfit === true || $stopLoss === true) {
-                $response = Async\await($this->privatePostCcxtTradeOrderAddTPSL ($this->extend($request, $params)));
+                $response = Async\await($this->privatePostTradeOrderAddTPSL ($this->extend($request, $params)));
             } else {
-                $response = Async\await($this->privatePostCcxtTradeOrder ($this->extend($request, $params)));
+                $response = Async\await($this->privatePostTradeOrder ($this->extend($request, $params)));
             }
             //
             //    {
@@ -608,7 +608,7 @@ class zebpayfutures extends Exchange {
                 'symbol' => $symbol,
                 'timestamp' => $timestamp,
             );
-            $response = Async\await($this->privateDeleteCcxtTradeOrder ($this->extend($request, $params)));
+            $response = Async\await($this->privateDeleteTradeOrder ($this->extend($request, $params)));
             //
             //    {
             //        "data" => array(
@@ -649,7 +649,7 @@ class zebpayfutures extends Exchange {
                 'positionId' => $positionId,
                 'timestamp' => $timestamp,
             );
-            $response = Async\await($this->privatePostCcxtTradeAddMargin ($this->extend($request, $params)));
+            $response = Async\await($this->privatePostTradeAddMargin ($this->extend($request, $params)));
             //
             //    {
             //        "code" => "200000",
@@ -704,7 +704,7 @@ class zebpayfutures extends Exchange {
                 'positionId' => $positionId,
                 'timestamp' => $timestamp,
             );
-            $response = Async\await($this->privatePostCcxtTradeReduceMargin ($this->extend($request, $params)));
+            $response = Async\await($this->privatePostTradeReduceMargin ($this->extend($request, $params)));
             //
             //    {
             //        "code" => "200000",
@@ -753,7 +753,7 @@ class zebpayfutures extends Exchange {
             if ($limit !== null) {
                 $request['limit'] = $limit || 100;
             }
-            $response = Async\await($this->privateGetCcxtTradeOrderOpenOrders ($this->extend($request, $params)));
+            $response = Async\await($this->privateGetTradeOrderOpenOrders ($this->extend($request, $params)));
             //
             //     {
             //         "data" => {
@@ -828,7 +828,7 @@ class zebpayfutures extends Exchange {
             $params = $this->omit($params, array( 'clientOrderId', 'timestamp' ));
             $request['id'] = $clientOrderId;
             $request['timestamp'] = $timestamp;
-            $response = Async\await($this->privateGetCcxtTradeOrder ($this->extend($request, $params)));
+            $response = Async\await($this->privateGetTradeOrder ($this->extend($request, $params)));
             //
             //     {
             //         "data" => {
@@ -886,7 +886,7 @@ class zebpayfutures extends Exchange {
                 'positionId' => $positionId,
                 'timestamp' => $timestamp,
             );
-            $response = Async\await($this->privatePostCcxtTradePositionClose ($this->extend($request, $params)));
+            $response = Async\await($this->privatePostTradePositionClose ($this->extend($request, $params)));
             $data = $this->safe_dict($response, 'data');
             return $this->parse_order($data, $market);
         }) ();
@@ -909,7 +909,7 @@ class zebpayfutures extends Exchange {
             $request = array(
                 'timestamp' => $timestamp,
             );
-            $response = Async\await($this->privateGetCcxtTradeUserLeverages ($this->extend($request, $params)));
+            $response = Async\await($this->privateGetTradeUserLeverages ($this->extend($request, $params)));
             //
             //     {
             //         "leveragePreferences" => array(
@@ -949,7 +949,7 @@ class zebpayfutures extends Exchange {
                 'symbol' => strtoupper($this->market_id($symbol)),
                 'timestamp' => $timestamp,
             );
-            $response = Async\await($this->privateGetCcxtTradeUserLeverage ($this->extend($request, $params)));
+            $response = Async\await($this->privateGetTradeUserLeverage ($this->extend($request, $params)));
             //
             //     {
             //         "data" => array( $symbol => "ETHINR", longLeverage => 1, shortLeverage => 1, marginMode => "isolated" )
@@ -986,7 +986,7 @@ class zebpayfutures extends Exchange {
             //
             // array( data => { "symbol", "longLeverage" => 10, "shortLeverage" => 1, "marginMode" => "isolated" )
             //
-            return Async\await($this->privatePostCcxtTradeUpdateUserLeverage ($this->extend($request, $params)));
+            return Async\await($this->privatePostTradeUpdateUserLeverage ($this->extend($request, $params)));
         }) ();
     }
 
@@ -1009,7 +1009,7 @@ class zebpayfutures extends Exchange {
                 'status' => $status,
                 'timestamp' => $timestamp,
             );
-            $response = Async\await($this->privateGetCcxtTradePositions ($request));
+            $response = Async\await($this->privateGetTradePositions ($request));
             //
             //    {
             //        "data" => array(

@@ -72,34 +72,34 @@ export default class zebpayfutures extends Exchange {
             'api': {
                 'public': {
                     'get': {
-                        'ccxt/system/time': 10,
-                        'ccxt/system/status': 10,
-                        'ccxt/exchange/tradefee': 10,
-                        'ccxt/exchange/tradefees': 10,
-                        'ccxt/market/orderBook': 10,
-                        'ccxt/market/ticker24Hr': 10,
-                        'ccxt/market/markets': 10,
+                        'system/time': 10,
+                        'system/status': 10,
+                        'exchange/tradefee': 10,
+                        'exchange/tradefees': 10,
+                        'market/orderBook': 10,
+                        'market/ticker24Hr': 10,
+                        'market/markets': 10,
                     },
                 },
                 'private': {
                     'get': {
-                        'ccxt/wallet/balance': 10,
-                        'ccxt/trade/order': 10,
-                        'ccxt/trade/order/open-orders': 10,
-                        'ccxt/trade/userLeverages': 10,
-                        'ccxt/trade/userLeverage': 10,
-                        'ccxt/trade/positions': 10,
+                        'wallet/balance': 10,
+                        'trade/order': 10,
+                        'trade/order/open-orders': 10,
+                        'trade/userLeverages': 10,
+                        'trade/userLeverage': 10,
+                        'trade/positions': 10,
                     },
                     'post': {
-                        'ccxt/trade/order': 10,
-                        'ccxt/trade/order/addTPSL': 10,
-                        'ccxt/trade/addMargin': 10,
-                        'ccxt/trade/reduceMargin': 10,
-                        'ccxt/trade/position/close': 10,
-                        'ccxt/trade/update/userLeverage': 10,
+                        'trade/order': 10,
+                        'trade/order/addTPSL': 10,
+                        'trade/addMargin': 10,
+                        'trade/reduceMargin': 10,
+                        'trade/position/close': 10,
+                        'trade/update/userLeverage': 10,
                     },
                     'delete': {
-                        'ccxt/trade/order': 10,
+                        'trade/order': 10,
                     },
                 },
             },
@@ -137,7 +137,7 @@ export default class zebpayfutures extends Exchange {
      * @returns {object} a [status structure]{@link https://docs.ccxt.com/#/?id=exchange-status-structure}
      */
     async fetchStatus(params = {}) {
-        const response = await this.publicGetCcxtSystemStatus(params);
+        const response = await this.publicGetSystemStatus(params);
         //
         // {
         //     "statusDescription": "OK",
@@ -168,7 +168,7 @@ export default class zebpayfutures extends Exchange {
      * @returns {int} the current integer timestamp in milliseconds from the poloniexfutures server
      */
     async fetchTime(params = {}) {
-        const response = await this.publicGetCcxtSystemTime(params);
+        const response = await this.publicGetSystemTime(params);
         //
         // {
         //     "statusDescription": "OK",
@@ -202,7 +202,7 @@ export default class zebpayfutures extends Exchange {
         const request = {
             'symbol': market['id'],
         };
-        const response = await this.publicGetCcxtExchangeTradefee(this.extend(request, params));
+        const response = await this.publicGetExchangeTradefee(this.extend(request, params));
         //
         // {
         //     "statusDescription": "OK",
@@ -238,7 +238,7 @@ export default class zebpayfutures extends Exchange {
      * @returns {object} a [status structure]{@link https://docs.ccxt.com/#/?id=exchange-status-structure}
      */
     async fetchTradingFees(params = {}) {
-        const response = await this.publicGetCcxtExchangeTradefees(params);
+        const response = await this.publicGetExchangeTradefees(params);
         //
         // {
         //     "statusDescription": "OK",
@@ -281,7 +281,7 @@ export default class zebpayfutures extends Exchange {
         const request = {
             'symbol': market['id'],
         };
-        const response = await this.publicGetCcxtMarketOrderBook(this.extend(request, params));
+        const response = await this.publicGetMarketOrderBook(this.extend(request, params));
         //
         // {
         //     "statusDescription": "OK",
@@ -319,7 +319,7 @@ export default class zebpayfutures extends Exchange {
      * @returns {object[]} an array of objects representing market data
      */
     async fetchMarkets(params = {}) {
-        const response = await this.publicGetCcxtMarketMarkets(params);
+        const response = await this.publicGetMarketMarkets(params);
         //
         //    {
         //        "data": {
@@ -399,7 +399,7 @@ export default class zebpayfutures extends Exchange {
         const request = {
             'symbol': market['id'],
         };
-        const response = await this.publicGetCcxtMarketTicker24Hr(this.extend(request, params));
+        const response = await this.publicGetMarketTicker24Hr(this.extend(request, params));
         //
         //     {
         //         "statusDescription": "OK",
@@ -436,7 +436,7 @@ export default class zebpayfutures extends Exchange {
     async fetchBalance(params = {}) {
         await this.loadMarkets();
         const request = {};
-        const response = await this.privateGetCcxtWalletBalance(this.extend(request, params));
+        const response = await this.privateGetWalletBalance(this.extend(request, params));
         //
         //     {
         //         "data": [
@@ -524,10 +524,10 @@ export default class zebpayfutures extends Exchange {
         params = this.omit(params, ['price']);
         let response = undefined;
         if (takeProfit === true || stopLoss === true) {
-            response = await this.privatePostCcxtTradeOrderAddTPSL(this.extend(request, params));
+            response = await this.privatePostTradeOrderAddTPSL(this.extend(request, params));
         }
         else {
-            response = await this.privatePostCcxtTradeOrder(this.extend(request, params));
+            response = await this.privatePostTradeOrder(this.extend(request, params));
         }
         //
         //    {
@@ -581,7 +581,7 @@ export default class zebpayfutures extends Exchange {
             'symbol': symbol,
             'timestamp': timestamp,
         };
-        const response = await this.privateDeleteCcxtTradeOrder(this.extend(request, params));
+        const response = await this.privateDeleteTradeOrder(this.extend(request, params));
         //
         //    {
         //        "data": {
@@ -619,7 +619,7 @@ export default class zebpayfutures extends Exchange {
             'positionId': positionId,
             'timestamp': timestamp,
         };
-        const response = await this.privatePostCcxtTradeAddMargin(this.extend(request, params));
+        const response = await this.privatePostTradeAddMargin(this.extend(request, params));
         //
         //    {
         //        "code": "200000",
@@ -671,7 +671,7 @@ export default class zebpayfutures extends Exchange {
             'positionId': positionId,
             'timestamp': timestamp,
         };
-        const response = await this.privatePostCcxtTradeReduceMargin(this.extend(request, params));
+        const response = await this.privatePostTradeReduceMargin(this.extend(request, params));
         //
         //    {
         //        "code": "200000",
@@ -717,7 +717,7 @@ export default class zebpayfutures extends Exchange {
         if (limit !== undefined) {
             request['limit'] = limit || 100;
         }
-        const response = await this.privateGetCcxtTradeOrderOpenOrders(this.extend(request, params));
+        const response = await this.privateGetTradeOrderOpenOrders(this.extend(request, params));
         //
         //     {
         //         "data": {
@@ -786,7 +786,7 @@ export default class zebpayfutures extends Exchange {
         params = this.omit(params, ['clientOrderId', 'timestamp']);
         request['id'] = clientOrderId;
         request['timestamp'] = timestamp;
-        const response = await this.privateGetCcxtTradeOrder(this.extend(request, params));
+        const response = await this.privateGetTradeOrder(this.extend(request, params));
         //
         //     {
         //         "data": {
@@ -841,7 +841,7 @@ export default class zebpayfutures extends Exchange {
             'positionId': positionId,
             'timestamp': timestamp,
         };
-        const response = await this.privatePostCcxtTradePositionClose(this.extend(request, params));
+        const response = await this.privatePostTradePositionClose(this.extend(request, params));
         const data = this.safeDict(response, 'data');
         return this.parseOrder(data, market);
     }
@@ -861,7 +861,7 @@ export default class zebpayfutures extends Exchange {
         const request = {
             'timestamp': timestamp,
         };
-        const response = await this.privateGetCcxtTradeUserLeverages(this.extend(request, params));
+        const response = await this.privateGetTradeUserLeverages(this.extend(request, params));
         //
         //     {
         //         "leveragePreferences": [
@@ -898,7 +898,7 @@ export default class zebpayfutures extends Exchange {
             'symbol': this.marketId(symbol).toUpperCase(),
             'timestamp': timestamp,
         };
-        const response = await this.privateGetCcxtTradeUserLeverage(this.extend(request, params));
+        const response = await this.privateGetTradeUserLeverage(this.extend(request, params));
         //
         //     {
         //         "data": { symbol: "ETHINR", longLeverage: 1, shortLeverage: 1, marginMode: "isolated" }
@@ -932,7 +932,7 @@ export default class zebpayfutures extends Exchange {
         //
         // { data: { "symbol", "longLeverage": 10, "shortLeverage": 1, "marginMode": "isolated" }
         //
-        return await this.privatePostCcxtTradeUpdateUserLeverage(this.extend(request, params));
+        return await this.privatePostTradeUpdateUserLeverage(this.extend(request, params));
     }
     /**
      * @method
@@ -952,7 +952,7 @@ export default class zebpayfutures extends Exchange {
             'status': status,
             'timestamp': timestamp,
         };
-        const response = await this.privateGetCcxtTradePositions(request);
+        const response = await this.privateGetTradePositions(request);
         //
         //    {
         //        "data": [

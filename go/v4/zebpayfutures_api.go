@@ -7,7 +7,7 @@
 
 package ccxt
 
-func (this *zebpayfutures) PublicGetCcxtSystemTime (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PublicGetSystemTime (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -17,13 +17,13 @@ func (this *zebpayfutures) PublicGetCcxtSystemTime (args ...interface{}) <-chan 
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("publicGetCcxtSystemTime", parameters))
+       ch <- (<-this.callEndpoint ("publicGetSystemTime", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PublicGetCcxtSystemStatus (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PublicGetSystemStatus (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -33,13 +33,13 @@ func (this *zebpayfutures) PublicGetCcxtSystemStatus (args ...interface{}) <-cha
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("publicGetCcxtSystemStatus", parameters))
+       ch <- (<-this.callEndpoint ("publicGetSystemStatus", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PublicGetCcxtExchangeTradefee (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PublicGetExchangeTradefee (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -49,13 +49,13 @@ func (this *zebpayfutures) PublicGetCcxtExchangeTradefee (args ...interface{}) <
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("publicGetCcxtExchangeTradefee", parameters))
+       ch <- (<-this.callEndpoint ("publicGetExchangeTradefee", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PublicGetCcxtExchangeTradefees (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PublicGetExchangeTradefees (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -65,13 +65,13 @@ func (this *zebpayfutures) PublicGetCcxtExchangeTradefees (args ...interface{}) 
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("publicGetCcxtExchangeTradefees", parameters))
+       ch <- (<-this.callEndpoint ("publicGetExchangeTradefees", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PublicGetCcxtMarketOrderBook (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PublicGetMarketOrderBook (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -81,13 +81,13 @@ func (this *zebpayfutures) PublicGetCcxtMarketOrderBook (args ...interface{}) <-
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("publicGetCcxtMarketOrderBook", parameters))
+       ch <- (<-this.callEndpoint ("publicGetMarketOrderBook", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PublicGetCcxtMarketTicker24Hr (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PublicGetMarketTicker24Hr (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -97,13 +97,13 @@ func (this *zebpayfutures) PublicGetCcxtMarketTicker24Hr (args ...interface{}) <
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("publicGetCcxtMarketTicker24Hr", parameters))
+       ch <- (<-this.callEndpoint ("publicGetMarketTicker24Hr", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PublicGetCcxtMarketMarkets (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PublicGetMarketMarkets (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -113,13 +113,13 @@ func (this *zebpayfutures) PublicGetCcxtMarketMarkets (args ...interface{}) <-ch
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("publicGetCcxtMarketMarkets", parameters))
+       ch <- (<-this.callEndpoint ("publicGetMarketMarkets", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivateGetCcxtWalletBalance (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivateGetWalletBalance (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -129,13 +129,13 @@ func (this *zebpayfutures) PrivateGetCcxtWalletBalance (args ...interface{}) <-c
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateGetCcxtWalletBalance", parameters))
+       ch <- (<-this.callEndpoint ("privateGetWalletBalance", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivateGetCcxtTradeOrder (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivateGetTradeOrder (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -145,13 +145,13 @@ func (this *zebpayfutures) PrivateGetCcxtTradeOrder (args ...interface{}) <-chan
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateGetCcxtTradeOrder", parameters))
+       ch <- (<-this.callEndpoint ("privateGetTradeOrder", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivateGetCcxtTradeOrderOpenOrders (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivateGetTradeOrderOpenOrders (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -161,13 +161,13 @@ func (this *zebpayfutures) PrivateGetCcxtTradeOrderOpenOrders (args ...interface
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateGetCcxtTradeOrderOpenOrders", parameters))
+       ch <- (<-this.callEndpoint ("privateGetTradeOrderOpenOrders", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivateGetCcxtTradeUserLeverages (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivateGetTradeUserLeverages (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -177,13 +177,13 @@ func (this *zebpayfutures) PrivateGetCcxtTradeUserLeverages (args ...interface{}
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateGetCcxtTradeUserLeverages", parameters))
+       ch <- (<-this.callEndpoint ("privateGetTradeUserLeverages", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivateGetCcxtTradeUserLeverage (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivateGetTradeUserLeverage (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -193,13 +193,13 @@ func (this *zebpayfutures) PrivateGetCcxtTradeUserLeverage (args ...interface{})
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateGetCcxtTradeUserLeverage", parameters))
+       ch <- (<-this.callEndpoint ("privateGetTradeUserLeverage", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivateGetCcxtTradePositions (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivateGetTradePositions (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -209,13 +209,13 @@ func (this *zebpayfutures) PrivateGetCcxtTradePositions (args ...interface{}) <-
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateGetCcxtTradePositions", parameters))
+       ch <- (<-this.callEndpoint ("privateGetTradePositions", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivatePostCcxtTradeOrder (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivatePostTradeOrder (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -225,13 +225,13 @@ func (this *zebpayfutures) PrivatePostCcxtTradeOrder (args ...interface{}) <-cha
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privatePostCcxtTradeOrder", parameters))
+       ch <- (<-this.callEndpoint ("privatePostTradeOrder", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivatePostCcxtTradeOrderAddTPSL (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivatePostTradeOrderAddTPSL (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -241,13 +241,13 @@ func (this *zebpayfutures) PrivatePostCcxtTradeOrderAddTPSL (args ...interface{}
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privatePostCcxtTradeOrderAddTPSL", parameters))
+       ch <- (<-this.callEndpoint ("privatePostTradeOrderAddTPSL", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivatePostCcxtTradeAddMargin (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivatePostTradeAddMargin (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -257,13 +257,13 @@ func (this *zebpayfutures) PrivatePostCcxtTradeAddMargin (args ...interface{}) <
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privatePostCcxtTradeAddMargin", parameters))
+       ch <- (<-this.callEndpoint ("privatePostTradeAddMargin", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivatePostCcxtTradeReduceMargin (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivatePostTradeReduceMargin (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -273,13 +273,13 @@ func (this *zebpayfutures) PrivatePostCcxtTradeReduceMargin (args ...interface{}
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privatePostCcxtTradeReduceMargin", parameters))
+       ch <- (<-this.callEndpoint ("privatePostTradeReduceMargin", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivatePostCcxtTradePositionClose (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivatePostTradePositionClose (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -289,13 +289,13 @@ func (this *zebpayfutures) PrivatePostCcxtTradePositionClose (args ...interface{
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privatePostCcxtTradePositionClose", parameters))
+       ch <- (<-this.callEndpoint ("privatePostTradePositionClose", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivatePostCcxtTradeUpdateUserLeverage (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivatePostTradeUpdateUserLeverage (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -305,13 +305,13 @@ func (this *zebpayfutures) PrivatePostCcxtTradeUpdateUserLeverage (args ...inter
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privatePostCcxtTradeUpdateUserLeverage", parameters))
+       ch <- (<-this.callEndpoint ("privatePostTradeUpdateUserLeverage", parameters))
        PanicOnError(ch)
    }()
    return ch
 }
 
-func (this *zebpayfutures) PrivateDeleteCcxtTradeOrder (args ...interface{}) <-chan interface{} {
+func (this *zebpayfutures) PrivateDeleteTradeOrder (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -321,7 +321,7 @@ func (this *zebpayfutures) PrivateDeleteCcxtTradeOrder (args ...interface{}) <-c
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateDeleteCcxtTradeOrder", parameters))
+       ch <- (<-this.callEndpoint ("privateDeleteTradeOrder", parameters))
        PanicOnError(ch)
    }()
    return ch
