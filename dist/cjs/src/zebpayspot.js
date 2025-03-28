@@ -736,7 +736,7 @@ class zebpayspot extends zebpayspot$1 {
     async fetchOrder(id, symbol = undefined, params = {}) {
         await this.loadMarkets();
         const request = {};
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeNumber(params, 'timestamp');
         if (id === undefined) {
             throw new errors.InvalidOrder(this.id + ' fetchOrder() requires parameter orderId in params');
         }
@@ -1018,9 +1018,9 @@ class zebpayspot extends zebpayspot$1 {
         const datetime = this.iso8601(timestamp);
         const price = this.safeString(order, 'price');
         const side = this.safeString(order, 'side');
-        const amount = order['origQty'].toString();
-        const filled = order['filledQty'].toString();
-        const remaining = order['openQty'].toString();
+        const amount = this.safeString(order, 'origQty');
+        const filled = this.safeString(order, 'filledQty');
+        const remaining = this.safeString(order, 'openQty');
         const clientOrderId = this.safeString(order, 'orderId');
         const timeInForce = undefined;
         const status = this.safeString(order, 'status');
@@ -1113,6 +1113,12 @@ class zebpayspot extends zebpayspot$1 {
             if (method === 'GET' || method === 'DELETE') {
                 // For GET/DELETE: Append params to URL and sign the query string
                 // params['timestamp'] = timestamp;
+                if (method === 'DELETE' && path.includes('ex/orders')) {
+                    params = this.omit(params, 'orderId');
+                }
+                if (method === 'GET' && path.includes('ex/orders/fills')) {
+                    params = this.omit(params, 'orderId');
+                }
                 const queryString = this.urlencode(params);
                 signature = this.hmac(queryString, this.secret, sha256.sha256, 'hex');
                 url += '?' + queryString;

@@ -781,7 +781,7 @@ class zebpayspot extends Exchange {
              */
             Async\await($this->load_markets());
             $request = array();
-            $timestamp = $this->safe_string($params, 'timestamp');
+            $timestamp = $this->safe_number($params, 'timestamp');
             if ($id === null) {
                 throw new InvalidOrder($this->id . ' fetchOrder() requires parameter orderId in params');
             }
@@ -1074,9 +1074,9 @@ class zebpayspot extends Exchange {
         $datetime = $this->iso8601($timestamp);
         $price = $this->safe_string($order, 'price');
         $side = $this->safe_string($order, 'side');
-        $amount = (string) $order['origQty'];
-        $filled = (string) $order['filledQty'];
-        $remaining = (string) $order['openQty'];
+        $amount = $this->safe_string($order, 'origQty');
+        $filled = $this->safe_string($order, 'filledQty');
+        $remaining = $this->safe_string($order, 'openQty');
         $clientOrderId = $this->safe_string($order, 'orderId');
         $timeInForce = null;
         $status = $this->safe_string($order, 'status');
@@ -1170,6 +1170,12 @@ class zebpayspot extends Exchange {
             if ($method === 'GET' || $method === 'DELETE') {
                 // For GET/DELETE => Append $params to URL and sign the $query string
                 // $params['timestamp'] = $timestamp;
+                if ($method === 'DELETE' && $path->includes ('ex/orders')) {
+                    $params = $this->omit($params, 'orderId');
+                }
+                if ($method === 'GET' && $path->includes ('ex/orders/fills')) {
+                    $params = $this->omit($params, 'orderId');
+                }
                 $queryString = $this->urlencode($params);
                 $signature = $this->hmac($queryString, $this->secret, 'sha256', 'hex');
                 $url .= '?' . $queryString;

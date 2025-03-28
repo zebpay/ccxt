@@ -731,7 +731,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         self.load_markets()
         request: dict = {}
-        timestamp = self.safe_string(params, 'timestamp')
+        timestamp = self.safe_number(params, 'timestamp')
         if id is None:
             raise InvalidOrder(self.id + ' fetchOrder() requires parameter orderId in params')
         params = self.omit(params, ['timestamp'])
@@ -1010,9 +1010,9 @@ class zebpayspot(Exchange, ImplicitAPI):
         datetime = self.iso8601(timestamp)
         price = self.safe_string(order, 'price')
         side = self.safe_string(order, 'side')
-        amount = str(order['origQty'])
-        filled = str(order['filledQty'])
-        remaining = str(order['openQty'])
+        amount = self.safe_string(order, 'origQty')
+        filled = self.safe_string(order, 'filledQty')
+        remaining = self.safe_string(order, 'openQty')
         clientOrderId = self.safe_string(order, 'orderId')
         timeInForce = None
         status = self.safe_string(order, 'status')
@@ -1099,6 +1099,10 @@ class zebpayspot(Exchange, ImplicitAPI):
             if method == 'GET' or method == 'DELETE':
                 # For GET/DELETE: Append params to URL and sign the query string
                 # params['timestamp'] = timestamp
+                if method == 'DELETE' and path.includes('ex/orders'):
+                    params = self.omit(params, 'orderId')
+                if method == 'GET' and path.includes('ex/orders/fills'):
+                    params = self.omit(params, 'orderId')
                 queryString = self.urlencode(params)
                 signature = self.hmac(queryString, self.secret, hashlib.sha256, 'hex')
                 url += '?' + queryString
