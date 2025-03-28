@@ -723,7 +723,7 @@ export default class zebpayfutures extends Exchange {
             request['symbol'] = market['id'];
         }
         if (since !== undefined) {
-            request['snce'] = since || Date.now ();
+            request['since'] = since || Date.now ();
         }
         if (limit !== undefined) {
             request['limit'] = limit || 100;

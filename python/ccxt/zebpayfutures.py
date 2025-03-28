@@ -704,7 +704,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             market = self.market(symbol)
             request['symbol'] = market['id']
         if since is not None:
-            request['snce'] = since or Date.now()
+            request['since'] = since or Date.now()
         if limit is not None:
             request['limit'] = limit or 100
         response = self.privateGetTradeOrderOpenOrders(self.extend(request, params))

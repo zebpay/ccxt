@@ -341,8 +341,6 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns dict: an `order structure <https://docs.ccxt.com/#/?id=order-structure>`
         """
         self.load_markets()
-        if type != 'limit':
-            raise ExchangeError(self.id + ' createOrder() allows limit orders only')
         market = self.market(symbol)
         request: dict = {
             'symbol': market['id'],
@@ -784,7 +782,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns Order[]: a list of `order structures <https://docs.ccxt.com/#/?id=order-structure>`
         """
         self.load_markets()
-        status = self.safe_integer(params, 'status')
+        status = self.safe_string(params, 'status')
         timestamp = self.safe_integer(params, 'timestamp')
         request: dict = {
             'currentPage': 1,
@@ -1012,7 +1010,9 @@ class zebpayspot(Exchange, ImplicitAPI):
         datetime = self.iso8601(timestamp)
         price = self.safe_string(order, 'price')
         side = self.safe_string(order, 'side')
-        amount = self.safe_string(order, 'filledQty')
+        amount = str(order['origQty'])
+        filled = str(order['filledQty'])
+        remaining = str(order['openQty'])
         clientOrderId = self.safe_string(order, 'orderId')
         timeInForce = None
         status = self.safe_string(order, 'status')
@@ -1029,8 +1029,8 @@ class zebpayspot(Exchange, ImplicitAPI):
             'price': price,
             'triggerPrice': None,
             'cost': None,
-            'filled': None,
-            'remaining': None,
+            'filled': filled,
+            'remaining': remaining,
             'timestamp': timestamp,
             'datetime': datetime,
             'fee': None,
@@ -1046,13 +1046,17 @@ class zebpayspot(Exchange, ImplicitAPI):
         upperCaseType = type.upper()
         triggerPrice = self.safe_string(params, 'stopPrice')
         timestamp = self.safe_number(params, 'timestamp')
-        # quoteOrderQty = self.safe_number(params, 'quoteOrderQty')
-        params = self.omit(params, ['stopPrice', 'timestamp'])
-        request['stopPrice'] = triggerPrice
+        quoteOrderQty = self.safe_string(params, 'quoteOrderQty')
+        params = self.omit(params, ['stopPrice', 'timestamp', 'quoteOrderQty'])
         request['type'] = upperCaseType
-        request['quantity'] = str(amount)
-        request['price'] = str(price)
-        # request['quoteOrderQty'] = quoteOrderQty
+        if upperCaseType == 'MARKET':
+            if quoteOrderQty is None:
+                raise ExchangeError(self.id + ' market createOrder() requires quoteOrderQty')
+            request['quoteOrderQty'] = quoteOrderQty
+        else:
+            request['stopPrice'] = triggerPrice
+            request['quantity'] = str(amount)
+            request['price'] = str(price)
         request['timestamp'] = timestamp
         return [request, params]
 

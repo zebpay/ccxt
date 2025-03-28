@@ -338,9 +338,6 @@ export default class zebpayspot extends Exchange {
      */
     async createOrder(symbol, type, side, amount, price = undefined, params = {}) {
         await this.loadMarkets();
-        if (type !== 'limit') {
-            throw new ExchangeError(this.id + ' createOrder() allows limit orders only');
-        }
         const market = this.market(symbol);
         let request = {
             'symbol': market['id'],
@@ -794,7 +791,7 @@ export default class zebpayspot extends Exchange {
      */
     async fetchOpenOrders(symbol = undefined, since = undefined, limit = undefined, params = {}) {
         await this.loadMarkets();
-        const status = this.safeInteger(params, 'status');
+        const status = this.safeString(params, 'status');
         const timestamp = this.safeInteger(params, 'timestamp');
         const request = {
             'currentPage': 1,
@@ -1024,7 +1021,9 @@ export default class zebpayspot extends Exchange {
         const datetime = this.iso8601(timestamp);
         const price = this.safeString(order, 'price');
         const side = this.safeString(order, 'side');
-        const amount = this.safeString(order, 'filledQty');
+        const amount = order['origQty'].toString();
+        const filled = order['filledQty'].toString();
+        const remaining = order['openQty'].toString();
         const clientOrderId = this.safeString(order, 'orderId');
         const timeInForce = undefined;
         const status = this.safeString(order, 'status');
@@ -1041,8 +1040,8 @@ export default class zebpayspot extends Exchange {
             'price': price,
             'triggerPrice': undefined,
             'cost': undefined,
-            'filled': undefined,
-            'remaining': undefined,
+            'filled': filled,
+            'remaining': remaining,
             'timestamp': timestamp,
             'datetime': datetime,
             'fee': undefined,
@@ -1058,13 +1057,20 @@ export default class zebpayspot extends Exchange {
         const upperCaseType = type.toUpperCase();
         const triggerPrice = this.safeString(params, 'stopPrice');
         const timestamp = this.safeNumber(params, 'timestamp');
-        // const quoteOrderQty = this.safeNumber (params, 'quoteOrderQty');
-        params = this.omit(params, ['stopPrice', 'timestamp']);
-        request['stopPrice'] = triggerPrice;
+        const quoteOrderQty = this.safeString(params, 'quoteOrderQty');
+        params = this.omit(params, ['stopPrice', 'timestamp', 'quoteOrderQty']);
         request['type'] = upperCaseType;
-        request['quantity'] = String(amount);
-        request['price'] = String(price);
-        // request['quoteOrderQty'] = quoteOrderQty;
+        if (upperCaseType === 'MARKET') {
+            if (quoteOrderQty === undefined) {
+                throw new ExchangeError(this.id + ' market createOrder() requires quoteOrderQty as params');
+            }
+            request['quoteOrderQty'] = quoteOrderQty;
+        }
+        else {
+            request['stopPrice'] = triggerPrice;
+            request['quantity'] = String(amount);
+            request['price'] = String(price);
+        }
         request['timestamp'] = timestamp;
         return [request, params];
     }

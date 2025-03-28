@@ -337,9 +337,6 @@ class zebpayspot extends Exchange {
          * @return {array} an ~@link https://docs.ccxt.com/#/?id=order-structure order structure~
          */
         $this->load_markets();
-        if ($type !== 'limit') {
-            throw new ExchangeError($this->id . ' createOrder() allows limit orders only');
-        }
         $market = $this->market($symbol);
         $request = array(
             'symbol' => $market['id'],
@@ -804,7 +801,7 @@ class zebpayspot extends Exchange {
          * @return {Order[]} a list of ~@link https://docs.ccxt.com/#/?id=order-structure order structures~
          */
         $this->load_markets();
-        $status = $this->safe_integer($params, 'status');
+        $status = $this->safe_string($params, 'status');
         $timestamp = $this->safe_integer($params, 'timestamp');
         $request = array(
             'currentPage' => 1,
@@ -1039,7 +1036,9 @@ class zebpayspot extends Exchange {
         $datetime = $this->iso8601($timestamp);
         $price = $this->safe_string($order, 'price');
         $side = $this->safe_string($order, 'side');
-        $amount = $this->safe_string($order, 'filledQty');
+        $amount = (string) $order['origQty'];
+        $filled = (string) $order['filledQty'];
+        $remaining = (string) $order['openQty'];
         $clientOrderId = $this->safe_string($order, 'orderId');
         $timeInForce = null;
         $status = $this->safe_string($order, 'status');
@@ -1056,8 +1055,8 @@ class zebpayspot extends Exchange {
             'price' => $price,
             'triggerPrice' => null,
             'cost' => null,
-            'filled' => null,
-            'remaining' => null,
+            'filled' => $filled,
+            'remaining' => $remaining,
             'timestamp' => $timestamp,
             'datetime' => $datetime,
             'fee' => null,
@@ -1074,13 +1073,19 @@ class zebpayspot extends Exchange {
         $upperCaseType = strtoupper($type);
         $triggerPrice = $this->safe_string($params, 'stopPrice');
         $timestamp = $this->safe_number($params, 'timestamp');
-        // $quoteOrderQty = $this->safe_number($params, 'quoteOrderQty');
-        $params = $this->omit($params, array( 'stopPrice', 'timestamp' ));
-        $request['stopPrice'] = $triggerPrice;
+        $quoteOrderQty = $this->safe_string($params, 'quoteOrderQty');
+        $params = $this->omit($params, array( 'stopPrice', 'timestamp', 'quoteOrderQty' ));
         $request['type'] = $upperCaseType;
-        $request['quantity'] = 'strval' ($amount);
-        $request['price'] = 'strval' ($price);
-        // $request['quoteOrderQty'] = $quoteOrderQty;
+        if ($upperCaseType === 'MARKET') {
+            if ($quoteOrderQty === null) {
+                throw new ExchangeError($this->id . ' market createOrder() requires quoteOrderQty');
+            }
+            $request['quoteOrderQty'] = $quoteOrderQty;
+        } else {
+            $request['stopPrice'] = $triggerPrice;
+            $request['quantity'] = 'strval' ($amount);
+            $request['price'] = 'strval' ($price);
+        }
         $request['timestamp'] = $timestamp;
         return array( $request, $params );
     }

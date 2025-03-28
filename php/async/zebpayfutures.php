@@ -748,7 +748,7 @@ class zebpayfutures extends Exchange {
                 $request['symbol'] = $market['id'];
             }
             if ($since !== null) {
-                $request['snce'] = $since || Date.now ();
+                $request['since'] = $since || Date.now ();
             }
             if ($limit !== null) {
                 $request['limit'] = $limit || 100;
