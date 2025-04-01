@@ -398673,7 +398673,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
         request['timestamp'] = timestamp;
         const response = await this.privateGetExOrdersOrderId(this.extend(request, params));
         if (response.data === null) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //     {
@@ -399048,7 +399048,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
                 if (method === 'DELETE' && path.includes('ex/orders')) {
                     params = this.omit(params, 'orderId');
                 }
-                if (method === 'GET' && path.includes('ex/orders/fills')) {
+                if (method === 'GET' && path.includes('ex/orders/')) {
                     params = this.omit(params, 'orderId');
                 }
                 const queryString = this.urlencode(params);

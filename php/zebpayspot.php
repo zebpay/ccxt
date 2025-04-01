@@ -773,7 +773,7 @@ class zebpayspot extends Exchange {
         $request['timestamp'] = $timestamp;
         $response = $this->privateGetExOrdersOrderId ($this->extend($request, $params));
         if ($response->data === null) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //     {
@@ -1155,7 +1155,7 @@ class zebpayspot extends Exchange {
                 if ($method === 'DELETE' && $path->includes ('ex/orders')) {
                     $params = $this->omit($params, 'orderId');
                 }
-                if ($method === 'GET' && $path->includes ('ex/orders/fills')) {
+                if ($method === 'GET' && $path->includes ('ex/orders/')) {
                     $params = $this->omit($params, 'orderId');
                 }
                 $queryString = $this->urlencode($params);

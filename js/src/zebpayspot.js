@@ -764,7 +764,7 @@ export default class zebpayspot extends Exchange {
         request['timestamp'] = timestamp;
         const response = await this.privateGetExOrdersOrderId(this.extend(request, params));
         if (response.data === null) {
-            throw new ExchangeError(response);
+            throw new ExchangeError(JSON.stringify(response));
         }
         //
         //     {
@@ -1139,7 +1139,7 @@ export default class zebpayspot extends Exchange {
                 if (method === 'DELETE' && path.includes('ex/orders')) {
                     params = this.omit(params, 'orderId');
                 }
-                if (method === 'GET' && path.includes('ex/orders/fills')) {
+                if (method === 'GET' && path.includes('ex/orders/')) {
                     params = this.omit(params, 'orderId');
                 }
                 const queryString = this.urlencode(params);

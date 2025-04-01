@@ -750,7 +750,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         request['timestamp'] = timestamp
         response = await self.privateGetExOrdersOrderId(self.extend(request, params))
         if response.data == None:
-            raise ExchangeError(response)
+            raise ExchangeError(json.dumps(response))
         #
         #     {
         #         "data": {
@@ -1113,7 +1113,7 @@ class zebpayspot(Exchange, ImplicitAPI):
                 # params['timestamp'] = timestamp
                 if method == 'DELETE' and path.includes('ex/orders'):
                     params = self.omit(params, 'orderId')
-                if method == 'GET' and path.includes('ex/orders/fills'):
+                if method == 'GET' and path.includes('ex/orders/'):
                     params = self.omit(params, 'orderId')
                 queryString = self.urlencode(params)
                 signature = self.hmac(queryString, self.secret, hashlib.sha256, 'hex')
