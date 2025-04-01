@@ -3,7 +3,7 @@
 
 import Exchange from './abstract/zebpayfutures.js';
 import { TICK_SIZE } from './base/functions/number.js';
-import { BadRequest, AuthenticationError, NotSupported, RateLimitExceeded, ExchangeNotAvailable, OrderNotFound, ArgumentsRequired, InvalidOrder } from './base/errors.js';
+import { BadRequest, AuthenticationError, NotSupported, RateLimitExceeded, ExchangeNotAvailable, OrderNotFound, ArgumentsRequired, InvalidOrder, ExchangeError } from './base/errors.js';
 import { sha256 } from './static_dependencies/noble-hashes/sha256.js';
 import type { Balances, Dict, Int, int, Leverage, Leverages, MarginModification, Market, Num, Order, OrderBook, OrderSide, OrderType, Str, Strings, Ticker, TradingFeeInterface, TradingFees } from './base/types.js';
 
@@ -445,6 +445,9 @@ export default class zebpayfutures extends Exchange {
         await this.loadMarkets ();
         const request: Dict = {};
         const response = await this.privateGetWalletBalance (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //     {
         //         "data": [
@@ -536,6 +539,9 @@ export default class zebpayfutures extends Exchange {
         } else {
             response = await this.privatePostTradeOrder (this.extend (request, params));
         }
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //    {
         //        "data": {
@@ -590,6 +596,9 @@ export default class zebpayfutures extends Exchange {
             'timestamp': timestamp,
         };
         const response = await this.privateDeleteTradeOrder (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //    {
         //        "data": {
@@ -629,6 +638,9 @@ export default class zebpayfutures extends Exchange {
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradeAddMargin (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //    {
         //        "code": "200000",
@@ -682,6 +694,9 @@ export default class zebpayfutures extends Exchange {
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradeReduceMargin (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //    {
         //        "code": "200000",
@@ -729,6 +744,9 @@ export default class zebpayfutures extends Exchange {
             request['limit'] = limit || 100;
         }
         const response = await this.privateGetTradeOrderOpenOrders (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //     {
         //         "data": {
@@ -800,6 +818,9 @@ export default class zebpayfutures extends Exchange {
         request['id'] = clientOrderId;
         request['timestamp'] = timestamp;
         const response = await this.privateGetTradeOrder (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //     {
         //         "data": {
@@ -856,6 +877,9 @@ export default class zebpayfutures extends Exchange {
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradePositionClose (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         const data = this.safeDict (response, 'data');
         return this.parseOrder (data, market);
     }
@@ -877,6 +901,9 @@ export default class zebpayfutures extends Exchange {
             'timestamp': timestamp,
         };
         const response = await this.privateGetTradeUserLeverages (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //     {
         //         "leveragePreferences": [
@@ -915,6 +942,9 @@ export default class zebpayfutures extends Exchange {
             'timestamp': timestamp,
         };
         const response = await this.privateGetTradeUserLeverage (this.extend (request, params));
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //     {
         //         "data": { symbol: "ETHINR", longLeverage: 1, shortLeverage: 1, marginMode: "isolated" }
@@ -971,6 +1001,9 @@ export default class zebpayfutures extends Exchange {
             'timestamp': timestamp,
         };
         const response = await this.privateGetTradePositions (request);
+        if (response.statusCode !== 200) {
+            throw new ExchangeError (response);
+        }
         //
         //    {
         //        "data": [

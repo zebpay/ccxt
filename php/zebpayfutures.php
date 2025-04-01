@@ -441,6 +441,9 @@ class zebpayfutures extends Exchange {
         $this->load_markets();
         $request = array();
         $response = $this->privateGetWalletBalance ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //     {
         //         "data" => array(
@@ -532,6 +535,9 @@ class zebpayfutures extends Exchange {
         } else {
             $response = $this->privatePostTradeOrder ($this->extend($request, $params));
         }
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //    {
         //        "data" => array(
@@ -586,6 +592,9 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privateDeleteTradeOrder ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //    {
         //        "data" => array(
@@ -625,6 +634,9 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privatePostTradeAddMargin ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //    {
         //        "code" => "200000",
@@ -678,6 +690,9 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privatePostTradeReduceMargin ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //    {
         //        "code" => "200000",
@@ -725,6 +740,9 @@ class zebpayfutures extends Exchange {
             $request['limit'] = $limit || 100;
         }
         $response = $this->privateGetTradeOrderOpenOrders ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //     {
         //         "data" => {
@@ -796,6 +814,9 @@ class zebpayfutures extends Exchange {
         $request['id'] = $clientOrderId;
         $request['timestamp'] = $timestamp;
         $response = $this->privateGetTradeOrder ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //     {
         //         "data" => {
@@ -852,6 +873,9 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privatePostTradePositionClose ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         $data = $this->safe_dict($response, 'data');
         return $this->parse_order($data, $market);
     }
@@ -873,6 +897,9 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privateGetTradeUserLeverages ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //     {
         //         "leveragePreferences" => array(
@@ -911,6 +938,9 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privateGetTradeUserLeverage ($this->extend($request, $params));
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //     {
         //         "data" => array( $symbol => "ETHINR", longLeverage => 1, shortLeverage => 1, marginMode => "isolated" )
@@ -967,6 +997,9 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privateGetTradePositions ($request);
+        if ($response->statusCode !== 200) {
+            throw new ExchangeError($response);
+        }
         //
         //    {
         //        "data" => array(

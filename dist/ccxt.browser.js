@@ -397046,6 +397046,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         await this.loadMarkets();
         const request = {};
         const response = await this.privateGetWalletBalance(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //     {
         //         "data": [
@@ -397138,6 +397141,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         else {
             response = await this.privatePostTradeOrder(this.extend(request, params));
         }
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //    {
         //        "data": {
@@ -397191,6 +397197,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             'timestamp': timestamp,
         };
         const response = await this.privateDeleteTradeOrder(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //    {
         //        "data": {
@@ -397229,6 +397238,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradeAddMargin(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //    {
         //        "code": "200000",
@@ -397281,6 +397293,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradeReduceMargin(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //    {
         //        "code": "200000",
@@ -397327,6 +397342,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             request['limit'] = limit || 100;
         }
         const response = await this.privateGetTradeOrderOpenOrders(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //     {
         //         "data": {
@@ -397396,6 +397414,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         request['id'] = clientOrderId;
         request['timestamp'] = timestamp;
         const response = await this.privateGetTradeOrder(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //     {
         //         "data": {
@@ -397451,6 +397472,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradePositionClose(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         const data = this.safeDict(response, 'data');
         return this.parseOrder(data, market);
     }
@@ -397471,6 +397495,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             'timestamp': timestamp,
         };
         const response = await this.privateGetTradeUserLeverages(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //     {
         //         "leveragePreferences": [
@@ -397508,6 +397535,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             'timestamp': timestamp,
         };
         const response = await this.privateGetTradeUserLeverage(this.extend(request, params));
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //     {
         //         "data": { symbol: "ETHINR", longLeverage: 1, shortLeverage: 1, marginMode: "isolated" }
@@ -397562,6 +397592,9 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             'timestamp': timestamp,
         };
         const response = await this.privateGetTradePositions(request);
+        if (response.statusCode !== 200) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+        }
         //
         //    {
         //        "data": [

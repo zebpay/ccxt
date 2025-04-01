@@ -9,6 +9,7 @@ import hashlib
 import json
 from ccxt.base.types import Any, Balances, Int, Leverage, Leverages, MarginModification, Market, Num, Order, OrderBook, OrderSide, OrderType, Str, Strings, Ticker, TradingFeeInterface, TradingFees
 from typing import List
+from ccxt.base.errors import ExchangeError
 from ccxt.base.errors import AuthenticationError
 from ccxt.base.errors import ArgumentsRequired
 from ccxt.base.errors import BadRequest
@@ -440,6 +441,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
         self.load_markets()
         request: dict = {}
         response = self.privateGetWalletBalance(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #     {
         #         "data": [
@@ -524,6 +527,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             response = self.privatePostTradeOrderAddTPSL(self.extend(request, params))
         else:
             response = self.privatePostTradeOrder(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #    {
         #        "data": {
@@ -577,6 +582,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privateDeleteTradeOrder(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #    {
         #        "data": {
@@ -614,6 +621,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privatePostTradeAddMargin(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #    {
         #        "code": "200000",
@@ -665,6 +674,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privatePostTradeReduceMargin(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #    {
         #        "code": "200000",
@@ -708,6 +719,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
         if limit is not None:
             request['limit'] = limit or 100
         response = self.privateGetTradeOrderOpenOrders(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #     {
         #         "data": {
@@ -776,6 +789,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
         request['id'] = clientOrderId
         request['timestamp'] = timestamp
         response = self.privateGetTradeOrder(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #     {
         #         "data": {
@@ -830,6 +845,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privatePostTradePositionClose(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         data = self.safe_dict(response, 'data')
         return self.parse_order(data, market)
 
@@ -850,6 +867,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privateGetTradeUserLeverages(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #     {
         #         "leveragePreferences": [
@@ -886,6 +905,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privateGetTradeUserLeverage(self.extend(request, params))
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #     {
         #         "data": {symbol: "ETHINR", longLeverage: 1, shortLeverage: 1, marginMode: "isolated"}
@@ -939,6 +960,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privateGetTradePositions(request)
+        if response.statusCode != 200:
+            raise ExchangeError(response)
         #
         #    {
         #        "data": [
