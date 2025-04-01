@@ -137,6 +137,9 @@ class zebpayspot extends zebpayspot$1 {
      */
     async fetchMarkets(params = {}) {
         const response = await this.publicGetExTradepairs(params);
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //    {
         //        "data": {
@@ -204,6 +207,9 @@ class zebpayspot extends zebpayspot$1 {
      */
     async fetchCurrencies(params = {}) {
         const response = await this.publicGetExCurrencies(params);
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //     {
         //             "data": [
@@ -342,9 +348,13 @@ class zebpayspot extends zebpayspot$1 {
         };
         [request, params] = this.orderRequest(symbol, type, amount, request, price, params);
         const response = await this.privatePostExOrders(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
+        const orderId = this.safeValue(response.data, 'orderId');
         return this.safeOrder({
             'info': response,
-            'id': response['data']['orderId'].toString(),
+            'id': orderId.toString(),
         }, market);
     }
     /**
@@ -371,6 +381,9 @@ class zebpayspot extends zebpayspot$1 {
             request['side'] = side;
         }
         const response = await this.privateGetExchangeFeeSymbol(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         // {
         //     "statusDescription": "Success",
@@ -407,6 +420,9 @@ class zebpayspot extends zebpayspot$1 {
         await this.loadMarkets();
         const request = {};
         const response = await this.privateGetAccountBalance(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //     {
         //         "data": [
@@ -454,6 +470,9 @@ class zebpayspot extends zebpayspot$1 {
             request['orderId'] = id;
             response = await this.privateDeleteExOrdersOrderId(this.extend(request, params));
         }
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //    {
         //        "data": {
@@ -483,6 +502,9 @@ class zebpayspot extends zebpayspot$1 {
             'timestamp': timestamp,
         };
         const response = await this.privateDeleteExOrdersCancelAll(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //    {
         //        "data": {
@@ -505,6 +527,9 @@ class zebpayspot extends zebpayspot$1 {
     async fetchTickers(symbols = undefined, params = {}) {
         const request = {};
         const response = await this.publicGetMarketAllTickers(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //     [
         //        {
@@ -548,6 +573,9 @@ class zebpayspot extends zebpayspot$1 {
             request['limit'] = 5;
         }
         const response = await this.publicGetMarketOrderbook(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //       {
         //         "asks": [
@@ -579,6 +607,9 @@ class zebpayspot extends zebpayspot$1 {
             'symbol': market['id'],
         };
         const response = await this.publicGetMarketTicker(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //     [
         //        {
@@ -624,7 +655,10 @@ class zebpayspot extends zebpayspot$1 {
         if (since === undefined) {
             request['page'] = 1;
         }
-        const trades = await this.publicGetMarketTrades(this.extend(request, params));
+        const response = await this.publicGetMarketTrades(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //     [
         //         {
@@ -638,7 +672,7 @@ class zebpayspot extends zebpayspot$1 {
         //         }
         //     ]
         //
-        return this.parseTrades(trades, undefined, since, limit);
+        return this.parseTrades(response, undefined, since, limit);
     }
     /**
      * @method
@@ -744,11 +778,12 @@ class zebpayspot extends zebpayspot$1 {
         request['orderId'] = id;
         request['timestamp'] = timestamp;
         const response = await this.privateGetExOrdersOrderId(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(response);
+        }
         //
         //     {
         //         "data": {
-        //             "items": [
-        //                 {
         //                     "orderId": "64507d02921f1c0001ff6892-123-zeb",
         //                     "datetime": "2025-03-14T14:34:34.4567",
         //                     "timestamp": 1741962557553,
@@ -766,8 +801,6 @@ class zebpayspot extends zebpayspot$1 {
         //                     "tds": "0",
         //                     "tax": "0"
         //                 }
-        //             ]
-        //         }
         //     }
         //
         const market = (symbol !== undefined) ? this.market(symbol) : undefined;
@@ -799,6 +832,9 @@ class zebpayspot extends zebpayspot$1 {
         };
         params = this.omit(params, ['status', 'timestamp']);
         const response = await this.privateGetExOrders(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //     {
         //         "data": {
@@ -854,7 +890,10 @@ class zebpayspot extends zebpayspot$1 {
             'timestamp': timestamp,
         };
         params = this.omit(params, ['timestamp']);
-        const tradeResponse = await this.privateGetExOrdersFillsOrderId(this.extend(request, params));
+        const response = await this.privateGetExOrdersFillsOrderId(this.extend(request, params));
+        if (response.data === null) {
+            throw new errors.ExchangeError(JSON.stringify(response));
+        }
         //
         //         {
         //             "orderId": "456789",
@@ -872,7 +911,7 @@ class zebpayspot extends zebpayspot$1 {
         //             "fees": "0.00145",
         //         }
         //
-        const data = this.safeDict(tradeResponse, 'data', {});
+        const data = this.safeDict(response, 'data', {});
         const trades = [data];
         return this.parseTrades(trades);
     }
@@ -1021,12 +1060,11 @@ class zebpayspot extends zebpayspot$1 {
         const amount = this.safeString(order, 'origQty');
         const filled = this.safeString(order, 'filledQty');
         const remaining = this.safeString(order, 'openQty');
-        const clientOrderId = this.safeString(order, 'orderId');
+        const orderId = this.safeString(order, 'orderId');
         const timeInForce = undefined;
         const status = this.safeString(order, 'status');
         return this.safeOrder({
-            'id': undefined,
-            'clientOrderId': clientOrderId,
+            'id': orderId,
             'symbol': symbol,
             'type': type,
             'timeInForce': timeInForce,

@@ -144,6 +144,9 @@ class zebpayspot extends Exchange {
              * @return {array[]} an array of objects representing $market $data
              */
             $response = Async\await($this->publicGetExTradepairs ($params));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //    {
             //        "data" => {
@@ -214,6 +217,9 @@ class zebpayspot extends Exchange {
              * @return {array} an associative dictionary of currencies
              */
             $response = Async\await($this->publicGetExCurrencies ($params));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //     {
             //             "data" => [
@@ -355,9 +361,13 @@ class zebpayspot extends Exchange {
             );
             list($request, $params) = $this->order_request($symbol, $type, $amount, $request, $price, $params);
             $response = Async\await($this->privatePostExOrders ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
+            $orderId = $this->safe_value($response->data, 'orderId');
             return $this->safe_order(array(
                 'info' => $response,
-                'id' => (string) $response['data']['orderId'],
+                'id' => (string) $orderId,
             ), $market);
         }) ();
     }
@@ -387,6 +397,9 @@ class zebpayspot extends Exchange {
                 $request['side'] = $side;
             }
             $response = Async\await($this->privateGetExchangeFeeSymbol ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             // {
             //     "statusDescription" => "Success",
@@ -426,6 +439,9 @@ class zebpayspot extends Exchange {
             Async\await($this->load_markets());
             $request = array();
             $response = Async\await($this->privateGetAccountBalance ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //     {
             //         "data" => array(
@@ -475,6 +491,9 @@ class zebpayspot extends Exchange {
                 $request['orderId'] = $id;
                 $response = Async\await($this->privateDeleteExOrdersOrderId ($this->extend($request, $params)));
             }
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //    {
             //        "data" => array(
@@ -507,6 +526,9 @@ class zebpayspot extends Exchange {
                 'timestamp' => $timestamp,
             );
             $response = Async\await($this->privateDeleteExOrdersCancelAll ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //    {
             //        "data" => array(
@@ -532,6 +554,9 @@ class zebpayspot extends Exchange {
              */
             $request = array();
             $response = Async\await($this->publicGetMarketAllTickers ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //     array(
             //        {
@@ -578,6 +603,9 @@ class zebpayspot extends Exchange {
                 $request['limit'] = 5;
             }
             $response = Async\await($this->publicGetMarketOrderbook ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //       {
             //         "asks" => [
@@ -612,6 +640,9 @@ class zebpayspot extends Exchange {
                 'symbol' => $market['id'],
             );
             $response = Async\await($this->publicGetMarketTicker ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //     array(
             //        {
@@ -637,15 +668,15 @@ class zebpayspot extends Exchange {
     public function fetch_trades(string $symbol, ?int $since = null, ?int $limit = null, $params = array ()): PromiseInterface {
         return Async\async(function () use ($symbol, $since, $limit, $params) {
             /**
-             * get the list of most recent $trades for a particular $symbol
+             * get the list of most recent trades for a particular $symbol
              *
-             * @see https://api-docs.poloniex.com/spot/api/public/market-data#$trades
+             * @see https://api-docs.poloniex.com/spot/api/public/market-data#trades
              *
-             * @param {string} $symbol unified $symbol of the $market to fetch $trades for
+             * @param {string} $symbol unified $symbol of the $market to fetch trades for
              * @param {int} [$since] timestamp in ms of the earliest trade to fetch
-             * @param {int} [$limit] the maximum amount of $trades to fetch
+             * @param {int} [$limit] the maximum amount of trades to fetch
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
-             * @return {Trade[]} a list of ~@link https://docs.ccxt.com/#/?id=public-$trades trade structures~
+             * @return {Trade[]} a list of ~@link https://docs.ccxt.com/#/?id=public-trades trade structures~
              */
             // Async\await($this->load_markets());
             // $market = $this->market($symbol);
@@ -660,7 +691,10 @@ class zebpayspot extends Exchange {
             if ($since === null) {
                 $request['page'] = 1;
             }
-            $trades = Async\await($this->publicGetMarketTrades ($this->extend($request, $params)));
+            $response = Async\await($this->publicGetMarketTrades ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //     array(
             //         {
@@ -674,7 +708,7 @@ class zebpayspot extends Exchange {
             //         }
             //     )
             //
-            return $this->parse_trades($trades, null, $since, $limit);
+            return $this->parse_trades($response, null, $since, $limit);
         }) ();
     }
 
@@ -789,11 +823,12 @@ class zebpayspot extends Exchange {
             $request['orderId'] = $id;
             $request['timestamp'] = $timestamp;
             $response = Async\await($this->privateGetExOrdersOrderId ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError($response);
+            }
             //
             //     {
             //         "data" => {
-            //             "items" => array(
-            //                 {
             //                     "orderId" => "64507d02921f1c0001ff6892-123-zeb",
             //                     "datetime" => "2025-03-14T14:34:34.4567",
             //                     "timestamp" => 1741962557553,
@@ -811,8 +846,6 @@ class zebpayspot extends Exchange {
             //                     "tds" => "0",
             //                     "tax" => "0"
             //                 }
-            //             )
-            //         }
             //     }
             //
             $market = ($symbol !== null) ? $this->market($symbol) : null;
@@ -847,6 +880,9 @@ class zebpayspot extends Exchange {
             );
             $params = $this->omit($params, array( 'status', 'timestamp' ));
             $response = Async\await($this->privateGetExOrders ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //     {
             //         "data" => {
@@ -905,7 +941,10 @@ class zebpayspot extends Exchange {
                 'timestamp' => $timestamp,
             );
             $params = $this->omit($params, array( 'timestamp' ));
-            $tradeResponse = Async\await($this->privateGetExOrdersFillsOrderId ($this->extend($request, $params)));
+            $response = Async\await($this->privateGetExOrdersFillsOrderId ($this->extend($request, $params)));
+            if ($response->data === null) {
+                throw new ExchangeError(json_encode ($response));
+            }
             //
             //         {
             //             "orderId" => "456789",
@@ -923,7 +962,7 @@ class zebpayspot extends Exchange {
             //             "fees" => "0.00145",
             //         }
             //
-            $data = $this->safe_dict($tradeResponse, 'data', array());
+            $data = $this->safe_dict($response, 'data', array());
             $trades = array( $data );
             return $this->parse_trades($trades);
         }) ();
@@ -1077,12 +1116,11 @@ class zebpayspot extends Exchange {
         $amount = $this->safe_string($order, 'origQty');
         $filled = $this->safe_string($order, 'filledQty');
         $remaining = $this->safe_string($order, 'openQty');
-        $clientOrderId = $this->safe_string($order, 'orderId');
+        $orderId = $this->safe_string($order, 'orderId');
         $timeInForce = null;
         $status = $this->safe_string($order, 'status');
         return $this->safe_order(array(
-            'id' => null,
-            'clientOrderId' => $clientOrderId,
+            'id' => $orderId,
             'symbol' => $symbol,
             'type' => $type,
             'timeInForce' => $timeInForce,

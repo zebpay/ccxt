@@ -149,6 +149,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns dict[]: an array of objects representing market data
         """
         response = self.publicGetExTradepairs(params)
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #    {
         #        "data": {
@@ -215,6 +217,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns dict: an associative dictionary of currencies
         """
         response = self.publicGetExCurrencies(params)
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #     {
         #             "data": [
@@ -348,9 +352,12 @@ class zebpayspot(Exchange, ImplicitAPI):
         }
         request, params = self.order_request(symbol, type, amount, request, price, params)
         response = self.privatePostExOrders(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
+        orderId = self.safe_value(response.data, 'orderId')
         return self.safe_order({
             'info': response,
-            'id': str(response['data']['orderId']),
+            'id': str(orderId),
         }, market)
 
     def fetch_trading_fee(self, symbol: str, params={}) -> TradingFeeInterface:
@@ -375,6 +382,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         if side is not None:
             request['side'] = side
         response = self.privateGetExchangeFeeSymbol(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         # {
         #     "statusDescription": "Success",
@@ -411,6 +420,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         self.load_markets()
         request: dict = {}
         response = self.privateGetAccountBalance(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #     {
         #         "data": [
@@ -456,6 +467,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         else:
             request['orderId'] = id
             response = self.privateDeleteExOrdersOrderId(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #    {
         #        "data": {
@@ -485,6 +498,8 @@ class zebpayspot(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privateDeleteExOrdersCancelAll(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #    {
         #        "data": {
@@ -507,6 +522,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         request: dict = {}
         response = self.publicGetMarketAllTickers(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #     [
         #        {
@@ -548,6 +565,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         if limit is None:
             request['limit'] = 5
         response = self.publicGetMarketOrderbook(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #       {
         #         "asks": [
@@ -579,6 +598,8 @@ class zebpayspot(Exchange, ImplicitAPI):
             'symbol': market['id'],
         }
         response = self.publicGetMarketTicker(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #     [
         #        {
@@ -622,7 +643,9 @@ class zebpayspot(Exchange, ImplicitAPI):
             request['limit'] = 10
         if since is None:
             request['page'] = 1
-        trades = self.publicGetMarketTrades(self.extend(request, params))
+        response = self.publicGetMarketTrades(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #     [
         #         {
@@ -636,7 +659,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         #         }
         #     ]
         #
-        return self.parse_trades(trades, None, since, limit)
+        return self.parse_trades(response, None, since, limit)
 
     def fetch_bids_asks(self, symbols: Strings = None, params={}):
         """
@@ -738,11 +761,11 @@ class zebpayspot(Exchange, ImplicitAPI):
         request['orderId'] = id
         request['timestamp'] = timestamp
         response = self.privateGetExOrdersOrderId(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(response)
         #
         #     {
         #         "data": {
-        #             "items": [
-        #                 {
         #                     "orderId": "64507d02921f1c0001ff6892-123-zeb",
         #                     "datetime": "2025-03-14T14:34:34.4567",
         #                     "timestamp": 1741962557553,
@@ -760,8 +783,6 @@ class zebpayspot(Exchange, ImplicitAPI):
         #                     "tds": "0",
         #                     "tax": "0"
         #                 }
-        #             ]
-        #         }
         #     }
         #
         market = self.market(symbol) if (symbol is not None) else None
@@ -793,6 +814,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         }
         params = self.omit(params, ['status', 'timestamp'])
         response = self.privateGetExOrders(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #     {
         #         "data": {
@@ -847,7 +870,9 @@ class zebpayspot(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         params = self.omit(params, ['timestamp'])
-        tradeResponse = self.privateGetExOrdersFillsOrderId(self.extend(request, params))
+        response = self.privateGetExOrdersFillsOrderId(self.extend(request, params))
+        if response.data == None:
+            raise ExchangeError(json.dumps(response))
         #
         #         {
         #             "orderId": "456789",
@@ -865,7 +890,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         #             "fees": "0.00145",
         #         }
         #
-        data = self.safe_dict(tradeResponse, 'data', {})
+        data = self.safe_dict(response, 'data', {})
         trades = [data]
         return self.parse_trades(trades)
 
@@ -1013,12 +1038,11 @@ class zebpayspot(Exchange, ImplicitAPI):
         amount = self.safe_string(order, 'origQty')
         filled = self.safe_string(order, 'filledQty')
         remaining = self.safe_string(order, 'openQty')
-        clientOrderId = self.safe_string(order, 'orderId')
+        orderId = self.safe_string(order, 'orderId')
         timeInForce = None
         status = self.safe_string(order, 'status')
         return self.safe_order({
-            'id': None,
-            'clientOrderId': clientOrderId,
+            'id': orderId,
             'symbol': symbol,
             'type': type,
             'timeInForce': timeInForce,
