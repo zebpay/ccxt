@@ -398016,9 +398016,6 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
      */
     async fetchMarkets(params = {}) {
         const response = await this.publicGetExTradepairs(params);
-        if (response.data === null) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
-        }
         //
         //    {
         //        "data": {
@@ -398086,9 +398083,6 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
      */
     async fetchCurrencies(params = {}) {
         const response = await this.publicGetExCurrencies(params);
-        if (response.data === null) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
-        }
         //
         //     {
         //             "data": [
@@ -398406,9 +398400,6 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
     async fetchTickers(symbols = undefined, params = {}) {
         const request = {};
         const response = await this.publicGetMarketAllTickers(this.extend(request, params));
-        if (response.data === null) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
-        }
         //
         //     [
         //        {
@@ -398452,9 +398443,6 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
             request['limit'] = 5;
         }
         const response = await this.publicGetMarketOrderbook(this.extend(request, params));
-        if (response.data === null) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
-        }
         //
         //       {
         //         "asks": [
@@ -398486,9 +398474,6 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
             'symbol': market['id'],
         };
         const response = await this.publicGetMarketTicker(this.extend(request, params));
-        if (response.data === null) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
-        }
         //
         //     [
         //        {
@@ -398535,9 +398520,6 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
             request['page'] = 1;
         }
         const response = await this.publicGetMarketTrades(this.extend(request, params));
-        if (response.data === null) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
-        }
         //
         //     [
         //         {

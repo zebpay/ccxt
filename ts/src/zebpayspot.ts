@@ -142,9 +142,6 @@ export default class zebpayspot extends Exchange {
      */
     async fetchMarkets (params = {}): Promise<Market[]> {
         const response = await this.publicGetExTradepairs (params);
-        if (response.data === null) {
-            throw new ExchangeError (JSON.stringify (response));
-        }
         //
         //    {
         //        "data": {
@@ -213,9 +210,6 @@ export default class zebpayspot extends Exchange {
      */
     async fetchCurrencies (params = {}): Promise<Currencies> {
         const response = await this.publicGetExCurrencies (params);
-        if (response.data === null) {
-            throw new ExchangeError (JSON.stringify (response));
-        }
         //
         //     {
         //             "data": [
@@ -538,9 +532,6 @@ export default class zebpayspot extends Exchange {
     async fetchTickers (symbols: Strings = undefined, params = {}): Promise<Tickers> {
         const request: Dict = {};
         const response = await this.publicGetMarketAllTickers (this.extend (request, params));
-        if (response.data === null) {
-            throw new ExchangeError (JSON.stringify (response));
-        }
         //
         //     [
         //        {
@@ -585,9 +576,6 @@ export default class zebpayspot extends Exchange {
             request['limit'] = 5;
         }
         const response = await this.publicGetMarketOrderbook (this.extend (request, params));
-        if (response.data === null) {
-            throw new ExchangeError (JSON.stringify (response));
-        }
         //
         //       {
         //         "asks": [
@@ -620,9 +608,6 @@ export default class zebpayspot extends Exchange {
             'symbol': market['id'],
         };
         const response = await this.publicGetMarketTicker (this.extend (request, params));
-        if (response.data === null) {
-            throw new ExchangeError (JSON.stringify (response));
-        }
         //
         //     [
         //        {
@@ -670,9 +655,6 @@ export default class zebpayspot extends Exchange {
             request['page'] = 1;
         }
         const response = await this.publicGetMarketTrades (this.extend (request, params));
-        if (response.data === null) {
-            throw new ExchangeError (JSON.stringify (response));
-        }
         //
         //     [
         //         {

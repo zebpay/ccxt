@@ -137,9 +137,6 @@ class zebpayspot extends zebpayspot$1 {
      */
     async fetchMarkets(params = {}) {
         const response = await this.publicGetExTradepairs(params);
-        if (response.data === null) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //    {
         //        "data": {
@@ -207,9 +204,6 @@ class zebpayspot extends zebpayspot$1 {
      */
     async fetchCurrencies(params = {}) {
         const response = await this.publicGetExCurrencies(params);
-        if (response.data === null) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //     {
         //             "data": [
@@ -527,9 +521,6 @@ class zebpayspot extends zebpayspot$1 {
     async fetchTickers(symbols = undefined, params = {}) {
         const request = {};
         const response = await this.publicGetMarketAllTickers(this.extend(request, params));
-        if (response.data === null) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //     [
         //        {
@@ -573,9 +564,6 @@ class zebpayspot extends zebpayspot$1 {
             request['limit'] = 5;
         }
         const response = await this.publicGetMarketOrderbook(this.extend(request, params));
-        if (response.data === null) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //       {
         //         "asks": [
@@ -607,9 +595,6 @@ class zebpayspot extends zebpayspot$1 {
             'symbol': market['id'],
         };
         const response = await this.publicGetMarketTicker(this.extend(request, params));
-        if (response.data === null) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //     [
         //        {
@@ -656,9 +641,6 @@ class zebpayspot extends zebpayspot$1 {
             request['page'] = 1;
         }
         const response = await this.publicGetMarketTrades(this.extend(request, params));
-        if (response.data === null) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //     [
         //         {

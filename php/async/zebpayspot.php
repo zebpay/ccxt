@@ -144,9 +144,6 @@ class zebpayspot extends Exchange {
              * @return {array[]} an array of objects representing $market $data
              */
             $response = Async\await($this->publicGetExTradepairs ($params));
-            if ($response->data === null) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //    {
             //        "data" => {
@@ -217,9 +214,6 @@ class zebpayspot extends Exchange {
              * @return {array} an associative dictionary of currencies
              */
             $response = Async\await($this->publicGetExCurrencies ($params));
-            if ($response->data === null) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //     {
             //             "data" => [
@@ -554,9 +548,6 @@ class zebpayspot extends Exchange {
              */
             $request = array();
             $response = Async\await($this->publicGetMarketAllTickers ($this->extend($request, $params)));
-            if ($response->data === null) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //     array(
             //        {
@@ -603,9 +594,6 @@ class zebpayspot extends Exchange {
                 $request['limit'] = 5;
             }
             $response = Async\await($this->publicGetMarketOrderbook ($this->extend($request, $params)));
-            if ($response->data === null) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //       {
             //         "asks" => [
@@ -640,9 +628,6 @@ class zebpayspot extends Exchange {
                 'symbol' => $market['id'],
             );
             $response = Async\await($this->publicGetMarketTicker ($this->extend($request, $params)));
-            if ($response->data === null) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //     array(
             //        {
@@ -692,9 +677,6 @@ class zebpayspot extends Exchange {
                 $request['page'] = 1;
             }
             $response = Async\await($this->publicGetMarketTrades ($this->extend($request, $params)));
-            if ($response->data === null) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //     array(
             //         {

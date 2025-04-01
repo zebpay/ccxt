@@ -137,9 +137,6 @@ class zebpayspot extends Exchange {
          * @return {array[]} an array of objects representing $market $data
          */
         $response = $this->publicGetExTradepairs ($params);
-        if ($response->data === null) {
-            throw new ExchangeError(json_encode ($response));
-        }
         //
         //    {
         //        "data" => {
@@ -208,9 +205,6 @@ class zebpayspot extends Exchange {
          * @return {array} an associative dictionary of currencies
          */
         $response = $this->publicGetExCurrencies ($params);
-        if ($response->data === null) {
-            throw new ExchangeError(json_encode ($response));
-        }
         //
         //     {
         //             "data" => [
@@ -533,9 +527,6 @@ class zebpayspot extends Exchange {
          */
         $request = array();
         $response = $this->publicGetMarketAllTickers ($this->extend($request, $params));
-        if ($response->data === null) {
-            throw new ExchangeError(json_encode ($response));
-        }
         //
         //     array(
         //        {
@@ -580,9 +571,6 @@ class zebpayspot extends Exchange {
             $request['limit'] = 5;
         }
         $response = $this->publicGetMarketOrderbook ($this->extend($request, $params));
-        if ($response->data === null) {
-            throw new ExchangeError(json_encode ($response));
-        }
         //
         //       {
         //         "asks" => [
@@ -615,9 +603,6 @@ class zebpayspot extends Exchange {
             'symbol' => $market['id'],
         );
         $response = $this->publicGetMarketTicker ($this->extend($request, $params));
-        if ($response->data === null) {
-            throw new ExchangeError(json_encode ($response));
-        }
         //
         //     array(
         //        {
@@ -665,9 +650,6 @@ class zebpayspot extends Exchange {
             $request['page'] = 1;
         }
         $response = $this->publicGetMarketTrades ($this->extend($request, $params));
-        if ($response->data === null) {
-            throw new ExchangeError(json_encode ($response));
-        }
         //
         //     array(
         //         {

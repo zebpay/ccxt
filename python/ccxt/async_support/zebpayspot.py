@@ -149,8 +149,6 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns dict[]: an array of objects representing market data
         """
         response = await self.publicGetExTradepairs(params)
-        if response.data == None:
-            raise ExchangeError(json.dumps(response))
         #
         #    {
         #        "data": {
@@ -217,8 +215,6 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns dict: an associative dictionary of currencies
         """
         response = await self.publicGetExCurrencies(params)
-        if response.data == None:
-            raise ExchangeError(json.dumps(response))
         #
         #     {
         #             "data": [
@@ -522,8 +518,6 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         request: dict = {}
         response = await self.publicGetMarketAllTickers(self.extend(request, params))
-        if response.data == None:
-            raise ExchangeError(json.dumps(response))
         #
         #     [
         #        {
@@ -565,8 +559,6 @@ class zebpayspot(Exchange, ImplicitAPI):
         if limit is None:
             request['limit'] = 5
         response = await self.publicGetMarketOrderbook(self.extend(request, params))
-        if response.data == None:
-            raise ExchangeError(json.dumps(response))
         #
         #       {
         #         "asks": [
@@ -598,8 +590,6 @@ class zebpayspot(Exchange, ImplicitAPI):
             'symbol': market['id'],
         }
         response = await self.publicGetMarketTicker(self.extend(request, params))
-        if response.data == None:
-            raise ExchangeError(json.dumps(response))
         #
         #     [
         #        {
@@ -644,8 +634,6 @@ class zebpayspot(Exchange, ImplicitAPI):
         if since is None:
             request['page'] = 1
         response = await self.publicGetMarketTrades(self.extend(request, params))
-        if response.data == None:
-            raise ExchangeError(json.dumps(response))
         #
         #     [
         #         {
