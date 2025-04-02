@@ -460,7 +460,7 @@ export default class zebpayspot extends Exchange {
      */
     async cancelOrder (id: string, symbol: Str = undefined, params = {}) {
         await this.loadMarkets ();
-        const timestamp = this.safeString (params, 'timestamp');
+        const timestamp = this.safeInteger (params, 'timestamp');
         params = this.omit (params, [ 'timestamp' ]);
         const request: Dict = {
             'timestamp': timestamp,
@@ -500,7 +500,7 @@ export default class zebpayspot extends Exchange {
      */
     async cancelOrders (ids, symbol: Str = undefined, params = {}) {
         await this.loadMarkets ();
-        const timestamp = this.safeString (params, 'timestamp');
+        const timestamp = this.safeInteger (params, 'timestamp');
         params = this.omit (params, [ 'timestamp' ]);
         const request: Dict = {
             'timestamp': timestamp,
@@ -769,7 +769,7 @@ export default class zebpayspot extends Exchange {
     async fetchOrder (id: Str, symbol: Str = undefined, params = {}) {
         await this.loadMarkets ();
         const request: Dict = {};
-        const timestamp = this.safeNumber (params, 'timestamp');
+        const timestamp = this.safeInteger (params, 'timestamp');
         if (id === undefined) {
             throw new InvalidOrder (this.id + ' fetchOrder() requires parameter orderId in params');
         }
@@ -1097,7 +1097,7 @@ export default class zebpayspot extends Exchange {
     orderRequest (symbol, type, amount, request, price = undefined, params = {}) {
         const upperCaseType = type.toUpperCase ();
         const triggerPrice = this.safeString (params, 'stopPrice');
-        const timestamp = this.safeNumber (params, 'timestamp');
+        const timestamp = this.safeInteger (params, 'timestamp');
         const quoteOrderQty = this.safeString (params, 'quoteOrderQty');
         params = this.omit (params, [ 'stopPrice', 'timestamp', 'quoteOrderQty' ]);
         request['type'] = upperCaseType;

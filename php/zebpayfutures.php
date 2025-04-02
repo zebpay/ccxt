@@ -442,7 +442,7 @@ class zebpayfutures extends Exchange {
         $request = array();
         $response = $this->privateGetWalletBalance ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //     {
@@ -497,7 +497,7 @@ class zebpayfutures extends Exchange {
         $upperCaseType = strtoupper($type);
         $takeProfit = $this->safe_bool($params, 'takeProfit', false);
         $stopLoss = $this->safe_bool($params, 'stopLoss', false);
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $orderType = $this->safe_string($params, 'orderType');
         $positionId = $this->safe_string($params, 'positionId', null);
         $params = $this->omit($params, array( 'marginAsset', 'leverage', 'formType', 'positionId', 'orderType' ));
@@ -536,7 +536,7 @@ class zebpayfutures extends Exchange {
             $response = $this->privatePostTradeOrder ($this->extend($request, $params));
         }
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //    {
@@ -584,7 +584,7 @@ class zebpayfutures extends Exchange {
          * @return {array} An ~@link https://docs.ccxt.com/#/?$id=order-structure order structure~
          */
         $this->load_markets();
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $params = $this->omit($params, array( 'timestamp' ));
         $request = array(
             'clientOrderId' => $id,
@@ -593,7 +593,7 @@ class zebpayfutures extends Exchange {
         );
         $response = $this->privateDeleteTradeOrder ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //    {
@@ -622,7 +622,7 @@ class zebpayfutures extends Exchange {
         $this->load_markets();
         $market = $this->market($symbol);
         $positionId = $this->safe_string($params, 'positionId');
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         if ($positionId === null) {
             throw new ArgumentsRequired($this->id . ' addMargin() requires a $positionId parameter argument');
         }
@@ -635,7 +635,7 @@ class zebpayfutures extends Exchange {
         );
         $response = $this->privatePostTradeAddMargin ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //    {
@@ -678,7 +678,7 @@ class zebpayfutures extends Exchange {
         $this->load_markets();
         $market = $this->market($symbol);
         $positionId = $this->safe_string($params, 'positionId');
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         if ($positionId === null) {
             throw new ArgumentsRequired($this->id . ' reduceMargin() requires a $positionId parameter argument');
         }
@@ -691,7 +691,7 @@ class zebpayfutures extends Exchange {
         );
         $response = $this->privatePostTradeReduceMargin ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //    {
@@ -741,7 +741,7 @@ class zebpayfutures extends Exchange {
         }
         $response = $this->privateGetTradeOrderOpenOrders ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //     {
@@ -806,7 +806,7 @@ class zebpayfutures extends Exchange {
         $this->load_markets();
         $request = array();
         $clientOrderId = $this->safe_string($params, 'clientOrderId');
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         if ($clientOrderId === null) {
             throw new InvalidOrder($this->id . ' fetchOrder() requires parameter $clientOrderId in params');
         }
@@ -815,7 +815,7 @@ class zebpayfutures extends Exchange {
         $request['timestamp'] = $timestamp;
         $response = $this->privateGetTradeOrder ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //     {
@@ -862,7 +862,7 @@ class zebpayfutures extends Exchange {
         $this->load_markets();
         $market = $this->market($symbol);
         $positionId = $this->safe_string($params, 'positionId');
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $params = $this->omit($params, array( 'positionId', 'timestamp' ));
         if ($positionId === null) {
             throw new InvalidOrder($this->id . ' closePosition() requires positionId');
@@ -874,7 +874,7 @@ class zebpayfutures extends Exchange {
         );
         $response = $this->privatePostTradePositionClose ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         $data = $this->safe_dict($response, 'data');
         return $this->parse_order($data, $market);
@@ -891,14 +891,14 @@ class zebpayfutures extends Exchange {
          * @return {array} a list of ~@link https://docs.ccxt.com/#/?id=leverage-structure leverage structures~
          */
         $this->load_markets();
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $params = $this->omit($params, array( 'timestamp' ));
         $request = array(
             'timestamp' => $timestamp,
         );
         $response = $this->privateGetTradeUserLeverages ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //     {
@@ -930,7 +930,7 @@ class zebpayfutures extends Exchange {
             throw new ArgumentsRequired($this->id . ' fetchLeverage() requires a $symbol argument');
         }
         $this->load_markets();
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $params = $this->omit($params, array( 'timestamp' ));
         $market = $this->market($symbol);
         $request = array(
@@ -939,7 +939,7 @@ class zebpayfutures extends Exchange {
         );
         $response = $this->privateGetTradeUserLeverage ($this->extend($request, $params));
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //     {
@@ -965,10 +965,10 @@ class zebpayfutures extends Exchange {
             throw new ArgumentsRequired($this->id . ' setLeverage() requires a $symbol argument');
         }
         $this->load_markets();
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $params = $this->omit($params, array( 'timestamp' ));
         $request = array(
-            'maxLeverage' => $leverage,
+            'leverage' => $leverage,
             'symbol' => strtoupper($this->market_id($symbol)),
             'timestamp' => $timestamp,
         );
@@ -989,7 +989,7 @@ class zebpayfutures extends Exchange {
          * @return Parsed exchange $response for positions
          */
         $this->load_markets();
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $status = $this->safe_string($params, 'status');
         $params = $this->omit($params, array( 'timestamp', 'status' ));
         $request = array(
@@ -998,7 +998,7 @@ class zebpayfutures extends Exchange {
         );
         $response = $this->privateGetTradePositions ($request);
         if ($response->statusCode !== 200) {
-            throw new ExchangeError($response);
+            throw new ExchangeError(json_encode ($response));
         }
         //
         //    {

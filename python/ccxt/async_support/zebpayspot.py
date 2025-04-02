@@ -451,7 +451,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns dict: An `order structure <https://docs.ccxt.com/#/?id=order-structure>`
         """
         await self.load_markets()
-        timestamp = self.safe_string(params, 'timestamp')
+        timestamp = self.safe_integer(params, 'timestamp')
         params = self.omit(params, ['timestamp'])
         request: dict = {
             'timestamp': timestamp,
@@ -488,7 +488,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         :returns dict: An `order structure <https://docs.ccxt.com/#/?id=order-structure>`
         """
         await self.load_markets()
-        timestamp = self.safe_string(params, 'timestamp')
+        timestamp = self.safe_integer(params, 'timestamp')
         params = self.omit(params, ['timestamp'])
         request: dict = {
             'timestamp': timestamp,
@@ -742,7 +742,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         await self.load_markets()
         request: dict = {}
-        timestamp = self.safe_number(params, 'timestamp')
+        timestamp = self.safe_integer(params, 'timestamp')
         if id is None:
             raise InvalidOrder(self.id + ' fetchOrder() requires parameter orderId in params')
         params = self.omit(params, ['timestamp'])
@@ -1057,7 +1057,7 @@ class zebpayspot(Exchange, ImplicitAPI):
     def order_request(self, symbol, type, amount, request, price=None, params={}):
         upperCaseType = type.upper()
         triggerPrice = self.safe_string(params, 'stopPrice')
-        timestamp = self.safe_number(params, 'timestamp')
+        timestamp = self.safe_integer(params, 'timestamp')
         quoteOrderQty = self.safe_string(params, 'quoteOrderQty')
         params = self.omit(params, ['stopPrice', 'timestamp', 'quoteOrderQty'])
         request['type'] = upperCaseType

@@ -397047,7 +397047,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         const request = {};
         const response = await this.privateGetWalletBalance(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //     {
@@ -397101,7 +397101,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         const upperCaseType = type.toUpperCase();
         const takeProfit = this.safeBool(params, 'takeProfit', false);
         const stopLoss = this.safeBool(params, 'stopLoss', false);
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         const orderType = this.safeString(params, 'orderType');
         const positionId = this.safeString(params, 'positionId', undefined);
         params = this.omit(params, ['marginAsset', 'leverage', 'formType', 'positionId', 'orderType']);
@@ -397142,7 +397142,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             response = await this.privatePostTradeOrder(this.extend(request, params));
         }
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //    {
@@ -397189,7 +397189,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
      */
     async cancelOrder(id, symbol = undefined, params = {}) {
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const request = {
             'clientOrderId': id,
@@ -397198,7 +397198,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         };
         const response = await this.privateDeleteTradeOrder(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //    {
@@ -397226,7 +397226,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         await this.loadMarkets();
         const market = this.market(symbol);
         const positionId = this.safeString(params, 'positionId');
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         if (positionId === undefined) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' addMargin() requires a positionId parameter argument');
         }
@@ -397239,7 +397239,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         };
         const response = await this.privatePostTradeAddMargin(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //    {
@@ -397281,7 +397281,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         await this.loadMarkets();
         const market = this.market(symbol);
         const positionId = this.safeString(params, 'positionId');
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         if (positionId === undefined) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' reduceMargin() requires a positionId parameter argument');
         }
@@ -397294,7 +397294,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         };
         const response = await this.privatePostTradeReduceMargin(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //    {
@@ -397343,7 +397343,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         }
         const response = await this.privateGetTradeOrderOpenOrders(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //     {
@@ -397406,7 +397406,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         await this.loadMarkets();
         const request = {};
         const clientOrderId = this.safeString(params, 'clientOrderId');
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         if (clientOrderId === undefined) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InvalidOrder(this.id + ' fetchOrder() requires parameter clientOrderId in params');
         }
@@ -397415,7 +397415,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         request['timestamp'] = timestamp;
         const response = await this.privateGetTradeOrder(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //     {
@@ -397461,7 +397461,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         await this.loadMarkets();
         const market = this.market(symbol);
         const positionId = this.safeString(params, 'positionId');
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['positionId', 'timestamp']);
         if (positionId === undefined) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InvalidOrder(this.id + ' closePosition() requires positionId');
@@ -397473,7 +397473,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         };
         const response = await this.privatePostTradePositionClose(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         const data = this.safeDict(response, 'data');
         return this.parseOrder(data, market);
@@ -397489,14 +397489,14 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
      */
     async fetchLeverages(symbols = undefined, params = {}) {
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const request = {
             'timestamp': timestamp,
         };
         const response = await this.privateGetTradeUserLeverages(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //     {
@@ -397527,7 +397527,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' fetchLeverage() requires a symbol argument');
         }
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const market = this.market(symbol);
         const request = {
@@ -397536,7 +397536,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         };
         const response = await this.privateGetTradeUserLeverage(this.extend(request, params));
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //     {
@@ -397561,10 +397561,10 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' setLeverage() requires a symbol argument');
         }
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const request = {
-            'maxLeverage': leverage,
+            'leverage': leverage,
             'symbol': this.marketId(symbol).toUpperCase(),
             'timestamp': timestamp,
         };
@@ -397584,7 +397584,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
      */
     async fetchPositions(symbols = undefined, params = {}) {
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         const status = this.safeString(params, 'status');
         params = this.omit(params, ['timestamp', 'status']);
         const request = {
@@ -397593,7 +397593,7 @@ class zebpayfutures extends _abstract_zebpayfutures_js__WEBPACK_IMPORTED_MODULE_
         };
         const response = await this.privateGetTradePositions(request);
         if (response.statusCode !== 200) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(response);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }
         //
         //    {
@@ -398362,7 +398362,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
      */
     async cancelOrder(id, symbol = undefined, params = {}) {
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const request = {
             'timestamp': timestamp,
@@ -398402,7 +398402,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
      */
     async cancelOrders(ids, symbol = undefined, params = {}) {
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const request = {
             'timestamp': timestamp,
@@ -398664,7 +398664,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
     async fetchOrder(id, symbol = undefined, params = {}) {
         await this.loadMarkets();
         const request = {};
-        const timestamp = this.safeNumber(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         if (id === undefined) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InvalidOrder(this.id + ' fetchOrder() requires parameter orderId in params');
         }
@@ -398985,7 +398985,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
     orderRequest(symbol, type, amount, request, price = undefined, params = {}) {
         const upperCaseType = type.toUpperCase();
         const triggerPrice = this.safeString(params, 'stopPrice');
-        const timestamp = this.safeNumber(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         const quoteOrderQty = this.safeString(params, 'quoteOrderQty');
         params = this.omit(params, ['stopPrice', 'timestamp', 'quoteOrderQty']);
         request['type'] = upperCaseType;

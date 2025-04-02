@@ -455,7 +455,7 @@ class zebpayspot extends Exchange {
          * @return {array} An ~@link https://docs.ccxt.com/#/?$id=order-structure order structure~
          */
         $this->load_markets();
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $params = $this->omit($params, array( 'timestamp' ));
         $request = array(
             'timestamp' => $timestamp,
@@ -495,7 +495,7 @@ class zebpayspot extends Exchange {
          * @return {array} An ~@link https://docs.ccxt.com/#/?id=order-structure order structure~
          */
         $this->load_markets();
-        $timestamp = $this->safe_string($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $params = $this->omit($params, array( 'timestamp' ));
         $request = array(
             'timestamp' => $timestamp,
@@ -764,7 +764,7 @@ class zebpayspot extends Exchange {
          */
         $this->load_markets();
         $request = array();
-        $timestamp = $this->safe_number($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         if ($id === null) {
             throw new InvalidOrder($this->id . ' fetchOrder() requires parameter orderId in params');
         }
@@ -1092,7 +1092,7 @@ class zebpayspot extends Exchange {
     public function order_request($symbol, $type, $amount, $request, $price = null, $params = array ()) {
         $upperCaseType = strtoupper($type);
         $triggerPrice = $this->safe_string($params, 'stopPrice');
-        $timestamp = $this->safe_number($params, 'timestamp');
+        $timestamp = $this->safe_integer($params, 'timestamp');
         $quoteOrderQty = $this->safe_string($params, 'quoteOrderQty');
         $params = $this->omit($params, array( 'stopPrice', 'timestamp', 'quoteOrderQty' ));
         $request['type'] = $upperCaseType;

@@ -450,7 +450,7 @@ class zebpayspot extends zebpayspot$1 {
      */
     async cancelOrder(id, symbol = undefined, params = {}) {
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const request = {
             'timestamp': timestamp,
@@ -490,7 +490,7 @@ class zebpayspot extends zebpayspot$1 {
      */
     async cancelOrders(ids, symbol = undefined, params = {}) {
         await this.loadMarkets();
-        const timestamp = this.safeString(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         params = this.omit(params, ['timestamp']);
         const request = {
             'timestamp': timestamp,
@@ -752,7 +752,7 @@ class zebpayspot extends zebpayspot$1 {
     async fetchOrder(id, symbol = undefined, params = {}) {
         await this.loadMarkets();
         const request = {};
-        const timestamp = this.safeNumber(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         if (id === undefined) {
             throw new errors.InvalidOrder(this.id + ' fetchOrder() requires parameter orderId in params');
         }
@@ -1073,7 +1073,7 @@ class zebpayspot extends zebpayspot$1 {
     orderRequest(symbol, type, amount, request, price = undefined, params = {}) {
         const upperCaseType = type.toUpperCase();
         const triggerPrice = this.safeString(params, 'stopPrice');
-        const timestamp = this.safeNumber(params, 'timestamp');
+        const timestamp = this.safeInteger(params, 'timestamp');
         const quoteOrderQty = this.safeString(params, 'quoteOrderQty');
         params = this.omit(params, ['stopPrice', 'timestamp', 'quoteOrderQty']);
         request['type'] = upperCaseType;
