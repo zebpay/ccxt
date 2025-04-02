@@ -63,8 +63,8 @@ export default class zebpayspot extends Exchange {
             'urls': {
                 'logo': '',
                 'api': {
-                    'public': 'https://dev-trade-zrevamp.znewstage.co',
-                    'private': 'https://dev-trade-zrevamp.znewstage.co',
+                    'public': 'https://www.zebstage.com',
+                    'private': 'https://www.zebstage.com',
                 },
                 'www': 'https://www.zebpay.com',
                 'doc': '',
