@@ -484,6 +484,9 @@ class zebpayfutures extends zebpayfutures$1 {
         if (leverage === undefined) {
             throw new errors.ArgumentsRequired(this.id + ' createOrder() requires a leverage parameter argument');
         }
+        if (type !== 'limit' && type !== 'market') {
+            throw new errors.BadRequest(`${this.id} createOrder() type must be either 'market' or 'limit'`);
+        }
         const formType = this.safeString(params, 'formType', 'ORDER_FORM');
         const upperCaseFormType = formType.toUpperCase();
         const upperCaseType = type.toUpperCase();
@@ -528,9 +531,6 @@ class zebpayfutures extends zebpayfutures$1 {
         }
         else {
             response = await this.privatePostTradeOrder(this.extend(request, params));
-        }
-        if (response.statusCode !== 200 && response.statusCode !== 201) {
-            throw new errors.ExchangeError(JSON.stringify(response));
         }
         //
         //    {
@@ -585,9 +585,6 @@ class zebpayfutures extends zebpayfutures$1 {
             'timestamp': timestamp,
         };
         const response = await this.privateDeleteTradeOrder(this.extend(request, params));
-        if (response.statusCode !== 200 && response.statusCode !== 201) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //    {
         //        "data": {
@@ -626,9 +623,6 @@ class zebpayfutures extends zebpayfutures$1 {
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradeAddMargin(this.extend(request, params));
-        if (response.statusCode !== 200 && response.statusCode !== 201) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         //
         //    {
         //        "code": "200000",
@@ -681,7 +675,7 @@ class zebpayfutures extends zebpayfutures$1 {
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradeReduceMargin(this.extend(request, params));
-        if (response.statusCode !== 200 && response.statusCode !== 201) {
+        if (response.statusCode !== 200 && response.statusCode !== '201') {
             throw new errors.ExchangeError(JSON.stringify(response));
         }
         //
@@ -860,7 +854,7 @@ class zebpayfutures extends zebpayfutures$1 {
             'timestamp': timestamp,
         };
         const response = await this.privatePostTradePositionClose(this.extend(request, params));
-        if (response.statusCode !== 200 && response.statusCode !== 201) {
+        if (response.statusCode !== 200 && response.statusCode !== '201') {
             throw new errors.ExchangeError(JSON.stringify(response));
         }
         const data = this.safeDict(response, 'data');
@@ -960,9 +954,6 @@ class zebpayfutures extends zebpayfutures$1 {
         // { data: { "symbol", "longLeverage": 10, "shortLeverage": 1, "marginMode": "isolated" }
         //
         const response = await this.privatePostTradeUpdateUserLeverage(this.extend(request, params));
-        if (response.statusCode !== 200 && response.statusCode !== 201) {
-            throw new errors.ExchangeError(JSON.stringify(response));
-        }
         return response;
     }
     /**

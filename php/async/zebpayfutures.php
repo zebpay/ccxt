@@ -9,6 +9,7 @@ use Exception; // a common import
 use ccxt\async\abstract\zebpayfutures as Exchange;
 use ccxt\ExchangeError;
 use ccxt\ArgumentsRequired;
+use ccxt\BadRequest;
 use ccxt\InvalidOrder;
 use \React\Async;
 use \React\Promise\PromiseInterface;
@@ -514,6 +515,9 @@ class zebpayfutures extends Exchange {
             if ($leverage === null) {
                 throw new ArgumentsRequired($this->id . ' createOrder() requires a $leverage parameter argument');
             }
+            if ($type !== 'limit' && $type !== 'market') {
+                throw new BadRequest(`$array($this->id) createOrder() $type must be either 'market' or 'limit'`);
+            }
             $formType = $this->safe_string($params, 'formType', 'ORDER_FORM');
             $upperCaseFormType = strtoupper($formType);
             $upperCaseType = strtoupper($type);
@@ -556,9 +560,6 @@ class zebpayfutures extends Exchange {
                 $response = Async\await($this->privatePostTradeOrderAddTPSL ($this->extend($request, $params)));
             } else {
                 $response = Async\await($this->privatePostTradeOrder ($this->extend($request, $params)));
-            }
-            if ($response->statusCode !== 200 && $response->statusCode !== 201) {
-                throw new ExchangeError(json_encode ($response));
             }
             //
             //    {
@@ -616,9 +617,6 @@ class zebpayfutures extends Exchange {
                 'timestamp' => $timestamp,
             );
             $response = Async\await($this->privateDeleteTradeOrder ($this->extend($request, $params)));
-            if ($response->statusCode !== 200 && $response->statusCode !== 201) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //    {
             //        "data" => array(
@@ -660,9 +658,6 @@ class zebpayfutures extends Exchange {
                 'timestamp' => $timestamp,
             );
             $response = Async\await($this->privatePostTradeAddMargin ($this->extend($request, $params)));
-            if ($response->statusCode !== 200 && $response->statusCode !== 201) {
-                throw new ExchangeError(json_encode ($response));
-            }
             //
             //    {
             //        "code" => "200000",
@@ -718,7 +713,7 @@ class zebpayfutures extends Exchange {
                 'timestamp' => $timestamp,
             );
             $response = Async\await($this->privatePostTradeReduceMargin ($this->extend($request, $params)));
-            if ($response->statusCode !== 200 && $response->statusCode !== 201) {
+            if ($response->statusCode !== 200 && $response->statusCode !== '201') {
                 throw new ExchangeError(json_encode ($response));
             }
             //
@@ -909,7 +904,7 @@ class zebpayfutures extends Exchange {
                 'timestamp' => $timestamp,
             );
             $response = Async\await($this->privatePostTradePositionClose ($this->extend($request, $params)));
-            if ($response->statusCode !== 200 && $response->statusCode !== 201) {
+            if ($response->statusCode !== 200 && $response->statusCode !== '201') {
                 throw new ExchangeError(json_encode ($response));
             }
             $data = $this->safe_dict($response, 'data');
@@ -1018,9 +1013,6 @@ class zebpayfutures extends Exchange {
             // array( data => { "symbol", "longLeverage" => 10, "shortLeverage" => 1, "marginMode" => "isolated" )
             //
             $response = Async\await($this->privatePostTradeUpdateUserLeverage ($this->extend($request, $params)));
-            if ($response->statusCode !== 200 && $response->statusCode !== 201) {
-                throw new ExchangeError(json_encode ($response));
-            }
             return $response;
         }) ();
     }
