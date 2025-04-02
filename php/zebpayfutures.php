@@ -535,7 +535,7 @@ class zebpayfutures extends Exchange {
         } else {
             $response = $this->privatePostTradeOrder ($this->extend($request, $params));
         }
-        if ($response->statusCode !== 200) {
+        if ($response->statusCode !== 200 && $response->statusCode !== 201) {
             throw new ExchangeError(json_encode ($response));
         }
         //
@@ -592,7 +592,7 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privateDeleteTradeOrder ($this->extend($request, $params));
-        if ($response->statusCode !== 200) {
+        if ($response->statusCode !== 200 && $response->statusCode !== 201) {
             throw new ExchangeError(json_encode ($response));
         }
         //
@@ -634,7 +634,7 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privatePostTradeAddMargin ($this->extend($request, $params));
-        if ($response->statusCode !== 200) {
+        if ($response->statusCode !== 200 && $response->statusCode !== 201) {
             throw new ExchangeError(json_encode ($response));
         }
         //
@@ -690,7 +690,7 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privatePostTradeReduceMargin ($this->extend($request, $params));
-        if ($response->statusCode !== 200) {
+        if ($response->statusCode !== 200 && $response->statusCode !== 201) {
             throw new ExchangeError(json_encode ($response));
         }
         //
@@ -873,7 +873,7 @@ class zebpayfutures extends Exchange {
             'timestamp' => $timestamp,
         );
         $response = $this->privatePostTradePositionClose ($this->extend($request, $params));
-        if ($response->statusCode !== 200) {
+        if ($response->statusCode !== 200 && $response->statusCode !== 201) {
             throw new ExchangeError(json_encode ($response));
         }
         $data = $this->safe_dict($response, 'data');
@@ -959,7 +959,7 @@ class zebpayfutures extends Exchange {
          * @param {float} $leverage the rate of $leverage
          * @param {string} $symbol unified market $symbol
          * @param {array} [$params] extra parameters specific to the exchange API endpoint
-         * @return {array} response from the exchange
+         * @return {array} $response from the exchange
          */
         if ($symbol === null) {
             throw new ArgumentsRequired($this->id . ' setLeverage() requires a $symbol argument');
@@ -975,7 +975,11 @@ class zebpayfutures extends Exchange {
         //
         // array( data => { "symbol", "longLeverage" => 10, "shortLeverage" => 1, "marginMode" => "isolated" )
         //
-        return $this->privatePostTradeUpdateUserLeverage ($this->extend($request, $params));
+        $response = $this->privatePostTradeUpdateUserLeverage ($this->extend($request, $params));
+        if ($response->statusCode !== 200 && $response->statusCode !== 201) {
+            throw new ExchangeError(json_encode ($response));
+        }
+        return $response;
     }
 
     public function fetch_positions(?array $symbols = null, $params = array ()) {

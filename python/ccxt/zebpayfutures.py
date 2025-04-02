@@ -527,7 +527,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             response = self.privatePostTradeOrderAddTPSL(self.extend(request, params))
         else:
             response = self.privatePostTradeOrder(self.extend(request, params))
-        if response.statusCode != 200:
+        if response.statusCode != 200 and response.statusCode != 201:
             raise ExchangeError(json.dumps(response))
         #
         #    {
@@ -582,7 +582,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privateDeleteTradeOrder(self.extend(request, params))
-        if response.statusCode != 200:
+        if response.statusCode != 200 and response.statusCode != 201:
             raise ExchangeError(json.dumps(response))
         #
         #    {
@@ -621,7 +621,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privatePostTradeAddMargin(self.extend(request, params))
-        if response.statusCode != 200:
+        if response.statusCode != 200 and response.statusCode != 201:
             raise ExchangeError(json.dumps(response))
         #
         #    {
@@ -674,7 +674,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privatePostTradeReduceMargin(self.extend(request, params))
-        if response.statusCode != 200:
+        if response.statusCode != 200 and response.statusCode != 201:
             raise ExchangeError(json.dumps(response))
         #
         #    {
@@ -845,7 +845,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'timestamp': timestamp,
         }
         response = self.privatePostTradePositionClose(self.extend(request, params))
-        if response.statusCode != 200:
+        if response.statusCode != 200 and response.statusCode != 201:
             raise ExchangeError(json.dumps(response))
         data = self.safe_dict(response, 'data')
         return self.parse_order(data, market)
@@ -939,7 +939,10 @@ class zebpayfutures(Exchange, ImplicitAPI):
         #
         # {data: {"symbol", "longLeverage": 10, "shortLeverage": 1, "marginMode": "isolated"}
         #
-        return self.privatePostTradeUpdateUserLeverage(self.extend(request, params))
+        response = self.privatePostTradeUpdateUserLeverage(self.extend(request, params))
+        if response.statusCode != 200 and response.statusCode != 201:
+            raise ExchangeError(json.dumps(response))
+        return response
 
     def fetch_positions(self, symbols: Strings = None, params={}):
         """
