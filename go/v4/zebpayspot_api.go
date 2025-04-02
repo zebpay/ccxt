@@ -167,7 +167,7 @@ func (this *zebpayspot) PrivateGetAccountBalance (args ...interface{}) <-chan in
    return ch
 }
 
-func (this *zebpayspot) PrivateGetExchangeFeeSymbol (args ...interface{}) <-chan interface{} {
+func (this *zebpayspot) PrivateGetExFeeSymbol (args ...interface{}) <-chan interface{} {
    parameters := GetArg(args, 0, nil)
    ch := make(chan interface{})
    go func() {
@@ -177,7 +177,7 @@ func (this *zebpayspot) PrivateGetExchangeFeeSymbol (args ...interface{}) <-chan
                ch <- "panic:" + ToString(r)
            }
        }()
-       ch <- (<-this.callEndpoint ("privateGetExchangeFeeSymbol", parameters))
+       ch <- (<-this.callEndpoint ("privateGetExFeeSymbol", parameters))
        PanicOnError(ch)
    }()
    return ch

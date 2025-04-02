@@ -37,8 +37,8 @@ abstract class zebpayspot extends \ccxt\async\Exchange {
     public function private_get_account_balance($params = array()) {
         return $this->request('account/balance', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function private_get_exchange_fee_symbol($params = array()) {
-        return $this->request('exchange/fee/{symbol}', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function private_get_ex_fee_symbol($params = array()) {
+        return $this->request('ex/fee/{symbol}', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
     public function private_get_ex_orders_orderid($params = array()) {
         return $this->request('ex/orders/{orderId}', 'private', 'GET', $params, null, null, array("cost" => 10));
@@ -85,8 +85,8 @@ abstract class zebpayspot extends \ccxt\async\Exchange {
     public function privateGetAccountBalance($params = array()) {
         return $this->request('account/balance', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
-    public function privateGetExchangeFeeSymbol($params = array()) {
-        return $this->request('exchange/fee/{symbol}', 'private', 'GET', $params, null, null, array("cost" => 10));
+    public function privateGetExFeeSymbol($params = array()) {
+        return $this->request('ex/fee/{symbol}', 'private', 'GET', $params, null, null, array("cost" => 10));
     }
     public function privateGetExOrdersOrderId($params = array()) {
         return $this->request('ex/orders/{orderId}', 'private', 'GET', $params, null, null, array("cost" => 10));

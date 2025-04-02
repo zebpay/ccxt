@@ -397994,7 +397994,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
                     'get': {
                         'ex/orders': 10,
                         'account/balance': 10,
-                        'exchange/fee/{symbol}': 10,
+                        'ex/fee/{symbol}': 10,
                         'ex/orders/{orderId}': 10,
                         'ex/orders/fills/{orderId}': 10,
                     },
@@ -398281,7 +398281,7 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
         if (side !== undefined) {
             request['side'] = side;
         }
-        const response = await this.privateGetExchangeFeeSymbol(this.extend(request, params));
+        const response = await this.privateGetExFeeSymbol(this.extend(request, params));
         if (response.data === null) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(JSON.stringify(response));
         }

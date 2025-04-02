@@ -12,7 +12,7 @@ class ImplicitAPI:
     private_post_ex_orders = privatePostExOrders = Entry('ex/orders', 'private', 'POST', {'cost': 10})
     private_get_ex_orders = privateGetExOrders = Entry('ex/orders', 'private', 'GET', {'cost': 10})
     private_get_account_balance = privateGetAccountBalance = Entry('account/balance', 'private', 'GET', {'cost': 10})
-    private_get_exchange_fee_symbol = privateGetExchangeFeeSymbol = Entry('exchange/fee/{symbol}', 'private', 'GET', {'cost': 10})
+    private_get_ex_fee_symbol = privateGetExFeeSymbol = Entry('ex/fee/{symbol}', 'private', 'GET', {'cost': 10})
     private_get_ex_orders_orderid = privateGetExOrdersOrderId = Entry('ex/orders/{orderId}', 'private', 'GET', {'cost': 10})
     private_get_ex_orders_fills_orderid = privateGetExOrdersFillsOrderId = Entry('ex/orders/fills/{orderId}', 'private', 'GET', {'cost': 10})
     private_delete_ex_orders_orderid = privateDeleteExOrdersOrderId = Entry('ex/orders/{orderId}', 'private', 'DELETE', {'cost': 10})

@@ -97,7 +97,7 @@ class zebpayspot(Exchange, ImplicitAPI):
                     'get': {
                         'ex/orders': 10,
                         'account/balance': 10,
-                        'exchange/fee/{symbol}': 10,
+                        'ex/fee/{symbol}': 10,
                         'ex/orders/{orderId}': 10,
                         'ex/orders/fills/{orderId}': 10,
                     },
@@ -377,7 +377,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         }
         if side is not None:
             request['side'] = side
-        response = await self.privateGetExchangeFeeSymbol(self.extend(request, params))
+        response = await self.privateGetExFeeSymbol(self.extend(request, params))
         if response.data == None:
             raise ExchangeError(json.dumps(response))
         #

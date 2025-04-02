@@ -61,9 +61,9 @@ public partial class zebpayspot : Exchange
         return await this.callAsync ("privateGetAccountBalance",parameters);
     }
 
-    public async Task<object> privateGetExchangeFeeSymbol (object parameters = null)
+    public async Task<object> privateGetExFeeSymbol (object parameters = null)
     {
-        return await this.callAsync ("privateGetExchangeFeeSymbol",parameters);
+        return await this.callAsync ("privateGetExFeeSymbol",parameters);
     }
 
     public async Task<object> privateGetExOrdersOrderId (object parameters = null)

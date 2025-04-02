@@ -11,7 +11,7 @@ interface Exchange {
     privatePostExOrders(params?: {}): Promise<implicitReturnType>;
     privateGetExOrders(params?: {}): Promise<implicitReturnType>;
     privateGetAccountBalance(params?: {}): Promise<implicitReturnType>;
-    privateGetExchangeFeeSymbol(params?: {}): Promise<implicitReturnType>;
+    privateGetExFeeSymbol(params?: {}): Promise<implicitReturnType>;
     privateGetExOrdersOrderId(params?: {}): Promise<implicitReturnType>;
     privateGetExOrdersFillsOrderId(params?: {}): Promise<implicitReturnType>;
     privateDeleteExOrdersOrderId(params?: {}): Promise<implicitReturnType>;

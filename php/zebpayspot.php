@@ -84,7 +84,7 @@ class zebpayspot extends Exchange {
                     'get' => array(
                         'ex/orders' => 10,
                         'account/balance' => 10,
-                        'exchange/fee/{symbol}' => 10,
+                        'ex/fee/{symbol}' => 10,
                         'ex/orders/{orderId}' => 10,
                         'ex/orders/fills/{orderId}' => 10,
                     ),
@@ -377,7 +377,7 @@ class zebpayspot extends Exchange {
         if ($side !== null) {
             $request['side'] = $side;
         }
-        $response = $this->privateGetExchangeFeeSymbol ($this->extend($request, $params));
+        $response = $this->privateGetExFeeSymbol ($this->extend($request, $params));
         if ($response->data === null) {
             throw new ExchangeError(json_encode ($response));
         }
