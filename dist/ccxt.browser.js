@@ -397968,8 +397968,8 @@ class zebpayspot extends _abstract_zebpayspot_js__WEBPACK_IMPORTED_MODULE_0__/* 
             'urls': {
                 'logo': '',
                 'api': {
-                    'public': 'https://www.zebstage.com',
-                    'private': 'https://www.zebstage.com',
+                    'public': 'https://uat-trade-zrevamp.znewstage.co',
+                    'private': 'https://uat-trade-zrevamp.znewstage.co',
                 },
                 'www': 'https://www.zebpay.com',
                 'doc': '',

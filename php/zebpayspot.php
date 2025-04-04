@@ -58,8 +58,8 @@ class zebpayspot extends Exchange {
             'urls' => array(
                 'logo' => '',
                 'api' => array(
-                    'public' => 'https://www.zebstage.com',
-                    'private' => 'https://www.zebstage.com',
+                    'public' => 'https://uat-trade-zrevamp.znewstage.co',
+                    'private' => 'https://uat-trade-zrevamp.znewstage.co',
                 ),
                 'www' => 'https://www.zebpay.com',
                 'doc' => '',
