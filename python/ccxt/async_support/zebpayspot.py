@@ -71,8 +71,8 @@ class zebpayspot(Exchange, ImplicitAPI):
             'urls': {
                 'logo': '',
                 'api': {
-                    'public': 'https://uat-trade-zrevamp.znewstage.co',
-                    'private': 'https://uat-trade-zrevamp.znewstage.co',
+                    'public': 'https://www.zebuat.com',
+                    'private': 'https://www.zebuat.com',
                 },
                 'www': 'https://www.zebpay.com',
                 'doc': '',

@@ -42,4 +42,4 @@ bin/
 obj/
 __debug*
 *.o
-.custom_gitignore
+.custom_gitignoredist/
