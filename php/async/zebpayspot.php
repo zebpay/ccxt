@@ -727,7 +727,8 @@ class zebpayspot extends Exchange {
             if ($symbol === null) {
                 throw new ArgumentsRequired($this->id . ' fetchOHLCV() requires a $symbol argument');
             }
-            $endtime = $this->safe_string($params, 'endtime');
+            $endtime = $this->safe_string($params, 'endTime');
+            $starttime = $this->safe_string($params, 'startTime');
             $params = $this->omit($params, array( 'endtime' ));
             Async\await($this->load_markets());
             $market = $this->market($symbol);
@@ -737,11 +738,10 @@ class zebpayspot extends Exchange {
             if ($limit === null) {
                 $limit = 200; // default is 200
             }
-            $request['startTime'] = $since;
+            $request['startTime'] = $starttime;
             $request['limit'] = $limit; // max 200, default 200
-            $request['startTime'] = $since;
-            $request['endtime'] = $endtime;
-            $request['interval'] = $this->safe_string($this->timeframes, $timeframe, $timeframe);
+            $request['endTime'] = $endtime;
+            $request['interval'] = $timeframe;
             $response = null;
             if ($market['spot']) {
                 $request['category'] = 'spot';

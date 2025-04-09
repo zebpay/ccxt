@@ -677,7 +677,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         if symbol is None:
             raise ArgumentsRequired(self.id + ' fetchOHLCV() requires a symbol argument')
-        endtime = self.safe_string(params, 'endtime')
+        endtime = self.safe_string(params, 'endTime')
+        starttime = self.safe_string(params, 'startTime')
         params = self.omit(params, ['endtime'])
         self.load_markets()
         market = self.market(symbol)
@@ -686,11 +687,10 @@ class zebpayspot(Exchange, ImplicitAPI):
         }
         if limit is None:
             limit = 200  # default is 200
-        request['startTime'] = since
+        request['startTime'] = starttime
         request['limit'] = limit  # max 200, default 200
-        request['startTime'] = since
-        request['endtime'] = endtime
-        request['interval'] = self.safe_string(self.timeframes, timeframe, timeframe)
+        request['endTime'] = endtime
+        request['interval'] = timeframe
         response = None
         if market['spot']:
             request['category'] = 'spot'

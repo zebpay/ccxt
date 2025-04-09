@@ -701,7 +701,8 @@ export default class zebpayspot extends Exchange {
         if (symbol === undefined) {
             throw new ArgumentsRequired (this.id + ' fetchOHLCV() requires a symbol argument');
         }
-        const endtime = this.safeString (params, 'endtime');
+        const endtime = this.safeString (params, 'endTime');
+        const starttime = this.safeString (params, 'startTime');
         params = this.omit (params, [ 'endtime' ]);
         await this.loadMarkets ();
         const market = this.market (symbol);
@@ -711,11 +712,10 @@ export default class zebpayspot extends Exchange {
         if (limit === undefined) {
             limit = 200; // default is 200
         }
-        request['startTime'] = since;
+        request['startTime'] = starttime;
         request['limit'] = limit; // max 200, default 200
-        request['startTime'] = since;
-        request['endtime'] = endtime;
-        request['interval'] = this.safeString (this.timeframes, timeframe, timeframe);
+        request['endTime'] = endtime;
+        request['interval'] = timeframe;
         let response = undefined;
         if (market['spot']) {
             request['category'] = 'spot';
