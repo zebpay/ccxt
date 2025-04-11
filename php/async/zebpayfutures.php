@@ -63,8 +63,8 @@ class zebpayfutures extends Exchange {
             'urls' => array(
                 'logo' => '',
                 'api' => array(
-                    'public' => 'https://dev-futuresbe.zebstage.com',
-                    'private' => 'https://dev-futuresbe.zebstage.com',
+                    'public' => 'https://futuresbe.zebpay.com',
+                    'private' => 'https://futuresbe.zebpay.com',
                 ),
                 'www' => 'https://www.zebpay.com',
                 'doc' => '',
@@ -136,7 +136,7 @@ class zebpayfutures extends Exchange {
             /**
              * the latest known information on the availability of the exchange API
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-$status
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/system.md#get-system-$status
              *
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {array} a ~@link https://docs.ccxt.com/#/?id=exchange-$status-structure $status structure~
@@ -170,7 +170,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetches the current integer timestamp in milliseconds from the poloniexfutures server
              *
-             * @see https://api-docs.poloniex.com/futures/api/time#server-$time
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/system.md#get-system-$time
              *
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {int} the current integer timestamp in milliseconds from the poloniexfutures server
@@ -198,7 +198,7 @@ class zebpayfutures extends Exchange {
             /**
              * the latest known information on the availability of the exchange API
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-status
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/exchange.md#get-trade-fee-single-$symbol
              *
              * @param {string} $symbol unified $symbol of the $market to fetch the order book for
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -246,7 +246,7 @@ class zebpayfutures extends Exchange {
             /**
              * the latest known information on the availability of the exchange API
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-status
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/exchange.md#get-trade-$fees-all-symbols
              *
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {array} a ~@link https://docs.ccxt.com/#/?id=exchange-status-structure status structure~
@@ -282,7 +282,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetches information on open orders with bid (buy) and ask (sell) prices, volumes and other $data
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-part-order-book-level-2
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/market->md#get-order-book
              *
              * @param {string} $symbol unified $symbol of the $market to fetch the order book for
              * @param {int} [$limit] the maximum amount of order book entries to return
@@ -333,7 +333,7 @@ class zebpayfutures extends Exchange {
             /**
              * retrieves $data on all $markets for zebpayfutures
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-symbols-list
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/market->md#get-$market-info
              *
              * @param {array} [$params] extra parameters specific to the exchange api endpoint
              * @return {array[]} an array of objects representing $market $data
@@ -407,7 +407,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific $market
              *
-             * @see https://bybit-exchange.github.io/docs/v5/market/tickers
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/market->md#get-$market-info
              *
              * @param {string} $symbol unified $symbol of the $market to fetch the ticker for
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -454,7 +454,7 @@ class zebpayfutures extends Exchange {
             /**
              * query for balance and get the amount of funds available for trading or funds locked in orders
              *
-             * @see https://api-docs.poloniex.com/futures/api/account#get-account-overview
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/wallet.md#get-wallet-balance
              *
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {array} a ~@link https://docs.ccxt.com/#/?id=balance-structure balance structure~
@@ -492,7 +492,7 @@ class zebpayfutures extends Exchange {
             /**
              * Create an order on the exchange
              *
-             * @see https://api-docs.poloniex.com/futures/api/orders#place-an-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#--create-order
              *
              * @param {string} $symbol Unified CCXT $market $symbol
              * @param {string} $type 'limit' or 'market'
@@ -600,7 +600,7 @@ class zebpayfutures extends Exchange {
             /**
              * cancels an open order
              *
-             * @see https://api-docs.poloniex.com/futures/api/orders#cancel-an-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-cancel-order
              *
              * @param {string} $id order $id
              * @param {string} $symbol unified $symbol of the market the order was made in
@@ -634,7 +634,7 @@ class zebpayfutures extends Exchange {
             /**
              * add margin
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/positions/add-margin-manually
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-add-margin-to-position
              *
              * @param {string} $symbol unified $market $symbol
              * @param {float} $amount amount of margin to add
@@ -689,7 +689,7 @@ class zebpayfutures extends Exchange {
             /**
              * add margin
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/positions/add-margin-manually
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-reduce-margin-from-position
              *
              * @param {string} $symbol unified $market $symbol->
              * @param {float} $amount amount of margin to add.
@@ -741,8 +741,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetches a list of $orders placed on the exchange
              *
-             * @see https://docs.kucoin.com/futures/#get-order-list
-             * @see https://docs.kucoin.com/futures/#get-untriggered-stop-order-list
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-open-$orders
              *
              * @param {string} $status opn $orders
              * @param {string} $symbol unified $symbol for the $market to retrieve $orders from
@@ -804,8 +803,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetches information on multiple open orders made by the user
              *
-             * @see https://docs.kucoin.com/futures/#get-order-list
-             * @see https://docs.kucoin.com/futures/#get-untriggered-stop-order-list
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-open-orders
              *
              * @param {string} $symbol unified market $symbol of the market orders were made in
              * @param {int} [$since] the earliest time in ms to fetch orders for
@@ -823,7 +821,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetches information on an order made by the user
              *
-             * @see https://docs.kucoin.com/futures/#get-details-of-a-single-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-order-details
              *
              * @param {string} $id order $id
              * @param {string} $symbol unified $symbol of the $market the order was made in
@@ -882,7 +880,7 @@ class zebpayfutures extends Exchange {
             /**
              * closes open positions for a $market
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/orders/place-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-close-position
              *
              * @param {string} $symbol Unified CCXT $market $symbol
              * @param {string} $side not used by kucoinfutures closePositions
@@ -917,7 +915,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetch the set leverage for all contract and margin markets
              *
-             * @see https://docs.futures.kraken.com/#http-api-trading-v3-api-multi-collateral-get-the-leverage-setting-for-a-market
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-all-user-leverages
              *
              * @param {string[]} [$symbols] a list of unified market $symbols
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -955,7 +953,7 @@ class zebpayfutures extends Exchange {
             /**
              * fetch the set leverage for a $market
              *
-             * @see https://docs.futures.kraken.com/#http-api-trading-v3-api-multi-collateral-get-the-leverage-setting-for-a-$market
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#get-user-leverage-single-$symbol
              *
              * @param {string} $symbol unified $market $symbol
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -991,7 +989,7 @@ class zebpayfutures extends Exchange {
             /**
              * set the level of $leverage for a market
              *
-             * @see https://docs.futures.kraken.com/#http-api-trading-v3-api-multi-collateral-set-the-$leverage-setting-for-a-market
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-update-user-$leverage
              *
              * @param {float} $leverage the rate of $leverage
              * @param {string} $symbol unified market $symbol
@@ -1021,7 +1019,7 @@ class zebpayfutures extends Exchange {
         return Async\async(function () use ($symbols, $params) {
             /**
              *
-             * @see https://docs.futures.kraken.com/#http-api-trading-v3-api-account-information-get-open-positions
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#--get-positions
              *
              * Fetches current contract trading positions
              * @param {string[]} $symbols List of unified $symbols

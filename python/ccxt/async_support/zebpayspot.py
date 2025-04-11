@@ -71,8 +71,8 @@ class zebpayspot(Exchange, ImplicitAPI):
             'urls': {
                 'logo': '',
                 'api': {
-                    'public': 'https://www.zebuat.com',
-                    'private': 'https://www.zebuat.com',
+                    'public': 'https://sapi.zebpay.com',
+                    'private': 'https://sapi.zebpay.com',
                 },
                 'www': 'https://www.zebpay.com',
                 'doc': '',
@@ -143,7 +143,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         retrieves data on all markets for zebpayfutures
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-symbols-list
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-trading-pairs
 
         :param dict [params]: extra parameters specific to the exchange api endpoint
         :returns dict[]: an array of objects representing market data
@@ -209,7 +209,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetches all available currencies on an exchange
 
-        https://bybit-exchange.github.io/docs/v5/asset/coin-info
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-coin-settings
 
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns dict: an associative dictionary of currencies
@@ -329,7 +329,7 @@ class zebpayspot(Exchange, ImplicitAPI):
     async def create_order(self, symbol: str, type: OrderType, side: OrderSide, amount: float, price: Num = None, params={}):
         """
 
-        https://zaif-api-document.readthedocs.io/ja/latest/MarginTradingAPI.html#id23
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#place-new-order
 
         create a trade order
         :param str symbol: unified symbol of the market to create an order in
@@ -360,7 +360,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         the latest known information on the availability of the exchange API
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-status
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-exchange-fee
 
         :param str symbol: unified symbol of the market to fetch the order book for
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -408,7 +408,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         query for balance and get the amount of funds available for trading or funds locked in orders
 
-        https://api-docs.poloniex.com/futures/api/account#get-account-overview
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-account-balance
 
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns dict: a `balance structure <https://docs.ccxt.com/#/?id=balance-structure>`
@@ -442,7 +442,8 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         cancels an open order
 
-        https://api-docs.poloniex.com/futures/api/orders#cancel-an-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#cancel-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#cancel-all-orders-for-a-symbol
 
         :param str id: order id
         :param str symbol: unified symbol of the market the order was made in
@@ -479,7 +480,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         cancels all open orders
 
-        https://api-docs.poloniex.com/futures/api/orders#cancel-an-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#cancel-all-orders
 
         :param str[] ids: open orders transaction ID(txid) or user reference(userref)
         :param str symbol: unified symbol of the market the order was made in
@@ -510,7 +511,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetches price tickers for multiple markets, statistical information calculated over the past 24 hours for each market
 
-        https://docs.kraken.com/rest/#tag/Spot-Market-Data/operation/getTickerInformation
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-all-tickers
 
         :param str[]|None symbols: unified symbols of the markets to fetch the ticker for, all market tickers are returned if not assigned
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -542,7 +543,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetches information on open orders with bid(buy) and ask(sell) prices, volumes and other data
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-part-order-book-level-2
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-order-book
 
         :param str symbol: unified symbol of the market to fetch the order book for
         :param int [limit]: the maximum amount of order book entries to return
@@ -578,7 +579,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific market
 
-        https://docs.kraken.com/rest/#tag/Spot-Market-Data/operation/getTickerInformation
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-ticker
 
         :param str symbol: unified symbol of the market to fetch the ticker for
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -614,7 +615,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         get the list of most recent trades for a particular symbol
 
-        https://api-docs.poloniex.com/spot/api/public/market-data#trades
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-recent-trades
 
         :param str symbol: unified symbol of the market to fetch trades for
         :param int [since]: timestamp in ms of the earliest trade to fetch
@@ -653,7 +654,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetches the bid and ask price and volume for multiple markets
 
-        https://bybit-exchange.github.io/docs/v5/market/tickers
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-all-tickers
 
         :param str[]|None symbols: unified symbols of the markets to fetch the bids and asks for, all markets are returned if not assigned
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -665,7 +666,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetches historical candlestick data containing the open, high, low, and close price, and the volume of a market
 
-        https://bybit-exchange.github.io/docs/v5/market/kline
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-klinescandlesticks
 
         :param str symbol: unified symbol of the market to fetch OHLCV data for
         :param str timeframe: the length of time each candle represents
@@ -732,7 +733,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetches information on an order made by the user
 
-        https://docs.kucoin.com/futures/#get-details-of-a-single-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-order-details
 
         :param str id: order id
         :param str symbol: unified symbol of the market the order was made in
@@ -781,7 +782,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetch all unfilled currently open orders
 
-        https://docs.kraken.com/api/docs/rest-api/get-open-orders
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-orders
 
         :param str [symbol]: unified market symbol
         :param int [since]: the earliest time in ms to fetch open orders for
@@ -842,7 +843,7 @@ class zebpayspot(Exchange, ImplicitAPI):
         """
         fetch all the trades made from a single order
 
-        https://docs.kraken.com/rest/#tag/Account-Data/operation/getTradesInfo
+        https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-order-fills
 
         :param str id: order id
         :param str symbol: unified market symbol

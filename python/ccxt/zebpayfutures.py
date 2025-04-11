@@ -70,8 +70,8 @@ class zebpayfutures(Exchange, ImplicitAPI):
             'urls': {
                 'logo': '',
                 'api': {
-                    'public': 'https://dev-futuresbe.zebstage.com',
-                    'private': 'https://dev-futuresbe.zebstage.com',
+                    'public': 'https://futuresbe.zebpay.com',
+                    'private': 'https://futuresbe.zebpay.com',
                 },
                 'www': 'https://www.zebpay.com',
                 'doc': '',
@@ -141,7 +141,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         the latest known information on the availability of the exchange API
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-status
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/system.md#get-system-status
 
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns dict: a `status structure <https://docs.ccxt.com/#/?id=exchange-status-structure>`
@@ -172,7 +172,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetches the current integer timestamp in milliseconds from the poloniexfutures server
 
-        https://api-docs.poloniex.com/futures/api/time#server-time
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/system.md#get-system-time
 
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns int: the current integer timestamp in milliseconds from the poloniexfutures server
@@ -197,7 +197,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         the latest known information on the availability of the exchange API
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-status
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/exchange.md#get-trade-fee-single-symbol
 
         :param str symbol: unified symbol of the market to fetch the order book for
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -241,7 +241,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         the latest known information on the availability of the exchange API
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-status
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/exchange.md#get-trade-fees-all-symbols
 
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns dict: a `status structure <https://docs.ccxt.com/#/?id=exchange-status-structure>`
@@ -273,7 +273,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetches information on open orders with bid(buy) and ask(sell) prices, volumes and other data
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-part-order-book-level-2
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/market.md#get-order-book
 
         :param str symbol: unified symbol of the market to fetch the order book for
         :param int [limit]: the maximum amount of order book entries to return
@@ -320,7 +320,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         retrieves data on all markets for zebpayfutures
 
-        https://www.kucoin.com/docs/rest/futures-trading/market-data/get-symbols-list
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/market.md#get-market-info
 
         :param dict [params]: extra parameters specific to the exchange api endpoint
         :returns dict[]: an array of objects representing market data
@@ -390,7 +390,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific market
 
-        https://bybit-exchange.github.io/docs/v5/market/tickers
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/public-endpoints/market.md#get-market-info
 
         :param str symbol: unified symbol of the market to fetch the ticker for
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -433,7 +433,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         query for balance and get the amount of funds available for trading or funds locked in orders
 
-        https://api-docs.poloniex.com/futures/api/account#get-account-overview
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/wallet.md#get-wallet-balance
 
         :param dict [params]: extra parameters specific to the exchange API endpoint
         :returns dict: a `balance structure <https://docs.ccxt.com/#/?id=balance-structure>`
@@ -467,7 +467,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         Create an order on the exchange
 
-        https://api-docs.poloniex.com/futures/api/orders#place-an-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#--create-order
 
         :param str symbol: Unified CCXT market symbol
         :param str type: 'limit' or 'market'
@@ -565,7 +565,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         cancels an open order
 
-        https://api-docs.poloniex.com/futures/api/orders#cancel-an-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-cancel-order
 
         :param str id: order id
         :param str symbol: unified symbol of the market the order was made in
@@ -596,7 +596,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         add margin
 
-        https://www.kucoin.com/docs/rest/futures-trading/positions/add-margin-manually
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-add-margin-to-position
 
         :param str symbol: unified market symbol
         :param float amount: amount of margin to add
@@ -647,7 +647,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         add margin
 
-        https://www.kucoin.com/docs/rest/futures-trading/positions/add-margin-manually
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-reduce-margin-from-position
 
         :param str symbol: unified market symbol.
         :param float amount: amount of margin to add.
@@ -694,8 +694,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetches a list of orders placed on the exchange
 
-        https://docs.kucoin.com/futures/#get-order-list
-        https://docs.kucoin.com/futures/#get-untriggered-stop-order-list
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-open-orders
 
         :param str status: opn orders
         :param str symbol: unified symbol for the market to retrieve orders from
@@ -750,8 +749,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetches information on multiple open orders made by the user
 
-        https://docs.kucoin.com/futures/#get-order-list
-        https://docs.kucoin.com/futures/#get-untriggered-stop-order-list
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-open-orders
 
         :param str symbol: unified market symbol of the market orders were made in
         :param int [since]: the earliest time in ms to fetch orders for
@@ -766,7 +764,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetches information on an order made by the user
 
-        https://docs.kucoin.com/futures/#get-details-of-a-single-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-order-details
 
         :param str id: order id
         :param str symbol: unified symbol of the market the order was made in
@@ -820,7 +818,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         closes open positions for a market
 
-        https://www.kucoin.com/docs/rest/futures-trading/orders/place-order
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-close-position
 
         :param str symbol: Unified CCXT market symbol
         :param str side: not used by kucoinfutures closePositions
@@ -850,7 +848,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetch the set leverage for all contract and margin markets
 
-        https://docs.futures.kraken.com/#http-api-trading-v3-api-multi-collateral-get-the-leverage-setting-for-a-market
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-get-all-user-leverages
 
         :param str[] [symbols]: a list of unified market symbols
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -884,7 +882,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         fetch the set leverage for a market
 
-        https://docs.futures.kraken.com/#http-api-trading-v3-api-multi-collateral-get-the-leverage-setting-for-a-market
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#get-user-leverage-single-symbol
 
         :param str symbol: unified market symbol
         :param dict [params]: extra parameters specific to the exchange API endpoint
@@ -915,7 +913,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
         """
         set the level of leverage for a market
 
-        https://docs.futures.kraken.com/#http-api-trading-v3-api-multi-collateral-set-the-leverage-setting-for-a-market
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-update-user-leverage
 
         :param float leverage: the rate of leverage
         :param str symbol: unified market symbol
@@ -941,7 +939,7 @@ class zebpayfutures(Exchange, ImplicitAPI):
     def fetch_positions(self, symbols: Strings = None, params={}):
         """
 
-        https://docs.futures.kraken.com/#http-api-trading-v3-api-account-information-get-open-positions
+        https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#--get-positions
 
         Fetches current contract trading positions
         :param str[] symbols: List of unified symbols

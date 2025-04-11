@@ -64,8 +64,8 @@ class zebpayspot extends Exchange {
             'urls' => array(
                 'logo' => '',
                 'api' => array(
-                    'public' => 'https://www.zebuat.com',
-                    'private' => 'https://www.zebuat.com',
+                    'public' => 'https://sapi.zebpay.com',
+                    'private' => 'https://sapi.zebpay.com',
                 ),
                 'www' => 'https://www.zebpay.com',
                 'doc' => '',
@@ -138,7 +138,7 @@ class zebpayspot extends Exchange {
             /**
              * retrieves $data on all $markets for zebpayfutures
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-symbols-list
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-trading-pairs
              *
              * @param {array} [$params] extra parameters specific to the exchange api endpoint
              * @return {array[]} an array of objects representing $market $data
@@ -208,7 +208,7 @@ class zebpayspot extends Exchange {
             /**
              * fetches all available currencies on an exchange
              *
-             * @see https://bybit-exchange.github.io/docs/v5/asset/coin-info
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-coin-settings
              *
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {array} an associative dictionary of currencies
@@ -336,7 +336,7 @@ class zebpayspot extends Exchange {
         return Async\async(function () use ($symbol, $type, $side, $amount, $price, $params) {
             /**
              *
-             * @see https://zaif-api-document.readthedocs.io/ja/latest/MarginTradingAPI.html#id23
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#place-new-order
              *
              * create a trade order
              * @param {string} $symbol unified $symbol of the $market to create an order in
@@ -371,7 +371,7 @@ class zebpayspot extends Exchange {
             /**
              * the latest known information on the availability of the exchange API
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-service-status
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-exchange-fee
              *
              * @param {string} $symbol unified $symbol of the $market to fetch the order book for
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -425,7 +425,7 @@ class zebpayspot extends Exchange {
             /**
              * query for balance and get the amount of funds available for trading or funds locked in orders
              *
-             * @see https://api-docs.poloniex.com/futures/api/account#get-account-overview
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-account-balance
              *
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
              * @return {array} a ~@link https://docs.ccxt.com/#/?id=balance-structure balance structure~
@@ -463,7 +463,8 @@ class zebpayspot extends Exchange {
             /**
              * cancels an open order
              *
-             * @see https://api-docs.poloniex.com/futures/api/orders#cancel-an-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#cancel-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#cancel-all-orders-for-a-$symbol
              *
              * @param {string} $id order $id
              * @param {string} $symbol unified $symbol of the market the order was made in
@@ -505,7 +506,7 @@ class zebpayspot extends Exchange {
             /**
              * cancels all open orders
              *
-             * @see https://api-docs.poloniex.com/futures/api/orders#cancel-an-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#cancel-all-orders
              *
              * @param {string[]} $ids open orders transaction ID (txid) or user reference (userref)
              * @param {string} $symbol unified $symbol of the market the order was made in
@@ -540,7 +541,7 @@ class zebpayspot extends Exchange {
             /**
              * fetches price tickers for multiple markets, statistical information calculated over the past 24 hours for each market
              *
-             * @see https://docs.kraken.com/rest/#tag/Spot-Market-Data/operation/getTickerInformation
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-all-tickers
              *
              * @param {string[]|null} $symbols unified $symbols of the markets to fetch the ticker for, all market tickers are returned if not assigned
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -575,7 +576,7 @@ class zebpayspot extends Exchange {
             /**
              * fetches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
              *
-             * @see https://www.kucoin.com/docs/rest/futures-trading/market-data/get-part-order-book-level-2
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-order-book
              *
              * @param {string} $symbol unified $symbol of the $market to fetch the order book for
              * @param {int} [$limit] the maximum amount of order book entries to return
@@ -616,7 +617,7 @@ class zebpayspot extends Exchange {
             /**
              * fetches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific $market
              *
-             * @see https://docs.kraken.com/rest/#tag/Spot-Market-Data/operation/getTickerInformation
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-ticker
              *
              * @param {string} $symbol unified $symbol of the $market to fetch the ticker for
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -655,7 +656,7 @@ class zebpayspot extends Exchange {
             /**
              * get the list of most recent trades for a particular $symbol
              *
-             * @see https://api-docs.poloniex.com/spot/api/public/market-data#trades
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-recent-trades
              *
              * @param {string} $symbol unified $symbol of the $market to fetch trades for
              * @param {int} [$since] timestamp in ms of the earliest trade to fetch
@@ -699,7 +700,7 @@ class zebpayspot extends Exchange {
             /**
              * fetches the bid and ask price and volume for multiple markets
              *
-             * @see https://bybit-exchange.github.io/docs/v5/market/tickers
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-all-tickers
              *
              * @param {string[]|null} $symbols unified $symbols of the markets to fetch the bids and asks for, all markets are returned if not assigned
              * @param {array} [$params] extra parameters specific to the exchange API endpoint
@@ -714,7 +715,7 @@ class zebpayspot extends Exchange {
             /**
              * fetches historical candlestick data containing the open, high, low, and close price, and the volume of a $market
              *
-             * @see https://bybit-exchange.github.io/docs/v5/market/kline
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/public-endpoints.md#get-klinescandlesticks
              *
              * @param {string} $symbol unified $symbol of the $market to fetch OHLCV data for
              * @param {string} $timeframe the length of time each candle represents
@@ -787,7 +788,7 @@ class zebpayspot extends Exchange {
             /**
              * fetches information on an order made by the user
              *
-             * @see https://docs.kucoin.com/futures/#get-details-of-a-single-order
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-order-details
              *
              * @param {string} $id order $id
              * @param {string} $symbol unified $symbol of the $market the order was made in
@@ -841,7 +842,7 @@ class zebpayspot extends Exchange {
             /**
              * fetch all unfilled currently open orders
              *
-             * @see https://docs.kraken.com/api/docs/rest-api/get-open-orders
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-orders
              *
              * @param {string} [$symbol] unified $market $symbol
              * @param {int} [$since] the earliest time in ms to fetch open orders for
@@ -907,7 +908,7 @@ class zebpayspot extends Exchange {
             /**
              * fetch all the $trades made from a single order
              *
-             * @see https://docs.kraken.com/rest/#tag/Account-Data/operation/getTradesInfo
+             * @see https://github.com/zebpay/zebpay-api-references/blob/main/spot/api-reference/private-endpoints.md#get-order-fills
              *
              * @param {string} $id order $id
              * @param {string} $symbol unified market $symbol
