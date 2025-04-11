@@ -61,8 +61,8 @@ export default class zebpayfutures extends Exchange {
             'urls': {
                 'logo': '',
                 'api': {
-                    'public': 'https://dev-futuresbe.zebstage.com',
-                    'private': 'https://dev-futuresbe.zebstage.com',
+                    'public': 'https://futuresbe.zebpay.com',
+                    'private': 'https://futuresbe.zebpay.com',
                 },
                 'www': 'https://www.zebpay.com',
                 'doc': '',
