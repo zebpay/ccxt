@@ -1050,7 +1050,8 @@ export default class zebpay extends Exchange {
         //        },
         //    }
         //
-        return this.safeDict (response, 'data');
+        const data = this.safeDict (response, 'data');
+        return this.parseOrder (data, market);
     }
 
     /**
@@ -1063,7 +1064,7 @@ export default class zebpay extends Exchange {
      * @param {object} [params.timestamp] extra parameters specific to the exchange API endpoint
      * @returns {object} An [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
      */
-    async cancelAllOrders (symbol: Str = undefined, params = {}) {
+    async cancelAllOrders (symbol: Str = undefined, params = {}): Promise<Order[]> {
         let type = undefined;
         [ type, params ] = this.handleMarketTypeAndParams ('cancelAllOrders', undefined, params);
         if (type !== 'spot') {
@@ -1073,13 +1074,15 @@ export default class zebpay extends Exchange {
         const response = await this.privateSpotDeleteV2ExOrdersCancelAll (params);
         //
         //    {
-        //        "data": {
+        //        "data": [{
         //            "orderId": "12345",
-        //            "symbol": 'BTC-INR
-        //        },
+        //            "symbol": 'BTC-INR,
+        //            "status": "CANCELLED"
+        //        }],
         //    }
         //
-        return response;
+        const data = this.safeList (response, 'data', []);
+        return data.map ((order: Dict) => this.parseOrder (order));
     }
 
     /**
@@ -1342,12 +1345,12 @@ export default class zebpay extends Exchange {
      * @name zebpay#setLeverage
      * @description set the level of leverage for a market
      * @see [Swap] https://github.com/zebpay/zebpay-api-references/blob/main/futures/api-reference/private-endpoints/trade.md#-update-user-leverage
-     * @param {float} leverage the rate of leverage
+     * @param {number} leverage the rate of leverage
      * @param {string} symbol unified market symbol
      * @param {object} [params] extra parameters specific to the exchange API endpoint
      * @returns {object} response from the exchange
      */
-    async setLeverage (leverage: Int, symbol: Str = undefined, params = {}) {
+    async setLeverage (leverage: Num, symbol: Str = undefined, params = {}) {
         if (symbol === undefined) {
             throw new ArgumentsRequired (this.id + ' setLeverage() requires a symbol argument');
         }
@@ -1813,6 +1816,7 @@ export default class zebpay extends Exchange {
                     'Content-Type': 'application/json',
                 };
             }
+            headers['Referrer'] = 'ccxt';
         } else {
             this.checkRequiredCredentials ();
             const isSpot = marketType === 'spot';
@@ -1838,6 +1842,7 @@ export default class zebpay extends Exchange {
                 'X-AUTH-SIGNATURE': signature,
             };
             headers['Content-Type'] = 'application/json';
+            headers['Referrer'] = 'ccxt';
         }
         return { 'url': url, 'method': method, 'body': body, 'headers': headers };
     }
