@@ -43,7 +43,7 @@ use BN\BN;
 use Sop\ASN1\Type\UnspecifiedType;
 use Exception;
 
-$version = '4.5.3';
+$version = '4.5.5';
 
 // rounding mode
 const TRUNCATE = 0;
@@ -62,7 +62,7 @@ const PAD_WITH_ZERO = 6;
 
 class Exchange {
 
-    const VERSION = '4.5.3';
+    const VERSION = '4.5.5';
 
     private static $base58_alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
     private static $base58_encoder = null;
@@ -341,6 +341,7 @@ class Exchange {
         'alpaca',
         'apex',
         'ascendex',
+        'backpack',
         'bequant',
         'bigone',
         'binance',
@@ -433,7 +434,6 @@ class Exchange {
         'probit',
         'timex',
         'tokocrypto',
-        'tradeogre',
         'upbit',
         'wavesexchange',
         'whitebit',
@@ -1243,10 +1243,24 @@ class Exchange {
         } else if ($algoType === 'ES') {
             $signed = static::ecdsa($token, $secret, 'p256', $algorithm);
             $signature = hex2bin(str_pad($signed['r'], 64, '0', STR_PAD_LEFT) . str_pad($signed['s'], 64, '0', STR_PAD_LEFT));
+        } else if ($algoType === 'Ed') {
+            $signed = static::eddsa($token, $secret);
+            $signature = static::base64_to_base64url($signed);
+            return $token . '.' . $signature; // eddsa returns the value  already as a base64 string
         } else {
             $signature = static::hmac($token, $secret, $algorithm, 'binary');
         }
         return $token . '.' . static::urlencode_base64($signature);
+    }
+
+    public static function base64_to_base64url(string $base64, bool $stripPadding = true): string {
+        $base64url = strtr($base64, '+/', '-_');
+
+        if ($stripPadding) {
+            $base64url = rtrim($base64url, '=');
+        }
+
+    return $base64url;
     }
 
     public static function rsa($request, $secret, $alg = 'sha256') {
@@ -1379,9 +1393,9 @@ class Exchange {
         return $msgHash;
     }
 
-    public function starknet_sign($hash, $pri) {
+    public function starknet_sign($msg_hash, $pri) {
         # // TODO: unify to ecdsa
-        $signature = Curve::sign ('0x' . $pri, $hash);
+        $signature = Curve::sign ('0x' . $pri, $msg_hash);
         return $this->json($signature);
     }
 
@@ -2384,7 +2398,7 @@ class Exchange {
     // ########################################################################
     // ########################################################################
 
-    // METHODS BELOW THIS LINE ARE TRANSPILED FROM JAVASCRIPT TO PYTHON AND PHP
+    // METHODS BELOW THIS LINE ARE TRANSPILED FROM TYPESCRIPT
 
     public function describe(): mixed {
         return array(
@@ -3139,6 +3153,25 @@ class Exchange {
             // set flag
             $this->isSandboxModeEnabled = false;
         }
+    }
+
+    public function enable_demo_trading(bool $enable) {
+        /**
+         * enables or disables demo trading mode
+         * @param {boolean} [$enable] true if demo trading should be enabled, false otherwise
+         */
+        if ($this->isSandboxModeEnabled) {
+            throw new NotSupported($this->id . ' demo trading does not support in sandbox environment. Please check https://www.binance.com/en/support/faq/detail/9be58f73e5e14338809e3b705b9687dd to see the differences');
+        }
+        if ($enable) {
+            $this->urls['apiBackupDemoTrading'] = $this->urls['api'];
+            $this->urls['api'] = $this->urls['demo'];
+        } elseif (is_array($this->urls) && array_key_exists('apiBackupDemoTrading', $this->urls)) {
+            $this->urls['api'] = $this->urls['apiBackupDemoTrading'];
+            $newUrls = $this->omit($this->urls, 'apiBackupDemoTrading');
+            $this->urls = $newUrls;
+        }
+        $this->options['enableDemoTrading'] = $enable;
     }
 
     public function sign($path, mixed $api = 'public', $method = 'GET', $params = array (), mixed $headers = null, mixed $body = null) {
@@ -3982,7 +4015,12 @@ class Exchange {
         $marketsSortedById = $this->keysort($this->markets_by_id);
         $this->symbols = is_array($marketsSortedBySymbol) ? array_keys($marketsSortedBySymbol) : array();
         $this->ids = is_array($marketsSortedById) ? array_keys($marketsSortedById) : array();
+        $numCurrencies = 0;
         if ($currencies !== null) {
+            $keys = is_array($currencies) ? array_keys($currencies) : array();
+            $numCurrencies = count($keys);
+        }
+        if ($numCurrencies > 0) {
             // $currencies is always null when called in constructor but not when called from loadMarkets
             $this->currencies = $this->map_to_safe_map($this->deep_extend($this->currencies, $currencies));
         } else {
@@ -4040,6 +4078,35 @@ class Exchange {
         $currenciesSortedByCode = $this->keysort($this->currencies);
         $this->codes = is_array($currenciesSortedByCode) ? array_keys($currenciesSortedByCode) : array();
         return $this->markets;
+    }
+
+    public function set_markets_from_exchange($sourceExchange) {
+        // Validate that both exchanges are of the same type
+        if ($this->id !== $sourceExchange->id) {
+            throw new ArgumentsRequired($this->id . ' shareMarkets() can only share markets with exchanges of the same type (got ' . $sourceExchange['id'] . ')');
+        }
+        // Validate that source exchange has loaded markets
+        if (!$sourceExchange->markets) {
+            throw new ExchangeError('setMarketsFromExchange() source exchange must have loaded markets first. Can call by using loadMarkets function');
+        }
+        // Set all market-related data
+        $this->markets = $sourceExchange->markets;
+        $this->markets_by_id = $sourceExchange->markets_by_id;
+        $this->symbols = $sourceExchange->symbols;
+        $this->ids = $sourceExchange->ids;
+        $this->currencies = $sourceExchange->currencies;
+        $this->baseCurrencies = $sourceExchange->baseCurrencies;
+        $this->quoteCurrencies = $sourceExchange->quoteCurrencies;
+        $this->codes = $sourceExchange->codes;
+        // check marketHelperProps
+        $sourceExchangeHelpers = $this->safe_list($sourceExchange->options, 'marketHelperProps', array());
+        for ($i = 0; $i < count($sourceExchangeHelpers); $i++) {
+            $helper = $sourceExchangeHelpers[$i];
+            if ($sourceExchange->options[$helper] !== null) {
+                $this->options[$helper] = $sourceExchange->options[$helper];
+            }
+        }
+        return $this;
     }
 
     public function get_describe_for_extended_ws_exchange(mixed $currentRestInstance, mixed $parentRestInstance, array $wsBaseDescribe) {
@@ -6883,7 +6950,9 @@ class Exchange {
     }
 
     public function currency(string $code) {
-        if ($this->currencies === null) {
+        $keys = is_array($this->currencies) ? array_keys($this->currencies) : array();
+        $numCurrencies = count($keys);
+        if ($numCurrencies === 0) {
             throw new ExchangeError($this->id . ' currencies not loaded');
         }
         if (gettype($code) === 'string') {
@@ -7451,7 +7520,7 @@ class Exchange {
 
     public function handle_trigger_prices_and_params($symbol, $params, $omitParams = true) {
         //
-        $triggerPrice = $this->safe_string($params, 'triggerPrice', 'stopPrice');
+        $triggerPrice = $this->safe_string_2($params, 'triggerPrice', 'stopPrice');
         $triggerPriceStr = null;
         $stopLossPrice = $this->safe_string($params, 'stopLossPrice');
         $stopLossPriceStr = null;
@@ -8276,6 +8345,18 @@ class Exchange {
         return $values;
     }
 
+    public function remove_keys_from_dict(array $dict, array $removeKeys) {
+        $keys = is_array($dict) ? array_keys($dict) : array();
+        $newDict = array();
+        for ($i = 0; $i < count($keys); $i++) {
+            $key = $keys[$i];
+            if (!$this->in_array($key, $removeKeys)) {
+                $newDict[$key] = $dict[$key];
+            }
+        }
+        return $newDict;
+    }
+
     public function handle_until_option(string $key, $request, $params, $multiplier = 1) {
         $until = $this->safe_integer_2($params, 'until', 'till');
         if ($until !== null) {
@@ -8666,7 +8747,7 @@ class Exchange {
                 $clients = is_array($this->clients) ? array_values($this->clients) : array();
                 for ($i = 0; $i < count($clients); $i++) {
                     $client = $clients[$i];
-                    $futures = $this->safe_dict($client, 'futures');
+                    $futures = $client->futures;
                     if (($futures !== null) && (is_array($futures) && array_key_exists('fetchPositionsSnapshot', $futures))) {
                         unset($futures['fetchPositionsSnapshot']);
                     }

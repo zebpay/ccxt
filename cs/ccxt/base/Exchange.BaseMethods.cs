@@ -883,6 +883,31 @@ public partial class Exchange
         }
     }
 
+    /**
+     * @method
+     * @name Exchange#enableDemoTrading
+     * @description enables or disables demo trading mode
+     * @param {boolean} [enable] true if demo trading should be enabled, false otherwise
+     */
+    public virtual void enableDemoTrading(object enable)
+    {
+        if (isTrue(this.isSandboxModeEnabled))
+        {
+            throw new NotSupported ((string)add(this.id, " demo trading does not support in sandbox environment. Please check https://www.binance.com/en/support/faq/detail/9be58f73e5e14338809e3b705b9687dd to see the differences")) ;
+        }
+        if (isTrue(enable))
+        {
+            ((IDictionary<string,object>)this.urls)["apiBackupDemoTrading"] = getValue(this.urls, "api");
+            ((IDictionary<string,object>)this.urls)["api"] = getValue(this.urls, "demo");
+        } else if (isTrue(inOp(this.urls, "apiBackupDemoTrading")))
+        {
+            ((IDictionary<string,object>)this.urls)["api"] = ((object)getValue(this.urls, "apiBackupDemoTrading"));
+            object newUrls = this.omit(this.urls, "apiBackupDemoTrading");
+            this.urls = newUrls;
+        }
+        ((IDictionary<string,object>)this.options)["enableDemoTrading"] = enable;
+    }
+
     public virtual object sign(object path, object api = null, object method = null, object parameters = null, object headers = null, object body = null)
     {
         api ??= "public";
@@ -1953,7 +1978,13 @@ public partial class Exchange
         object marketsSortedById = this.keysort(this.markets_by_id);
         this.symbols = new List<object>(((IDictionary<string,object>)marketsSortedBySymbol).Keys);
         this.ids = new List<object>(((IDictionary<string,object>)marketsSortedById).Keys);
+        object numCurrencies = 0;
         if (isTrue(!isEqual(currencies, null)))
+        {
+            object keys = new List<object>(((IDictionary<string,object>)currencies).Keys);
+            numCurrencies = getArrayLength(keys);
+        }
+        if (isTrue(isGreaterThan(numCurrencies, 0)))
         {
             // currencies is always undefined when called in constructor but not when called from loadMarkets
             this.currencies = this.mapToSafeMap(this.deepExtend(this.currencies, currencies));
@@ -2020,6 +2051,40 @@ public partial class Exchange
         object currenciesSortedByCode = this.keysort(this.currencies);
         this.codes = new List<object>(((IDictionary<string,object>)currenciesSortedByCode).Keys);
         return this.markets;
+    }
+
+    public virtual Exchange setMarketsFromExchange(Exchange sourceExchange)
+    {
+        // Validate that both exchanges are of the same type
+        if (isTrue(!isEqual(this.id, sourceExchange.id)))
+        {
+            throw new ArgumentsRequired ((string)add(add(add(this.id, " shareMarkets() can only share markets with exchanges of the same type (got "), getValue(sourceExchange, "id")), ")")) ;
+        }
+        // Validate that source exchange has loaded markets
+        if (!isTrue(sourceExchange.markets))
+        {
+            throw new ExchangeError ((string)"setMarketsFromExchange() source exchange must have loaded markets first. Can call by using loadMarkets function") ;
+        }
+        // Set all market-related data
+        this.markets = sourceExchange.markets;
+        this.markets_by_id = sourceExchange.markets_by_id;
+        this.symbols = sourceExchange.symbols;
+        this.ids = sourceExchange.ids;
+        this.currencies = sourceExchange.currencies;
+        this.baseCurrencies = sourceExchange.baseCurrencies;
+        this.quoteCurrencies = sourceExchange.quoteCurrencies;
+        this.codes = sourceExchange.codes;
+        // check marketHelperProps
+        object sourceExchangeHelpers = this.safeList(sourceExchange.options, "marketHelperProps", new List<object>() {});
+        for (object i = 0; isLessThan(i, getArrayLength(sourceExchangeHelpers)); postFixIncrement(ref i))
+        {
+            object helper = getValue(sourceExchangeHelpers, i);
+            if (isTrue(!isEqual(getValue(sourceExchange.options, helper), null)))
+            {
+                ((IDictionary<string,object>)this.options)[(string)helper] = getValue(sourceExchange.options, helper);
+            }
+        }
+        return this;
     }
 
     public virtual object getDescribeForExtendedWsExchange(object currentRestInstance, object parentRestInstance, object wsBaseDescribe)
@@ -5666,7 +5731,9 @@ public partial class Exchange
 
     public virtual object currency(object code)
     {
-        if (isTrue(isEqual(this.currencies, null)))
+        object keys = new List<object>(((IDictionary<string,object>)this.currencies).Keys);
+        object numCurrencies = getArrayLength(keys);
+        if (isTrue(isEqual(numCurrencies, 0)))
         {
             throw new ExchangeError ((string)add(this.id, " currencies not loaded")) ;
         }
@@ -6417,7 +6484,7 @@ public partial class Exchange
     {
         //
         omitParams ??= true;
-        object triggerPrice = this.safeString(parameters, "triggerPrice", "stopPrice");
+        object triggerPrice = this.safeString2(parameters, "triggerPrice", "stopPrice");
         object triggerPriceStr = null;
         object stopLossPrice = this.safeString(parameters, "stopLossPrice");
         object stopLossPriceStr = null;
@@ -7491,6 +7558,21 @@ public partial class Exchange
         return ((object)values);
     }
 
+    public virtual object removeKeysFromDict(object dict, object removeKeys)
+    {
+        object keys = new List<object>(((IDictionary<string,object>)dict).Keys);
+        object newDict = new Dictionary<string, object>() {};
+        for (object i = 0; isLessThan(i, getArrayLength(keys)); postFixIncrement(ref i))
+        {
+            object key = getValue(keys, i);
+            if (!isTrue(this.inArray(key, removeKeys)))
+            {
+                ((IDictionary<string,object>)newDict)[(string)key] = getValue(dict, key);
+            }
+        }
+        return newDict;
+    }
+
     public virtual object handleUntilOption(object key, object request, object parameters, object multiplier = null)
     {
         multiplier ??= 1;
@@ -7956,7 +8038,7 @@ public partial class Exchange
                 for (object i = 0; isLessThan(i, getArrayLength(clients)); postFixIncrement(ref i))
                 {
                     object client = getValue(clients, i);
-                    object futures = this.safeDict(client, "futures");
+                    object futures = (client as WebSocketClient).futures;
                     if (isTrue(isTrue((!isEqual(futures, null))) && isTrue((inOp(futures, "fetchPositionsSnapshot")))))
                     {
                         ((IDictionary<string,object>)futures).Remove((string)"fetchPositionsSnapshot");

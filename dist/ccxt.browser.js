@@ -50,6 +50,22 @@ class Exchange extends _base_Exchange_js__WEBPACK_IMPORTED_MODULE_0__/* .Exchang
 
 /***/ }),
 
+/***/ 5475:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _base_Exchange_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2961);
+// -------------------------------------------------------------------------------
+
+class Exchange extends _base_Exchange_js__WEBPACK_IMPORTED_MODULE_0__/* .Exchange */ .k {
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Exchange);
+
+
+/***/ }),
+
 /***/ 3971:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1362,22 +1378,6 @@ class Exchange extends _base_Exchange_js__WEBPACK_IMPORTED_MODULE_0__/* .Exchang
 
 /***/ }),
 
-/***/ 4352:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _base_Exchange_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2961);
-// -------------------------------------------------------------------------------
-
-class Exchange extends _base_Exchange_js__WEBPACK_IMPORTED_MODULE_0__/* .Exchange */ .k {
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Exchange);
-
-
-/***/ }),
-
 /***/ 6405:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -1394,7 +1394,7 @@ class Exchange extends _base_Exchange_js__WEBPACK_IMPORTED_MODULE_0__/* .Exchang
 
 /***/ }),
 
-/***/ 7698:
+/***/ 5317:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -9097,6 +9097,2295 @@ class ascendex extends _abstract_ascendex_js__WEBPACK_IMPORTED_MODULE_0__/* ["de
 
 /***/ }),
 
+/***/ 7698:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ backpack)
+/* harmony export */ });
+/* harmony import */ var _abstract_backpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5475);
+/* harmony import */ var _base_errors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2079);
+/* harmony import */ var _base_functions_number_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1579);
+/* harmony import */ var _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5147);
+/* harmony import */ var _static_dependencies_noble_curves_ed25519_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6414);
+/* harmony import */ var _base_functions_crypto_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8283);
+// ---------------------------------------------------------------------------
+
+
+
+
+
+
+// ---------------------------------------------------------------------------
+/**
+ * @class backpack
+ * @augments Exchange
+ */
+class backpack extends _abstract_backpack_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
+    describe() {
+        return this.deepExtend(super.describe(), {
+            'id': 'backpack',
+            'name': 'Backpack',
+            'countries': ['JP'],
+            'rateLimit': 50,
+            'version': 'v1',
+            'certified': false,
+            'pro': true,
+            'has': {
+                'CORS': undefined,
+                'spot': true,
+                'margin': true,
+                'swap': true,
+                'future': false,
+                'option': false,
+                'addMargin': false,
+                'cancelAllOrders': true,
+                'cancelAllOrdersAfter': false,
+                'cancelOrder': true,
+                'cancelOrders': false,
+                'cancelWithdraw': false,
+                'closePosition': false,
+                'createConvertTrade': false,
+                'createDepositAddress': false,
+                'createLimitBuyOrder': true,
+                'createLimitOrder': true,
+                'createLimitSellOrder': true,
+                'createMarketBuyOrder': true,
+                'createMarketBuyOrderWithCost': true,
+                'createMarketOrder': true,
+                'createMarketOrderWithCost': true,
+                'createMarketSellOrder': true,
+                'createMarketSellOrderWithCost': true,
+                'createOrder': true,
+                'createOrders': true,
+                'createOrderWithTakeProfitAndStopLoss': true,
+                'createPostOnlyOrder': true,
+                'createReduceOnlyOrder': true,
+                'createStopLossOrder': false,
+                'createTakeProfitOrder': false,
+                'createTrailingAmountOrder': false,
+                'createTrailingPercentOrder': false,
+                'createTriggerOrder': true,
+                'fetchAccounts': false,
+                'fetchBalance': true,
+                'fetchCanceledAndClosedOrders': false,
+                'fetchCanceledOrders': false,
+                'fetchClosedOrder': false,
+                'fetchClosedOrders': false,
+                'fetchConvertCurrencies': false,
+                'fetchConvertQuote': false,
+                'fetchConvertTrade': false,
+                'fetchConvertTradeHistory': false,
+                'fetchCurrencies': true,
+                'fetchDepositAddress': true,
+                'fetchDeposits': true,
+                'fetchDepositsWithdrawals': false,
+                'fetchDepositWithdrawFees': false,
+                'fetchFundingHistory': true,
+                'fetchFundingRate': true,
+                'fetchFundingRateHistory': true,
+                'fetchFundingRates': false,
+                'fetchIndexOHLCV': true,
+                'fetchLedger': false,
+                'fetchLeverage': false,
+                'fetchLeverageTiers': false,
+                'fetchMarginAdjustmentHistory': false,
+                'fetchMarginMode': false,
+                'fetchMarkets': true,
+                'fetchMarkOHLCV': true,
+                'fetchMyTrades': true,
+                'fetchOHLCV': true,
+                'fetchOpenInterest': true,
+                'fetchOpenInterestHistory': true,
+                'fetchOpenOrder': true,
+                'fetchOpenOrders': true,
+                'fetchOrder': false,
+                'fetchOrderBook': true,
+                'fetchOrders': true,
+                'fetchOrderTrades': false,
+                'fetchPosition': false,
+                'fetchPositionHistory': false,
+                'fetchPositionMode': false,
+                'fetchPositions': true,
+                'fetchPositionsForSymbol': false,
+                'fetchPositionsHistory': false,
+                'fetchPremiumIndexOHLCV': false,
+                'fetchStatus': true,
+                'fetchTicker': true,
+                'fetchTickers': true,
+                'fetchTime': true,
+                'fetchTrades': true,
+                'fetchTradingFee': false,
+                'fetchTradingFees': false,
+                'fetchTransactions': false,
+                'fetchTransfers': false,
+                'fetchWithdrawals': true,
+                'reduceMargin': false,
+                'sandbox': false,
+                'setLeverage': false,
+                'setMargin': false,
+                'setMarginMode': false,
+                'setPositionMode': false,
+                'transfer': false,
+                'withdraw': true,
+            },
+            'timeframes': {
+                '1m': '1m',
+                '3m': '3m',
+                '5m': '5m',
+                '15': '15m',
+                '30': '30m',
+                '1h': '1h',
+                '2h': '2h',
+                '4h': '4h',
+                '6h': '6h',
+                '8h': '8h',
+                '12h': '12h',
+                '1d': '1d',
+                '3d': '3d',
+                '1w': '1w',
+                '1M': '1month',
+            },
+            'urls': {
+                'logo': 'https://github.com/user-attachments/assets/cc04c278-679f-4554-9f72-930dd632b80f',
+                'api': {
+                    'public': 'https://api.backpack.exchange',
+                    'private': 'https://api.backpack.exchange',
+                },
+                'www': 'https://backpack.exchange/',
+                'doc': 'https://docs.backpack.exchange/',
+                'referral': 'https://backpack.exchange/join/ib8qxwyl',
+            },
+            'api': {
+                'public': {
+                    'get': {
+                        'api/v1/assets': 1,
+                        'api/v1/collateral': 1,
+                        'api/v1/borrowLend/markets': 1,
+                        'api/v1/borrowLend/markets/history': 1,
+                        'api/v1/markets': 1,
+                        'api/v1/market': 1,
+                        'api/v1/ticker': 1,
+                        'api/v1/tickers': 1,
+                        'api/v1/depth': 1,
+                        'api/v1/klines': 1,
+                        'api/v1/markPrices': 1,
+                        'api/v1/openInterest': 1,
+                        'api/v1/fundingRates': 1,
+                        'api/v1/status': 1,
+                        'api/v1/ping': 1,
+                        'api/v1/time': 1,
+                        'api/v1/wallets': 1,
+                        'api/v1/trades': 1,
+                        'api/v1/trades/history': 1, // done
+                    },
+                },
+                'private': {
+                    'get': {
+                        'api/v1/account': 1,
+                        'api/v1/account/limits/borrow': 1,
+                        'api/v1/account/limits/order': 1,
+                        'api/v1/account/limits/withdrawal': 1,
+                        'api/v1/borrowLend/positions': 1,
+                        'api/v1/capital': 1,
+                        'api/v1/capital/collateral': 1,
+                        'wapi/v1/capital/deposits': 1,
+                        'wapi/v1/capital/deposit/address': 1,
+                        'wapi/v1/capital/withdrawals': 1,
+                        'api/v1/position': 1,
+                        'wapi/v1/history/borrowLend': 1,
+                        'wapi/v1/history/interest': 1,
+                        'wapi/v1/history/borrowLend/positions': 1,
+                        'wapi/v1/history/dust': 1,
+                        'wapi/v1/history/fills': 1,
+                        'wapi/v1/history/funding': 1,
+                        'wapi/v1/history/orders': 1,
+                        'wapi/v1/history/rfq': 1,
+                        'wapi/v1/history/quote': 1,
+                        'wapi/v1/history/settlement': 1,
+                        'wapi/v1/history/strategies': 1,
+                        'api/v1/order': 1,
+                        'api/v1/orders': 1, // done
+                    },
+                    'post': {
+                        'api/v1/account/convertDust': 1,
+                        'api/v1/borrowLend': 1,
+                        'wapi/v1/capital/withdrawals': 1,
+                        'api/v1/order': 1,
+                        'api/v1/orders': 1,
+                        'api/v1/rfq': 1,
+                        'api/v1/rfq/accept': 1,
+                        'api/v1/rfq/refresh': 1,
+                        'api/v1/rfq/cancel': 1,
+                        'api/v1/rfq/quote': 1,
+                    },
+                    'delete': {
+                        'api/v1/order': 1,
+                        'api/v1/orders': 1, // done
+                    },
+                    'patch': {
+                        'api/v1/account': 1,
+                    },
+                },
+            },
+            'features': {
+                'default': {
+                    'sandbox': false,
+                    'createOrder': {
+                        'marginMode': false,
+                        'triggerPrice': true,
+                        'triggerPriceType': undefined,
+                        'triggerDirection': false,
+                        'stopLossPrice': true,
+                        'takeProfitPrice': true,
+                        'attachedStopLossTakeProfit': undefined,
+                        'timeInForce': {
+                            'GTC': true,
+                            'IOC': true,
+                            'FOK': true,
+                            'PO': true,
+                            'GTD': false,
+                        },
+                        'hedged': false,
+                        'trailing': false,
+                        'leverage': false,
+                        'marketBuyByCost': true,
+                        'marketBuyRequiresPrice': true,
+                        'selfTradePrevention': false,
+                        'iceberg': false,
+                    },
+                    'createOrders': {
+                        'max': 20,
+                    },
+                    'fetchMyTrades': {
+                        'marginMode': false,
+                        'limit': 1000,
+                        'daysBack': undefined,
+                        'untilDays': undefined,
+                        'symbolRequired': false,
+                    },
+                    'fetchOrder': undefined,
+                    'fetchOpenOrders': {
+                        'marginMode': false,
+                        'limit': 1000,
+                        'trigger': true,
+                        'trailing': false,
+                        'symbolRequired': false,
+                    },
+                    'fetchOrders': {
+                        'marginMode': false,
+                        'limit': 1000,
+                        'daysBack': undefined,
+                        'untilDays': undefined,
+                        'trigger': true,
+                        'trailing': false,
+                        'symbolRequired': true,
+                    },
+                    'fetchClosedOrders': undefined,
+                    'fetchOHLCV': {
+                        'paginate': false,
+                        'limit': 1000,
+                    },
+                },
+                'spot': {
+                    'extends': 'default',
+                },
+                'swap': {
+                    'linear': undefined,
+                    'inverse': undefined,
+                },
+                'future': {
+                    'linear': undefined,
+                    'inverse': undefined,
+                },
+            },
+            'requiredCredentials': {
+                'apiKey': true,
+                'secret': true,
+            },
+            'precisionMode': _base_functions_number_js__WEBPACK_IMPORTED_MODULE_1__/* .TICK_SIZE */ .kb,
+            'options': {
+                'instructions': {
+                    'api/v1/account': {
+                        'GET': 'accountQuery',
+                        'PATCH': 'accountUpdate',
+                    },
+                    'api/v1/capital': {
+                        'GET': 'balanceQuery',
+                    },
+                    'api/v1/account/limits/borrow': {
+                        'GET': 'maxBorrowQuantity',
+                    },
+                    'api/v1/account/limits/order': {
+                        'GET': 'maxOrderQuantity',
+                    },
+                    'api/v1/account/limits/withdrawal': {
+                        'GET': 'maxWithdrawalQuantity',
+                    },
+                    'api/v1/borrowLend/positions': {
+                        'GET': 'borrowLendPositionQuery',
+                    },
+                    'api/v1/borrowLend': {
+                        'POST': 'borrowLendExecute',
+                    },
+                    'wapi/v1/history/borrowLend/positions': {
+                        'GET': 'borrowPositionHistoryQueryAll',
+                    },
+                    'wapi/v1/history/borrowLend': {
+                        'GET': 'borrowHistoryQueryAll',
+                    },
+                    'wapi/v1/history/dust': {
+                        'GET': 'dustHistoryQueryAll',
+                    },
+                    'api/v1/capital/collateral': {
+                        'GET': 'collateralQuery',
+                    },
+                    'wapi/v1/capital/deposit/address': {
+                        'GET': 'depositAddressQuery',
+                    },
+                    'wapi/v1/capital/deposits': {
+                        'GET': 'depositQueryAll',
+                    },
+                    'wapi/v1/history/fills': {
+                        'GET': 'fillHistoryQueryAll',
+                    },
+                    'wapi/v1/history/funding': {
+                        'GET': 'fundingHistoryQueryAll',
+                    },
+                    'wapi/v1/history/interest': {
+                        'GET': 'interestHistoryQueryAll',
+                    },
+                    'api/v1/order': {
+                        'GET': 'orderQuery',
+                        'POST': 'orderExecute',
+                        'DELETE': 'orderCancel',
+                    },
+                    'api/v1/orders': {
+                        'GET': 'orderQueryAll',
+                        'POST': 'orderExecute',
+                        'DELETE': 'orderCancelAll',
+                    },
+                    'wapi/v1/history/orders': {
+                        'GET': 'orderHistoryQueryAll',
+                    },
+                    'wapi/v1/history/pnl': {
+                        'GET': 'pnlHistoryQueryAll',
+                    },
+                    'wapi/v1/history/rfq': {
+                        'GET': 'rfqHistoryQueryAll',
+                    },
+                    'wapi/v1/history/quote': {
+                        'GET': 'quoteHistoryQueryAll',
+                    },
+                    'wapi/v1/history/settlement': {
+                        'GET': 'settlementHistoryQueryAll',
+                    },
+                    'api/v1/position': {
+                        'GET': 'positionQuery',
+                    },
+                    'api/v1/rfq/quote': {
+                        'POST': 'quoteSubmit',
+                    },
+                    'wapi/v1/history/strategies': {
+                        'GET': 'strategyHistoryQueryAll',
+                    },
+                    'wapi/v1/capital/withdrawals': {
+                        'GET': 'withdrawalQueryAll',
+                        'POST': 'withdraw',
+                    },
+                },
+                'recvWindow': 5000,
+                'brokerId': '',
+                'currencyIdsListForParseMarket': undefined,
+                'broker': '',
+                'timeDifference': 0,
+                'adjustForTimeDifference': false,
+                'networks': {
+                    'APT': 'Aptos',
+                    'ARB': 'Arbitrum',
+                    'AVAX': 'Avalanche',
+                    'BASE': 'Base',
+                    'BERA': 'Berachain',
+                    'BTC': 'Bitcoin',
+                    'BCH': 'BitcoinCash',
+                    'BSC': 'Bsc',
+                    'ADA': 'Cardano',
+                    'DOGE': 'Dogecoin',
+                    'ECLIPSE': 'Eclipse',
+                    'EQUALSMONEY': 'EqualsMoney',
+                    'ERC20': 'Ethereum',
+                    'HYP': 'Hyperliquid',
+                    'LTC': 'Litecoin',
+                    'OPTIMISM': 'Optimism',
+                    'MATIC': 'Polygon',
+                    'SEI': 'Sei',
+                    'SUI': 'Sui',
+                    'SOL': 'Solana',
+                    'STORY': 'Story',
+                    'TRC20': 'Tron',
+                    'XRP': 'XRP',
+                },
+                'networksById': {
+                    'aptos': 'APT',
+                    'arbitrum': 'ARB',
+                    'avalanche': 'AVAX',
+                    'base': 'BASE',
+                    'berachain': 'BERA',
+                    'bitcoin': 'BTC',
+                    'bitcoincash': 'BCH',
+                    'bsc': 'BSC',
+                    'cardano': 'ADA',
+                    'dogecoin': 'DOGE',
+                    'eclipse': 'ECLIPSE',
+                    'equalsmoney': 'EQUALSMONEY',
+                    'ethereum': 'ERC20',
+                    'hyperliquid': 'HYP',
+                    'litecoin': 'LTC',
+                    'optimism': 'OPTIMISM',
+                    'polygon': 'MATIC',
+                    'sei': 'SEI',
+                    'sui': 'SUI',
+                    'solana': 'SOL',
+                    'story': 'STORY',
+                    'tron': 'TRC20',
+                    'xrp': 'XRP',
+                },
+            },
+            'commonCurrencies': {},
+            'exceptions': {
+                'exact': {
+                    'INVALID_CLIENT_REQUEST': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'INVALID_ORDER': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InvalidOrder,
+                    'ACCOUNT_LIQUIDATING': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'BORROW_LIMIT': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'BORROW_REQUIRES_LEND_REDEEM': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'FORBIDDEN': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.OperationRejected,
+                    'INSUFFICIENT_FUNDS': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InsufficientFunds,
+                    'INSUFFICIENT_MARGIN': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InsufficientFunds,
+                    'INSUFFICIENT_SUPPLY': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InsufficientFunds,
+                    'INVALID_ASSET': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'INVALID_MARKET': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadSymbol,
+                    'INVALID_PRICE': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'INVALID_POSITION_ID': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'INVALID_QUANTITY': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'INVALID_RANGE': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'INVALID_SIGNATURE': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.AuthenticationError,
+                    'INVALID_SOURCE': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'INVALID_SYMBOL': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadSymbol,
+                    'INVALID_TWO_FACTOR_CODE': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'LEND_LIMIT': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'LEND_REQUIRES_BORROW_REPAY': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
+                    'MAINTENANCE': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError,
+                    'MAX_LEVERAGE_REACHED': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InsufficientFunds,
+                    'NOT_IMPLEMENTED': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.OperationFailed,
+                    'ORDER_LIMIT': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.OperationRejected,
+                    'POSITION_LIMIT': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.OperationRejected,
+                    'PRECONDITION_FAILED': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.OperationFailed,
+                    'RESOURCE_NOT_FOUND': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeNotAvailable,
+                    'SERVER_ERROR': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.NetworkError,
+                    'TIMEOUT': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.RequestTimeout,
+                    'TOO_MANY_REQUESTS': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.RateLimitExceeded,
+                    'TRADING_PAUSED': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeNotAvailable,
+                    'UNAUTHORIZED': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.AuthenticationError,
+                },
+                // Bad Request parse request payload error: failed to parse "MarketSymbol": Invalid market symbol (occurred while parsing "OrderExecutePayload")
+                // failed to parse parameter `interval`: failed to parse "KlineInterval": Expect a valid enumeration value.
+                'broad': {},
+            },
+        });
+    }
+    /**
+     * @method
+     * @name backpack#fetchCurrencies
+     * @description fetches all available currencies on an exchange
+     * @see https://docs.backpack.exchange/#tag/Assets
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} an associative dictionary of currencies
+     */
+    async fetchCurrencies(params = {}) {
+        const response = await this.publicGetApiV1Assets(params);
+        //
+        //     [
+        //         {
+        //             "coingeckoId": "jito-governance-token",
+        //             "displayName": "Jito",
+        //             "symbol": "JTO",
+        //             "tokens": [
+        //                 {
+        //                     "blockchain": "Solana",
+        //                     "contractAddress": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+        //                     "depositEnabled": true,
+        //                     "displayName": "Jito",
+        //                     "maximumWithdrawal": null,
+        //                     "minimumDeposit": "0.29",
+        //                     "minimumWithdrawal": "0.58",
+        //                     "withdrawEnabled": true,
+        //                     "withdrawalFee": "0.29"
+        //                 }
+        //             ]
+        //         }
+        //         ...
+        //     ]
+        //
+        const result = {};
+        for (let i = 0; i < response.length; i++) {
+            const currecy = response[i];
+            const currencyId = this.safeString(currecy, 'symbol');
+            const code = this.safeCurrencyCode(currencyId);
+            const networks = this.safeList(currecy, 'tokens', []);
+            const parsedNetworks = {};
+            for (let j = 0; j < networks.length; j++) {
+                const network = networks[j];
+                const networkId = this.safeString(network, 'blockchain');
+                const networkIdLowerCase = this.safeStringLower(network, 'blockchain');
+                const networkCode = this.networkIdToCode(networkIdLowerCase);
+                parsedNetworks[networkCode] = {
+                    'id': networkId,
+                    'network': networkCode,
+                    'limits': {
+                        'withdraw': {
+                            'min': this.safeNumber(network, 'minimumWithdrawal'),
+                            'max': this.parseNumber(this.omitZero(this.safeString(network, 'maximumWithdrawal'))),
+                        },
+                        'deposit': {
+                            'min': this.safeNumber(network, 'minimumDeposit'),
+                            'max': undefined,
+                        },
+                    },
+                    'active': undefined,
+                    'deposit': this.safeBool(network, 'depositEnabled'),
+                    'withdraw': this.safeBool(network, 'withdrawEnabled'),
+                    'fee': this.safeNumber(network, 'withdrawalFee'),
+                    'precision': undefined,
+                    'info': network,
+                };
+            }
+            let active = undefined;
+            let deposit = undefined;
+            let withdraw = undefined;
+            if (this.isEmpty(parsedNetworks)) { // if networks are not provided
+                active = false;
+                deposit = false;
+                withdraw = false;
+            }
+            result[code] = this.safeCurrencyStructure({
+                'id': currencyId,
+                'code': code,
+                'precision': undefined,
+                'type': 'crypto',
+                'name': this.safeString(currecy, 'displayName'),
+                'active': active,
+                'deposit': deposit,
+                'withdraw': withdraw,
+                'fee': undefined,
+                'limits': {
+                    'deposit': {
+                        'min': undefined,
+                        'max': undefined,
+                    },
+                    'withdraw': {
+                        'min': undefined,
+                        'max': undefined,
+                    },
+                },
+                'networks': parsedNetworks,
+                'info': currecy,
+            });
+        }
+        return result;
+    }
+    /**
+     * @method
+     * @name backpack#fetchMarkets
+     * @description retrieves data on all markets for bitbank
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_markets
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} an array of objects representing market data
+     */
+    async fetchMarkets(params = {}) {
+        if (this.options['adjustForTimeDifference']) {
+            await this.loadTimeDifference();
+        }
+        const response = await this.publicGetApiV1Markets(params);
+        return this.parseMarkets(response);
+    }
+    parseMarket(market) {
+        //
+        //     [
+        //         {
+        //             "baseSymbol": "SOL",
+        //             "createdAt": "2025-01-21T06:34:54.691858",
+        //             "filters": {
+        //                 "price": {
+        //                     "borrowmarketFeeMaxMultiplier": null,
+        //                     "borrowmarketFeeMinMultiplier": null,
+        //                     "maxImpactMultiplier": "1.03",
+        //                     "maxMultiplier": "1.25",
+        //                     "maxPrice": null,
+        //                     "meanMarkPriceBand": {
+        //                         "maxMultiplier": "1.15",
+        //                         "minMultiplier": "0.9"
+        //                     },
+        //                     "meanPremiumBand": null,
+        //                     "minImpactMultiplier": "0.97",
+        //                     "minMultiplier": "0.75",
+        //                     "minPrice": "0.01",
+        //                     "tickSize": "0.01"
+        //                 },
+        //                 "quantity": {
+        //                     "maxQuantity": null,
+        //                     "minQuantity": "0.01",
+        //                     "stepSize": "0.01"
+        //                 }
+        //             },
+        //             "fundingInterval": 28800000,
+        //             "fundingRateLowerBound": null,
+        //             "fundingRateUpperBound": null,
+        //             "imfFunction": null,
+        //             "marketType": "SPOT",
+        //             "mmfFunction": null,
+        //             "openInterestLimit": "0",
+        //             "orderBookState": "Open",
+        //             "quoteSymbol": "USDC",
+        //             "symbol": "SOL_USDC"
+        //         },
+        //         {
+        //             "baseSymbol": "SOL",
+        //             "createdAt": "2025-01-21T06:34:54.691858",
+        //             "filters": {
+        //                 "price": {
+        //                     "borrowEntryFeeMaxMultiplier": null,
+        //                     "borrowEntryFeeMinMultiplier": null,
+        //                     "maxImpactMultiplier": "1.03",
+        //                     "maxMultiplier": "1.25",
+        //                     "maxPrice": "1000",
+        //                     "meanMarkPriceBand": {
+        //                         "maxMultiplier": "1.1",
+        //                         "minMultiplier": "0.9"
+        //                     },
+        //                     "meanPremiumBand": {
+        //                         "tolerancePct": "0.05"
+        //                     },
+        //                     "minImpactMultiplier": "0.97",
+        //                     "minMultiplier": "0.75",
+        //                     "minPrice": "0.01",
+        //                     "tickSize": "0.01"
+        //                 },
+        //                 "quantity": {
+        //                     "maxQuantity": null,
+        //                     "minQuantity": "0.01",
+        //                     "stepSize": "0.01"
+        //                 }
+        //             },
+        //             "fundingInterval": "28800000",
+        //             "fundingRateLowerBound": "-100",
+        //             "fundingRateUpperBound": "100",
+        //             "imfFunction": {
+        //                 "base": "0.02",
+        //                 "factor": "0.0001275",
+        //                 "type": "sqrt"
+        //             },
+        //             "marketType": "PERP",
+        //             "mmfFunction": {
+        //                 "base": "0.0125",
+        //                 "factor": "0.0000765",
+        //                 "type": "sqrt"
+        //             },
+        //             "openInterestLimit": "4000000",
+        //             "orderBookState": "Open",
+        //             "quoteSymbol": "USDC",
+        //             "symbol": "SOL_USDC_PERP"
+        //         }
+        //     ]
+        //
+        const id = this.safeString(market, 'symbol');
+        const baseId = this.safeString(market, 'baseSymbol');
+        const quoteId = this.safeString(market, 'quoteSymbol');
+        const base = this.safeCurrencyCode(baseId);
+        const quote = this.safeCurrencyCode(quoteId);
+        let symbol = base + '/' + quote;
+        const filters = this.safeDict(market, 'filters', {});
+        const priceFilter = this.safeDict(filters, 'price', {});
+        const maxPrice = this.safeNumber(priceFilter, 'maxPrice');
+        const minPrice = this.safeNumber(priceFilter, 'minPrice');
+        const pricePrecision = this.safeNumber(priceFilter, 'tickSize');
+        const quantityFilter = this.safeDict(filters, 'quantity', {});
+        const maxQuantity = this.safeNumber(quantityFilter, 'maxQuantity');
+        const minQuantity = this.safeNumber(quantityFilter, 'minQuantity');
+        const amountPrecision = this.safeNumber(quantityFilter, 'stepSize');
+        let type;
+        const typeOfMarket = this.parseMarketType(this.safeString(market, 'marketType'));
+        let linear = undefined;
+        let inverse = undefined;
+        let settle = undefined;
+        let settleId = undefined;
+        let contractSize = undefined;
+        if (typeOfMarket === 'spot') {
+            type = 'spot';
+        }
+        else if (typeOfMarket === 'swap') {
+            type = 'swap';
+            linear = true;
+            inverse = false;
+            settleId = this.safeString(market, 'quoteSymbol');
+            settle = this.safeCurrencyCode(settleId);
+            symbol += ':' + settle;
+            contractSize = 1;
+        }
+        const orderBookState = this.safeString(market, 'orderBookState');
+        return this.safeMarketStructure({
+            'id': id,
+            'symbol': symbol,
+            'base': base,
+            'quote': quote,
+            'settle': settle,
+            'baseId': baseId,
+            'quoteId': quoteId,
+            'settleId': settleId,
+            'type': type,
+            'spot': type === 'spot',
+            'margin': type === 'spot',
+            'swap': type === 'swap',
+            'future': false,
+            'option': false,
+            'active': orderBookState === 'Open',
+            'contract': type !== 'spot',
+            'linear': linear,
+            'inverse': inverse,
+            'taker': undefined,
+            'maker': undefined,
+            'contractSize': contractSize,
+            'expiry': undefined,
+            'expiryDatetime': undefined,
+            'strike': undefined,
+            'optionType': undefined,
+            'precision': {
+                'amount': amountPrecision,
+                'price': pricePrecision,
+            },
+            'limits': {
+                'leverage': {
+                    'min': undefined,
+                    'max': undefined,
+                },
+                'amount': {
+                    'min': minQuantity,
+                    'max': maxQuantity,
+                },
+                'price': {
+                    'min': minPrice,
+                    'max': maxPrice,
+                },
+                'cost': {
+                    'min': undefined,
+                    'max': undefined,
+                },
+            },
+            'created': this.parse8601(this.safeString(market, 'createdAt')),
+            'info': market,
+        });
+    }
+    parseMarketType(type) {
+        const types = {
+            'SPOT': 'spot',
+            'PERP': 'swap',
+            // current types are described in the docs, but the exchange returns only 'SPOT' and 'PERP'
+            // 'IPERP': 'swap',
+            // 'DATED': 'swap',
+            // 'PREDICTION': 'swap',
+            // 'RFQ': 'swap',
+        };
+        return this.safeString(types, type, type);
+    }
+    /**
+     * @method
+     * @name backpack#fetchTickers
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_tickers
+     * @description fetches price tickers for multiple markets, statistical information calculated over the past 24 hours for each market
+     * @param {string[]|undefined} symbols unified symbols of the markets to fetch the ticker for, all market tickers are returned if not assigned
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a dictionary of [ticker structures]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async fetchTickers(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        const request = {};
+        const response = await this.publicGetApiV1Tickers(this.extend(request, params));
+        const tickers = this.parseTickers(response);
+        return this.filterByArrayTickers(tickers, 'symbol', symbols);
+    }
+    /**
+     * @method
+     * @name backpack#fetchTicker
+     * @description fetches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific market
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_ticker
+     * @param {string} symbol unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async fetchTicker(symbol, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        const request = {
+            'symbol': market['id'],
+        };
+        const response = await this.publicGetApiV1Ticker(this.extend(request, params));
+        return this.parseTicker(response, market);
+    }
+    parseTicker(ticker, market = undefined) {
+        //
+        // fetchTicker/fetchTickers
+        //
+        //     {
+        //         "firstPrice": "327.38",
+        //         "high": "337.99",
+        //         "lastPrice": "317.14",
+        //         "low": "300.01",
+        //         "priceChange": "-10.24",
+        //         "priceChangePercent": "-0.031279",
+        //         "quoteVolume": "21584.32278",
+        //         "symbol": "AAVE_USDC",
+        //         "trades": "245",
+        //         "volume": "65.823"
+        //     }, ...
+        //
+        const marketId = this.safeString(ticker, 'symbol');
+        market = this.safeMarket(marketId, market);
+        const symbol = this.safeSymbol(marketId, market);
+        const open = this.safeString(ticker, 'firstPrice');
+        const last = this.safeString(ticker, 'lastPrice');
+        const high = this.safeString(ticker, 'high');
+        const low = this.safeString(ticker, 'low');
+        const baseVolume = this.safeString(ticker, 'volume');
+        const quoteVolume = this.safeString(ticker, 'quoteVolume');
+        const percentage = this.safeString(ticker, 'priceChangePercent');
+        const change = this.safeString(ticker, 'priceChange');
+        return this.safeTicker({
+            'symbol': symbol,
+            'timestamp': undefined,
+            'datetime': undefined,
+            'high': high,
+            'low': low,
+            'bid': undefined,
+            'bidVolume': undefined,
+            'ask': undefined,
+            'askVolume': undefined,
+            'vwap': undefined,
+            'open': open,
+            'close': last,
+            'last': last,
+            'previousClose': undefined,
+            'change': change,
+            'percentage': percentage,
+            'average': undefined,
+            'baseVolume': baseVolume,
+            'quoteVolume': quoteVolume,
+            'markPrice': undefined,
+            'indexPrice': undefined,
+            'info': ticker,
+        }, market);
+    }
+    /**
+     * @method
+     * @name backpack#fetchOrderBook
+     * @description fetches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_depth
+     * @param {string} symbol unified symbol of the market to fetch the order book for
+     * @param {int} [limit] the maximum amount of order book entries to return (default 100, max 200)
+     * @param {object} [params] extra parameters specific to the bitteam api endpoint
+     * @returns {object} A dictionary of [order book structures]{@link https://github.com/ccxt/ccxt/wiki/Manual#order-book-structure} indexed by market symbols
+     */
+    async fetchOrderBook(symbol, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        const request = {
+            'symbol': market['id'],
+        };
+        const response = await this.publicGetApiV1Depth(this.extend(request, params));
+        //
+        //     {
+        //         "asks": [
+        //             ["118318.3","0.00633"],
+        //             ["118567.2","0.08450"]
+        //         ],
+        //         "bids": [
+        //             ["1.0","0.38647"],
+        //             ["12.9","1.00000"]
+        //         ],
+        //         "lastUpdateId":"1504999670",
+        //         "timestamp":1753102447307501
+        //     }
+        //
+        const microseconds = this.safeInteger(response, 'timestamp');
+        const timestamp = this.parseToInt(microseconds / 1000);
+        const orderbook = this.parseOrderBook(response, symbol, timestamp);
+        orderbook['nonce'] = this.safeInteger(response, 'lastUpdateId');
+        return orderbook;
+    }
+    /**
+     * @method
+     * @name backpack#fetchOHLCV
+     * @description fetches historical candlestick data containing the open, high, low, and close price, and the volume of a market
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_klines
+     * @param {string} symbol unified symbol of the market to fetch OHLCV data for
+     * @param {string} timeframe the length of time each candle represents
+     * @param {int} [since] timestamp in seconds of the earliest candle to fetch
+     * @param {int} [limit] the maximum amount of candles to fetch (default 100)
+     * @param {object} [params] extra parameters specific to the bitteam api endpoint
+     * @returns {int[][]} A list of candles ordered as timestamp, open, high, low, close, volume
+     */
+    async fetchOHLCV(symbol, timeframe = '1m', since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        const interval = this.safeString(this.timeframes, timeframe, timeframe);
+        const request = {
+            'symbol': market['id'],
+            'interval': interval,
+        };
+        let until = undefined;
+        [until, params] = this.handleOptionAndParams(params, 'fetchOHLCV', 'until');
+        if (until !== undefined) {
+            request['endTime'] = this.parseToInt(until / 1000); // convert milliseconds to seconds
+        }
+        const defaultLimit = 100;
+        if (since === undefined) {
+            if (limit === undefined) {
+                limit = defaultLimit;
+            }
+            const duration = this.parseTimeframe(timeframe);
+            const endTime = until ? this.parseToInt(until / 1000) : this.seconds();
+            const startTime = endTime - (limit * duration);
+            request['startTime'] = startTime;
+        }
+        else {
+            request['startTime'] = this.parseToInt(since / 1000); // convert milliseconds to seconds
+        }
+        const price = this.safeString(params, 'price');
+        if (price !== undefined) {
+            request['priceType'] = this.capitalize(price);
+            params = this.omit(params, 'price');
+        }
+        const response = await this.publicGetApiV1Klines(this.extend(request, params));
+        return this.parseOHLCVs(response, market, timeframe, since, limit);
+    }
+    parseOHLCV(ohlcv, market = undefined) {
+        //
+        //     [
+        //         {
+        //             "close": "118294.6",
+        //             "end": "2025-07-19 13:12:00",
+        //             "high": "118297.6",
+        //             "low": "118237.5",
+        //             "open": "118238",
+        //             "quoteVolume": "4106.558156",
+        //             "start": "2025-07-19 13:09:00",
+        //             "trades": "12",
+        //             "volume": "0.03473"
+        //         },
+        //         ...
+        //     ]
+        //
+        return [
+            this.parse8601(this.safeString(ohlcv, 'start')),
+            this.safeNumber(ohlcv, 'open'),
+            this.safeNumber(ohlcv, 'high'),
+            this.safeNumber(ohlcv, 'low'),
+            this.safeNumber(ohlcv, 'close'),
+            this.safeNumber(ohlcv, 'volume'),
+        ];
+    }
+    /**
+     * @method
+     * @name backpack#fetchFundingRate
+     * @description fetch the current funding rate
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_mark_prices
+     * @param {string} symbol unified market symbol
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [funding rate structure]{@link https://docs.ccxt.com/#/?id=funding-rate-structure}
+     */
+    async fetchFundingRate(symbol, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        if (market['spot']) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest(this.id + ' fetchFundingRate() symbol does not support market ' + symbol);
+        }
+        const request = {
+            'symbol': market['id'],
+        };
+        const response = await this.publicGetApiV1MarkPrices(this.extend(request, params));
+        const data = this.safeDict(response, 0, {});
+        return this.parseFundingRate(data, market);
+    }
+    parseFundingRate(contract, market = undefined) {
+        //
+        //     {
+        //         "fundingRate": "0.0001",
+        //         "indexPrice": "118333.18643195",
+        //         "markPrice": "118343.51853741",
+        //         "nextFundingTimestamp": 1753113600000,
+        //         "symbol": "BTC_USDC_PERP"
+        //     }
+        //
+        const marketId = this.safeString(contract, 'symbol');
+        market = this.safeMarket(marketId, market);
+        const symbol = this.safeSymbol(marketId, market);
+        const nextFundingTimestamp = this.safeInteger(contract, 'nextFundingTimestamp');
+        return {
+            'info': contract,
+            'symbol': symbol,
+            'markPrice': this.safeNumber(contract, 'markPrice'),
+            'indexPrice': this.safeNumber(contract, 'indexPrice'),
+            'interestRate': undefined,
+            'estimatedSettlePrice': undefined,
+            'timestamp': undefined,
+            'datetime': undefined,
+            'fundingRate': this.safeNumber(contract, 'fundingRate'),
+            'fundingTimestamp': undefined,
+            'fundingDatetime': undefined,
+            'nextFundingRate': undefined,
+            'nextFundingTimestamp': nextFundingTimestamp,
+            'nextFundingDatetime': this.iso8601(nextFundingTimestamp),
+            'previousFundingRate': undefined,
+            'previousFundingTimestamp': undefined,
+            'previousFundingDatetime': undefined,
+            'interval': '1h',
+        };
+    }
+    /**
+     * @method
+     * @name backpack#fetchOpenInterest
+     * @description Retrieves the open interest of a derivative trading pair
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_open_interest
+     * @param {string} symbol Unified CCXT market symbol
+     * @param {object} [params] exchange specific parameters
+     * @returns {object} an open interest structure{@link https://docs.ccxt.com/#/?id=interest-history-structure}
+     */
+    async fetchOpenInterest(symbol, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        if (market['spot']) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest(this.id + ' fetchOpenInterest() symbol does not support market ' + symbol);
+        }
+        const request = {
+            'symbol': market['id'],
+        };
+        const response = await this.publicGetApiV1OpenInterest(this.extend(request, params));
+        const interest = this.safeDict(response, 0, {});
+        return this.parseOpenInterest(interest, market);
+    }
+    parseOpenInterest(interest, market = undefined) {
+        //
+        //     [
+        //         {
+        //             "openInterest": "1273.85214",
+        //             "symbol": "BTC_USDC_PERP",
+        //             "timestamp":1753105735301
+        //         }
+        //     ]
+        //
+        const timestamp = this.safeInteger(interest, 'timestamp');
+        const openInterest = this.safeNumber(interest, 'openInterest');
+        return this.safeOpenInterest({
+            'symbol': market['symbol'],
+            'openInterestAmount': undefined,
+            'openInterestValue': openInterest,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'info': interest,
+        }, market);
+    }
+    /**
+     * @method
+     * @name backpack#fetchFundingRateHistory
+     * @description fetches historical funding rate prices
+     * @see https://docs.backpack.exchange/#tag/Markets/operation/get_funding_interval_rates
+     * @param {string} symbol unified symbol of the market to fetch the funding rate history for
+     * @param {int} [since] timestamp in ms of the earliest funding rate to fetch
+     * @param {int} [limit] the maximum amount of funding rate structures
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [funding rate structures]{@link https://docs.ccxt.com/#/?id=funding-rate-history-structure}
+     */
+    async fetchFundingRateHistory(symbol = undefined, since = undefined, limit = undefined, params = {}) {
+        if (symbol === undefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' fetchFundingRateHistory() requires a symbol argument');
+        }
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        const request = {
+            'symbol': market['id'],
+        };
+        if (limit !== undefined) {
+            request['limit'] = Math.min(limit, 1000); // api maximum 1000
+        }
+        const response = await this.publicGetApiV1FundingRates(this.extend(request, params));
+        //
+        //     [
+        //         {
+        //             "fundingRate": "0.0001",
+        //             "intervalEndTimestamp": "2025-07-22T00:00:00",
+        //             "symbol": "BTC_USDC_PERP"
+        //         }
+        //     ]
+        //
+        const rates = [];
+        for (let i = 0; i < response.length; i++) {
+            const rate = response[i];
+            const datetime = this.safeString(rate, 'intervalEndTimestamp');
+            const timestamp = this.parse8601(datetime);
+            rates.push({
+                'info': rate,
+                'symbol': market['symbol'],
+                'fundingRate': this.safeNumber(rate, 'fundingRate'),
+                'timestamp': timestamp,
+                'datetime': datetime,
+            });
+        }
+        const sorted = this.sortBy(rates, 'timestamp');
+        return this.filterBySymbolSinceLimit(sorted, market['symbol'], since, limit);
+    }
+    /**
+     * @method
+     * @name backpack#fetchTrades
+     * @description get the list of most recent trades for a particular symbol
+     * @see https://docs.backpack.exchange/#tag/Trades/operation/get_recent_trades
+     * @see https://docs.backpack.exchange/#tag/Trades/operation/get_historical_trades
+     * @param {string} symbol unified symbol of the market to fetch trades for
+     * @param {int} [since] timestamp in ms of the earliest trade to fetch
+     * @param {int} [limit] the maximum amount of trades to fetch
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {int} [params.offset] the number of trades to skip, default is 0
+     * @returns {Trade[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
+     */
+    async fetchTrades(symbol, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        const request = {
+            'symbol': market['id'],
+        };
+        if (limit !== undefined) {
+            request['limit'] = Math.min(limit, 1000); // api maximum 1000
+        }
+        let response = undefined;
+        const offset = this.safeInteger(params, 'offset');
+        if (offset !== undefined) {
+            response = await this.publicGetApiV1TradesHistory(this.extend(request, params));
+        }
+        else {
+            response = await this.publicGetApiV1Trades(this.extend(request, params));
+        }
+        return this.parseTrades(response, market, since, limit);
+    }
+    /**
+     * @method
+     * @name backpack#fetchMyTrades
+     * @description fetch all trades made by the user
+     * @see https://docs.backpack.exchange/#tag/History/operation/get_fills
+     * @param {string} symbol unified market symbol
+     * @param {int} [since] the earliest time in ms to fetch trades for
+     * @param {int} [limit] the maximum number of trades structures to retrieve (default 100, max 1000)
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {int} [params.until] the latest time in ms to fetch trades for
+     * @param {string} [params.fillType] 'User' (default) 'BookLiquidation' or 'Adl' or 'Backstop' or 'Liquidation' or 'AllLiquidation' or 'CollateralConversion' or 'CollateralConversionAndSpotLiquidation'
+     * @returns {Trade[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=trade-structure}
+     */
+    async fetchMyTrades(symbol = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const request = {};
+        let market = undefined;
+        if (symbol !== undefined) {
+            market = this.market(symbol);
+            request['symbol'] = market['id'];
+        }
+        if (since !== undefined) {
+            request['from'] = since;
+        }
+        if (limit !== undefined) {
+            request['limit'] = limit;
+        }
+        const until = this.safeInteger(params, 'until');
+        if (until !== undefined) {
+            params = this.omit(params, ['until']);
+            request['to'] = until;
+        }
+        const fillType = this.safeString(params, 'fillType');
+        if (fillType === undefined) {
+            request['fillType'] = 'User'; // default
+        }
+        const response = await this.privateGetWapiV1HistoryFills(this.extend(request, params));
+        return this.parseTrades(response, market, since, limit);
+    }
+    parseTrade(trade, market = undefined) {
+        //
+        // fetchTrades
+        //     {
+        //         "id": 8721564,
+        //         "isBuyerMaker": false,
+        //         "price": "117427.6",
+        //         "quantity": "0.00016",
+        //         "quoteQuantity": "18.788416",
+        //         "timestamp": 1753123916818
+        //     }
+        //
+        // fetchMyTrades
+        //     {
+        //         "clientId": null,
+        //         "fee": "0.004974",
+        //         "feeSymbol": "USDC",
+        //         "isMaker": false,
+        //         "orderId": "4238907375",
+        //         "price": "3826.15",
+        //         "quantity": "0.0026",
+        //         "side": "Bid",
+        //         "symbol": "ETH_USDC_PERP",
+        //         "systemOrderType": null,
+        //         "timestamp": "2025-07-27T17:39:00.092",
+        //         "tradeId": 9748827
+        //     }
+        //
+        const id = this.safeString2(trade, 'id', 'tradeId');
+        const marketId = this.safeString(trade, 'symbol');
+        market = this.safeMarket(marketId, market);
+        const price = this.safeString(trade, 'price');
+        const amount = this.safeString(trade, 'quantity');
+        const isMaker = this.safeBool(trade, 'isMaker');
+        const takerOrMaker = isMaker ? 'maker' : 'taker';
+        const orderId = this.safeString(trade, 'orderId');
+        const side = this.parseOrderSide(this.safeString(trade, 'side'));
+        let fee = undefined;
+        const feeAmount = this.safeString(trade, 'fee');
+        let timestamp = this.safeInteger(trade, 'timestamp');
+        if (feeAmount !== undefined) {
+            // if fetchMyTrades
+            const datetime = this.safeString(trade, 'timestamp');
+            timestamp = this.parse8601(datetime);
+        }
+        const feeSymbol = this.safeCurrencyCode(this.safeString(trade, 'feeSymbol'));
+        if (feeAmount !== undefined) {
+            fee = {
+                'cost': feeAmount,
+                'currency': feeSymbol,
+                'rate': undefined,
+            };
+        }
+        return this.safeTrade({
+            'info': trade,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'symbol': market['symbol'],
+            'id': id,
+            'order': orderId,
+            'type': undefined,
+            'side': side,
+            'takerOrMaker': takerOrMaker,
+            'price': price,
+            'amount': amount,
+            'cost': undefined,
+            'fee': fee,
+        }, market);
+    }
+    /**
+     * @method
+     * @name backpack#fetchStatus
+     * @description the latest known information on the availability of the exchange API
+     * @see https://docs.backpack.exchange/#tag/System/operation/get_status
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [status structure]{@link https://docs.ccxt.com/#/?id=exchange-status-structure}
+     */
+    async fetchStatus(params = {}) {
+        const response = await this.publicGetApiV1Status(params);
+        //
+        //     {
+        //         "message":null,
+        //         "status":"Ok"
+        //     }
+        //
+        const status = this.safeString(response, 'status');
+        return {
+            'status': status.toLowerCase(),
+            'updated': undefined,
+            'eta': undefined,
+            'url': undefined,
+            'info': response,
+        };
+    }
+    /**
+     * @method
+     * @name backpack#fetchTime
+     * @description fetches the current integer timestamp in milliseconds from the exchange server
+     * @see https://developer-pro.bitmart.com/en/spot/#get-system-time
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {int} the current integer timestamp in milliseconds from the exchange server
+     */
+    async fetchTime(params = {}) {
+        const response = await this.publicGetApiV1Time(params);
+        //
+        //     1753131712992
+        //
+        return this.safeInteger(response, 0, this.milliseconds());
+    }
+    /**
+     * @method
+     * @name backpack#fetchBalance
+     * @description query for balance and get the amount of funds available for trading or funds locked in orders
+     * @see https://docs.backpack.exchange/#tag/Capital/operation/get_balances
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [balance structure]{@link https://docs.ccxt.com/#/?id=balance-structure}
+     */
+    async fetchBalance(params = {}) {
+        await this.loadMarkets();
+        const response = await this.privateGetApiV1Capital(params);
+        return this.parseBalance(response);
+    }
+    parseBalance(response) {
+        //
+        //     {
+        //         "USDC": {
+        //             "available": "120",
+        //             "locked": "0",
+        //             "staked": "0"
+        //         }
+        //     }
+        //
+        const balanceKeys = Object.keys(response);
+        const result = {};
+        for (let i = 0; i < balanceKeys.length; i++) {
+            const id = balanceKeys[i];
+            const code = this.safeCurrencyCode(id);
+            const balance = response[id];
+            const account = this.account();
+            const locked = this.safeString(balance, 'locked');
+            const staked = this.safeString(balance, 'staked');
+            const used = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringAdd(locked, staked);
+            account['free'] = this.safeString(balance, 'available');
+            account['used'] = used;
+            result[code] = account;
+        }
+        return this.safeBalance(result);
+    }
+    /**
+     * @method
+     * @name backpack#fetchDeposits
+     * @description fetch all deposits made to an account
+     * @see https://docs.backpack.exchange/#tag/Capital/operation/get_deposits
+     * @param {string} code unified currency code
+     * @param {int} [since] the earliest time in ms to fetch deposits for
+     * @param {int} [limit] the maximum number of deposits structures to retrieve
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {int} [params.until] the latest time in ms to fetch entries for
+     * @returns {object[]} a list of [transaction structures]{@link https://docs.ccxt.com/#/?id=transaction-structure}
+     */
+    async fetchDeposits(code = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const request = {};
+        let currency = undefined;
+        if (code !== undefined) {
+            currency = this.currency(code);
+        }
+        if (since !== undefined) {
+            request['from'] = since;
+        }
+        if (limit !== undefined) {
+            request['limit'] = limit; // default 100, max 1000
+        }
+        let until = undefined;
+        [until, params] = this.handleOptionAndParams(params, 'fetchDeposits', 'until');
+        if (until !== undefined) {
+            request['endTime'] = until;
+        }
+        const response = await this.privateGetWapiV1CapitalDeposits(this.extend(request, params));
+        return this.parseTransactions(response, currency, since, limit);
+    }
+    /**
+     * @method
+     * @name backpack#fetchWithdrawals
+     * @description fetch all withdrawals made from an account
+     * @see https://docs.backpack.exchange/#tag/Capital/operation/get_withdrawals
+     * @param {string} code unified currency code of the currency transferred
+     * @param {int} [since] the earliest time in ms to fetch transfers for (default 24 hours ago)
+     * @param {int} [limit] the maximum number of transfer structures to retrieve (default 50, max 200)
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {int} [params.until] the latest time in ms to fetch transfers for (default time now)
+     * @returns {object[]} a list of [transaction structures]{@link https://docs.ccxt.com/#/?id=transaction-structure}
+     */
+    async fetchWithdrawals(code = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const request = {};
+        let currency = undefined;
+        if (code !== undefined) {
+            currency = this.currency(code);
+        }
+        if (since !== undefined) {
+            request['from'] = since;
+        }
+        if (limit !== undefined) {
+            request['limit'] = limit;
+        }
+        let until = undefined;
+        [until, params] = this.handleOptionAndParams(params, 'fetchWithdrawals', 'until');
+        if (until !== undefined) {
+            request['to'] = until;
+        }
+        const response = await this.privateGetWapiV1CapitalWithdrawals(this.extend(request, params));
+        return this.parseTransactions(response, currency, since, limit);
+    }
+    /**
+     * @method
+     * @name backpack#withdraw
+     * @description make a withdrawal
+     * @see https://docs.backpack.exchange/#tag/Capital/operation/request_withdrawal
+     * @param {string} code unified currency code
+     * @param {float} amount the amount to withdraw
+     * @param {string} address the address to withdraw to
+     * @param {string} tag
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {string} [params.network] the network to withdraw on (mandatory)
+     * @returns {object} a [transaction structure]{@link https://docs.ccxt.com/#/?id=transaction-structure}
+     */
+    async withdraw(code, amount, address, tag = undefined, params = {}) {
+        await this.loadMarkets();
+        const currency = this.currency(code);
+        const request = {
+            'symbol': currency['id'],
+            'amount': this.numberToString(amount),
+            'address': address,
+        };
+        if (tag !== undefined) {
+            request['clientId'] = tag; // memo or tag
+        }
+        const [networkCode, query] = this.handleNetworkCodeAndParams(params);
+        const networkId = this.networkCodeToId(networkCode);
+        if (networkId === undefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest(this.id + ' withdraw() requires a network parameter');
+        }
+        request['blockchain'] = networkId;
+        const response = await this.privatePostWapiV1CapitalWithdrawals(this.extend(request, query));
+        return this.parseTransaction(response, currency);
+    }
+    parseTransaction(transaction, currency = undefined) {
+        //
+        // fetchDeposits
+        //     [
+        //         {
+        //             "createdAt": "2025-07-23T13:55:54.267",
+        //             "fiatAmount": null,
+        //             "fiatCurrency": null,
+        //             "fromAddress": "0x2e3ab3e88a7dbdc763aadf5b28c18fb085af420a",
+        //             "id": 6695353,
+        //             "institutionBic": null,
+        //             "platformMemo": null,
+        //             "quantity": "120",
+        //             "source": "ethereum",
+        //             "status": "confirmed",
+        //             "symbol": "USDC",
+        //             "toAddress": "0xfBe7CbfCde93c8a4204a4be6B56732Eb32690170",
+        //             "transactionHash": "0x58edaac415398d617b34c6673fffcaf0024990d5700565030119db5cbf3765d1"
+        //         }
+        //     ]
+        //
+        // withdraw
+        //     {
+        //         "accountIdentifier": null,
+        //         "bankIdentifier": null,
+        //         "bankName": null,
+        //         "blockchain": "Ethereum",
+        //         "clientId": null,
+        //         "createdAt": "2025-08-13T19:27:13.817",
+        //         "fee": "3",
+        //         "fiatFee": null,
+        //         "fiatState": null,
+        //         "fiatSymbol": null,
+        //         "id": 5479929,
+        //         "identifier": null,
+        //         "isInternal": false,
+        //         "providerId": null,
+        //         "quantity": "10",
+        //         "status": "pending",
+        //         "subaccountId": null,
+        //         "symbol": "USDC",
+        //         "toAddress": "0x0ad42b8e602c2d3d475ae52d678cf63d84ab2749",
+        //         "transactionHash": null,
+        //         "triggerAt": null
+        //     }
+        //
+        // fetchWithdrawals
+        //     [
+        //         {
+        //             "accountIdentifier": null,
+        //             "bankIdentifier": null,
+        //             "bankName": null,
+        //             "blockchain": "Ethereum",
+        //             "clientId": null,
+        //             "createdAt": "2025-08-13T19:27:13.817",
+        //             "fee": "3",
+        //             "fiatFee": null,
+        //             "fiatState": null,
+        //             "fiatSymbol": null,
+        //             "id": 5479929,
+        //             "identifier": null,
+        //             "isInternal": false,
+        //             "providerId": null,
+        //             "quantity": "10",
+        //             "status": "confirmed",
+        //             "subaccountId": null,
+        //             "symbol": "USDC",
+        //             "toAddress": "0x0ad42b8e602c2d3d475ae52d678cf63d84ab2749",
+        //             "transactionHash": "0x658b6d082af4afa0d3cf85caf344ff7c19d980117726bf193b00d8850f8746a1",
+        //             "triggerAt": null
+        //         }
+        //     ]
+        //
+        const status = this.parseTransactionStatus(this.safeString(transaction, 'status'));
+        const id = this.safeString(transaction, 'id');
+        const txid = this.safeString(transaction, 'transactionHash');
+        const coin = this.safeString(transaction, 'symbol');
+        const code = this.safeCurrencyCode(coin, currency);
+        const timestamp = this.parse8601(this.safeString(transaction, 'createdAt'));
+        const amount = this.safeNumber(transaction, 'quantity');
+        const networkId = this.safeStringLower2(transaction, 'source', 'blockchain');
+        const network = this.networkIdToCode(networkId);
+        const addressTo = this.safeString(transaction, 'toAddress');
+        const addressFrom = this.safeString(transaction, 'fromAddress');
+        const tag = this.safeString(transaction, 'platformMemo');
+        const feeCost = this.safeNumber(transaction, 'fee');
+        const internal = this.safeBool(transaction, 'isInternal', false);
+        let fee = undefined;
+        if (feeCost !== undefined) {
+            fee = {
+                'cost': feeCost,
+                'currency': code,
+            };
+        }
+        return {
+            'info': transaction,
+            'id': id,
+            'txid': txid,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'network': network,
+            'address': undefined,
+            'addressTo': addressTo,
+            'addressFrom': addressFrom,
+            'tag': tag,
+            'tagTo': undefined,
+            'tagFrom': undefined,
+            'type': undefined,
+            'amount': amount,
+            'currency': code,
+            'status': status,
+            'updated': undefined,
+            'internal': internal,
+            'comment': undefined,
+            'fee': fee,
+        };
+    }
+    parseTransactionStatus(status) {
+        const statuses = {
+            'cancelled': 'cancelled',
+            'confirmed': 'ok',
+            'declined': 'declined',
+            'expired': 'expired',
+            'initiated': 'initiated',
+            'pending': 'pending',
+            'refunded': 'refunded',
+            'information required': 'pending',
+        };
+        return this.safeString(statuses, status, status);
+    }
+    /**
+     * @method
+     * @name backpack#fetchDepositAddress
+     * @description fetch the deposit address for a currency associated with this account
+     * @see https://docs.backpack.exchange/#tag/Capital/operation/get_deposit_address
+     * @param {string} code unified currency code
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {string} [params.networkCode] the network to fetch the deposit address (mandatory)
+     * @returns {object} an [address structure]{@link https://docs.ccxt.com/#/?id=address-structure}
+     */
+    async fetchDepositAddress(code, params = {}) {
+        await this.loadMarkets();
+        let networkCode = undefined;
+        [networkCode, params] = this.handleNetworkCodeAndParams(params);
+        if (networkCode === undefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' fetchDepositAddress() requires a network parameter, see https://docs.ccxt.com/#/?id=network-codes');
+        }
+        const currency = this.currency(code);
+        const request = {
+            'blockchain': this.networkCodeToId(networkCode),
+        };
+        const response = await this.privateGetWapiV1CapitalDepositAddress(this.extend(request, params));
+        return this.parseDepositAddress(response, currency);
+    }
+    parseDepositAddress(depositAddress, currency = undefined) {
+        //
+        //     {
+        //         "address": "0xfBe7CbfCde93c8a4204a4be6B56732Eb32690170"
+        //     }
+        //
+        const address = this.safeString(depositAddress, 'address');
+        const currencyId = this.safeString(depositAddress, 'currency');
+        currency = this.safeCurrency(currencyId, currency);
+        return {
+            'info': depositAddress,
+            'currency': currency['code'],
+            'network': undefined,
+            'address': address,
+            'tag': undefined,
+        };
+    }
+    /**
+     * @method
+     * @name backpack#createOrder
+     * @description create a trade order
+     * @see https://docs.backpack.exchange/#tag/Order/operation/execute_order
+     * @param {string} symbol unified symbol of the market to create an order in
+     * @param {string} type 'market' or 'limit'
+     * @param {string} side 'buy' or 'sell'
+     * @param {float} amount how much of currency you want to trade in units of base currency
+     * @param {float} [price] the price at which the order is to be fullfilled, in units of the quote currency, ignored in market orders
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {float} [params.cost] *market orders only* the cost of the order in units of the quote currency (could be used instead of amount)
+     * @param {int} [params.clientOrderId] a unique id for the order
+     * @param {boolean} [params.postOnly] true to place a post only order
+     * @param {string} [params.timeInForce] 'GTC', 'IOC', 'FOK' or 'PO'
+     * @param {bool} [params.reduceOnly] *contract only* Indicates if this order is to reduce the size of a position
+     * @param {string} [params.selfTradePrevention] 'RejectTaker', 'RejectMaker' or 'RejectBoth'
+     * @param {bool} [params.autoLend] *spot margin only* if true then the order can lend
+     * @param {bool} [params.autoLendRedeem] *spot margin only* if true then the order can redeem a lend if required
+     * @param {bool} [params.autoBorrow] *spot margin only* if true then the order can borrow
+     * @param {bool} [params.autoBorrowRepay] *spot margin only* if true then the order can repay a borrow
+     * @param {float} [params.triggerPrice] the price that a trigger order is triggered at
+     * @param {object} [params.takeProfit] *swap markets only - takeProfit object in params* containing the triggerPrice at which the attached take profit order will be triggered
+     * @param {float} [params.takeProfit.triggerPrice] take profit trigger price
+     * @param {float} [params.takeProfit.price] take profit order price (if not provided the order will be a market order)
+     * @param {object} [params.stopLoss] *swap markets only - stopLoss object in params* containing the triggerPrice at which the attached stop loss order will be triggered
+     * @param {float} [params.stopLoss.triggerPrice] stop loss trigger price
+     * @param {float} [params.stopLoss.price] stop loss order price (if not provided the order will be a market order)
+     * @returns {object} an [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async createOrder(symbol, type, side, amount, price = undefined, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        const orderRequest = this.createOrderRequest(symbol, type, side, amount, price, params);
+        const response = await this.privatePostApiV1Order(orderRequest);
+        return this.parseOrder(response, market);
+    }
+    /**
+     * @method
+     * @name backpack#createOrders
+     * @description create a list of trade orders
+     * @see https://docs.backpack.exchange/#tag/Order/operation/execute_order_batch
+     * @param {Array} orders list of orders to create, each object should contain the parameters required by createOrder, namely symbol, type, side, amount, price and params
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} an [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async createOrders(orders, params = {}) {
+        await this.loadMarkets();
+        const ordersRequests = [];
+        for (let i = 0; i < orders.length; i++) {
+            const rawOrder = orders[i];
+            const marketId = this.safeString(rawOrder, 'symbol');
+            const type = this.safeString(rawOrder, 'type');
+            const side = this.safeString(rawOrder, 'side');
+            const amount = this.safeNumber(rawOrder, 'amount');
+            const price = this.safeNumber(rawOrder, 'price');
+            const orderParams = this.safeDict(rawOrder, 'params', {});
+            const extendedParams = this.extend(orderParams, params); // the request does not accept extra params since it's a list, so we're extending each order with the common params
+            const orderRequest = this.createOrderRequest(marketId, type, side, amount, price, extendedParams);
+            ordersRequests.push(orderRequest);
+        }
+        const response = await this.privatePostApiV1Orders(ordersRequests);
+        return this.parseOrders(response);
+    }
+    createOrderRequest(symbol, type, side, amount, price = undefined, params = {}) {
+        const market = this.market(symbol);
+        const request = {
+            'symbol': market['id'],
+            'side': this.encodeOrderSide(side),
+            'orderType': this.capitalize(type),
+        };
+        const triggerPrice = this.safeString(params, 'triggerPrice');
+        const isTriggerOrder = triggerPrice !== undefined;
+        const quantityKey = isTriggerOrder ? 'triggerQuantity' : 'quantity';
+        // handle basic limit/market order types
+        if (type === 'limit') {
+            request['price'] = this.priceToPrecision(symbol, price);
+            request[quantityKey] = this.amountToPrecision(symbol, amount);
+        }
+        else if (type === 'market') {
+            const cost = this.safeString2(params, 'cost', 'quoteQuantity');
+            if (cost !== undefined) {
+                request['quoteQuantity'] = this.costToPrecision(symbol, cost);
+                params = this.omit(params, ['cost', 'quoteQuantity']);
+            }
+            else {
+                request[quantityKey] = this.amountToPrecision(symbol, amount);
+            }
+        }
+        // trigger orders
+        if (isTriggerOrder) {
+            request['triggerPrice'] = this.priceToPrecision(symbol, triggerPrice);
+            params = this.omit(params, 'triggerPrice');
+        }
+        const clientOrderId = this.safeInteger(params, 'clientOrderId'); // the exchange requires uint
+        if (clientOrderId !== undefined) {
+            request['clientId'] = clientOrderId;
+            params = this.omit(params, 'clientOrderId');
+        }
+        let postOnly = false;
+        [postOnly, params] = this.handlePostOnly(type === 'market', false, params);
+        if (postOnly) {
+            params['postOnly'] = true;
+        }
+        const takeProfit = this.safeDict(params, 'takeProfit');
+        if (takeProfit !== undefined) {
+            const takeProfitTriggerPrice = this.safeString(takeProfit, 'triggerPrice');
+            if (takeProfitTriggerPrice !== undefined) {
+                request['takeProfitTriggerPrice'] = this.priceToPrecision(symbol, takeProfitTriggerPrice);
+            }
+            const takeProfitPrice = this.safeString(takeProfit, 'price');
+            if (takeProfitPrice !== undefined) {
+                request['takeProfitLimitPrice'] = this.priceToPrecision(symbol, takeProfitPrice);
+            }
+            params = this.omit(params, 'takeProfit');
+        }
+        const stopLoss = this.safeDict(params, 'stopLoss');
+        if (stopLoss !== undefined) {
+            const stopLossTriggerPrice = this.safeString(stopLoss, 'triggerPrice');
+            if (stopLossTriggerPrice !== undefined) {
+                request['stopLossTriggerPrice'] = this.priceToPrecision(symbol, stopLossTriggerPrice);
+            }
+            const stopLossPrice = this.safeString(stopLoss, 'price');
+            if (stopLossPrice !== undefined) {
+                request['stopLossLimitPrice'] = this.priceToPrecision(symbol, stopLossPrice);
+            }
+            params = this.omit(params, 'stopLoss');
+        }
+        return this.extend(request, params);
+    }
+    encodeOrderSide(side) {
+        const sides = {
+            'buy': 'Bid',
+            'sell': 'Ask',
+        };
+        return this.safeString(sides, side, side);
+    }
+    /**
+     * @method
+     * @name backpack#fetchOpenOrders
+     * @description fetch all unfilled currently open orders
+     * @see https://docs.backpack.exchange/#tag/Order/operation/get_open_orders
+     * @param {string} symbol unified market symbol
+     * @param {int} [since] the earliest time in ms to fetch open orders for
+     * @param {int} [limit] the maximum number of open orders structures to retrieve
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {Order[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async fetchOpenOrders(symbol = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const request = {};
+        let market = undefined;
+        if (symbol !== undefined) {
+            market = this.market(symbol);
+            request['symbol'] = market['id'];
+        }
+        const response = await this.privateGetApiV1Orders(this.extend(request, params));
+        return this.parseOrders(response, market, since, limit);
+    }
+    /**
+     * @method
+     * @name backpack#fetchOpenOrder
+     * @description fetch an open order by it's id
+     * @see https://docs.backpack.exchange/#tag/Order/operation/get_order
+     * @param {string} id order id
+     * @param {string} symbol not used by hollaex fetchOpenOrder ()
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} an [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async fetchOpenOrder(id, symbol = undefined, params = {}) {
+        await this.loadMarkets();
+        if (symbol === undefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' fetchOpenOrder() requires a symbol argument');
+        }
+        const market = this.market(symbol);
+        const request = {
+            'symbol': market['id'],
+            'orderId': id,
+        };
+        const response = await this.privateGetApiV1Order(this.extend(request, params));
+        return this.parseOrder(response);
+    }
+    /**
+     * @method
+     * @name backpack#cancelOrder
+     * @description cancels an open order
+     * @see https://docs.backpack.exchange/#tag/Order/operation/cancel_order
+     * @param {string} id order id
+     * @param {string} symbol unified symbol of the market the order was made in
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} An [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async cancelOrder(id, symbol = undefined, params = {}) {
+        await this.loadMarkets();
+        if (symbol === undefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' cancelOrder() requires a symbol argument');
+        }
+        const market = this.market(symbol);
+        const request = {
+            'orderId': id,
+            'symbol': market['id'],
+        };
+        const response = await this.privateDeleteApiV1Order(this.extend(request, params));
+        return this.parseOrder(response);
+    }
+    /**
+     * @method
+     * @name backpack#cancelAllOrders
+     * @description cancel all open orders
+     * @see https://docs.backpack.exchange/#tag/Order/operation/cancel_open_orders
+     * @param {string} symbol unified market symbol, only orders in the market of this symbol are cancelled when symbol is not undefined
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async cancelAllOrders(symbol = undefined, params = {}) {
+        await this.loadMarkets();
+        if (symbol === undefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' cancelOrder() requires a symbol argument');
+        }
+        const market = this.market(symbol);
+        const request = {
+            'symbol': market['id'],
+        };
+        const response = await this.privateDeleteApiV1Orders(this.extend(request, params));
+        return this.parseOrders(response, market);
+    }
+    /**
+     * @method
+     * @name backpack#fetchOrders
+     * @description fetches information on multiple orders made by the user
+     * @see https://docs.backpack.exchange/#tag/History/operation/get_order_history
+     * @param {string} symbol unified market symbol of the market orders were made in
+     * @param {int} [since] the earliest time in ms to fetch orders for
+     * @param {int} [limit] the maximum number of  orde structures to retrieve (default 100, max 1000)
+     * @param {object} [params] extra parameters specific to the bitteam api endpoint
+     * @returns {Order[]} a list of [order structures]{@link https://github.com/ccxt/ccxt/wiki/Manual#order-structure}
+     */
+    async fetchOrders(symbol = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const request = {};
+        let market = undefined;
+        if (symbol !== undefined) {
+            market = this.market(symbol);
+            request['symbol'] = market['id'];
+        }
+        if (limit !== undefined) {
+            request['limit'] = limit;
+        }
+        const response = await this.privateGetWapiV1HistoryOrders(this.extend(request, params));
+        return this.parseOrders(response, market, since, limit);
+    }
+    parseOrder(order, market = undefined) {
+        //
+        //     {
+        //         "clientId": null,
+        //         "createdAt": 1753624283415,
+        //         "executedQuantity": "0.001",
+        //         "executedQuoteQuantity": "3.81428",
+        //         "id": "4227701917",
+        //         "orderType": "Market",
+        //         "quantity": "0.001",
+        //         "quoteQuantity": "3.82",
+        //         "reduceOnly": null,
+        //         "relatedOrderId": null,
+        //         "selfTradePrevention": "RejectTaker",
+        //         "side": "Bid",
+        //         "status": "Filled",
+        //         "stopLossLimitPrice": null,
+        //         "stopLossTriggerBy": null,
+        //         "stopLossTriggerPrice": null,
+        //         "strategyId": null,
+        //         "symbol": "ETH_USDC",
+        //         "takeProfitLimitPrice": null,
+        //         "takeProfitTriggerBy": null,
+        //         "takeProfitTriggerPrice": null,
+        //         "timeInForce": "GTC",
+        //         "triggerBy": null,
+        //         "triggerPrice": null,
+        //         "triggerQuantity": null,
+        //         "triggeredAt": null
+        //     }
+        //
+        // fetchOpenOrders
+        //     {
+        //         "clientId": 123456789,
+        //         "createdAt": 1753626206762,
+        //         "executedQuantity": "0",
+        //         "executedQuoteQuantity": "0",
+        //         "id": "4228978330",
+        //         "orderType": "Limit",
+        //         "postOnly": true,
+        //         "price": "3000",
+        //         "quantity": "0.001",
+        //         "reduceOnly": null,
+        //         "relatedOrderId": null,
+        //         "selfTradePrevention": "RejectTaker",
+        //         "side": "Bid",
+        //         "status": "New",
+        //         "stopLossLimitPrice": null,
+        //         "stopLossTriggerBy": null,
+        //         "stopLossTriggerPrice": null,
+        //         "strategyId": null,
+        //         "symbol": "ETH_USDC",
+        //         "takeProfitLimitPrice": null,
+        //         "takeProfitTriggerBy": null,
+        //         "takeProfitTriggerPrice": null,
+        //         "timeInForce": "GTC",
+        //         "triggerBy": null,
+        //         "triggerPrice": null,
+        //         "triggerQuantity": null,
+        //         "triggeredAt": null
+        //     }
+        //
+        // fetchOrders
+        //     {
+        //         "clientId": null,
+        //         "createdAt": "2025-07-27T18:05:40.897",
+        //         "executedQuantity": "0",
+        //         "executedQuoteQuantity": "0",
+        //         "expiryReason": null,
+        //         "id": "4239996998",
+        //         "orderType": "Limit",
+        //         "postOnly": false,
+        //         "price": "4500",
+        //         "quantity": null,
+        //         "quoteQuantity": null,
+        //         "selfTradePrevention": "RejectTaker",
+        //         "side": "Ask",
+        //         "status": "Cancelled",
+        //         "stopLossLimitPrice": null,
+        //         "stopLossTriggerBy": null,
+        //         "stopLossTriggerPrice": null,
+        //         "strategyId": null,
+        //         "symbol": "ETH_USDC",
+        //         "systemOrderType": null,
+        //         "takeProfitLimitPrice": null,
+        //         "takeProfitTriggerBy": null,
+        //         "takeProfitTriggerPrice": null,
+        //         "timeInForce": "GTC",
+        //         "triggerBy": null,
+        //         "triggerPrice": "4300",
+        //         "triggerQuantity": "0.001"
+        //     }
+        //
+        let timestamp = this.safeInteger(order, 'createdAt');
+        const timestamp2 = this.parse8601(this.safeString(order, 'createdAt'));
+        if (timestamp2 !== undefined) {
+            timestamp = timestamp2;
+        }
+        const id = this.safeString(order, 'id');
+        const clientOrderId = this.safeString(order, 'clientId');
+        const symbol = this.safeSymbol(this.safeString(order, 'symbol'), market);
+        const type = this.safeStringLower(order, 'orderType');
+        const timeInForce = this.safeString(order, 'timeInForce');
+        const side = this.parseOrderSide(this.safeString(order, 'side'));
+        const amount = this.safeString2(order, 'quantity', 'triggerQuantity');
+        const price = this.safeString(order, 'price');
+        const cost = this.safeString(order, 'executedQuoteQuantity');
+        const status = this.parseOrderStatus(this.safeString(order, 'status'));
+        const triggerPrice = this.safeString(order, 'triggerPrice');
+        const filled = this.safeString(order, 'executedQuantity');
+        const reduceOnly = this.safeBool(order, 'reduceOnly');
+        const postOnly = this.safeBool(order, 'postOnly');
+        const stopLossPrice = this.safeString2(order, 'stopLossLimitPrice', 'stopLossTriggerPrice');
+        const takeProfitPrice = this.safeString2(order, 'takeProfitLimitPrice', 'takeProfitTriggerPrice');
+        return this.safeOrder({
+            'info': order,
+            'id': id,
+            'clientOrderId': clientOrderId,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'lastTradeTimestamp': undefined,
+            'symbol': symbol,
+            'type': type,
+            'timeInForce': timeInForce,
+            'postOnly': postOnly,
+            'reduceOnly': reduceOnly,
+            'side': side,
+            'price': price,
+            'triggerPrice': triggerPrice,
+            'stopLossPrice': stopLossPrice,
+            'takeProfitPrice': takeProfitPrice,
+            'amount': amount,
+            'cost': cost,
+            'average': undefined,
+            'filled': filled,
+            'remaining': undefined,
+            'status': status,
+            'fee': undefined,
+            'trades': undefined,
+        }, market);
+    }
+    parseOrderStatus(status) {
+        const statuses = {
+            'New': 'open',
+            'Filled': 'closed',
+            'Cancelled': 'canceled',
+            'Expired': 'canceled',
+            'PartiallyFilled': 'open',
+            'TriggerPending': 'open',
+            'TriggerFailed': 'rejected',
+        };
+        return this.safeString(statuses, status, status);
+    }
+    parseOrderSide(side) {
+        const sides = {
+            'Bid': 'buy',
+            'Ask': 'sell',
+        };
+        return this.safeString(sides, side, side);
+    }
+    /**
+     * @method
+     * @name backpack#fetchPositions
+     * @description fetch all open positions
+     * @see https://docs.backpack.exchange/#tag/Futures/operation/get_positions
+     * @param {string[]|undefined} symbols list of unified market symbols
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [position structure]{@link https://docs.ccxt.com/#/?id=position-structure}
+     */
+    async fetchPositions(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        const response = await this.privateGetApiV1Position(params);
+        const positions = this.parsePositions(response);
+        if (this.isEmpty(symbols)) {
+            return positions;
+        }
+        symbols = this.marketSymbols(symbols);
+        return this.filterByArrayPositions(positions, 'symbol', symbols, false);
+    }
+    parsePosition(position, market = undefined) {
+        //
+        // fetchPositions
+        //     {
+        //         "breakEvenPrice": "3831.3630555555555555555555556",
+        //         "cumulativeFundingPayment": "-0.009218",
+        //         "cumulativeInterest": "0",
+        //         "entryPrice": "3826.8888888888888888888888889",
+        //         "estLiquidationPrice": "0",
+        //         "imf": "0.02",
+        //         "imfFunction": {
+        //             "base": "0.02",
+        //             "factor": "0.0000935",
+        //             "type": "sqrt"
+        //         },
+        //         "markPrice": "3787.46813304",
+        //         "mmf": "0.0125",
+        //         "mmfFunction": {
+        //             "base": "0.0125",
+        //             "factor": "0.0000561",
+        //             "type": "sqrt"
+        //         },
+        //         "netCost": "13.7768",
+        //         "netExposureNotional": "13.634885278944",
+        //         "netExposureQuantity": "0.0036",
+        //         "netQuantity": "0.0036",
+        //         "pnlRealized": "0",
+        //         "pnlUnrealized": "-0.141914",
+        //         "positionId": "4238420454",
+        //         "subaccountId": null,
+        //         "symbol": "ETH_USDC_PERP",
+        //         "userId":1813870
+        //     }
+        //
+        //
+        const id = this.safeString(position, 'positionId');
+        const marketId = this.safeString(position, 'symbol');
+        market = this.safeMarket(marketId, market);
+        const symbol = market['symbol'];
+        const entryPrice = this.safeString(position, 'entryPrice');
+        const markPrice = this.safeString(position, 'markPrice');
+        const netCost = this.safeString(position, 'netCost');
+        let hedged = false;
+        let side = 'long';
+        if (_base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringLt(netCost, '0')) {
+            side = 'short';
+        }
+        if (netCost === undefined) {
+            hedged = undefined;
+            side = undefined;
+        }
+        const unrealizedPnl = this.safeString(position, 'pnlUnrealized');
+        const realizedPnl = this.safeString(position, 'pnlRealized');
+        const liquidationPrice = this.safeString(position, 'estLiquidationPrice');
+        return this.safePosition({
+            'info': position,
+            'id': id,
+            'symbol': symbol,
+            'timestamp': this.parse8601(this.safeString(position, 'timestamp')),
+            'datetime': this.iso8601(this.parse8601(this.safeString(position, 'timestamp'))),
+            'lastUpdateTimestamp': undefined,
+            'hedged': hedged,
+            'side': side,
+            'contracts': this.safeString(position, 'netExposureQuantity'),
+            'contractSize': undefined,
+            'entryPrice': entryPrice,
+            'markPrice': markPrice,
+            'lastPrice': undefined,
+            'notional': _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringAbs(netCost),
+            'leverage': undefined,
+            'collateral': undefined,
+            'initialMargin': undefined,
+            'initialMarginPercentage': this.safeString(position, 'imf'),
+            'maintenanceMargin': undefined,
+            'maintenanceMarginPercentage': this.safeString(position, 'mmf'),
+            'realizedPnl': realizedPnl,
+            'unrealizedPnl': unrealizedPnl,
+            'liquidationPrice': liquidationPrice,
+            'marginMode': undefined,
+            'marginRatio': undefined,
+            'percentage': undefined,
+            'stopLossPrice': undefined,
+            'takeProfitPrice': undefined,
+        });
+    }
+    /**
+     * @method
+     * @name backpack#fetchFundingHistory
+     * @description fetches the history of funding payments
+     * @see https://docs.backpack.exchange/#tag/History/operation/get_funding_payments
+     * @param {string} symbol unified symbol of the market to fetch trades for
+     * @param {int} [since] timestamp in ms of the earliest trade to fetch (default 24 hours ago)
+     * @param {int} [limit] the maximum amount of trades to fetch (default 200, max 500)
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {int} [params.until] timestamp in ms of the latest trade to fetch (default now)
+     * @returns {Trade[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
+     */
+    async fetchFundingHistory(symbol = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        const request = {};
+        let market = undefined;
+        if (symbol !== undefined) {
+            market = this.market(symbol);
+            request['symbol'] = market['id'];
+        }
+        if (limit !== undefined) {
+            request['limit'] = limit;
+        }
+        const response = await this.privateGetWapiV1HistoryFunding(this.extend(request, params));
+        return this.parseIncomes(response, market, since, limit);
+    }
+    parseIncome(income, market = undefined) {
+        //
+        //     {
+        //         "fundingRate": "0.0001",
+        //         "intervalEndTimestamp": "2025-08-01T16:00:00",
+        //         "quantity": "-0.001301",
+        //         "subaccountId": 0,
+        //         "symbol": "ETH_USDC_PERP",
+        //         "userId": 1813870
+        //     }
+        //
+        const marketId = this.safeString(income, 'symbol');
+        const symbol = this.safeSymbol(marketId, market);
+        const amount = this.safeNumber(income, 'quantity');
+        const id = this.safeString(income, 'userId');
+        const timestamp = this.parse8601(this.safeString(income, 'intervalEndTimestamp'));
+        const rate = this.safeNumber(income, 'fundingRate');
+        return {
+            'info': income,
+            'symbol': symbol,
+            'code': undefined,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'id': id,
+            'amount': amount,
+            'rate': rate,
+        };
+    }
+    nonce() {
+        return this.milliseconds() - this.options['timeDifference'];
+    }
+    sign(path, api = 'public', method = 'GET', params = {}, headers = undefined, body = undefined) {
+        let endpoint = '/' + path;
+        let url = this.urls['api'][api];
+        const sortedParams = Array.isArray(params) ? params : this.keysort(params);
+        if (api === 'private') {
+            this.checkRequiredCredentials();
+            const ts = this.nonce().toString();
+            const recvWindow = this.safeString2(this.options, 'recvWindow', 'X-Window', '5000');
+            const optionInstructions = this.safeDict(this.options, 'instructions', {});
+            const optionPathInstructions = this.safeDict(optionInstructions, path, {});
+            const instruction = this.safeString(optionPathInstructions, method, '');
+            let payload = '';
+            if ((path === 'api/v1/orders') && (method === 'POST')) { // for createOrders
+                payload = this.generateBatchPayload(sortedParams, ts, recvWindow, instruction);
+            }
+            else {
+                let queryString = this.urlencode(sortedParams);
+                if (queryString.length > 0) {
+                    queryString += '&';
+                }
+                payload = 'instruction=' + instruction + '&' + queryString + 'timestamp=' + ts + '&window=' + recvWindow;
+            }
+            const secretBytes = this.base64ToBinary(this.secret);
+            const seed = this.arraySlice(secretBytes, 0, 32);
+            const signature = (0,_base_functions_crypto_js__WEBPACK_IMPORTED_MODULE_4__/* .eddsa */ .q4)(this.encode(payload), seed, _static_dependencies_noble_curves_ed25519_js__WEBPACK_IMPORTED_MODULE_5__/* .ed25519 */ .ev);
+            headers = {
+                'X-Timestamp': ts,
+                'X-Window': recvWindow,
+                'X-API-Key': this.apiKey,
+                'X-Signature': signature,
+                'X-Broker-Id': '1400',
+            };
+            if (method !== 'GET') {
+                body = this.json(sortedParams);
+                headers['Content-Type'] = 'application/json';
+            }
+        }
+        if (method === 'GET') {
+            const query = this.urlencode(sortedParams);
+            if (query.length !== 0) {
+                endpoint += '?' + query;
+            }
+        }
+        url += endpoint;
+        return { 'url': url, 'method': method, 'body': body, 'headers': headers };
+    }
+    generateBatchPayload(params, ts, recvWindow, instruction) {
+        let payload = '';
+        for (let i = 0; i < params.length; i++) {
+            const order = this.safeDict(params, i, {});
+            const sortedOrder = this.keysort(order);
+            const orderQuery = this.urlencode(sortedOrder);
+            payload += 'instruction=' + instruction + '&' + orderQuery + '&';
+            if (i === (params.length - 1)) {
+                payload += 'timestamp=' + ts + '&window=' + recvWindow;
+            }
+        }
+        return payload;
+    }
+    handleErrors(code, reason, url, method, headers, body, response, requestHeaders, requestBody) {
+        if (response === undefined) {
+            return undefined; // fallback to default error handler
+        }
+        //
+        // {"code":"INVALID_ORDER","message":"Invalid order"}
+        // {"code":"INVALID_CLIENT_REQUEST","message":"Must specify both `triggerPrice` and `triggerQuantity` or neither"}
+        //
+        const errorCode = this.safeString(response, 'code');
+        const message = this.safeString(response, 'message');
+        if (errorCode !== undefined) {
+            const feedback = this.id + ' ' + body;
+            this.throwExactlyMatchedException(this.exceptions['exact'], errorCode, feedback);
+            this.throwExactlyMatchedException(this.exceptions['exact'], message, feedback);
+            this.throwBroadlyMatchedException(this.exceptions['broad'], message, feedback);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(feedback); // unknown message
+        }
+        return undefined;
+    }
+}
+
+
+/***/ }),
+
 /***/ 2961:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -9104,7 +11393,7 @@ class ascendex extends _abstract_ascendex_js__WEBPACK_IMPORTED_MODULE_0__/* ["de
 /* harmony export */   k: () => (/* binding */ Exchange)
 /* harmony export */ });
 /* unused harmony export default */
-/* harmony import */ var _functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5095);
+/* harmony import */ var _functions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5095);
 /* harmony import */ var _functions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7437);
 /* harmony import */ var _functions_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6238);
 /* harmony import */ var _errors_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2079);
@@ -9118,16 +11407,14 @@ class ascendex extends _abstract_ascendex_js__WEBPACK_IMPORTED_MODULE_0__/* ["de
 /* harmony import */ var _static_dependencies_ethers_hash_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(4380);
 /* harmony import */ var _static_dependencies_jsencrypt_lib_jsbn_rng_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(447);
 /* harmony import */ var _static_dependencies_scure_starknet_index_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(3187);
-/* harmony import */ var _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7661);
+/* harmony import */ var _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7661);
 /* harmony import */ var _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(6907);
 /* harmony import */ var _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(9793);
 /* harmony import */ var _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(9491);
 /* harmony import */ var _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(1878);
 /* harmony import */ var _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(4852);
 // ----------------------------------------------------------------------------
-/* eslint-disable */
 
-const { isNode, selfIsDefined, deepExtend, extend, clone, flatten, unique, indexBy, sortBy, sortBy2, safeFloat2, groupBy, aggregate, uuid, unCamelCase, precisionFromString, Throttler, capitalize, now, decimalToPrecision, safeValue, safeValue2, safeString, safeString2, seconds, milliseconds, binaryToBase16, numberToBE, base16ToBinary, iso8601, omit, isJsonEncodedObject, safeInteger, sum, omitZero, implodeParams, extractParams, json, merge, binaryConcat, hash, ecdsa, arrayConcat, encode, urlencode, hmac, numberToString, roundTimeframe, parseTimeframe, safeInteger2, safeStringLower, parse8601, yyyymmdd, safeStringUpper, safeTimestamp, binaryConcatArray, uuidv1, numberToLE, ymdhms, stringToBase64, decode, uuid22, safeIntegerProduct2, safeIntegerProduct, safeStringLower2, yymmdd, base58ToBinary, binaryToBase58, safeTimestamp2, rawencode, keysort, sort, inArray, isEmpty, ordered, filterBy, uuid16, safeFloat, base64ToBinary, safeStringUpper2, urlencodeWithArrayRepeat, microseconds, binaryToBase64, strip, toArray, safeFloatN, safeIntegerN, safeIntegerProductN, safeTimestampN, safeValueN, safeStringN, safeStringLowerN, safeStringUpperN, urlencodeNested, urlencodeBase64, parseDate, ymd, base64ToString, crc32, packb, TRUNCATE, ROUND, DECIMAL_PLACES, NO_PADDING, TICK_SIZE, SIGNIFICANT_DIGITS, sleep } = _functions_js__WEBPACK_IMPORTED_MODULE_0__;
 
 // import exceptions from "./errors.js"
 
@@ -9147,23 +11434,26 @@ const { isNode, selfIsDefined, deepExtend, extend, clone, flatten, unique, index
 
 
 
+const { isNode, selfIsDefined, deepExtend, extend, clone, flatten, unique, indexBy, sortBy, sortBy2, safeFloat2, groupBy, aggregate, uuid, unCamelCase, precisionFromString, Throttler, capitalize, now, decimalToPrecision, safeValue, safeValue2, safeString, safeString2, seconds, milliseconds, binaryToBase16, numberToBE, base16ToBinary, iso8601, omit, isJsonEncodedObject, safeInteger, sum, omitZero, implodeParams, extractParams, json, merge, binaryConcat, hash, 
+// ecdsa,
+arrayConcat, encode, urlencode, hmac, numberToString, roundTimeframe, parseTimeframe, safeInteger2, safeStringLower, parse8601, yyyymmdd, safeStringUpper, safeTimestamp, binaryConcatArray, uuidv1, numberToLE, ymdhms, stringToBase64, decode, uuid22, safeIntegerProduct2, safeIntegerProduct, safeStringLower2, yymmdd, base58ToBinary, binaryToBase58, safeTimestamp2, rawencode, keysort, sort, inArray, isEmpty, ordered, filterBy, uuid16, safeFloat, base64ToBinary, safeStringUpper2, urlencodeWithArrayRepeat, microseconds, binaryToBase64, strip, toArray, safeFloatN, safeIntegerN, safeIntegerProductN, safeTimestampN, safeValueN, safeStringN, safeStringLowerN, safeStringUpperN, urlencodeNested, urlencodeBase64, parseDate, ymd, base64ToString, crc32, packb, TRUNCATE, ROUND, DECIMAL_PLACES, NO_PADDING, TICK_SIZE, SIGNIFICANT_DIGITS, sleep, } = _functions_js__WEBPACK_IMPORTED_MODULE_1__;
 // ----------------------------------------------------------------------------
 let protobufMexc = undefined;
 (async () => {
     try {
-        protobufMexc = await __webpack_require__.e(/* import() */ 373).then(__webpack_require__.t.bind(__webpack_require__, 2373, 23));
+        protobufMexc = await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 2373, 23));
     }
-    catch { }
+    catch {
+        // TODO: handle error
+    }
 })();
-//-----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 /**
  * @class Exchange
  */
 class Exchange {
     constructor(userConfig = {}) {
         this.isSandboxModeEnabled = false;
-        this.throttleProp = undefined;
-        this.sleep = sleep;
         this.api = undefined;
         this.certified = false;
         this.pro = false;
@@ -9188,6 +11478,7 @@ class Exchange {
         this.minFundingAddressLength = 1; // used in checkAddress
         this.substituteCommonCurrencyCodes = true; // reserved
         this.quoteJsonNumbers = true; // treat numbers in json as quoted precise strings
+        // eslint-disable-next-line no-unused-vars
         this.number = Number; // or String (a pointer to a function)
         this.handleContentTypeApplicationZip = false;
         // whether fees should be summed by currency code
@@ -9253,11 +11544,19 @@ class Exchange {
         this.name = undefined;
         this.targetAccount = undefined;
         this.stablePairs = {};
+        this.httpProxyAgentModule = undefined;
+        this.httpsProxyAgentModule = undefined;
+        this.socksProxyAgentModule = undefined;
+        this.socksProxyAgentModuleChecked = false;
+        this.proxyDictionaries = {};
+        this.proxiesModulesLoading = undefined;
+        this.alias = false;
         // WS/PRO options
         this.clients = {};
         this.newUpdates = true;
         this.streaming = {};
-        this.alias = false;
+        // INTERNAL METHODS
+        this.sleep = sleep;
         this.deepExtend = deepExtend;
         this.deepExtendSafe = deepExtend;
         this.isNode = isNode;
@@ -9360,13 +11659,7 @@ class Exchange {
         this.crc32 = crc32;
         this.packb = packb;
         this.urlencodeBase64 = urlencodeBase64;
-        this.httpProxyAgentModule = undefined;
-        this.httpsProxyAgentModule = undefined;
-        this.socksProxyAgentModule = undefined;
-        this.socksProxyAgentModuleChecked = false;
-        this.proxyDictionaries = {};
-        this.proxiesModulesLoading = undefined;
-        Object.assign(this, _functions_js__WEBPACK_IMPORTED_MODULE_0__);
+        Object.assign(this, _functions_js__WEBPACK_IMPORTED_MODULE_1__);
         //
         //     if (isNode) {
         //         this.nodeVersion = process.version.match (/\d+\.\d+\.\d+/)[0]
@@ -9487,7 +11780,14 @@ class Exchange {
     }
     checkRequiredVersion(requiredVersion, error = true) {
         let result = true;
-        const [major1, minor1, patch1] = requiredVersion.split('.'), [major2, minor2, patch2] = Exchange.ccxtVersion.split('.'), intMajor1 = this.parseToInt(major1), intMinor1 = this.parseToInt(minor1), intPatch1 = this.parseToInt(patch1), intMajor2 = this.parseToInt(major2), intMinor2 = this.parseToInt(minor2), intPatch2 = this.parseToInt(patch2);
+        const [major1, minor1, patch1] = requiredVersion.split('.');
+        const [major2, minor2, patch2] = Exchange.ccxtVersion.split('.');
+        const intMajor1 = this.parseToInt(major1);
+        const intMinor1 = this.parseToInt(minor1);
+        const intPatch1 = this.parseToInt(patch1);
+        const intMajor2 = this.parseToInt(major2);
+        const intMinor2 = this.parseToInt(minor2);
+        const intPatch2 = this.parseToInt(patch2);
         if (intMajor1 > intMajor2) {
             result = false;
         }
@@ -9556,7 +11856,7 @@ class Exchange {
                         this.defineRestApiEndpoint(methodName, uppercaseMethod, lowercaseMethod, camelcaseMethod, path, paths, config);
                     }
                     else if (typeof config === 'number') {
-                        this.defineRestApiEndpoint(methodName, uppercaseMethod, lowercaseMethod, camelcaseMethod, path, paths, { cost: config });
+                        this.defineRestApiEndpoint(methodName, uppercaseMethod, lowercaseMethod, camelcaseMethod, path, paths, { 'cost': config });
                     }
                     else {
                         throw new _errors_js__WEBPACK_IMPORTED_MODULE_4__.NotSupported(this.id + ' defineRestApi() API format is not supported, API leafs must strings, objects or numbers');
@@ -9569,6 +11869,7 @@ class Exchange {
         }
     }
     log(...args) {
+        // eslint-disable-next-line no-console
         console.log(...args);
     }
     async loadProxyModules() {
@@ -9589,16 +11890,20 @@ class Exchange {
                         // @ts-ignore
                         this.httpProxyAgentModule = await import(/* webpackIgnore: true */ 'http-proxy-agent');
                         // @ts-ignore
-                        this.httpsProxyAgentModule = await import(/* webpackIgnore: true */ 'https-proxy-agent');
+                        this.httpsProxyAgentModule = await import(/* webpackIgnore: true */ 'https-proxy-agent'); // eslint-disable-line
                     }
-                    catch (e) { }
+                    catch (err) {
+                        // TODO: handle error
+                    }
                 }
                 if (this.socksProxyAgentModuleChecked === false) {
                     try {
                         // @ts-ignore
                         this.socksProxyAgentModule = await import(/* webpackIgnore: true */ 'socks-proxy-agent');
                     }
-                    catch (e) { }
+                    catch (e) {
+                        // TODO: handle error
+                    }
                     this.socksProxyAgentModuleChecked = true;
                 }
             })();
@@ -9698,7 +12003,7 @@ class Exchange {
             if (!this.nodeHttpModuleLoaded) {
                 this.nodeHttpModuleLoaded = true;
                 const httpsModule = await import(/* webpackIgnore: true */ 'node:https');
-                this.httpsAgent = new httpsModule.Agent({ keepAlive: true });
+                this.httpsAgent = new httpsModule.Agent({ 'keepAlive': true });
             }
         }
         // ##### PROXY & HEADERS #####
@@ -9742,7 +12047,7 @@ class Exchange {
         headers = this.setHeaders(headers);
         // log
         if (this.verbose) {
-            this.log("fetch Request:\n", this.id, method, url, "\nRequestHeaders:\n", headers, "\nRequestBody:\n", body, "\n");
+            this.log('fetch Request:\n', this.id, method, url, '\nRequestHeaders:\n', headers, '\nRequestBody:\n', body, '\n');
         }
         // end of proxies & headers
         if (this.fetchImplementation === undefined) {
@@ -9751,16 +12056,16 @@ class Exchange {
                     this.agent = this.httpsAgent;
                 }
                 try {
-                    const module = await import(/* webpackIgnore: true */ '../static_dependencies/node-fetch/index.js');
-                    this.AbortError = module.AbortError;
-                    this.fetchImplementation = module.default;
-                    this.FetchError = module.FetchError;
+                    const nodeFetchModule = await import(/* webpackIgnore: true */ '../static_dependencies/node-fetch/index.js');
+                    this.AbortError = nodeFetchModule.AbortError;
+                    this.fetchImplementation = nodeFetchModule.default;
+                    this.FetchError = nodeFetchModule.FetchError;
                 }
                 catch (e) {
                     // some users having issues with dynamic imports (https://github.com/ccxt/ccxt/pull/20687)
                     // so let them to fallback to node's native fetch
                     if (typeof fetch === 'function') {
-                        this.fetchImplementation = fetch;
+                        this.fetchImplementation = fetch; // eslint-disable-line
                         // as it's browser-compatible implementation ( https://nodejs.org/dist/latest-v20.x/docs/api/globals.html#fetch )
                         // it throws same error types
                         this.AbortError = DOMException;
@@ -9772,6 +12077,7 @@ class Exchange {
                 }
             }
             else {
+                // eslint-disable-next-line
                 this.fetchImplementation = (selfIsDefined()) ? self.fetch : fetch;
                 this.AbortError = DOMException;
                 this.FetchError = TypeError;
@@ -9780,7 +12086,7 @@ class Exchange {
         // fetchImplementation cannot be called on this. in browsers:
         // TypeError Failed to execute 'fetch' on 'Window': Illegal invocation
         const fetchImplementation = this.fetchImplementation;
-        const params = { method, headers, body, timeout: this.timeout };
+        const params = { method, headers, body, 'timeout': this.timeout };
         if (this.agent) {
             params['agent'] = this.agent;
         }
@@ -9843,14 +12149,14 @@ class Exchange {
                 this.last_http_response = responseBuffer;
             }
             if (this.verbose) {
-                this.log("handleRestResponse:\n", this.id, method, url, response.status, response.statusText, "\nResponseHeaders:\n", responseHeaders, "ZIP redacted", "\n");
+                this.log('handleRestResponse:\n', this.id, method, url, response.status, response.statusText, '\nResponseHeaders:\n', responseHeaders, 'ZIP redacted', '\n');
             }
             // no error handler needed, because it would not be a zip response in case of an error
             return responseBuffer;
         }
         return response.text().then((responseBody) => {
             const bodyText = this.onRestResponse(response.status, response.statusText, url, method, responseHeaders, responseBody, requestHeaders, requestBody);
-            const json = this.parseJson(bodyText);
+            const parsedBody = this.parseJson(bodyText);
             if (this.enableLastResponseHeaders) {
                 this.last_response_headers = responseHeaders;
             }
@@ -9858,19 +12164,19 @@ class Exchange {
                 this.last_http_response = responseBody;
             }
             if (this.enableLastJsonResponse) {
-                this.last_json_response = json;
+                this.last_json_response = parsedBody;
             }
             if (this.verbose) {
-                this.log("handleRestResponse:\n", this.id, method, url, response.status, response.statusText, "\nResponseHeaders:\n", responseHeaders, "\nResponseBody:\n", responseBody, "\n");
+                this.log('handleRestResponse:\n', this.id, method, url, response.status, response.statusText, '\nResponseHeaders:\n', responseHeaders, '\nResponseBody:\n', responseBody, '\n');
             }
-            const skipFurtherErrorHandling = this.handleErrors(response.status, response.statusText, url, method, responseHeaders, responseBody, json, requestHeaders, requestBody);
+            const skipFurtherErrorHandling = this.handleErrors(response.status, response.statusText, url, method, responseHeaders, responseBody, parsedBody, requestHeaders, requestBody);
             if (!skipFurtherErrorHandling) {
                 this.handleHttpStatusCode(response.status, response.statusText, url, method, responseBody);
             }
-            if (json && !Array.isArray(json) && this.returnResponseHeaders) {
-                json['responseHeaders'] = responseHeaders;
+            if (parsedBody && !Array.isArray(parsedBody) && this.returnResponseHeaders) {
+                parsedBody['responseHeaders'] = responseHeaders;
             }
-            return json || responseBody;
+            return parsedBody || responseBody;
         });
     }
     onRestResponse(statusCode, statusText, url, method, responseHeaders, responseBody, requestHeaders, requestBody) {
@@ -9930,31 +12236,38 @@ class Exchange {
         // currencies are returned as a dict
         // this is for historical reasons
         // and may be changed for consistency later
-        return new Promise((resolve, reject) => resolve(this.currencies));
+        return new Promise((resolve, reject) => {
+            resolve(this.currencies);
+        });
     }
     async fetchCurrenciesWs(params = {}) {
         // markets are returned as a list
         // currencies are returned as a dict
         // this is for historical reasons
         // and may be changed for consistency later
-        return new Promise((resolve, reject) => resolve(this.currencies));
+        return new Promise((resolve, reject) => {
+            resolve(this.currencies);
+        });
     }
     async fetchMarkets(params = {}) {
         // markets are returned as a list
         // currencies are returned as a dict
         // this is for historical reasons
         // and may be changed for consistency later
-        return new Promise((resolve, reject) => resolve(Object.values(this.markets)));
+        return new Promise((resolve, reject) => {
+            resolve(Object.values(this.markets));
+        });
     }
     async fetchMarketsWs(params = {}) {
         // markets are returned as a list
         // currencies are returned as a dict
         // this is for historical reasons
         // and may be changed for consistency later
-        return new Promise((resolve, reject) => resolve(Object.values(this.markets)));
+        return new Promise((resolve, reject) => {
+            resolve(Object.values(this.markets));
+        });
     }
     checkRequiredDependencies() {
-        return;
     }
     parseNumber(value, d = undefined) {
         if (value === undefined) {
@@ -9971,7 +12284,7 @@ class Exchange {
                     return this.number(numberToString(parseFloat(numberNormalized)));
                 }
                 const result = this.number(numberNormalized);
-                return isNaN(result) ? d : result;
+                return Number.isNaN(result) ? d : result;
             }
             catch (e) {
                 return d;
@@ -10053,6 +12366,7 @@ class Exchange {
             const chosenAgent = this.setProxyAgents(httpProxy, httpsProxy, socksProxy);
             // part only for node-js
             const httpProxyAgent = this.getHttpAgentIfNeeded(url);
+            // eslint-disable-next-line no-nested-ternary
             const finalAgent = chosenAgent ? chosenAgent : (httpProxyAgent ? httpProxyAgent : this.agent);
             //
             const options = this.deepExtend(this.streaming, {
@@ -10102,10 +12416,10 @@ class Exchange {
         //                                 |               |
         //                             subscribe -----→ receive
         //
-        const future = _ws_Future_js__WEBPACK_IMPORTED_MODULE_5__/* .Future */ .K.race(messageHashes.map(messageHash => client.future(messageHash)));
+        const future = _ws_Future_js__WEBPACK_IMPORTED_MODULE_5__/* .Future */ .K.race(messageHashes.map((messageHash) => client.future(messageHash)));
         // read and write subscription, this is done before connecting the client
         // to avoid race conditions when other parts of the code read or write to the client.subscriptions
-        let missingSubscriptions = [];
+        const missingSubscriptions = [];
         if (subscribeHashes !== undefined) {
             for (let i = 0; i < subscribeHashes.length; i++) {
                 const subscribeHash = subscribeHashes[i];
@@ -10355,18 +12669,18 @@ class Exchange {
         const privateKey = (0,_static_dependencies_scure_starknet_index_js__WEBPACK_IMPORTED_MODULE_11__/* .ethSigToPrivate */ .b)(signature);
         const publicKey = (0,_static_dependencies_scure_starknet_index_js__WEBPACK_IMPORTED_MODULE_11__/* .getStarkKey */ .$u)(privateKey);
         const callData = _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_12__/* .CallData */ .fP.compile({
-            implementation: accountClassHash,
-            selector: _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_13__/* .getSelectorFromName */ .BK('initialize'),
-            calldata: _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_12__/* .CallData */ .fP.compile({
-                signer: publicKey,
-                guardian: '0',
+            'implementation': accountClassHash,
+            'selector': _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_13__/* .getSelectorFromName */ .BK('initialize'),
+            'calldata': _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_12__/* .CallData */ .fP.compile({
+                'signer': publicKey,
+                'guardian': '0',
             }),
         });
         const address = _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_14__/* .calculateContractAddressFromHash */ .r4(publicKey, accountProxyClassHash, callData, 0);
         return {
             privateKey,
             publicKey,
-            address
+            address,
         };
     }
     starknetEncodeStructuredData(domain, messageTypes, messageData, address) {
@@ -10379,9 +12693,9 @@ class Exchange {
             'primaryType': types[0],
             'types': this.extend({
                 'StarkNetDomain': [
-                    { 'name': "name", 'type': "felt" },
-                    { 'name': "chainId", 'type': "felt" },
-                    { 'name': "version", 'type': "felt" },
+                    { 'name': 'name', 'type': 'felt' },
+                    { 'name': 'chainId', 'type': 'felt' },
+                    { 'name': 'version', 'type': 'felt' },
                 ],
             }, messageTypes),
             'message': messageData,
@@ -10389,9 +12703,9 @@ class Exchange {
         const msgHash = _static_dependencies_starknet_index_js__WEBPACK_IMPORTED_MODULE_15__/* .getMessageHash */ .E(request, address);
         return msgHash;
     }
-    starknetSign(hash, pri) {
+    starknetSign(msgHash, pri) {
         // TODO: unify to ecdsa
-        const signature = (0,_static_dependencies_scure_starknet_index_js__WEBPACK_IMPORTED_MODULE_11__/* .sign */ ._S)(hash.replace('0x', ''), pri.slice(-64));
+        const signature = (0,_static_dependencies_scure_starknet_index_js__WEBPACK_IMPORTED_MODULE_11__/* .sign */ ._S)(msgHash.replace('0x', ''), pri.slice(-64));
         return this.json([signature.r.toString(), signature.s.toString()]);
     }
     async getZKContractSignatureObj(seed, params = {}) {
@@ -10402,21 +12716,21 @@ class Exchange {
         const accountId = parseInt(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMod(this.safeString(params, 'accountId'), formattedUint32), 10);
         const slotId = parseInt(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringDiv(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMod(formattedSlotId, formattedUint64), formattedUint32), 10);
         const nonce = parseInt(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMod(formattedNonce, formattedUint32), 10);
-        await (0,_static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Ay)();
-        const _signer = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* .newRpcSignerWithProvider */ .$s({});
+        await (0,_static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Ay)();
+        const _signer = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* .newRpcSignerWithProvider */ .$s({});
         await _signer.initZklinkSigner(seed);
-        let tx_builder = new _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* .ContractBuilder */ .KR(accountId, 0, slotId, nonce, this.safeInteger(params, 'pairId'), _Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'size'), '1e18'), _Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'price'), '1e18'), this.safeString(params, 'direction') === 'BUY', parseInt(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'makerFeeRate'), '10000')), parseInt(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'takerFeeRate'), '10000')), false);
-        let contractor = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* .newContract */ .JF(tx_builder);
-        //const signer = ZkLinkSigner.ethSig(seed);
-        //const signer = new Signer(seed);
+        const tx_builder = new _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* .ContractBuilder */ .KR(accountId, 0, slotId, nonce, this.safeInteger(params, 'pairId'), _Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'size'), '1e18'), _Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'price'), '1e18'), this.safeString(params, 'direction') === 'BUY', parseInt(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'makerFeeRate'), '10000')), parseInt(_Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMul(this.safeString(params, 'takerFeeRate'), '10000')), false);
+        const contractor = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* .newContract */ .JF(tx_builder);
+        // const signer = ZkLinkSigner.ethSig(seed);
+        // const signer = new Signer(seed);
         contractor?.sign(_signer?.getZkLinkSigner());
         const tx = contractor.jsValue();
         const zkSign = tx?.signature?.signature;
         return zkSign;
     }
     async getZKTransferSignatureObj(seed, params = {}) {
-        await (0,_static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Ay)();
-        const _signer = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* .newRpcSignerWithProvider */ .$s({});
+        await (0,_static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Ay)();
+        const _signer = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* .newRpcSignerWithProvider */ .$s({});
         await _signer.initZklinkSigner(seed);
         let nonce = this.safeString(params, 'nonce', '0');
         if (this.safeBool(params, 'isContract') === true) {
@@ -10424,10 +12738,10 @@ class Exchange {
             const formattedNonce = BigInt('0x' + this.remove0xPrefix(this.hash(this.encode(nonce), _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_16__/* .sha256 */ .s, 'hex'))).toString();
             nonce = _Precise_js__WEBPACK_IMPORTED_MODULE_17__/* .Precise */ .Y.stringMod(formattedNonce, formattedUint32);
         }
-        let tx_builder = new _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* .TransferBuilder */ .H3(this.safeNumber(params, 'zkAccountId', 0), this.safeString(params, 'receiverAddress'), this.safeNumber(params, 'subAccountId', 0), this.safeNumber(params, 'receiverSubAccountId', 0), this.safeNumber(params, 'tokenId', 0), this.safeString(params, 'fee', '0'), this.safeString(params, 'amount', '0'), this.parseToInt(nonce), this.safeNumber(params, 'timestampSeconds', 0));
-        let contractor = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_1__/* .newTransfer */ .qj(tx_builder);
-        //const signer = ZkLinkSigner.ethSig(seed);
-        //const signer = new Signer(seed);
+        const tx_builder = new _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* .TransferBuilder */ .H3(this.safeNumber(params, 'zkAccountId', 0), this.safeString(params, 'receiverAddress'), this.safeNumber(params, 'subAccountId', 0), this.safeNumber(params, 'receiverSubAccountId', 0), this.safeNumber(params, 'tokenId', 0), this.safeString(params, 'fee', '0'), this.safeString(params, 'amount', '0'), this.parseToInt(nonce), this.safeNumber(params, 'timestampSeconds', 0));
+        const contractor = _static_dependencies_zklink_zklink_sdk_web_js__WEBPACK_IMPORTED_MODULE_0__/* .newTransfer */ .qj(tx_builder);
+        // const signer = ZkLinkSigner.ethSig(seed);
+        // const signer = new Signer(seed);
         contractor?.sign(_signer?.getZkLinkSigner());
         const tx = contractor.jsValue();
         const zkSign = tx?.signature?.signature;
@@ -10501,7 +12815,7 @@ class Exchange {
     // ########################################################################
     // ########################################################################
     // ------------------------------------------------------------------------
-    // METHODS BELOW THIS LINE ARE TRANSPILED FROM JAVASCRIPT TO PYTHON AND PHP
+    // METHODS BELOW THIS LINE ARE TRANSPILED FROM TYPESCRIPT
     describe() {
         return {
             'id': undefined,
@@ -11248,6 +13562,27 @@ class Exchange {
             // set flag
             this.isSandboxModeEnabled = false;
         }
+    }
+    /**
+     * @method
+     * @name Exchange#enableDemoTrading
+     * @description enables or disables demo trading mode
+     * @param {boolean} [enable] true if demo trading should be enabled, false otherwise
+     */
+    enableDemoTrading(enable) {
+        if (this.isSandboxModeEnabled) {
+            throw new _errors_js__WEBPACK_IMPORTED_MODULE_4__.NotSupported(this.id + ' demo trading does not support in sandbox environment. Please check https://www.binance.com/en/support/faq/detail/9be58f73e5e14338809e3b705b9687dd to see the differences');
+        }
+        if (enable) {
+            this.urls['apiBackupDemoTrading'] = this.urls['api'];
+            this.urls['api'] = this.urls['demo'];
+        }
+        else if ('apiBackupDemoTrading' in this.urls) {
+            this.urls['api'] = this.urls['apiBackupDemoTrading'];
+            const newUrls = this.omit(this.urls, 'apiBackupDemoTrading');
+            this.urls = newUrls;
+        }
+        this.options['enableDemoTrading'] = enable;
     }
     sign(path, api = 'public', method = 'GET', params = {}, headers = undefined, body = undefined) {
         return {};
@@ -12007,7 +14342,12 @@ class Exchange {
         const marketsSortedById = this.keysort(this.markets_by_id);
         this.symbols = Object.keys(marketsSortedBySymbol);
         this.ids = Object.keys(marketsSortedById);
+        let numCurrencies = 0;
         if (currencies !== undefined) {
+            const keys = Object.keys(currencies);
+            numCurrencies = keys.length;
+        }
+        if (numCurrencies > 0) {
             // currencies is always undefined when called in constructor but not when called from loadMarkets
             this.currencies = this.mapToSafeMap(this.deepExtend(this.currencies, currencies));
         }
@@ -12067,6 +14407,34 @@ class Exchange {
         const currenciesSortedByCode = this.keysort(this.currencies);
         this.codes = Object.keys(currenciesSortedByCode);
         return this.markets;
+    }
+    setMarketsFromExchange(sourceExchange) {
+        // Validate that both exchanges are of the same type
+        if (this.id !== sourceExchange.id) {
+            throw new _errors_js__WEBPACK_IMPORTED_MODULE_4__.ArgumentsRequired(this.id + ' shareMarkets() can only share markets with exchanges of the same type (got ' + sourceExchange['id'] + ')');
+        }
+        // Validate that source exchange has loaded markets
+        if (!sourceExchange.markets) {
+            throw new _errors_js__WEBPACK_IMPORTED_MODULE_4__.ExchangeError('setMarketsFromExchange() source exchange must have loaded markets first. Can call by using loadMarkets function');
+        }
+        // Set all market-related data
+        this.markets = sourceExchange.markets;
+        this.markets_by_id = sourceExchange.markets_by_id;
+        this.symbols = sourceExchange.symbols;
+        this.ids = sourceExchange.ids;
+        this.currencies = sourceExchange.currencies;
+        this.baseCurrencies = sourceExchange.baseCurrencies;
+        this.quoteCurrencies = sourceExchange.quoteCurrencies;
+        this.codes = sourceExchange.codes;
+        // check marketHelperProps
+        const sourceExchangeHelpers = this.safeList(sourceExchange.options, 'marketHelperProps', []);
+        for (let i = 0; i < sourceExchangeHelpers.length; i++) {
+            const helper = sourceExchangeHelpers[i];
+            if (sourceExchange.options[helper] !== undefined) {
+                this.options[helper] = sourceExchange.options[helper];
+            }
+        }
+        return this;
     }
     getDescribeForExtendedWsExchange(currentRestInstance, parentRestInstance, wsBaseDescribe) {
         const extendedRestDescribe = this.deepExtend(parentRestInstance.describe(), currentRestInstance.describe());
@@ -14807,7 +17175,9 @@ class Exchange {
         return this.safeString(this.commonCurrencies, code, code);
     }
     currency(code) {
-        if (this.currencies === undefined) {
+        const keys = Object.keys(this.currencies);
+        const numCurrencies = keys.length;
+        if (numCurrencies === 0) {
             throw new _errors_js__WEBPACK_IMPORTED_MODULE_4__.ExchangeError(this.id + ' currencies not loaded');
         }
         if (typeof code === 'string') {
@@ -15327,7 +17697,7 @@ class Exchange {
     }
     handleTriggerPricesAndParams(symbol, params, omitParams = true) {
         //
-        const triggerPrice = this.safeString(params, 'triggerPrice', 'stopPrice');
+        const triggerPrice = this.safeString2(params, 'triggerPrice', 'stopPrice');
         let triggerPriceStr = undefined;
         const stopLossPrice = this.safeString(params, 'stopLossPrice');
         let stopLossPriceStr = undefined;
@@ -16155,6 +18525,17 @@ class Exchange {
         const values = Object.values(uniqueResult);
         return values;
     }
+    removeKeysFromDict(dict, removeKeys) {
+        const keys = Object.keys(dict);
+        const newDict = {};
+        for (let i = 0; i < keys.length; i++) {
+            const key = keys[i];
+            if (!this.inArray(key, removeKeys)) {
+                newDict[key] = dict[key];
+            }
+        }
+        return newDict;
+    }
     handleUntilOption(key, request, params, multiplier = 1) {
         const until = this.safeInteger2(params, 'until', 'till');
         if (until !== undefined) {
@@ -16550,7 +18931,7 @@ class Exchange {
                 const clients = Object.values(this.clients);
                 for (let i = 0; i < clients.length; i++) {
                     const client = clients[i];
-                    const futures = this.safeDict(client, 'futures');
+                    const futures = client.futures;
                     if ((futures !== undefined) && ('fetchPositionsSnapshot' in futures)) {
                         delete futures['fetchPositionsSnapshot'];
                     }
@@ -17177,6 +19558,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   axolotl: () => (/* reexport safe */ _functions_crypto_js__WEBPACK_IMPORTED_MODULE_6__.Sw),
 /* harmony export */   base16ToBinary: () => (/* reexport safe */ _functions_encode_js__WEBPACK_IMPORTED_MODULE_5__.FF),
 /* harmony export */   base58ToBinary: () => (/* reexport safe */ _functions_encode_js__WEBPACK_IMPORTED_MODULE_5__.Ry),
+/* harmony export */   base64ToBase64Url: () => (/* reexport safe */ _functions_encode_js__WEBPACK_IMPORTED_MODULE_5__.xg),
 /* harmony export */   base64ToBinary: () => (/* reexport safe */ _functions_encode_js__WEBPACK_IMPORTED_MODULE_5__.cg),
 /* harmony export */   base64ToString: () => (/* reexport safe */ _functions_encode_js__WEBPACK_IMPORTED_MODULE_5__.QM),
 /* harmony export */   binaryConcat: () => (/* reexport safe */ _functions_encode_js__WEBPACK_IMPORTED_MODULE_5__.qo),
@@ -17503,7 +19885,8 @@ function crc32(str, signed = false) {
 /* harmony export */   rO: () => (/* binding */ rawencode),
 /* harmony export */   sQ: () => (/* binding */ binaryToBase64),
 /* harmony export */   t7: () => (/* binding */ binaryToBase16),
-/* harmony export */   wN: () => (/* binding */ stringToBinary)
+/* harmony export */   wN: () => (/* binding */ stringToBinary),
+/* harmony export */   xg: () => (/* binding */ base64ToBase64Url)
 /* harmony export */ });
 /* harmony import */ var _static_dependencies_scure_base_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4710);
 /* harmony import */ var _static_dependencies_noble_curves_abstract_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(191);
@@ -17531,6 +19914,13 @@ const json = (data, params = undefined) => JSON.stringify(data), isJsonEncodedOb
 }, numberToLE = (n, padding) => (0,_static_dependencies_noble_curves_abstract_utils_js__WEBPACK_IMPORTED_MODULE_2__/* .numberToBytesLE */ .z)(BigInt(n), padding), numberToBE = (n, padding) => (0,_static_dependencies_noble_curves_abstract_utils_js__WEBPACK_IMPORTED_MODULE_2__/* .numberToBytesBE */ .lq)(BigInt(n), padding);
 function packb(req) {
     return (0,_static_dependencies_messagepack_msgpack_js__WEBPACK_IMPORTED_MODULE_3__/* .serialize */ .l)(req);
+}
+function base64ToBase64Url(base64, stripPadding = true) {
+    let base64url = base64.replace(/\+/g, "-").replace(/\//g, "_");
+    if (stripPadding) {
+        base64url = base64url.replace(/=+$/, "");
+    }
+    return base64url;
 }
 
 /*  ------------------------------------------------------------------------ */
@@ -18236,6 +20626,8 @@ const isNode = !(isBrowser || isWebWorker || isDeno);
 /* harmony import */ var _encode_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9560);
 /* harmony import */ var _crypto_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8283);
 /* harmony import */ var _static_dependencies_noble_curves_p256_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8342);
+/* harmony import */ var _static_dependencies_noble_curves_ed25519_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6414);
+
 
 
 
@@ -18261,7 +20653,7 @@ function jwt(request, secret, hash, isRSA = false, opts = {}) {
     }
     const encodedHeader = (0,_encode_js__WEBPACK_IMPORTED_MODULE_2__/* .urlencodeBase64 */ .LI)(JSON.stringify(header));
     const encodedData = (0,_encode_js__WEBPACK_IMPORTED_MODULE_2__/* .urlencodeBase64 */ .LI)(JSON.stringify(request));
-    const token = [encodedHeader, encodedData].join('.');
+    let token = [encodedHeader, encodedData].join('.');
     const algoType = alg.slice(0, 2);
     let signature = undefined;
     if (algoType === 'HS') {
@@ -18276,7 +20668,19 @@ function jwt(request, secret, hash, isRSA = false, opts = {}) {
         const s = signedHash.s.padStart(64, '0');
         signature = (0,_encode_js__WEBPACK_IMPORTED_MODULE_2__/* .urlencodeBase64 */ .LI)((0,_encode_js__WEBPACK_IMPORTED_MODULE_2__/* .base16ToBinary */ .FF)(r + s));
     }
+    else if (algoType === 'ED') {
+        const base64str = (0,_crypto_js__WEBPACK_IMPORTED_MODULE_3__/* .eddsa */ .q4)(toHex(token), secret, _static_dependencies_noble_curves_ed25519_js__WEBPACK_IMPORTED_MODULE_5__/* .ed25519 */ .ev);
+        // we need urlencoded64 not base64
+        signature = (0,_encode_js__WEBPACK_IMPORTED_MODULE_2__/* .base64ToBase64Url */ .xg)(base64str);
+    }
     return [token, signature].join('.');
+}
+function toHex(str) {
+    var result = '';
+    for (var i = 0; i < str.length; i++) {
+        result += str.charCodeAt(i).toString(16);
+    }
+    return result;
 }
 
 
@@ -20053,7 +22457,7 @@ class bigone extends _abstract_bigone_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
                 'CORS': undefined,
                 'spot': true,
                 'margin': false,
-                'swap': undefined,
+                'swap': true,
                 'future': undefined,
                 'option': false,
                 'cancelAllOrders': true,
@@ -20477,7 +22881,7 @@ class bigone extends _abstract_bigone_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
         // we use undocumented link (possible, less informative alternative is : https://big.one/api/uc/v3/assets/accounts)
         const data = await this.fetchWebEndpoint('fetchCurrencies', 'webExchangeGetV3Assets', true);
         if (data === undefined) {
-            return undefined;
+            return {};
         }
         //
         // {
@@ -22584,6 +24988,20 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
                     'public': 'https://testnet.binance.vision/api/v3',
                     'private': 'https://testnet.binance.vision/api/v3',
                     'v1': 'https://testnet.binance.vision/api/v1',
+                },
+                'demo': {
+                    'dapiPublic': 'https://demo-dapi.binance.com/dapi/v1',
+                    'dapiPrivate': 'https://demo-dapi.binance.com/dapi/v1',
+                    'dapiPrivateV2': 'https://demo-dapi.binance.com/dapi/v2',
+                    'fapiPublic': 'https://demo-fapi.binance.com/fapi/v1',
+                    'fapiPublicV2': 'https://demo-fapi.binance.com/fapi/v2',
+                    'fapiPublicV3': 'https://demo-fapi.binance.com/fapi/v3',
+                    'fapiPrivate': 'https://demo-fapi.binance.com/fapi/v1',
+                    'fapiPrivateV2': 'https://demo-fapi.binance.com/fapi/v2',
+                    'fapiPrivateV3': 'https://demo-fapi.binance.com/fapi/v3',
+                    'public': 'https://demo-api.binance.com/api/v3',
+                    'private': 'https://demo-api.binance.com/api/v3',
+                    'v1': 'https://demo-api.binance.com/api/v1',
                 },
                 'api': {
                     'sapi': 'https://api.binance.com/sapi/v1',
@@ -25138,6 +27556,29 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
     }
     /**
      * @method
+     * @name binance#enableDemoTrading
+     * @description enables or disables demo trading mode
+     * @see https://www.binance.com/en/support/faq/detail/9be58f73e5e14338809e3b705b9687dd
+     * @see https://demo.binance.com/en/my/settings/api-management
+     * @param {boolean} [enable] true if demo trading should be enabled, false otherwise
+     */
+    enableDemoTrading(enable) {
+        if (this.isSandboxModeEnabled) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.NotSupported(this.id + ' demo trading is not sin sandbox environment. Please check https://www.binance.com/en/support/faq/detail/9be58f73e5e14338809e3b705b9687dd to see the differences');
+        }
+        if (enable) {
+            this.urls['apiBackupDemoTrading'] = this.urls['api'];
+            this.urls['api'] = this.urls['demo'];
+        }
+        else if ('apiBackupDemoTrading' in this.urls) {
+            this.urls['api'] = this.urls['apiBackupDemoTrading'];
+            const newUrls = this.omit(this.urls, 'apiBackupDemoTrading');
+            this.urls = newUrls;
+        }
+        this.options['enableDemoTrading'] = enable;
+    }
+    /**
+     * @method
      * @name binance#fetchTime
      * @description fetches the current integer timestamp in milliseconds from the exchange server
      * @see https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-endpoints#check-server-time          // spot
@@ -25177,19 +27618,23 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
     async fetchCurrencies(params = {}) {
         const fetchCurrenciesEnabled = this.safeBool(this.options, 'fetchCurrencies');
         if (!fetchCurrenciesEnabled) {
-            return undefined;
+            return {};
         }
         // this endpoint requires authentication
         // while fetchCurrencies is a public API method by design
         // therefore we check the keys here
         // and fallback to generating the currencies from the markets
         if (!this.checkRequiredCredentials(false)) {
-            return undefined;
+            return {};
         }
         // sandbox/testnet does not support sapi endpoints
         const apiBackup = this.safeValue(this.urls, 'apiBackup');
         if (apiBackup !== undefined) {
-            return undefined;
+            return {};
+        }
+        // demotrading does not support sapi endpoints
+        if (this.safeBool(this.options, 'enableDemoTrading', false)) {
+            return {};
         }
         const promises = [this.sapiGetCapitalConfigGetall(params)];
         const fetchMargins = this.safeBool(this.options, 'fetchMargins', false);
@@ -25263,7 +27708,7 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
             //                "addressRegex": "^(bnb1)[0-9a-z]{38}$",
             //                "addressRule": "",
             //                "memoRegex": "^[0-9A-Za-z\\-_]{1,120}$",
-            //                "withdrawFee": "0.002",
+            //                "withdrawFee": "0.003",
             //                "withdrawMin": "0.01",
             //                "withdrawMax": "10000000000",
             //                "minConfirm": "1",
@@ -25434,10 +27879,12 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
             }
         }
         const sandboxMode = this.safeBool(this.options, 'sandboxMode', false);
+        const demoMode = this.safeBool(this.options, 'enableDemoTrading', false);
+        const isDemoEnv = demoMode || sandboxMode;
         const fetchMarkets = [];
         for (let i = 0; i < rawFetchMarkets.length; i++) {
             const type = rawFetchMarkets[i];
-            if (type === 'option' && sandboxMode) {
+            if (type === 'option' && isDemoEnv) {
                 continue;
             }
             fetchMarkets.push(type);
@@ -25447,7 +27894,7 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
             const marketType = fetchMarkets[i];
             if (marketType === 'spot') {
                 promisesRaw.push(this.publicGetExchangeInfo(params));
-                if (fetchMargins && this.checkRequiredCredentials(false) && !sandboxMode) {
+                if (fetchMargins && this.checkRequiredCredentials(false) && !isDemoEnv) {
                     promisesRaw.push(this.sapiGetMarginAllPairs(params));
                     promisesRaw.push(this.sapiGetMarginIsolatedAllPairs(params));
                 }
@@ -28778,6 +31225,7 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
         const isConditional = isTriggerOrder || isTrailingPercentOrder || isStopLoss || isTakeProfit;
         const isPortfolioMarginConditional = (isPortfolioMargin && isConditional);
         const isPriceMatch = priceMatch !== undefined;
+        let priceRequiredForTrailing = true;
         let uppercaseType = type.toUpperCase();
         let stopPrice = undefined;
         if (isTrailingPercentOrder) {
@@ -28789,19 +31237,31 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
                 }
             }
             else {
-                if (isMarketOrder) {
-                    throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InvalidOrder(this.id + ' trailingPercent orders are not supported for ' + symbol + ' ' + type + ' orders');
+                if ((uppercaseType !== 'STOP_LOSS') && (uppercaseType !== 'TAKE_PROFIT') && (uppercaseType !== 'STOP_LOSS_LIMIT') && (uppercaseType !== 'TAKE_PROFIT_LIMIT')) {
+                    const stopLossOrTakeProfit = this.safeString(params, 'stopLossOrTakeProfit');
+                    params = this.omit(params, 'stopLossOrTakeProfit');
+                    if ((stopLossOrTakeProfit !== 'stopLoss') && (stopLossOrTakeProfit !== 'takeProfit')) {
+                        throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InvalidOrder(this.id + symbol + ' trailingPercent orders require a stopLossOrTakeProfit parameter of either stopLoss or takeProfit');
+                    }
+                    if (isMarketOrder) {
+                        if (stopLossOrTakeProfit === 'stopLoss') {
+                            uppercaseType = 'STOP_LOSS';
+                        }
+                        else if (stopLossOrTakeProfit === 'takeProfit') {
+                            uppercaseType = 'TAKE_PROFIT';
+                        }
+                    }
+                    else {
+                        if (stopLossOrTakeProfit === 'stopLoss') {
+                            uppercaseType = 'STOP_LOSS_LIMIT';
+                        }
+                        else if (stopLossOrTakeProfit === 'takeProfit') {
+                            uppercaseType = 'TAKE_PROFIT_LIMIT';
+                        }
+                    }
                 }
-                const stopLossOrTakeProfit = this.safeString(params, 'stopLossOrTakeProfit');
-                params = this.omit(params, 'stopLossOrTakeProfit');
-                if (stopLossOrTakeProfit !== 'stopLoss' && stopLossOrTakeProfit !== 'takeProfit') {
-                    throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InvalidOrder(this.id + symbol + ' trailingPercent orders require a stopLossOrTakeProfit parameter of either stopLoss or takeProfit');
-                }
-                if (stopLossOrTakeProfit === 'stopLoss') {
-                    uppercaseType = 'STOP_LOSS_LIMIT';
-                }
-                else if (stopLossOrTakeProfit === 'takeProfit') {
-                    uppercaseType = 'TAKE_PROFIT_LIMIT';
+                if ((uppercaseType === 'STOP_LOSS') || (uppercaseType === 'TAKE_PROFIT')) {
+                    priceRequiredForTrailing = false;
                 }
                 if (trailingTriggerPrice !== undefined) {
                     stopPrice = this.priceToPrecision(symbol, trailingTriggerPrice);
@@ -28955,7 +31415,7 @@ class binance extends _abstract_binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
         else if ((uppercaseType === 'STOP_LOSS') || (uppercaseType === 'TAKE_PROFIT')) {
             triggerPriceIsRequired = true;
             quantityIsRequired = true;
-            if (market['linear'] || market['inverse']) {
+            if ((market['linear'] || market['inverse']) && priceRequiredForTrailing) {
                 priceIsRequired = true;
             }
         }
@@ -37881,11 +40341,11 @@ class bingx extends _abstract_bingx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
      */
     async fetchCurrencies(params = {}) {
         if (!this.checkRequiredCredentials(false)) {
-            return undefined;
+            return {};
         }
         const isSandbox = this.safeBool(this.options, 'sandboxMode', false);
         if (isSandbox) {
-            return undefined;
+            return {};
         }
         const response = await this.walletsV1PrivateGetCapitalConfigGetall(params);
         //
@@ -45831,7 +48291,7 @@ class bitbank extends _abstract_bitbank_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
         const address = this.safeString(firstAccount, 'address');
         return {
             'info': response,
-            'currency': currency,
+            'currency': currency['code'],
             'network': undefined,
             'address': address,
             'tag': undefined,
@@ -60482,13 +62942,15 @@ class bitget extends _abstract_bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
      * @description fetch all open positions
      * @see https://www.bitget.com/api-doc/contract/position/get-all-position
      * @see https://www.bitget.com/api-doc/contract/position/Get-History-Position
+     * @see https://www.bitget.com/api-doc/uta/trade/Get-Position
      * @param {string[]} [symbols] list of unified market symbols
      * @param {object} [params] extra parameters specific to the exchange API endpoint
      * @param {string} [params.marginCoin] the settle currency of the positions, needs to match the productType
      * @param {string} [params.productType] 'USDT-FUTURES', 'USDC-FUTURES', 'COIN-FUTURES', 'SUSDT-FUTURES', 'SUSDC-FUTURES' or 'SCOIN-FUTURES'
      * @param {boolean} [params.paginate] default false, when true will automatically paginate by calling this endpoint multiple times. See in the docs all the [available parameters](https://github.com/ccxt/ccxt/wiki/Manual#pagination-params)
      * @param {boolean} [params.useHistoryEndpoint] default false, when true  will use the historic endpoint to fetch positions
-     * @param {string} [params.method] either (default) 'privateMixGetV2MixPositionAllPosition' or 'privateMixGetV2MixPositionHistoryPosition'
+     * @param {string} [params.method] either (default) 'privateMixGetV2MixPositionAllPosition', 'privateMixGetV2MixPositionHistoryPosition', or 'privateUtaGetV3PositionCurrentPosition'
+     * @param {boolean} [params.uta] set to true for the unified trading account (uta), defaults to false
      * @returns {object[]} a list of [position structure]{@link https://docs.ccxt.com/#/?id=position-structure}
      */
     async fetchPositions(symbols = undefined, params = {}) {
@@ -60513,12 +62975,16 @@ class bitget extends _abstract_bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
         }
         let productType = undefined;
         [productType, params] = this.handleProductTypeAndParams(market, params);
-        const request = {
-            'productType': productType,
-        };
+        const request = {};
         let response = undefined;
         let isHistory = false;
-        if (method === 'privateMixGetV2MixPositionAllPosition') {
+        let uta = undefined;
+        [uta, params] = this.handleOptionAndParams(params, 'fetchPositions', 'uta', false);
+        if (uta) {
+            request['category'] = productType;
+            response = await this.privateUtaGetV3PositionCurrentPosition(this.extend(request, params));
+        }
+        else if (method === 'privateMixGetV2MixPositionAllPosition') {
             let marginCoin = this.safeString(params, 'marginCoin', 'USDT');
             if (symbols !== undefined) {
                 marginCoin = market['settleId'];
@@ -60541,6 +63007,7 @@ class bitget extends _abstract_bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
                 }
             }
             request['marginCoin'] = marginCoin;
+            request['productType'] = productType;
             response = await this.privateMixGetV2MixPositionAllPosition(this.extend(request, params));
         }
         else {
@@ -60548,6 +63015,7 @@ class bitget extends _abstract_bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
             if (market !== undefined) {
                 request['symbol'] = market['id'];
             }
+            request['productType'] = productType;
             response = await this.privateMixGetV2MixPositionHistoryPosition(this.extend(request, params));
         }
         //
@@ -60612,13 +63080,52 @@ class bitget extends _abstract_bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
         //         }
         //     }
         //
+        // privateUtaGetV3PositionCurrentPosition
+        //
+        //     {
+        //         "code": "00000",
+        //         "msg": "success",
+        //         "requestTime": 1750929905423,
+        //         "data": {
+        //             "list": [
+        //                 {
+        //                     "category": "USDT-FUTURES",
+        //                     "symbol": "BTCUSDT",
+        //                     "marginCoin": "USDT",
+        //                     "holdMode": "hedge_mode",
+        //                     "posSide": "long",
+        //                     "marginMode": "crossed",
+        //                     "positionBalance": "5.435199",
+        //                     "available": "0.001",
+        //                     "frozen": "0",
+        //                     "total": "0.001",
+        //                     "leverage": "20",
+        //                     "curRealisedPnl": "0",
+        //                     "avgPrice": "107410.3",
+        //                     "positionStatus": "normal",
+        //                     "unrealisedPnl": "0.0047",
+        //                     "liquidationPrice": "0",
+        //                     "mmr": "0.004",
+        //                     "profitRate": "0.0008647337475591",
+        //                     "markPrice": "107415.3",
+        //                     "breakEvenPrice": "107539.2",
+        //                     "totalFunding": "0",
+        //                     "openFeeTotal": "-0.06444618",
+        //                     "closeFeeTotal": "0",
+        //                     "createdTime": "1750495670699",
+        //                     "updatedTime": "1750929883465"
+        //                 }
+        //             ]
+        //         }
+        //     }
+        //
         let position = [];
-        if (!isHistory) {
-            position = this.safeList(response, 'data', []);
-        }
-        else {
+        if (uta || isHistory) {
             const data = this.safeDict(response, 'data', {});
             position = this.safeList(data, 'list', []);
+        }
+        else {
+            position = this.safeList(response, 'data', []);
         }
         const result = [];
         for (let i = 0; i < position.length; i++) {
@@ -99464,14 +101971,14 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
             },
         });
     }
+    /**
+     * @method
+     * @name bybit#enableDemoTrading
+     * @description enables or disables demo trading mode
+     * @see https://bybit-exchange.github.io/docs/v5/demo
+     * @param {boolean} [enable] true if demo trading should be enabled, false otherwise
+     */
     enableDemoTrading(enable) {
-        /**
-         * @method
-         * @name bybit#enableDemoTrading
-         * @description enables or disables demo trading mode
-         * @see https://bybit-exchange.github.io/docs/v5/demo
-         * @param {boolean} [enable] true if demo trading should be enabled, false otherwise
-         */
         if (this.isSandboxModeEnabled) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.NotSupported(this.id + ' demo trading does not support in sandbox environment');
         }
@@ -99779,10 +102286,10 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
      */
     async fetchCurrencies(params = {}) {
         if (!this.checkRequiredCredentials(false)) {
-            return undefined;
+            return {};
         }
         if (this.options['enableDemoTrading']) {
-            return undefined;
+            return {};
         }
         const response = await this.privateGetV5AssetCoinQueryInfo(params);
         //
@@ -101175,17 +103682,69 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
         //         "tradeId": "0e94eaf5-b08e-5505-b43f-7f1f30b1ca80"
         //     }
         //
+        // watchMyTrades execution.fast
+        //
+        //     {
+        //         "category": "linear",
+        //         "symbol": "ICPUSDT",
+        //         "execId": "3510f361-0add-5c7b-a2e7-9679810944fc",
+        //         "execPrice": "12.015",
+        //         "execQty": "3000",
+        //         "orderId": "443d63fa-b4c3-4297-b7b1-23bca88b04dc",
+        //         "isMaker": false,
+        //         "orderLinkId": "test-00001",
+        //         "side": "Sell",
+        //         "execTime": "1716800399334",
+        //         "seq": 34771365464
+        //     }
+        //
+        // watchMyTrades execution
+        //
+        //     {
+        //         "category": "linear",
+        //         "symbol": "BTCUSDT",
+        //         "closedSize": "0",
+        //         "execFee": "0.0679239",
+        //         "execId": "135dbae5-cbed-5275-9290-3956bb2ed907",
+        //         "execPrice": "123498",
+        //         "execQty": "0.001",
+        //         "execType": "Trade",
+        //         "execValue": "123.498",
+        //         "feeRate": "0.00055",
+        //         "tradeIv": "",
+        //         "markIv": "",
+        //         "blockTradeId": "",
+        //         "markPrice": "122392",
+        //         "indexPrice": "",
+        //         "underlyingPrice": "",
+        //         "leavesQty": "0",
+        //         "orderId": "aee7453a-a100-465f-857a-3db780e9329a",
+        //         "orderLinkId": "",
+        //         "orderPrice": "123615.9",
+        //         "orderQty": "0.001",
+        //         "orderType": "Market",
+        //         "stopOrderType": "UNKNOWN",
+        //         "side": "Buy",
+        //         "execTime": "1757837580469",
+        //         "isLeverage": "0",
+        //         "isMaker": false,
+        //         "seq": 9517074055,
+        //         "marketUnit": "",
+        //         "execPnl": "0",
+        //         "createType": "CreateByUser",
+        //         "extraFees": [],
+        //         "feeCoin": "USDT"
+        //  }
+        //
         const id = this.safeStringN(trade, ['execId', 'id', 'tradeId']);
         const marketId = this.safeString(trade, 'symbol');
         let marketType = ('createType' in trade) ? 'contract' : 'spot';
-        if (market !== undefined) {
-            marketType = market['type'];
-        }
         const category = this.safeString(trade, 'category');
         if (category !== undefined) {
-            if (category === 'spot') {
-                marketType = 'spot';
-            }
+            marketType = (category === 'spot') ? 'spot' : 'contract';
+        }
+        if (market !== undefined) {
+            marketType = market['type'];
         }
         market = this.safeMarket(marketId, market, undefined, marketType);
         const symbol = market['symbol'];
@@ -101251,7 +103810,7 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
             }
             fee = {
                 'cost': feeCostString,
-                'currency': feeCurrencyCode,
+                'currency': this.safeString(trade, 'feeCoin', feeCurrencyCode),
                 'rate': feeRateString,
             };
         }
@@ -101819,48 +104378,56 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
         //
         // v5
         //     {
-        //         "orderId": "14bad3a1-6454-43d8-bcf2-5345896cf74d",
-        //         "orderLinkId": "YLxaWKMiHU",
-        //         "blockTradeId": "",
         //         "symbol": "BTCUSDT",
-        //         "price": "26864.40",
-        //         "qty": "0.003",
-        //         "side": "Buy",
-        //         "isLeverage": "",
-        //         "positionIdx": 1,
-        //         "orderStatus": "Cancelled",
+        //         "orderType": "Market",
+        //         "orderLinkId": "",
+        //         "slLimitPrice": "0",
+        //         "orderId": "f5f2d355-9a11-4af3-9b83-aa1d6ab6ddfe",
         //         "cancelType": "UNKNOWN",
-        //         "rejectReason": "EC_PostOnlyWillTakeLiquidity",
-        //         "avgPrice": "0",
-        //         "leavesQty": "0.000",
-        //         "leavesValue": "0",
-        //         "cumExecQty": "0.000",
-        //         "cumExecValue": "0",
-        //         "cumExecFee": "0",
-        //         "timeInForce": "PostOnly",
-        //         "orderType": "Limit",
-        //         "stopOrderType": "UNKNOWN",
-        //         "orderIv": "",
-        //         "triggerPrice": "0.00",
-        //         "takeProfit": "0.00",
-        //         "stopLoss": "0.00",
-        //         "tpTriggerBy": "UNKNOWN",
-        //         "slTriggerBy": "UNKNOWN",
-        //         "triggerDirection": 0,
-        //         "triggerBy": "UNKNOWN",
-        //         "lastPriceOnCreated": "0.00",
-        //         "reduceOnly": false,
-        //         "closeOnTrigger": false,
-        //         "smpType": "None",
-        //         "smpGroup": 0,
-        //         "smpOrderId": "",
+        //         "avgPrice": "122529.9",
+        //         "stopOrderType": "",
+        //         "lastPriceOnCreated": "123747.9",
+        //         "orderStatus": "Filled",
+        //         "createType": "CreateByUser",
+        //         "takeProfit": "",
+        //         "cumExecValue": "122.5299",
         //         "tpslMode": "",
-        //         "tpLimitPrice": "",
-        //         "slLimitPrice": "",
+        //         "smpType": "None",
+        //         "triggerDirection": 0,
+        //         "blockTradeId": "",
+        //         "cumFeeDetail": {
+        //             "USDT": "0.06739145"
+        //         },
+        //         "rejectReason": "EC_NoError",
+        //         "isLeverage": "",
+        //         "price": "120518",
+        //         "orderIv": "",
+        //         "createdTime": "1757837618905",
+        //         "tpTriggerBy": "",
+        //         "positionIdx": 0,
+        //         "timeInForce": "IOC",
+        //         "leavesValue": "0",
+        //         "updatedTime": "1757837618909",
+        //         "side": "Sell",
+        //         "smpGroup": 0,
+        //         "triggerPrice": "",
+        //         "tpLimitPrice": "0",
+        //         "cumExecFee": "0.06739145",
+        //         "slTriggerBy": "",
+        //         "leavesQty": "0",
+        //         "closeOnTrigger": false,
+        //         "slippageToleranceType": "UNKNOWN",
         //         "placeType": "",
-        //         "createdTime": "1684476068369",
-        //         "updatedTime": "1684476068372"
+        //         "cumExecQty": "0.001",
+        //         "reduceOnly": true,
+        //         "qty": "0.001",
+        //         "stopLoss": "",
+        //         "smpOrderId": "",
+        //         "slippageTolerance": "0",
+        //         "triggerBy": "",
+        //         "extraFees": ""
         //     }
+        //
         // createOrders failed order
         //    {
         //        "category": "linear",
@@ -101918,33 +104485,13 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
         const status = this.parseOrderStatus(rawStatus);
         const side = this.safeStringLower(order, 'side');
         let fee = undefined;
-        const feeCostString = this.safeString(order, 'cumExecFee');
-        if (feeCostString !== undefined) {
-            let feeCurrencyCode = undefined;
-            if (market['spot']) {
-                if (_base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringGt(feeCostString, '0')) {
-                    if (side === 'buy') {
-                        feeCurrencyCode = market['base'];
-                    }
-                    else {
-                        feeCurrencyCode = market['quote'];
-                    }
-                }
-                else {
-                    if (side === 'buy') {
-                        feeCurrencyCode = market['quote'];
-                    }
-                    else {
-                        feeCurrencyCode = market['base'];
-                    }
-                }
-            }
-            else {
-                feeCurrencyCode = market['inverse'] ? market['base'] : market['settle'];
-            }
+        const cumFeeDetail = this.safeDict(order, 'cumFeeDetail', {});
+        const feeCoins = Object.keys(cumFeeDetail);
+        const feeCoinId = this.safeString(feeCoins, 0);
+        if (feeCoinId !== undefined) {
             fee = {
-                'cost': this.parseNumber(feeCostString),
-                'currency': feeCurrencyCode,
+                'cost': this.safeNumber(cumFeeDetail, feeCoinId),
+                'currency': feeCoinId,
             };
         }
         let clientOrderId = this.safeString(order, 'orderLinkId');
@@ -103410,49 +105957,63 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
         //         "retCode": 0,
         //         "retMsg": "OK",
         //         "result": {
-        //             "nextPageCursor": "03234de9-1332-41eb-b805-4a9f42c136a3%3A1672220109387%2C03234de9-1332-41eb-b805-4a9f42c136a3%3A1672220109387",
+        //             "nextPageCursor": "f5f2d355-9a11-4af3-9b83-aa1d6ab6ddfe%3A1757837618905%2Caee7453a-a100-465f-857a-3db780e9329a%3A1757837580469",
         //             "category": "linear",
         //             "list": [
         //                 {
         //                     "symbol": "BTCUSDT",
-        //                     "orderType": "Limit",
-        //                     "orderLinkId": "test-001",
-        //                     "orderId": "03234de9-1332-41eb-b805-4a9f42c136a3",
-        //                     "cancelType": "CancelByUser",
-        //                     "avgPrice": "0",
-        //                     "stopOrderType": "UNKNOWN",
-        //                     "lastPriceOnCreated": "16656.5",
-        //                     "orderStatus": "Cancelled",
+        //                     "orderType": "Market",
+        //                     "orderLinkId": "",
+        //                     "slLimitPrice": "0",
+        //                     "orderId": "f5f2d355-9a11-4af3-9b83-aa1d6ab6ddfe",
+        //                     "cancelType": "UNKNOWN",
+        //                     "avgPrice": "122529.9",
+        //                     "stopOrderType": "",
+        //                     "lastPriceOnCreated": "123747.9",
+        //                     "orderStatus": "Filled",
+        //                     "createType": "CreateByUser",
         //                     "takeProfit": "",
-        //                     "cumExecValue": "0",
+        //                     "cumExecValue": "122.5299",
+        //                     "tpslMode": "",
+        //                     "smpType": "None",
         //                     "triggerDirection": 0,
         //                     "blockTradeId": "",
-        //                     "rejectReason": "EC_PerCancelRequest",
+        //                     "cumFeeDetail": {
+        //                         "USDT": "0.06739145"
+        //                     },
+        //                     "rejectReason": "EC_NoError",
         //                     "isLeverage": "",
-        //                     "price": "18000",
+        //                     "price": "120518",
         //                     "orderIv": "",
-        //                     "createdTime": "1672220109387",
-        //                     "tpTriggerBy": "UNKNOWN",
+        //                     "createdTime": "1757837618905",
+        //                     "tpTriggerBy": "",
         //                     "positionIdx": 0,
-        //                     "timeInForce": "GoodTillCancel",
+        //                     "timeInForce": "IOC",
         //                     "leavesValue": "0",
-        //                     "updatedTime": "1672220114123",
+        //                     "updatedTime": "1757837618909",
         //                     "side": "Sell",
+        //                     "smpGroup": 0,
         //                     "triggerPrice": "",
-        //                     "cumExecFee": "0",
-        //                     "slTriggerBy": "UNKNOWN",
+        //                     "tpLimitPrice": "0",
+        //                     "cumExecFee": "0.06739145",
+        //                     "slTriggerBy": "",
         //                     "leavesQty": "0",
         //                     "closeOnTrigger": false,
-        //                     "cumExecQty": "0",
-        //                     "reduceOnly": false,
-        //                     "qty": "0.1",
+        //                     "slippageToleranceType": "UNKNOWN",
+        //                     "placeType": "",
+        //                     "cumExecQty": "0.001",
+        //                     "reduceOnly": true,
+        //                     "qty": "0.001",
         //                     "stopLoss": "",
-        //                     "triggerBy": "UNKNOWN"
-        //                 }
+        //                     "smpOrderId": "",
+        //                     "slippageTolerance": "0",
+        //                     "triggerBy": "",
+        //                     "extraFees": ""
+        //                 },
         //             ]
         //         },
         //         "retExtInfo": {},
-        //         "time": 1672221263862
+        //         "time": 1758187806376
         //     }
         //
         const data = this.addPaginationCursorToResult(response);
@@ -103565,48 +106126,63 @@ class bybit extends _abstract_bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
         //         "retCode": 0,
         //         "retMsg": "OK",
         //         "result": {
-        //             "nextPageCursor": "1321052653536515584%3A1672217748287%2C1321052653536515584%3A1672217748287",
-        //             "category": "spot",
+        //             "nextPageCursor": "f5f2d355-9a11-4af3-9b83-aa1d6ab6ddfe%3A1757837618905%2Caee7453a-a100-465f-857a-3db780e9329a%3A1757837580469",
+        //             "category": "linear",
         //             "list": [
         //                 {
-        //                     "symbol": "ETHUSDT",
-        //                     "orderType": "Limit",
-        //                     "orderLinkId": "1672217748277652",
-        //                     "orderId": "1321052653536515584",
+        //                     "symbol": "BTCUSDT",
+        //                     "orderType": "Market",
+        //                     "orderLinkId": "",
+        //                     "slLimitPrice": "0",
+        //                     "orderId": "f5f2d355-9a11-4af3-9b83-aa1d6ab6ddfe",
         //                     "cancelType": "UNKNOWN",
-        //                     "avgPrice": "",
-        //                     "stopOrderType": "tpslOrder",
-        //                     "lastPriceOnCreated": "",
-        //                     "orderStatus": "Cancelled",
+        //                     "avgPrice": "122529.9",
+        //                     "stopOrderType": "",
+        //                     "lastPriceOnCreated": "123747.9",
+        //                     "orderStatus": "Filled",
+        //                     "createType": "CreateByUser",
         //                     "takeProfit": "",
-        //                     "cumExecValue": "0",
+        //                     "cumExecValue": "122.5299",
+        //                     "tpslMode": "",
+        //                     "smpType": "None",
         //                     "triggerDirection": 0,
-        //                     "isLeverage": "0",
-        //                     "rejectReason": "",
-        //                     "price": "1000",
+        //                     "blockTradeId": "",
+        //                     "cumFeeDetail": {
+        //                         "USDT": "0.06739145"
+        //                     },
+        //                     "rejectReason": "EC_NoError",
+        //                     "isLeverage": "",
+        //                     "price": "120518",
         //                     "orderIv": "",
-        //                     "createdTime": "1672217748287",
+        //                     "createdTime": "1757837618905",
         //                     "tpTriggerBy": "",
         //                     "positionIdx": 0,
-        //                     "timeInForce": "GTC",
-        //                     "leavesValue": "500",
-        //                     "updatedTime": "1672217748287",
-        //                     "side": "Buy",
-        //                     "triggerPrice": "1500",
-        //                     "cumExecFee": "0",
-        //                     "leavesQty": "0",
+        //                     "timeInForce": "IOC",
+        //                     "leavesValue": "0",
+        //                     "updatedTime": "1757837618909",
+        //                     "side": "Sell",
+        //                     "smpGroup": 0,
+        //                     "triggerPrice": "",
+        //                     "tpLimitPrice": "0",
+        //                     "cumExecFee": "0.06739145",
         //                     "slTriggerBy": "",
+        //                     "leavesQty": "0",
         //                     "closeOnTrigger": false,
-        //                     "cumExecQty": "0",
-        //                     "reduceOnly": false,
-        //                     "qty": "0.5",
+        //                     "slippageToleranceType": "UNKNOWN",
+        //                     "placeType": "",
+        //                     "cumExecQty": "0.001",
+        //                     "reduceOnly": true,
+        //                     "qty": "0.001",
         //                     "stopLoss": "",
-        //                     "triggerBy": "1192.5"
-        //                 }
+        //                     "smpOrderId": "",
+        //                     "slippageTolerance": "0",
+        //                     "triggerBy": "",
+        //                     "extraFees": ""
+        //                 },
         //             ]
         //         },
         //         "retExtInfo": {},
-        //         "time": 1672219526294
+        //         "time": 1758187806376
         //     }
         //
         const data = this.addPaginationCursorToResult(response);
@@ -114393,8 +116969,9 @@ class coinbase extends _abstract_coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["de
         }
         return parsedPositions;
     }
-    createAuthToken(seconds, method = undefined, url = undefined) {
-        // it may not work for v2
+    createAuthToken(seconds, method = undefined, url = undefined, useEddsa = false) {
+        // v1 https://docs.cdp.coinbase.com/api-reference/authentication#php-2
+        // v2  https://docs.cdp.coinbase.com/api-reference/v2/authentication
         let uri = undefined;
         if (url !== undefined) {
             uri = method + ' ' + url.replace('https://', '');
@@ -114405,20 +116982,35 @@ class coinbase extends _abstract_coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["de
                 uri = uri.slice(0, quesPos);
             }
         }
+        // eddsa {"sub":"d2efa49a-369c-43d7-a60e-ae26e28853c2","iss":"cdp","aud":["cdp_service"],"uris":["GET api.coinbase.com/api/v3/brokerage/transaction_summary"]}
         const nonce = this.randomBytes(16);
+        const aud = useEddsa ? 'cdp_service' : 'retail_rest_api_proxy';
+        const iss = useEddsa ? 'cdp' : 'coinbase-cloud';
         const request = {
-            'aud': ['retail_rest_api_proxy'],
-            'iss': 'coinbase-cloud',
+            'aud': [aud],
+            'iss': iss,
             'nbf': seconds,
             'exp': seconds + 120,
             'sub': this.apiKey,
             'iat': seconds,
         };
         if (uri !== undefined) {
-            request['uri'] = uri;
+            if (!useEddsa) {
+                request['uri'] = uri;
+            }
+            else {
+                request['uris'] = [uri];
+            }
         }
-        const token = (0,_base_functions_rsa_js__WEBPACK_IMPORTED_MODULE_4__/* .jwt */ .a)(request, this.encode(this.secret), _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_5__/* .sha256 */ .s, false, { 'kid': this.apiKey, 'nonce': nonce, 'alg': 'ES256' });
-        return token;
+        if (useEddsa) {
+            const byteArray = this.base64ToBinary(this.secret);
+            const seed = this.arraySlice(byteArray, 0, 32);
+            return (0,_base_functions_rsa_js__WEBPACK_IMPORTED_MODULE_4__/* .jwt */ .a)(request, seed, _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_5__/* .sha256 */ .s, false, { 'kid': this.apiKey, 'nonce': nonce, 'alg': 'EdDSA' });
+        }
+        else {
+            // ecdsa with p256
+            return (0,_base_functions_rsa_js__WEBPACK_IMPORTED_MODULE_4__/* .jwt */ .a)(request, this.encode(this.secret), _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_5__/* .sha256 */ .s, false, { 'kid': this.apiKey, 'nonce': nonce, 'alg': 'ES256' });
+        }
     }
     nonce() {
         return this.milliseconds() - this.options['timeDifference'];
@@ -114468,8 +117060,10 @@ class coinbase extends _abstract_coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["de
                 // v2: 'GET' require payload in the signature
                 // https://docs.cloud.coinbase.com/sign-in-with-coinbase/docs/api-key-authentication
                 const isCloudAPiKey = (this.apiKey.indexOf('organizations/') >= 0) || (this.secret.startsWith('-----BEGIN'));
-                if (isCloudAPiKey) {
-                    if (this.apiKey.startsWith('-----BEGIN')) {
+                // using the size might be fragile, so we add an option to force v2 cloud api key if needed
+                const isV2CloudAPiKey = this.secret.length === 88 || this.safeBool(this.options, 'v2CloudAPiKey', false) || this.secret.endsWith('=');
+                if (isCloudAPiKey || isV2CloudAPiKey) {
+                    if (isCloudAPiKey && this.apiKey.startsWith('-----BEGIN')) {
                         throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' apiKey should contain the name (eg: organizations/3b910e93....) and not the public key');
                     }
                     // // it may not work for v2
@@ -114490,7 +117084,7 @@ class coinbase extends _abstract_coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["de
                     //     'uri': uri,
                     //     'iat': seconds,
                     // };
-                    const token = this.createAuthToken(seconds, method, url);
+                    const token = this.createAuthToken(seconds, method, url, isV2CloudAPiKey);
                     // const token = jwt (request, this.encode (this.secret), sha256, false, { 'kid': this.apiKey, 'nonce': nonce, 'alg': 'ES256' });
                     authorizationString = 'Bearer ' + token;
                 }
@@ -121418,6 +124012,7 @@ class coincatch extends _abstract_coincatch_js__WEBPACK_IMPORTED_MODULE_0__/* ["
      * @param {float} amount how much of you want to trade in units of the base currency
      * @param {float} [price] the price that the order is to be fulfilled, in units of the quote currency, ignored in market orders
      * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {bool} [params.hedged] *swap markets only* must be set to true if position mode is hedged (default false)
      * @param {float} [params.cost] *spot market buy only* the quote quantity that can be used as an alternative for the amount
      * @param {float} [params.triggerPrice] the price that the order is to be triggered
      * @param {bool} [params.postOnly] if true, the order will only be posted to the order book and not executed immediately
@@ -121620,6 +124215,7 @@ class coincatch extends _abstract_coincatch_js__WEBPACK_IMPORTED_MODULE_0__/* ["
      * @param {float} amount how much of you want to trade in units of the base currency
      * @param {float} [price] the price that the order is to be fulfilled, in units of the quote currency, ignored in market orders
      * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {bool} [params.hedged] must be set to true if position mode is hedged (default false)
      * @param {bool} [params.postOnly] *non-trigger orders only* if true, the order will only be posted to the order book and not executed immediately
      * @param {bool} [params.reduceOnly] true or false whether the order is reduce only
      * @param {string} [params.timeInForce] *non-trigger orders only* 'GTC', 'FOK', 'IOC' or 'PO'
@@ -121677,7 +124273,7 @@ class coincatch extends _abstract_coincatch_js__WEBPACK_IMPORTED_MODULE_0__/* ["
          * @param {float} amount how much of you want to trade in units of the base currency
          * @param {float} [price] the price that the order is to be fulfilled, in units of the quote currency, ignored in market orders
          * @param {object} [params] extra parameters specific to the exchange API endpoint
-         * @param {bool} [params.hedged] default false
+         * @param {bool} [params.hedged] must be set to true if position mode is hedged (default false)
          * @param {bool} [params.postOnly] *non-trigger orders only* if true, the order will only be posted to the order book and not executed immediately
          * @param {bool} [params.reduceOnly] true or false whether the order is reduce only
          * @param {string} [params.timeInForce] *non-trigger orders only* 'GTC', 'FOK', 'IOC' or 'PO'
@@ -121716,31 +124312,42 @@ class coincatch extends _abstract_coincatch_js__WEBPACK_IMPORTED_MODULE_0__/* ["
         }
         if ((endpointType !== 'tpsl')) {
             request['orderType'] = type;
+            let sideIsExchangeSpecific = false;
             let hedged = false;
-            [hedged, params] = this.handleOptionAndParams(params, methodName, 'hedged', hedged);
-            // hedged and non-hedged orders have different side values and reduceOnly handling
-            let reduceOnly = false;
-            [reduceOnly, params] = this.handleParamBool(params, 'reduceOnly', reduceOnly);
-            if (hedged) {
-                if (reduceOnly) {
-                    if (side === 'buy') {
-                        side = 'close_short';
+            if ((side === 'buy_single') || (side === 'sell_single') || (side === 'open_long') || (side === 'open_short') || (side === 'close_long') || (side === 'close_short')) {
+                sideIsExchangeSpecific = true;
+                if ((side !== 'buy_single') && (side !== 'sell_single')) {
+                    hedged = true;
+                }
+            }
+            if (!sideIsExchangeSpecific) {
+                [hedged, params] = this.handleOptionAndParams(params, methodName, 'hedged', hedged);
+                // hedged and non-hedged orders have different side values and reduceOnly handling
+                const reduceOnly = this.safeBool(params, 'reduceOnly');
+                if (hedged) {
+                    if ((reduceOnly !== undefined) && reduceOnly) {
+                        if (side === 'buy') {
+                            side = 'close_short';
+                        }
+                        else if (side === 'sell') {
+                            side = 'close_long';
+                        }
                     }
-                    else if (side === 'sell') {
-                        side = 'close_long';
+                    else {
+                        if (side === 'buy') {
+                            side = 'open_long';
+                        }
+                        else if (side === 'sell') {
+                            side = 'open_short';
+                        }
                     }
                 }
                 else {
-                    if (side === 'buy') {
-                        side = 'open_long';
-                    }
-                    else if (side === 'sell') {
-                        side = 'open_short';
-                    }
+                    side = side.toLowerCase() + '_single';
                 }
             }
-            else {
-                side = side.toLowerCase() + '_single';
+            if (hedged) {
+                params = this.omit(params, 'reduceOnly');
             }
             request['side'] = side;
         }
@@ -124039,7 +126646,7 @@ class coincatch extends _abstract_coincatch_js__WEBPACK_IMPORTED_MODULE_0__/* ["
                 }
             }
         }
-        return positions[0];
+        return this.safeDict(positions, 0, {});
     }
     /**
      * @method
@@ -133549,6 +136156,17 @@ class coinmetro extends _abstract_coinmetro_js__WEBPACK_IMPORTED_MODULE_0__/* ["
                 }
             }
         }
+        if (baseId === undefined || quoteId === undefined) {
+            // https://github.com/ccxt/ccxt/issues/26820
+            if (marketId.endsWith('USDT')) {
+                baseId = marketId.replace('USDT', '');
+                quoteId = 'USDT';
+            }
+            if (marketId.endsWith('USD')) {
+                baseId = marketId.replace('USD', '');
+                quoteId = 'USD';
+            }
+        }
         const result = {
             'baseId': baseId,
             'quoteId': quoteId,
@@ -136825,7 +139443,7 @@ class coinsph extends _abstract_coinsph_js__WEBPACK_IMPORTED_MODULE_0__/* ["defa
      */
     async fetchCurrencies(params = {}) {
         if (!this.checkRequiredCredentials(false)) {
-            return undefined;
+            return {};
         }
         const response = await this.privateGetOpenapiWalletV1ConfigGetall(params);
         //
@@ -139708,13 +142326,13 @@ class cryptocom extends _abstract_cryptocom_js__WEBPACK_IMPORTED_MODULE_0__/* ["
     async fetchCurrencies(params = {}) {
         // this endpoint requires authentication
         if (!this.checkRequiredCredentials(false)) {
-            return undefined;
+            return {};
         }
         let skipFetchCurrencies = false;
         [skipFetchCurrencies, params] = this.handleOptionAndParams(params, 'fetchCurrencies', 'skipFetchCurrencies', false);
         if (skipFetchCurrencies) {
             // sub-accounts can't access this endpoint
-            return undefined;
+            return {};
         }
         let response = {};
         try {
@@ -139724,7 +142342,7 @@ class cryptocom extends _abstract_cryptocom_js__WEBPACK_IMPORTED_MODULE_0__/* ["
             if (e instanceof _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError) {
                 // sub-accounts can't access this endpoint
                 // {"code":"10001","msg":"SYS_ERROR"}
-                return undefined;
+                return {};
             }
             throw e;
             // do nothing
@@ -146275,6 +148893,7 @@ class delta extends _abstract_delta_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
                     },
                 },
             },
+            'userAgent': this.userAgents['chrome39'],
             'options': {
                 'networks': {
                     'TRC20': 'TRC20(TRON)',
@@ -167424,7 +170043,7 @@ class gate extends _abstract_gate_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] 
         // sandbox/testnet only supports future markets
         const apiBackup = this.safeValue(this.urls, 'apiBackup');
         if (apiBackup !== undefined) {
-            return undefined;
+            return {};
         }
         const response = await this.publicSpotGetCurrencies(params);
         //
@@ -168500,6 +171119,12 @@ class gate extends _abstract_gate_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] 
     /**
      * @method
      * @name gate#fetchBalance
+     * @see https://www.gate.com/docs/developers/apiv4/en/#margin-account-list
+     * @see https://www.gate.com/docs/developers/apiv4/en/#get-unified-account-information
+     * @see https://www.gate.com/docs/developers/apiv4/en/#list-spot-trading-accounts
+     * @see https://www.gate.com/docs/developers/apiv4/en/#get-futures-account
+     * @see https://www.gate.com/docs/developers/apiv4/en/#get-futures-account-2
+     * @see https://www.gate.com/docs/developers/apiv4/en/#query-account-information
      * @param {object} [params] exchange specific parameters
      * @param {string} [params.type] spot, margin, swap or future, if not provided this.options['defaultType'] is used
      * @param {string} [params.settle] 'btc' or 'usdt' - settle currency for perpetual swap and future - default="usdt" for swap and "btc" for future
@@ -168754,7 +171379,7 @@ class gate extends _abstract_gate_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] 
         const result = {
             'info': response,
         };
-        const isolated = marginMode === 'margin';
+        const isolated = marginMode === 'margin' && type === 'spot';
         let data = response;
         if ('balances' in data) { // True for cross_margin and unified
             const flatBalances = [];
@@ -174175,6 +176800,7 @@ class gemini extends _abstract_gemini_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
                         'quote': 'USD',
                     },
                 },
+                'brokenPairs': ['efilusd', 'maticrlusd', 'maticusdc', 'eurusdc', 'maticgusd', 'maticusd', 'efilfil', 'eurusd'],
             },
             'features': {
                 'default': {
@@ -174265,7 +176891,7 @@ class gemini extends _abstract_gemini_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
     async fetchCurrenciesFromWeb(params = {}) {
         const data = await this.fetchWebEndpoint('fetchCurrencies', 'webExchangeGet', true, '="currencyData">', '</script>');
         if (data === undefined) {
-            return undefined;
+            return {};
         }
         //
         //    {
@@ -174507,10 +177133,10 @@ class gemini extends _abstract_gemini_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
         //
         const result = [];
         const options = this.safeDict(this.options, 'fetchMarketsFromAPI', {});
-        const bugSymbol = 'efilfil'; // we skip this inexistent test symbol, which bugs other functions
+        const brokenPairs = this.safeList(this.options, 'brokenPairs', []);
         const marketIds = [];
         for (let i = 0; i < marketIdsRaw.length; i++) {
-            if (marketIdsRaw[i] !== bugSymbol) {
+            if (!this.inArray(marketIdsRaw[i], brokenPairs)) {
                 marketIds.push(marketIdsRaw[i]);
             }
         }
@@ -174548,14 +177174,16 @@ class gemini extends _abstract_gemini_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
                 for (let i = 0; i < marketIds.length; i++) {
                     const marketId = marketIds[i];
                     const tradingPair = this.safeList(indexedTradingPairs, marketId.toUpperCase());
-                    if (tradingPair !== undefined) {
+                    if (tradingPair !== undefined && !this.inArray(tradingPair, brokenPairs)) {
                         result.push(this.parseMarket(tradingPair));
                     }
                 }
             }
             else {
                 for (let i = 0; i < marketIds.length; i++) {
-                    result.push(this.parseMarket(marketIds[i]));
+                    if (!this.inArray(marketIds[i], brokenPairs)) {
+                        result.push(this.parseMarket(marketIds[i]));
+                    }
                 }
             }
         }
@@ -174941,7 +177569,9 @@ class gemini extends _abstract_gemini_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
         //         },
         //     ]
         //
-        return this.parseTickers(response, symbols);
+        const result = this.parseTickers(response, symbols);
+        const brokenPairs = this.safeList(this.options, 'brokenPairs', []);
+        return this.removeKeysFromDict(result, brokenPairs);
     }
     parseTrade(trade, market = undefined) {
         //
@@ -201592,6 +204222,9 @@ class hyperliquid extends _abstract_hyperliquid_js__WEBPACK_IMPORTED_MODULE_0__/
         }
         const until = this.safeInteger(params, 'until');
         if (until !== undefined) {
+            if (since === undefined) {
+                throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ArgumentsRequired(this.id + ' fetchDeposits requires since while until is set');
+            }
             request['endTime'] = until;
             params = this.omit(params, ['until']);
         }
@@ -204987,6 +207620,7 @@ class kraken extends _abstract_kraken_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
                     'OriginTrail': 'OTP',
                     'Celestia': 'TIA',
                 },
+                'marketHelperProps': ['marketsByAltname', 'delistedMarketsById'], // used by setMarketsFromExchange
             },
             'features': {
                 'spot': {
@@ -208562,7 +211196,7 @@ class krakenfutures extends _abstract_krakenfutures_js__WEBPACK_IMPORTED_MODULE_
                 'future': future,
                 'option': false,
                 'index': index,
-                'active': undefined,
+                'active': this.safeBool(market, 'tradeable'),
                 'contract': contract,
                 'linear': linear,
                 'inverse': inverse,
@@ -216234,6 +218868,7 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
                 'fetchWithdrawals': true,
                 'setLeverage': false,
                 'setMarginMode': true,
+                'setPositionMode': true,
                 'transfer': true,
                 'withdraw': undefined,
             },
@@ -216328,6 +218963,7 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
                         'sub/api-key/update': 1,
                         'changeCrossUserLeverage': 1,
                         'position/changeMarginMode': 1,
+                        'position/switchPositionMode': 1,
                     },
                     'delete': {
                         'withdrawals/{withdrawalId}': 1,
@@ -216472,6 +219108,7 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
                             'transfer-out': 'v2',
                             'changeCrossUserLeverage': 'v2',
                             'position/changeMarginMode': 'v2',
+                            'position/switchPositionMode': 'v2',
                         },
                     },
                     'futuresPublic': {
@@ -216687,7 +219324,7 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
             const market = data[i];
             const id = this.safeString(market, 'symbol');
             const expiry = this.safeInteger(market, 'expireDate');
-            const future = expiry ? true : false;
+            const future = this.safeString(market, 'nextFundingRateTime') === undefined;
             const swap = !future;
             const baseId = this.safeString(market, 'baseCurrency');
             const quoteId = this.safeString(market, 'quoteCurrency');
@@ -217665,6 +220302,7 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
      * @param {string} [params.postOnly] Post only flag, invalid when timeInForce is IOC or FOK
      * @param {float} [params.cost] the cost of the order in units of USDT
      * @param {string} [params.marginMode] 'cross' or 'isolated', default is 'isolated'
+     * @param {bool} [params.hedged] *swap and future only* true for hedged mode, false for one way mode, default is false
      * ----------------- Exchange Specific Parameters -----------------
      * @param {float} [params.leverage] Leverage size of the order (mandatory param in request, default is 1)
      * @param {string} [params.clientOid] client order id, defaults to uuid if not passed
@@ -217674,7 +220312,8 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
      * @param {string} [params.stopPriceType] exchange-specific alternative for triggerPriceType: TP, IP or MP
      * @param {bool} [params.closeOrder] set to true to close position
      * @param {bool} [params.test] set to true to use the test order endpoint (does not submit order, use to validate params)
-     * @param {bool} [params.forceHold] A mark to forcely hold the funds for an order, even though it's an order to reduce the position size. This helps the order stay on the order book and not get canceled when the position size changes. Set to false by default.
+     * @param {bool} [params.forceHold] A mark to forcely hold the funds for an order, even though it's an order to reduce the position size. This helps the order stay on the order book and not get canceled when the position size changes. Set to false by default.\
+     * @param {string} [params.positionSide] *swap and future only* hedged two-way position side, LONG or SHORT
      * @returns {object} an [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
      */
     async createOrder(symbol, type, side, amount, price = undefined, params = {}) {
@@ -217858,7 +220497,23 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
                 throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' createOrder() requires a visibleSize parameter for iceberg orders');
             }
         }
-        params = this.omit(params, ['timeInForce', 'stopPrice', 'triggerPrice', 'stopLossPrice', 'takeProfitPrice']); // Time in force only valid for limit orders, exchange error when gtc for market orders
+        const reduceOnly = this.safeBool(params, 'reduceOnly', false);
+        let hedged = undefined;
+        [hedged, params] = this.handleParamBool(params, 'hedged', false);
+        if (reduceOnly) {
+            request['reduceOnly'] = reduceOnly;
+            if (hedged) {
+                const reduceOnlyPosSide = (side === 'sell') ? 'LONG' : 'SHORT';
+                request['positionSide'] = reduceOnlyPosSide;
+            }
+        }
+        else {
+            if (hedged) {
+                const posSide = (side === 'buy') ? 'LONG' : 'SHORT';
+                request['positionSide'] = posSide;
+            }
+        }
+        params = this.omit(params, ['timeInForce', 'stopPrice', 'triggerPrice', 'stopLossPrice', 'takeProfitPrice', 'reduceOnly', 'hedged']); // Time in force only valid for limit orders, exchange error when gtc for market orders
         return this.extend(request, params);
     }
     /**
@@ -219428,6 +222083,33 @@ class kucoinfutures extends _abstract_kucoinfutures_js__WEBPACK_IMPORTED_MODULE_
         //
         const data = this.safeDict(response, 'data', {});
         return this.parseMarginMode(data, market);
+    }
+    /**
+     * @method
+     * @name kucoinfutures#setPositionMode
+     * @description set hedged to true or false for a market
+     * @see https://www.kucoin.com/docs-new/3475097e0
+     * @param {bool} hedged set to true to use two way position
+     * @param {string} [symbol] not used by bybit setPositionMode ()
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a response from the exchange
+     */
+    async setPositionMode(hedged, symbol = undefined, params = {}) {
+        await this.loadMarkets();
+        const posMode = hedged ? '1' : '0';
+        const request = {
+            'positionMode': posMode,
+        };
+        const response = await this.futuresPrivatePostPositionSwitchPositionMode(this.extend(request, params));
+        //
+        //     {
+        //         "code": "200000",
+        //         "data": {
+        //             "positionMode": 1
+        //         }
+        //     }
+        //
+        return response;
     }
     /**
      * @method
@@ -224820,7 +227502,7 @@ class luno extends _abstract_luno_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] 
      */
     async fetchCurrencies(params = {}) {
         if (!this.checkRequiredCredentials(false)) {
-            return undefined;
+            return {};
         }
         const response = await this.privateGetSendNetworks(params);
         //
@@ -228070,7 +230752,7 @@ class mexc extends _abstract_mexc_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] 
         // therefore we check the keys here
         // and fallback to generating the currencies from the markets
         if (!this.checkRequiredCredentials(false)) {
-            return undefined;
+            return {};
         }
         const response = await this.spotPrivateGetCapitalConfigGetall(params);
         //
@@ -242414,7 +245096,7 @@ class okcoin extends _abstract_okcoin_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
             if (this.options['warnOnFetchCurrenciesWithoutAuthorization']) {
                 throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ExchangeError(this.id + ' fetchCurrencies() is a private API endpoint that requires authentication with API keys. Set the API keys on the exchange instance or exchange.options["warnOnFetchCurrenciesWithoutAuthorization"] = false to suppress this warning message.');
             }
-            return undefined;
+            return {};
         }
         else {
             const response = await this.privateGetAssetCurrencies(params);
@@ -246605,7 +249287,7 @@ class okx extends _abstract_okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */
         // and fallback to generating the currencies from the markets
         const isSandboxMode = this.safeBool(this.options, 'sandboxMode', false);
         if (!this.checkRequiredCredentials(false) || isSandboxMode) {
-            return undefined;
+            return {};
         }
         //
         // has['fetchCurrencies'] is currently set to true, but an unauthorized request returns
@@ -247875,13 +250557,15 @@ class okx extends _abstract_okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */
             request['ordType'] = 'move_order_stop';
         }
         else if (stopLossDefined || takeProfitDefined) {
+            let attachAlgoOrd = {};
             if (stopLossDefined) {
                 const stopLossTriggerPrice = this.safeValueN(stopLoss, ['triggerPrice', 'stopPrice', 'slTriggerPx']);
                 if (stopLossTriggerPrice === undefined) {
                     throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.InvalidOrder(this.id + ' createOrder() requires a trigger price in params["stopLoss"]["triggerPrice"], or params["stopLoss"]["stopPrice"], or params["stopLoss"]["slTriggerPx"] for a stop loss order');
                 }
                 const slTriggerPx = this.priceToPrecision(symbol, stopLossTriggerPrice);
-                request['slTriggerPx'] = slTriggerPx;
+                const slOrder = {};
+                slOrder['slTriggerPx'] = slTriggerPx;
                 const stopLossLimitPrice = this.safeValueN(stopLoss, ['price', 'stopLossPrice', 'slOrdPx']);
                 const stopLossOrderType = this.safeString(stopLoss, 'type');
                 if (stopLossOrderType !== undefined) {
@@ -247895,33 +250579,35 @@ class okx extends _abstract_okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */
                             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.InvalidOrder(this.id + ' createOrder() requires a limit price in params["stopLoss"]["price"] or params["stopLoss"]["slOrdPx"] for a stop loss limit order');
                         }
                         else {
-                            request['slOrdPx'] = this.priceToPrecision(symbol, stopLossLimitPrice);
+                            slOrder['slOrdPx'] = this.priceToPrecision(symbol, stopLossLimitPrice);
                         }
                     }
                     else if (stopLossOrderType === 'market') {
-                        request['slOrdPx'] = '-1';
+                        slOrder['slOrdPx'] = '-1';
                     }
                 }
                 else if (stopLossLimitPrice !== undefined) {
-                    request['slOrdPx'] = this.priceToPrecision(symbol, stopLossLimitPrice); // limit sl order
+                    slOrder['slOrdPx'] = this.priceToPrecision(symbol, stopLossLimitPrice); // limit sl order
                 }
                 else {
-                    request['slOrdPx'] = '-1'; // market sl order
+                    slOrder['slOrdPx'] = '-1'; // market sl order
                 }
                 const stopLossTriggerPriceType = this.safeString2(stopLoss, 'triggerPriceType', 'slTriggerPxType', 'last');
                 if (stopLossTriggerPriceType !== undefined) {
                     if ((stopLossTriggerPriceType !== 'last') && (stopLossTriggerPriceType !== 'index') && (stopLossTriggerPriceType !== 'mark')) {
                         throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.InvalidOrder(this.id + ' createOrder() stop loss trigger price type must be one of "last", "index" or "mark"');
                     }
-                    request['slTriggerPxType'] = stopLossTriggerPriceType;
+                    slOrder['slTriggerPxType'] = stopLossTriggerPriceType;
                 }
+                attachAlgoOrd = this.extend(attachAlgoOrd, slOrder);
             }
             if (takeProfitDefined) {
                 const takeProfitTriggerPrice = this.safeValueN(takeProfit, ['triggerPrice', 'stopPrice', 'tpTriggerPx']);
                 if (takeProfitTriggerPrice === undefined) {
                     throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.InvalidOrder(this.id + ' createOrder() requires a trigger price in params["takeProfit"]["triggerPrice"], or params["takeProfit"]["stopPrice"], or params["takeProfit"]["tpTriggerPx"] for a take profit order');
                 }
-                request['tpTriggerPx'] = this.priceToPrecision(symbol, takeProfitTriggerPrice);
+                const tpOrder = {};
+                tpOrder['tpTriggerPx'] = this.priceToPrecision(symbol, takeProfitTriggerPrice);
                 const takeProfitLimitPrice = this.safeValueN(takeProfit, ['price', 'takeProfitPrice', 'tpOrdPx']);
                 const takeProfitOrderType = this.safeString2(takeProfit, 'type', 'tpOrdKind');
                 if (takeProfitOrderType !== undefined) {
@@ -247935,28 +250621,34 @@ class okx extends _abstract_okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */
                             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.InvalidOrder(this.id + ' createOrder() requires a limit price in params["takeProfit"]["price"] or params["takeProfit"]["tpOrdPx"] for a take profit limit order');
                         }
                         else {
-                            request['tpOrdKind'] = takeProfitOrderType;
-                            request['tpOrdPx'] = this.priceToPrecision(symbol, takeProfitLimitPrice);
+                            tpOrder['tpOrdKind'] = takeProfitOrderType;
+                            tpOrder['tpOrdPx'] = this.priceToPrecision(symbol, takeProfitLimitPrice);
                         }
                     }
                     else if (takeProfitOrderType === 'market') {
-                        request['tpOrdPx'] = '-1';
+                        tpOrder['tpOrdPx'] = '-1';
                     }
                 }
                 else if (takeProfitLimitPrice !== undefined) {
-                    request['tpOrdKind'] = 'limit';
-                    request['tpOrdPx'] = this.priceToPrecision(symbol, takeProfitLimitPrice); // limit tp order
+                    tpOrder['tpOrdKind'] = 'limit';
+                    tpOrder['tpOrdPx'] = this.priceToPrecision(symbol, takeProfitLimitPrice); // limit tp order
                 }
                 else {
-                    request['tpOrdPx'] = '-1'; // market tp order
+                    tpOrder['tpOrdPx'] = '-1'; // market tp order
                 }
                 const takeProfitTriggerPriceType = this.safeString2(takeProfit, 'triggerPriceType', 'tpTriggerPxType', 'last');
                 if (takeProfitTriggerPriceType !== undefined) {
                     if ((takeProfitTriggerPriceType !== 'last') && (takeProfitTriggerPriceType !== 'index') && (takeProfitTriggerPriceType !== 'mark')) {
                         throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.InvalidOrder(this.id + ' createOrder() take profit trigger price type must be one of "last", "index" or "mark"');
                     }
-                    request['tpTriggerPxType'] = takeProfitTriggerPriceType;
+                    tpOrder['tpTriggerPxType'] = takeProfitTriggerPriceType;
                 }
+                attachAlgoOrd = this.extend(attachAlgoOrd, tpOrder);
+            }
+            const attachOrdKeys = Object.keys(attachAlgoOrd);
+            const attachOrdLen = attachOrdKeys.length;
+            if (attachOrdLen > 0) {
+                request['attachAlgoOrds'] = [attachAlgoOrd];
             }
         }
         else if (trigger) {
@@ -254385,34 +257077,80 @@ class onetrading extends _abstract_onetrading_js__WEBPACK_IMPORTED_MODULE_0__/* 
         return this.parseMarkets(response);
     }
     parseMarket(market) {
-        const baseAsset = this.safeValue(market, 'base', {});
-        const quoteAsset = this.safeValue(market, 'quote', {});
+        //
+        //   {
+        //      "base":{
+        //         "code":"BTC",
+        //         "precision":"5"
+        //      },
+        //      "quote":{
+        //         "code":"USDC",
+        //         "precision":"2"
+        //      },
+        //      "amount_precision":"5",
+        //      "market_precision":"2",
+        //      "min_size":"10.0",
+        //      "min_price":"1000",
+        //      "max_price":"10000000",
+        //      "id":"BTC_USDC",
+        //      "type":"SPOT",
+        //      "state":"ACTIVE"
+        //   }
+        //
+        //
+        //  {
+        //      "base": {
+        //          "code": "BTC",
+        //          "precision": 5
+        //      },
+        //      "quote": {
+        //          "code": "EUR",
+        //          "precision": 2
+        //      },
+        //      "amount_precision": 5,
+        //      "market_precision": 2,
+        //      "min_size": "10.0",
+        //      "min_price": "1000",
+        //      "max_price": "10000000",
+        //      "id": "BTC_EUR_P",
+        //      "type": "PERP",
+        //      "state": "ACTIVE"
+        //  }
+        //
+        const baseAsset = this.safeDict(market, 'base', {});
+        const quoteAsset = this.safeDict(market, 'quote', {});
         const baseId = this.safeString(baseAsset, 'code');
         const quoteId = this.safeString(quoteAsset, 'code');
-        const id = baseId + '_' + quoteId;
+        const id = this.safeString(market, 'id');
         const base = this.safeCurrencyCode(baseId);
         const quote = this.safeCurrencyCode(quoteId);
         const state = this.safeString(market, 'state');
+        const type = this.safeString(market, 'type');
+        const isPerp = type === 'PERP';
+        let symbol = base + '/' + quote;
+        if (isPerp) {
+            symbol = symbol + ':' + quote;
+        }
         return {
             'id': id,
-            'symbol': base + '/' + quote,
+            'symbol': symbol,
             'base': base,
             'quote': quote,
-            'settle': undefined,
+            'settle': isPerp ? quote : undefined,
             'baseId': baseId,
             'quoteId': quoteId,
-            'settleId': undefined,
-            'type': 'spot',
-            'spot': true,
+            'settleId': isPerp ? quoteId : undefined,
+            'type': isPerp ? 'swap' : 'spot',
+            'spot': !isPerp,
             'margin': false,
-            'swap': false,
+            'swap': isPerp,
             'future': false,
             'option': false,
             'active': (state === 'ACTIVE'),
-            'contract': false,
-            'linear': undefined,
-            'inverse': undefined,
-            'contractSize': undefined,
+            'contract': isPerp,
+            'linear': isPerp ? true : undefined,
+            'inverse': isPerp ? false : undefined,
+            'contractSize': isPerp ? this.parseNumber('1') : undefined,
             'expiry': undefined,
             'expiryDatetime': undefined,
             'strike': undefined,
@@ -254450,6 +257188,7 @@ class onetrading extends _abstract_onetrading_js__WEBPACK_IMPORTED_MODULE_0__/* 
      * @see https://docs.onetrading.com/#fee-groups
      * @see https://docs.onetrading.com/#fees
      * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {string} [params.method] fetchPrivateTradingFees or fetchPublicTradingFees
      * @returns {object} a dictionary of [fee structures]{@link https://docs.ccxt.com/#/?id=fee-structure} indexed by market symbols
      */
     async fetchTradingFees(params = {}) {
@@ -254473,39 +257212,68 @@ class onetrading extends _abstract_onetrading_js__WEBPACK_IMPORTED_MODULE_0__/* 
         await this.loadMarkets();
         const response = await this.publicGetFees(params);
         //
-        //     [
-        //         {
-        //             "fee_group_id":"default",
-        //             "display_text":"The standard fee plan.",
-        //             "fee_tiers":[
-        //                 {"volume":"0.0","fee_group_id":"default","maker_fee":"0.1","taker_fee":"0.15"},
-        //                 {"volume":"100.0","fee_group_id":"default","maker_fee":"0.1","taker_fee":"0.13"},
-        //                 {"volume":"250.0","fee_group_id":"default","maker_fee":"0.09","taker_fee":"0.13"},
-        //                 {"volume":"1000.0","fee_group_id":"default","maker_fee":"0.075","taker_fee":"0.1"},
-        //                 {"volume":"5000.0","fee_group_id":"default","maker_fee":"0.06","taker_fee":"0.09"},
-        //                 {"volume":"10000.0","fee_group_id":"default","maker_fee":"0.05","taker_fee":"0.075"},
-        //                 {"volume":"20000.0","fee_group_id":"default","maker_fee":"0.05","taker_fee":"0.065"}
-        //             ],
-        //             "fee_discount_rate":"25.0",
-        //             "minimum_price_value":"0.12"
-        //         }
-        //     ]
+        // [
+        //     {
+        //         'fee_group_id': 'SPOT',
+        //         'display_text': 'The fee plan for spot trading.',
+        //         'volume_currency': 'EUR',
+        //         'fee_tiers': [
+        //             {
+        //                 'volume': '0',
+        //                 'fee_group_id': 'SPOT',
+        //                 'maker_fee': '0.1000',
+        //                 'taker_fee': '0.2000',
+        //             },
+        //             {
+        //                 'volume': '10000',
+        //                 'fee_group_id': 'SPOT',
+        //                 'maker_fee': '0.0400',
+        //                 'taker_fee': '0.0800',
+        //             },
+        //         ],
+        //     },
+        //     {
+        //         'fee_group_id': 'FUTURES',
+        //         'display_text': 'The fee plan for futures trading.',
+        //         'volume_currency': 'EUR',
+        //         'fee_tiers': [
+        //             {
+        //                 'volume': '0',
+        //                 'fee_group_id': 'FUTURES',
+        //                 'maker_fee': '0.1000',
+        //                 'taker_fee': '0.2000',
+        //             },
+        //             {
+        //                 'volume': '10000',
+        //                 'fee_group_id': 'FUTURES',
+        //                 'maker_fee': '0.0400',
+        //                 'taker_fee': '0.0800',
+        //             },
+        //         ],
+        //     },
+        // ];
         //
-        const first = this.safeValue(response, 0, {});
-        const feeTiers = this.safeValue(first, 'fee_tiers');
-        const tiers = this.parseFeeTiers(feeTiers);
-        const firstTier = this.safeValue(feeTiers, 0, {});
+        const spotFees = this.safeDict(response, 0, {});
+        const futuresFees = this.safeDict(response, 1, {});
+        const spotFeeTiers = this.safeList(spotFees, 'fee_tiers', []);
+        const futuresFeeTiers = this.safeList(futuresFees, 'fee_tiers', []);
+        const spotTiers = this.parseFeeTiers(spotFeeTiers);
+        const futuresTiers = this.parseFeeTiers(futuresFeeTiers);
+        const firstSpotTier = this.safeDict(spotTiers, 0, {});
+        const firstFuturesTier = this.safeDict(futuresTiers, 0, {});
         const result = {};
         for (let i = 0; i < this.symbols.length; i++) {
             const symbol = this.symbols[i];
+            const market = this.market(symbol);
+            const tierObject = (market['spot']) ? firstSpotTier : firstFuturesTier;
             result[symbol] = {
-                'info': first,
+                'info': spotFees,
                 'symbol': symbol,
-                'maker': this.safeNumber(firstTier, 'maker_fee'),
-                'taker': this.safeNumber(firstTier, 'taker_fee'),
+                'maker': this.safeNumber(tierObject, 'maker_fee'),
+                'taker': this.safeNumber(tierObject, 'taker_fee'),
                 'percentage': true,
                 'tierBased': true,
-                'tiers': tiers,
+                'tiers': spotTiers,
             };
         }
         return result;
@@ -254514,36 +257282,55 @@ class onetrading extends _abstract_onetrading_js__WEBPACK_IMPORTED_MODULE_0__/* 
         await this.loadMarkets();
         const response = await this.privateGetAccountFees(params);
         //
-        //     {
-        //         "account_id": "ed524d00-820a-11e9-8f1e-69602df16d85",
-        //         "running_trading_volume": "0.0",
-        //         "fee_group_id": "default",
-        //         "collect_fees_in_best": false,
-        //         "fee_discount_rate": "25.0",
-        //         "minimum_price_value": "0.12",
-        //         "fee_tiers": [
-        //             { "volume": "0.0", "fee_group_id": "default", "maker_fee": "0.1", "taker_fee": "0.1" },
-        //             { "volume": "100.0", "fee_group_id": "default", "maker_fee": "0.09", "taker_fee": "0.1" },
-        //             { "volume": "250.0", "fee_group_id": "default", "maker_fee": "0.08", "taker_fee": "0.1" },
-        //             { "volume": "1000.0", "fee_group_id": "default", "maker_fee": "0.07", "taker_fee": "0.09" },
-        //             { "volume": "5000.0", "fee_group_id": "default", "maker_fee": "0.06", "taker_fee": "0.08" },
-        //             { "volume": "10000.0", "fee_group_id": "default", "maker_fee": "0.05", "taker_fee": "0.07" },
-        //             { "volume": "20000.0", "fee_group_id": "default", "maker_fee": "0.05", "taker_fee": "0.06" },
-        //             { "volume": "50000.0", "fee_group_id": "default", "maker_fee": "0.05", "taker_fee": "0.05" }
-        //         ],
-        //         "active_fee_tier": { "volume": "0.0", "fee_group_id": "default", "maker_fee": "0.1", "taker_fee": "0.1" }
-        //     }
+        // {
+        //    "account_id":"b7f4e27e-b34a-493a-b0d4-4bd341a3f2e0",
+        //    "running_volumes":[
+        //       {
+        //          "fee_group_id":"SPOT",
+        //          "volume":"0",
+        //          "currency":"EUR"
+        //       },
+        //       {
+        //          "fee_group_id":"FUTURES",
+        //          "volume":"0",
+        //          "currency":"EUR"
+        //       }
+        //    ],
+        //    "active_fee_tiers":[
+        //       {
+        //          "fee_group_id":"SPOT",
+        //          "volume":"0",
+        //          "maker_fee":"0.1000",
+        //          "taker_fee":"0.2000"
+        //       },
+        //       {
+        //          "fee_group_id":"FUTURES",
+        //          "volume":"0",
+        //          "maker_fee":"0.1000",
+        //          "taker_fee":"0.2000"
+        //       }
+        //    ]
+        // }
         //
-        const activeFeeTier = this.safeValue(response, 'active_fee_tier', {});
-        let makerFee = this.safeString(activeFeeTier, 'maker_fee');
-        let takerFee = this.safeString(activeFeeTier, 'taker_fee');
-        makerFee = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(makerFee, '100');
-        takerFee = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(takerFee, '100');
-        const feeTiers = this.safeValue(response, 'fee_tiers');
+        const activeFeeTier = this.safeList(response, 'active_fee_tiers');
+        const spotFees = this.safeDict(activeFeeTier, 0, {});
+        const futuresFees = this.safeDict(activeFeeTier, 1, {});
+        let spotMakerFee = this.safeString(spotFees, 'maker_fee');
+        let spotTakerFee = this.safeString(spotFees, 'taker_fee');
+        spotMakerFee = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(spotMakerFee, '100');
+        spotTakerFee = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(spotTakerFee, '100');
+        // const feeTiers = this.safeValue (response, 'fee_tiers');
+        let futuresMakerFee = this.safeString(futuresFees, 'maker_fee');
+        let futuresTakerFee = this.safeString(futuresFees, 'taker_fee');
+        futuresMakerFee = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(futuresMakerFee, '100');
+        futuresTakerFee = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(futuresTakerFee, '100');
         const result = {};
-        const tiers = this.parseFeeTiers(feeTiers);
+        // const tiers = this.parseFeeTiers (feeTiers);
         for (let i = 0; i < this.symbols.length; i++) {
             const symbol = this.symbols[i];
+            const market = this.market(symbol);
+            const makerFee = (market['spot']) ? spotMakerFee : futuresMakerFee;
+            const takerFee = (market['spot']) ? spotTakerFee : futuresTakerFee;
             result[symbol] = {
                 'info': response,
                 'symbol': symbol,
@@ -254551,7 +257338,7 @@ class onetrading extends _abstract_onetrading_js__WEBPACK_IMPORTED_MODULE_0__/* 
                 'taker': this.parseNumber(takerFee),
                 'percentage': true,
                 'tierBased': true,
-                'tiers': tiers,
+                'tiers': undefined,
             };
         }
         return result;
@@ -263421,7 +266208,7 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
                         // swap
                         'accounts/accountPositions': 1,
                         'g-accounts/accountPositions': 1,
-                        'accounts/positions': 25,
+                        'g-accounts/positions': 25,
                         'api-data/futures/funding-fees': 5,
                         'api-data/g-futures/funding-fees': 5,
                         'api-data/futures/orders': 5,
@@ -267046,7 +269833,7 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
      * @param {string[]} [symbols] list of unified market symbols
      * @param {object} [params] extra parameters specific to the exchange API endpoint
      * @param {string} [params.code] the currency code to fetch positions for, USD, BTC or USDT, USDT is the default
-     * @param {string} [params.method] *USDT contracts only* 'privateGetGAccountsAccountPositions' or 'privateGetAccountsPositions' default is 'privateGetGAccountsAccountPositions'
+     * @param {string} [params.method] *USDT contracts only* 'privateGetGAccountsAccountPositions' or 'privateGetGAccountsAccountPositions' default is 'privateGetGAccountsAccountPositions'
      * @returns {object[]} a list of [position structure]{@link https://docs.ccxt.com/#/?id=position-structure}
      */
     async fetchPositions(symbols = undefined, params = {}) {
@@ -267089,7 +269876,7 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
                 response = await this.privateGetGAccountsAccountPositions(this.extend(request, params));
             }
             else {
-                response = await this.privateGetAccountsPositions(this.extend(request, params));
+                response = await this.privateGetGAccountsPositions(this.extend(request, params));
             }
         }
         else {
@@ -267263,7 +270050,7 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
         const initialMarginPercentageString = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(initialMarginString, notionalString);
         const liquidationPrice = this.safeNumber2(position, 'liquidationPrice', 'liquidationPriceRp');
         const markPriceString = this.safeString2(position, 'markPrice', 'markPriceRp');
-        const contracts = this.safeString(position, 'size');
+        const contracts = this.safeString2(position, 'size', 'sizeRq');
         const contractSize = this.safeValue(market, 'contractSize');
         const contractSizeString = this.numberToString(contractSize);
         const leverage = this.parseNumber(_base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringAbs((this.safeString2(position, 'leverage', 'leverageRr'))));
@@ -267273,9 +270060,12 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
         if (rawSide !== undefined) {
             side = (rawSide === 'Buy') ? 'long' : 'short';
         }
+        // Inverse long contract: unRealizedPnl = (posSize * contractSize) / avgEntryPrice - (posSize * contractSize) / markPrice
+        // Inverse short contract: unRealizedPnl =  (posSize *contractSize) / markPrice - (posSize * contractSize) / avgEntryPrice
+        // Linear long contract:  unRealizedPnl = (posSize * contractSize) * markPrice - (posSize * contractSize) * avgEntryPrice
+        // Linear short contract:  unRealizedPnl = (posSize * contractSize) * avgEntryPrice - (posSize * contractSize) * markPrice
         let priceDiff = undefined;
-        const currency = this.safeString(position, 'currency');
-        if (currency === 'USD') {
+        if (market['linear']) {
             if (side === 'long') {
                 priceDiff = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringSub(markPriceString, entryPriceString);
             }
@@ -267293,15 +270083,18 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
             }
         }
         const unrealizedPnl = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringMul(_base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringMul(priceDiff, contracts), contractSizeString);
+        // the unrealizedPnl is only available in a specific endpoint which much higher RL limits
+        const apiUnrealizedPnl = this.safeString(position, 'unRealisedPnlRv', unrealizedPnl);
         const marginRatio = _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__/* .Precise */ .Y.stringDiv(maintenanceMarginString, collateral);
         const isCross = this.safeValue(position, 'crossMargin');
         return this.safePosition({
             'info': position,
-            'id': undefined,
+            'id': this.safeString(position, 'execSeq'),
             'symbol': symbol,
             'contracts': this.parseNumber(contracts),
             'contractSize': contractSize,
-            'unrealizedPnl': this.parseNumber(unrealizedPnl),
+            'realizedPnl': this.safeNumber(position, 'curTermRealisedPnlRv'),
+            'unrealizedPnl': this.parseNumber(apiUnrealizedPnl),
             'leverage': leverage,
             'liquidationPrice': liquidationPrice,
             'collateral': this.parseNumber(collateral),
@@ -267310,7 +270103,7 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
             'lastPrice': undefined,
             'entryPrice': this.parseNumber(entryPriceString),
             'timestamp': undefined,
-            'lastUpdateTimestamp': undefined,
+            'lastUpdateTimestamp': this.safeIntegerProduct(position, 'transactTimeNs', 0.000001),
             'initialMargin': this.parseNumber(initialMarginString),
             'initialMarginPercentage': this.parseNumber(initialMarginPercentageString),
             'maintenanceMargin': this.parseNumber(maintenanceMarginString),
@@ -267319,7 +270112,7 @@ class phemex extends _abstract_phemex_js__WEBPACK_IMPORTED_MODULE_0__/* ["defaul
             'datetime': undefined,
             'marginMode': isCross ? 'cross' : 'isolated',
             'side': side,
-            'hedged': false,
+            'hedged': this.safeString(position, 'posMode') === 'Hedged',
             'percentage': undefined,
             'stopLossPrice': undefined,
             'takeProfitPrice': undefined,
@@ -273956,6 +276749,7 @@ class apex extends _apex_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
     }
     ping(client) {
         const timeStamp = this.milliseconds().toString();
+        client.lastPong = timeStamp; // server won't send a pong, so we set it here
         return {
             'args': [timeStamp],
             'op': 'ping',
@@ -275057,6 +277851,1339 @@ class ascendex extends _ascendex_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
 
 /***/ }),
 
+/***/ 4034:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (/* binding */ backpack)
+/* harmony export */ });
+/* harmony import */ var _backpack_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7698);
+/* harmony import */ var _base_errors_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2079);
+/* harmony import */ var _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2931);
+/* harmony import */ var _base_functions_crypto_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8283);
+/* harmony import */ var _static_dependencies_noble_curves_ed25519_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6414);
+//  ---------------------------------------------------------------------------
+
+
+
+
+
+//  ---------------------------------------------------------------------------
+class backpack extends _backpack_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
+    describe() {
+        return this.deepExtend(super.describe(), {
+            'has': {
+                'ws': true,
+                'watchBalance': false,
+                'watchBidsAsks': true,
+                'watchMyTrades': false,
+                'watchOHLCV': true,
+                'watchOHLCVForSymbols': true,
+                'watchOrderBook': true,
+                'watchOrderBookForSymbols': true,
+                'watchOrders': true,
+                'watchPositions': true,
+                'watchTicker': true,
+                'watchTickers': true,
+                'watchTrades': true,
+                'watchTradesForSymbols': true,
+                'unwatchBidsAsks': true,
+                'unwatchOHLCV': true,
+                'unwatchOHLCVForSymbols': true,
+                'unwatchOrderBook': true,
+                'unwatchOrderBookForSymbols': true,
+                'unwatchTicker': true,
+                'unwatchTickers': true,
+                'unWatchTrades': true,
+                'unWatchTradesForSymbols': true,
+                'unWatchOrders': true,
+                'unWatchPositions': true,
+            },
+            'urls': {
+                'api': {
+                    'ws': {
+                        'public': 'wss://ws.backpack.exchange',
+                        'private': 'wss://ws.backpack.exchange',
+                    },
+                },
+            },
+            'options': {
+                'timeframes': {},
+            },
+            'streaming': {
+                'ping': this.ping,
+                'keepAlive': 119000,
+            },
+        });
+    }
+    async watchPublic(topics, messageHashes, params = {}, unwatch = false) {
+        await this.loadMarkets();
+        const url = this.urls['api']['ws']['public'];
+        const method = unwatch ? 'UNSUBSCRIBE' : 'SUBSCRIBE';
+        const request = {
+            'method': method,
+            'params': topics,
+        };
+        const message = this.deepExtend(request, params);
+        if (unwatch) {
+            this.handleUnsubscriptions(url, messageHashes, message);
+            return undefined;
+        }
+        return await this.watchMultiple(url, messageHashes, message, messageHashes);
+    }
+    async watchPrivate(topics, messageHashes, params = {}, unwatch = false) {
+        this.checkRequiredCredentials();
+        const url = this.urls['api']['ws']['private'];
+        const instruction = 'subscribe';
+        const ts = this.nonce().toString();
+        const method = unwatch ? 'UNSUBSCRIBE' : 'SUBSCRIBE';
+        const recvWindow = this.safeString2(this.options, 'recvWindow', 'X-Window', '5000');
+        const payload = 'instruction=' + instruction + '&' + 'timestamp=' + ts + '&window=' + recvWindow;
+        const secretBytes = this.base64ToBinary(this.secret);
+        const seed = this.arraySlice(secretBytes, 0, 32);
+        const signature = (0,_base_functions_crypto_js__WEBPACK_IMPORTED_MODULE_1__/* .eddsa */ .q4)(this.encode(payload), seed, _static_dependencies_noble_curves_ed25519_js__WEBPACK_IMPORTED_MODULE_2__/* .ed25519 */ .ev);
+        const request = {
+            'method': method,
+            'params': topics,
+            'signature': [this.apiKey, signature, ts, recvWindow],
+        };
+        const message = this.deepExtend(request, params);
+        if (unwatch) {
+            this.handleUnsubscriptions(url, messageHashes, message);
+            return undefined;
+        }
+        return await this.watchMultiple(url, messageHashes, message, messageHashes);
+    }
+    handleUnsubscriptions(url, messageHashes, message) {
+        const client = this.client(url);
+        this.watchMultiple(url, messageHashes, message, messageHashes);
+        for (let i = 0; i < messageHashes.length; i++) {
+            const messageHash = messageHashes[i];
+            const subMessageHash = messageHash.replace('unsubscribe:', '');
+            this.cleanUnsubscription(client, subMessageHash, messageHash);
+            if (messageHash.indexOf('ticker') >= 0) {
+                const symbol = messageHash.replace('unsubscribe:ticker:', '');
+                if (symbol in this.tickers) {
+                    delete this.tickers[symbol];
+                }
+            }
+            else if (messageHash.indexOf('bidask') >= 0) {
+                const symbol = messageHash.replace('unsubscribe:bidask:', '');
+                if (symbol in this.bidsasks) {
+                    delete this.bidsasks[symbol];
+                }
+            }
+            else if (messageHash.indexOf('candles') >= 0) {
+                const splitHashes = messageHash.split(':');
+                const symbol = this.safeString(splitHashes, 2);
+                const timeframe = this.safeString(splitHashes, 3);
+                if (symbol in this.ohlcvs) {
+                    if (timeframe in this.ohlcvs[symbol]) {
+                        delete this.ohlcvs[symbol][timeframe];
+                    }
+                }
+            }
+            else if (messageHash.indexOf('orderbook') >= 0) {
+                const symbol = messageHash.replace('unsubscribe:orderbook:', '');
+                if (symbol in this.orderbooks) {
+                    delete this.orderbooks[symbol];
+                }
+            }
+            else if (messageHash.indexOf('trades') >= 0) {
+                const symbol = messageHash.replace('unsubscribe:trades:', '');
+                if (symbol in this.trades) {
+                    delete this.trades[symbol];
+                }
+            }
+            else if (messageHash.indexOf('orders') >= 0) {
+                if (messageHash === 'unsubscribe:orders') {
+                    const cache = this.orders;
+                    const keys = Object.keys(cache);
+                    for (let j = 0; j < keys.length; j++) {
+                        const symbol = keys[j];
+                        delete this.orders[symbol];
+                    }
+                }
+                else {
+                    const symbol = messageHash.replace('unsubscribe:orders:', '');
+                    if (symbol in this.orders) {
+                        delete this.orders[symbol];
+                    }
+                }
+            }
+            else if (messageHash.indexOf('positions') >= 0) {
+                if (messageHash === 'unsubscribe:positions') {
+                    const cache = this.positions;
+                    const keys = Object.keys(cache);
+                    for (let j = 0; j < keys.length; j++) {
+                        const symbol = keys[j];
+                        delete this.positions[symbol];
+                    }
+                }
+                else {
+                    const symbol = messageHash.replace('unsubscribe:positions:', '');
+                    if (symbol in this.positions) {
+                        delete this.positions[symbol];
+                    }
+                }
+            }
+        }
+    }
+    /**
+     * @method
+     * @name backpack#watchTicker
+     * @description watches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Ticker
+     * @param {string} symbol unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async watchTicker(symbol, params = {}) {
+        await this.loadMarkets();
+        const market = this.market(symbol);
+        symbol = market['symbol'];
+        const topic = 'ticker' + '.' + market['id'];
+        const messageHash = 'ticker' + ':' + symbol;
+        return await this.watchPublic([topic], [messageHash], params);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchTicker
+     * @description unWatches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Ticker
+     * @param {string} symbol unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async unWatchTicker(symbol, params = {}) {
+        return await this.unWatchTickers([symbol], params);
+    }
+    /**
+     * @method
+     * @name backpack#watchTickers
+     * @description watches a price ticker, a statistical calculation with the information calculated over the past 24 hours for all markets of a specific list
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Ticker
+     * @param {string[]} symbols unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async watchTickers(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols, undefined, false);
+        const messageHashes = [];
+        const topics = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            const marketId = this.marketId(symbol);
+            messageHashes.push('ticker:' + symbol);
+            topics.push('ticker.' + marketId);
+        }
+        await this.watchPublic(topics, messageHashes, params);
+        return this.filterByArray(this.tickers, 'symbol', symbols);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchTickers
+     * @description watches a price ticker, a statistical calculation with the information calculated over the past 24 hours for all markets of a specific list
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Ticker
+     * @param {string[]} symbols unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async unWatchTickers(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols, undefined, false);
+        const topics = [];
+        const messageHashes = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            const marketId = this.marketId(symbol);
+            topics.push('ticker.' + marketId);
+            messageHashes.push('unsubscribe:ticker:' + symbol);
+        }
+        return await this.watchPublic(topics, messageHashes, params, true);
+    }
+    handleTicker(client, message) {
+        //
+        //     {
+        //         data: {
+        //             E: '1754176123312507',
+        //             V: '19419526.742584',
+        //             c: '3398.57',
+        //             e: 'ticker',
+        //             h: '3536.65',
+        //             l: '3371.8',
+        //             n: 17152,
+        //             o: '3475.45',
+        //             s: 'ETH_USDC',
+        //             v: '5573.5827'
+        //         },
+        //         stream: 'bookTicker.ETH_USDC'
+        //     }
+        //
+        const ticker = this.safeDict(message, 'data', {});
+        const marketId = this.safeString(ticker, 's');
+        const market = this.safeMarket(marketId);
+        const symbol = this.safeSymbol(marketId, market);
+        const parsedTicker = this.parseWsTicker(ticker, market);
+        const messageHash = 'ticker' + ':' + symbol;
+        this.tickers[symbol] = parsedTicker;
+        client.resolve(parsedTicker, messageHash);
+    }
+    parseWsTicker(ticker, market = undefined) {
+        //
+        //     {
+        //         E: '1754178406415232',
+        //         V: '19303818.6923',
+        //         c: '3407.54',
+        //         e: 'ticker',
+        //         h: '3536.65',
+        //         l: '3369.18',
+        //         n: 17272,
+        //         o: '3481.71',
+        //         s: 'ETH_USDC',
+        //         v: '5542.3911'
+        //     }
+        //
+        const microseconds = this.safeInteger(ticker, 'E');
+        const timestamp = this.parseToInt(microseconds / 1000);
+        const marketId = this.safeString(ticker, 's');
+        market = this.safeMarket(marketId, market);
+        const symbol = this.safeSymbol(marketId, market);
+        const last = this.safeString(ticker, 'c');
+        const open = this.safeString(ticker, 'o');
+        return this.safeTicker({
+            'symbol': symbol,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'high': this.safeNumber(ticker, 'h'),
+            'low': this.safeNumber(ticker, 'l'),
+            'bid': undefined,
+            'bidVolume': undefined,
+            'ask': undefined,
+            'askVolume': undefined,
+            'vwap': undefined,
+            'open': open,
+            'close': last,
+            'last': last,
+            'previousClose': undefined,
+            'change': undefined,
+            'percentage': undefined,
+            'average': undefined,
+            'baseVolume': this.safeString(ticker, 'v'),
+            'quoteVolume': this.safeString(ticker, 'V'),
+            'info': ticker,
+        }, market);
+    }
+    /**
+     * @method
+     * @name backpack#watchBidsAsks
+     * @description watches best bid & ask for symbols
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Book-ticker
+     * @param {string[]} symbols unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async watchBidsAsks(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols, undefined, false);
+        const topics = [];
+        const messageHashes = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            const marketId = this.marketId(symbol);
+            topics.push('bookTicker.' + marketId);
+            messageHashes.push('bidask:' + symbol);
+        }
+        await this.watchPublic(topics, messageHashes, params);
+        return this.filterByArray(this.bidsasks, 'symbol', symbols);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchBidsAsks
+     * @description unWatches best bid & ask for symbols
+     * @param {string[]} symbols unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async unWatchBidsAsks(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols, undefined, false);
+        const topics = [];
+        const messageHashes = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            const marketId = this.marketId(symbol);
+            topics.push('bookTicker.' + marketId);
+            messageHashes.push('unsubscribe:bidask:' + symbol);
+        }
+        return await this.watchPublic(topics, messageHashes, params, true);
+    }
+    handleBidAsk(client, message) {
+        //
+        //     {
+        //         data: {
+        //             A: '0.4087',
+        //             B: '0.0020',
+        //             E: '1754517402450016',
+        //             T: '1754517402449064',
+        //             a: '3667.50',
+        //             b: '3667.49',
+        //             e: 'bookTicker',
+        //             s: 'ETH_USDC',
+        //             u: 1328288557
+        //         },
+        //         stream: 'bookTicker.ETH_USDC'
+        //     }
+        const data = this.safeDict(message, 'data', {});
+        const marketId = this.safeString(data, 's');
+        const market = this.safeMarket(marketId);
+        const symbol = this.safeSymbol(marketId, market);
+        const parsedBidAsk = this.parseWsBidAsk(data, market);
+        const messageHash = 'bidask' + ':' + symbol;
+        this.bidsasks[symbol] = parsedBidAsk;
+        client.resolve(parsedBidAsk, messageHash);
+    }
+    parseWsBidAsk(ticker, market = undefined) {
+        //
+        //     {
+        //         A: '0.4087',
+        //         B: '0.0020',
+        //         E: '1754517402450016',
+        //         T: '1754517402449064',
+        //         a: '3667.50',
+        //         b: '3667.49',
+        //         e: 'bookTicker',
+        //         s: 'ETH_USDC',
+        //         u: 1328288557
+        //     }
+        //
+        const marketId = this.safeString(ticker, 's');
+        market = this.safeMarket(marketId, market);
+        const symbol = this.safeString(market, 'symbol');
+        const microseconds = this.safeInteger(ticker, 'E');
+        const timestamp = this.parseToInt(microseconds / 1000);
+        const ask = this.safeString(ticker, 'a');
+        const askVolume = this.safeString(ticker, 'A');
+        const bid = this.safeString(ticker, 'b');
+        const bidVolume = this.safeString(ticker, 'B');
+        return this.safeTicker({
+            'symbol': symbol,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'ask': ask,
+            'askVolume': askVolume,
+            'bid': bid,
+            'bidVolume': bidVolume,
+            'info': ticker,
+        }, market);
+    }
+    /**
+     * @method
+     * @name backpack#watchOHLCV
+     * @description watches historical candlestick data containing the open, high, low, close price, and the volume of a market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/K-Line
+     * @param {string} symbol unified symbol of the market to fetch OHLCV data for
+     * @param {string} timeframe the length of time each candle represents
+     * @param {int} [since] timestamp in ms of the earliest candle to fetch
+     * @param {int} [limit] the maximum amount of candles to fetch
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {int[][]} A list of candles ordered as timestamp, open, high, low, close, volume
+     */
+    async watchOHLCV(symbol, timeframe = '1m', since = undefined, limit = undefined, params = {}) {
+        const result = await this.watchOHLCVForSymbols([[symbol, timeframe]], since, limit, params);
+        return result[symbol][timeframe];
+    }
+    /**
+     * @method
+     * @name backpack#unWatchOHLCV
+     * @description watches historical candlestick data containing the open, high, low, and close price, and the volume of a market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/K-Line
+     * @param {string} symbol unified symbol of the market to fetch OHLCV data for
+     * @param {string} timeframe the length of time each candle represents
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {int[][]} A list of candles ordered as timestamp, open, high, low, close, volume
+     */
+    async unWatchOHLCV(symbol, timeframe = '1m', params = {}) {
+        return await this.unWatchOHLCVForSymbols([[symbol, timeframe]], params);
+    }
+    /**
+     * @method
+     * @name backpack#watchOHLCVForSymbols
+     * @description watches historical candlestick data containing the open, high, low, close price, and the volume of a market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/K-Line
+     * @param {string[][]} symbolsAndTimeframes array of arrays containing unified symbols and timeframes to fetch OHLCV data for, example [['BTC/USDT', '1m'], ['LTC/USDT', '5m']]
+     * @param {int} [since] timestamp in ms of the earliest candle to fetch
+     * @param {int} [limit] the maximum amount of candles to fetch
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {int[][]} A list of candles ordered as timestamp, open, high, low, close, volume
+     */
+    async watchOHLCVForSymbols(symbolsAndTimeframes, since = undefined, limit = undefined, params = {}) {
+        const symbolsLength = symbolsAndTimeframes.length;
+        if (symbolsLength === 0 || !Array.isArray(symbolsAndTimeframes[0])) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_3__.ArgumentsRequired(this.id + " watchOHLCVForSymbols() requires a an array of symbols and timeframes, like  ['ETH/USDC', '1m']");
+        }
+        await this.loadMarkets();
+        const topics = [];
+        const messageHashes = [];
+        for (let i = 0; i < symbolsAndTimeframes.length; i++) {
+            const symbolAndTimeframe = symbolsAndTimeframes[i];
+            const marketId = this.safeString(symbolAndTimeframe, 0);
+            const market = this.market(marketId);
+            const tf = this.safeString(symbolAndTimeframe, 1);
+            const interval = this.safeString(this.timeframes, tf, tf);
+            topics.push('kline.' + interval + '.' + market['id']);
+            messageHashes.push('candles:' + market['symbol'] + ':' + interval);
+        }
+        const [symbol, timeframe, candles] = await this.watchPublic(topics, messageHashes, params);
+        if (this.newUpdates) {
+            limit = candles.getLimit(symbol, limit);
+        }
+        const filtered = this.filterBySinceLimit(candles, since, limit, 0, true);
+        return this.createOHLCVObject(symbol, timeframe, filtered);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchOHLCVForSymbols
+     * @description unWatches historical candlestick data containing the open, high, low, and close price, and the volume of a market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/K-Line
+     * @param {string[][]} symbolsAndTimeframes array of arrays containing unified symbols and timeframes to fetch OHLCV data for, example [['BTC/USDT', '1m'], ['LTC/USDT', '5m']]
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {int[][]} A list of candles ordered as timestamp, open, high, low, close, volume
+     */
+    async unWatchOHLCVForSymbols(symbolsAndTimeframes, params = {}) {
+        const symbolsLength = symbolsAndTimeframes.length;
+        if (symbolsLength === 0 || !Array.isArray(symbolsAndTimeframes[0])) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_3__.ArgumentsRequired(this.id + " unWatchOHLCVForSymbols() requires a an array of symbols and timeframes, like  ['ETH/USDC', '1m']");
+        }
+        await this.loadMarkets();
+        const topics = [];
+        const messageHashes = [];
+        for (let i = 0; i < symbolsAndTimeframes.length; i++) {
+            const symbolAndTimeframe = symbolsAndTimeframes[i];
+            const marketId = this.safeString(symbolAndTimeframe, 0);
+            const market = this.market(marketId);
+            const tf = this.safeString(symbolAndTimeframe, 1);
+            const interval = this.safeString(this.timeframes, tf, tf);
+            topics.push('kline.' + interval + '.' + market['id']);
+            messageHashes.push('unsubscribe:candles:' + market['symbol'] + ':' + interval);
+        }
+        return await this.watchPublic(topics, messageHashes, params, true);
+    }
+    handleOHLCV(client, message) {
+        //
+        //     {
+        //         data: {
+        //             E: '1754519557526056',
+        //             T: '2025-08-07T00:00:00',
+        //             X: false,
+        //             c: '3680.520000000',
+        //             e: 'kline',
+        //             h: '3681.370000000',
+        //             l: '3667.650000000',
+        //             n: 255,
+        //             o: '3670.150000000',
+        //             s: 'ETH_USDC',
+        //             t: '2025-08-06T22:00:00',
+        //             v: '62.2621000'
+        //         },
+        //         stream: 'kline.2h.ETH_USDC'
+        //     }
+        //
+        const data = this.safeDict(message, 'data', {});
+        const marketId = this.safeString(data, 's');
+        const market = this.market(marketId);
+        const symbol = market['symbol'];
+        const stream = this.safeString(message, 'stream');
+        const parts = stream.split('.');
+        const timeframe = this.safeString(parts, 1);
+        if (!(symbol in this.ohlcvs)) {
+            this.ohlcvs[symbol] = {};
+        }
+        if (!(timeframe in this.ohlcvs[symbol])) {
+            const limit = this.safeInteger(this.options, 'OHLCVLimit', 1000);
+            const stored = new _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_4__/* .ArrayCacheByTimestamp */ .TG(limit);
+            this.ohlcvs[symbol][timeframe] = stored;
+        }
+        const ohlcv = this.ohlcvs[symbol][timeframe];
+        const parsed = this.parseWsOHLCV(data);
+        ohlcv.append(parsed);
+        const messageHash = 'candles:' + symbol + ':' + timeframe;
+        client.resolve([symbol, timeframe, ohlcv], messageHash);
+    }
+    parseWsOHLCV(ohlcv, market = undefined) {
+        //
+        //     {
+        //         E: '1754519557526056',
+        //         T: '2025-08-07T00:00:00',
+        //         X: false,
+        //         c: '3680.520000000',
+        //         e: 'kline',
+        //         h: '3681.370000000',
+        //         l: '3667.650000000',
+        //         n: 255,
+        //         o: '3670.150000000',
+        //         s: 'ETH_USDC',
+        //         t: '2025-08-06T22:00:00',
+        //         v: '62.2621000'
+        //     },
+        //
+        return [
+            this.parse8601(this.safeString(ohlcv, 'T')),
+            this.safeNumber(ohlcv, 'o'),
+            this.safeNumber(ohlcv, 'h'),
+            this.safeNumber(ohlcv, 'l'),
+            this.safeNumber(ohlcv, 'c'),
+            this.safeNumber(ohlcv, 'v'),
+        ];
+    }
+    /**
+     * @method
+     * @name backpack#watchTrades
+     * @description watches information on multiple trades made in a market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Trade
+     * @param {string} symbol unified symbol of the market to fetch the ticker for
+     * @param {int} [since] the earliest time in ms to fetch trades for
+     * @param {int} [limit] the maximum number of trade structures to retrieve
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async watchTrades(symbol, since = undefined, limit = undefined, params = {}) {
+        return await this.watchTradesForSymbols([symbol], since, limit, params);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchTrades
+     * @description unWatches from the stream channel
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Trade
+     * @param {string} symbol unified symbol of the market to fetch trades for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
+     */
+    async unWatchTrades(symbol, params = {}) {
+        return await this.unWatchTradesForSymbols([symbol], params);
+    }
+    /**
+     * @method
+     * @name backpack#watchTradesForSymbols
+     * @description watches information on multiple trades made in a market
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Trade
+     * @param {string[]} symbols unified symbol of the market to fetch trades for
+     * @param {int} [since] the earliest time in ms to fetch trades for
+     * @param {int} [limit] the maximum number of trade structures to retrieve
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async watchTradesForSymbols(symbols, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols);
+        const symbolsLength = symbols.length;
+        if (symbolsLength === 0) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_3__.ArgumentsRequired(this.id + ' watchTradesForSymbols() requires a non-empty array of symbols');
+        }
+        const topics = [];
+        const messageHashes = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            const marketId = this.marketId(symbol);
+            topics.push('trade.' + marketId);
+            messageHashes.push('trades:' + symbol);
+        }
+        const trades = await this.watchPublic(topics, messageHashes, params);
+        if (this.newUpdates) {
+            const first = this.safeValue(trades, 0);
+            const tradeSymbol = this.safeString(first, 'symbol');
+            limit = trades.getLimit(tradeSymbol, limit);
+        }
+        return this.filterBySinceLimit(trades, since, limit, 'timestamp', true);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchTradesForSymbols
+     * @description unWatches from the stream channel
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Trade
+     * @param {string[]} symbols unified symbol of the market to fetch trades for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
+     */
+    async unWatchTradesForSymbols(symbols, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols);
+        const symbolsLength = symbols.length;
+        if (symbolsLength === 0) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_3__.ArgumentsRequired(this.id + ' unWatchTradesForSymbols() requires a non-empty array of symbols');
+        }
+        const topics = [];
+        const messageHashes = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            const marketId = this.marketId(symbol);
+            topics.push('trade.' + marketId);
+            messageHashes.push('unsubscribe:trades:' + symbol);
+        }
+        return await this.watchPublic(topics, messageHashes, params, true);
+    }
+    handleTrades(client, message) {
+        //
+        //     {
+        //         data: {
+        //             E: '1754601477746429',
+        //             T: '1754601477744000',
+        //             a: '5121860761',
+        //             b: '5121861755',
+        //             e: 'trade',
+        //             m: false,
+        //             p: '3870.25',
+        //             q: '0.0008',
+        //             s: 'ETH_USDC_PERP',
+        //             t: 10782547
+        //         },
+        //         stream: 'trade.ETH_USDC_PERP'
+        //     }
+        //
+        const data = this.safeDict(message, 'data', {});
+        const marketId = this.safeString(data, 's');
+        const market = this.market(marketId);
+        const symbol = market['symbol'];
+        if (!(symbol in this.trades)) {
+            const limit = this.safeInteger(this.options, 'tradesLimit', 1000);
+            const stored = new _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_4__/* .ArrayCache */ .I3(limit);
+            this.trades[symbol] = stored;
+        }
+        const cache = this.trades[symbol];
+        const trade = this.parseWsTrade(data, market);
+        cache.append(trade);
+        const messageHash = 'trades:' + symbol;
+        client.resolve(cache, messageHash);
+        client.resolve(cache, 'trades');
+    }
+    parseWsTrade(trade, market = undefined) {
+        //
+        //     {
+        //         E: '1754601477746429',
+        //         T: '1754601477744000',
+        //         a: '5121860761',
+        //         b: '5121861755',
+        //         e: 'trade',
+        //         m: false,
+        //         p: '3870.25',
+        //         q: '0.0008',
+        //         s: 'ETH_USDC_PERP',
+        //         t: 10782547
+        //     }
+        //
+        const microseconds = this.safeInteger(trade, 'E');
+        const timestamp = this.parseToInt(microseconds / 1000);
+        const id = this.safeString(trade, 't');
+        const marketId = this.safeString(trade, 's');
+        market = this.safeMarket(marketId, market);
+        const isMaker = this.safeBool(trade, 'm');
+        const side = isMaker ? 'sell' : 'buy';
+        const takerOrMaker = isMaker ? 'maker' : 'taker';
+        const price = this.safeString(trade, 'p');
+        const amount = this.safeString(trade, 'q');
+        let orderId = undefined;
+        if (side === 'buy') {
+            orderId = this.safeString(trade, 'b');
+        }
+        else {
+            orderId = this.safeString(trade, 'a');
+        }
+        return this.safeTrade({
+            'info': trade,
+            'id': id,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'symbol': market['symbol'],
+            'order': orderId,
+            'type': undefined,
+            'side': side,
+            'takerOrMaker': takerOrMaker,
+            'price': price,
+            'amount': amount,
+            'cost': undefined,
+            'fee': {
+                'currency': undefined,
+                'cost': undefined,
+            },
+        }, market);
+    }
+    /**
+     * @method
+     * @name backpack#watchOrderBook
+     * @description watches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Depth
+     * @param {string} symbol unified symbol of the market to fetch the order book for
+     * @param {int} [limit] the maximum amount of order book entries to return
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
+     */
+    async watchOrderBook(symbol, limit = undefined, params = {}) {
+        return await this.watchOrderBookForSymbols([symbol], limit, params);
+    }
+    /**
+     * @method
+     * @name backpack#watchOrderBookForSymbols
+     * @see https://docs.backpack.exchange/#tag/Streams/Public/Depth
+     * @description watches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
+     * @param {string[]} symbols unified array of symbols
+     * @param {int} [limit] the maximum amount of order book entries to return
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {string} [params.method] either '/market/level2' or '/spotMarket/level2Depth5' or '/spotMarket/level2Depth50' default is '/market/level2'
+     * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
+     */
+    async watchOrderBookForSymbols(symbols, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols, undefined, false);
+        const marketIds = this.marketIds(symbols);
+        const messageHashes = [];
+        const topics = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            messageHashes.push('orderbook:' + symbol);
+            const marketId = marketIds[i];
+            const topic = 'depth.' + marketId;
+            topics.push(topic);
+        }
+        const orderbook = await this.watchPublic(topics, messageHashes, params);
+        return orderbook.limit(); // todo check if limit is needed
+    }
+    /**
+     * @method
+     * @name backpack#unWatchOrderBook
+     * @description unWatches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
+     * @param {string} symbol unified array of symbols
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
+     */
+    async unWatchOrderBook(symbol, params = {}) {
+        return await this.unWatchOrderBookForSymbols([symbol], params);
+    }
+    /**
+     * @method
+     * @name kucoin#unWatchOrderBookForSymbols
+     * @description unWatches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
+     * @param {string[]} symbols unified array of symbols
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {string} [params.method] either '/market/level2' or '/spotMarket/level2Depth5' or '/spotMarket/level2Depth50' default is '/market/level2'
+     * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
+     */
+    async unWatchOrderBookForSymbols(symbols, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols, undefined, false);
+        const marketIds = this.marketIds(symbols);
+        const messageHashes = [];
+        const topics = [];
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            messageHashes.push('unsubscribe:orderbook:' + symbol);
+            const marketId = marketIds[i];
+            const topic = 'depth.' + marketId;
+            topics.push(topic);
+        }
+        return await this.watchPublic(topics, messageHashes, params, true);
+    }
+    handleOrderBook(client, message) {
+        //
+        // initial snapshot is fetched with ccxt's fetchOrderBook
+        // the feed does not include a snapshot, just the deltas
+        //
+        //     {
+        //         "data": {
+        //             "E": "1754903057555305",
+        //             "T": "1754903057554352",
+        //             "U": 1345937436,
+        //             "a": [],
+        //             "b": [],
+        //             "e": "depth",
+        //             "s": "ETH_USDC",
+        //             "u": 1345937436
+        //         },
+        //         "stream": "depth.ETH_USDC"
+        //     }
+        //
+        const data = this.safeDict(message, 'data', {});
+        const marketId = this.safeString(data, 's');
+        const symbol = this.safeSymbol(marketId);
+        if (!(symbol in this.orderbooks)) {
+            this.orderbooks[symbol] = this.orderBook();
+        }
+        const storedOrderBook = this.orderbooks[symbol];
+        const nonce = this.safeInteger(storedOrderBook, 'nonce');
+        const deltaNonce = this.safeInteger(data, 'u');
+        const messageHash = 'orderbook:' + symbol;
+        if (nonce === undefined) {
+            const cacheLength = storedOrderBook.cache.length;
+            // the rest API is very delayed
+            // usually it takes at least 9 deltas to resolve
+            const snapshotDelay = this.handleOption('watchOrderBook', 'snapshotDelay', 10);
+            if (cacheLength === snapshotDelay) {
+                this.spawn(this.loadOrderBook, client, messageHash, symbol, null, {});
+            }
+            storedOrderBook.cache.push(data);
+            return;
+        }
+        else if (nonce >= deltaNonce) {
+            return;
+        }
+        this.handleDelta(storedOrderBook, data);
+        client.resolve(storedOrderBook, messageHash);
+    }
+    handleDelta(orderbook, delta) {
+        const timestamp = this.parseToInt(this.safeInteger(delta, 'T') / 1000);
+        orderbook['timestamp'] = timestamp;
+        orderbook['datetime'] = this.iso8601(timestamp);
+        orderbook['nonce'] = this.safeInteger(delta, 'u');
+        const bids = this.safeDict(delta, 'b', []);
+        const asks = this.safeDict(delta, 'a', []);
+        const storedBids = orderbook['bids'];
+        const storedAsks = orderbook['asks'];
+        this.handleBidAsks(storedBids, bids);
+        this.handleBidAsks(storedAsks, asks);
+    }
+    handleBidAsks(bookSide, bidAsks) {
+        for (let i = 0; i < bidAsks.length; i++) {
+            const bidAsk = this.parseBidAsk(bidAsks[i]);
+            bookSide.storeArray(bidAsk);
+        }
+    }
+    getCacheIndex(orderbook, cache) {
+        const firstDelta = this.safeDict(cache, 0);
+        const nonce = this.safeInteger(orderbook, 'nonce');
+        const firstDeltaStart = this.safeInteger(firstDelta, 'sequenceStart');
+        if (nonce < firstDeltaStart - 1) {
+            return -1;
+        }
+        for (let i = 0; i < cache.length; i++) {
+            const delta = cache[i];
+            const deltaStart = this.safeInteger(delta, 'sequenceStart');
+            const deltaEnd = this.safeInteger(delta, 'sequenceEnd');
+            if ((nonce >= deltaStart - 1) && (nonce < deltaEnd)) {
+                return i;
+            }
+        }
+        return cache.length;
+    }
+    /**
+     * @method
+     * @name backpack#watchOrders
+     * @description watches information on multiple orders made by the user
+     * @see https://docs.backpack.exchange/#tag/Streams/Private/Order-update
+     * @param {string} [symbol] unified market symbol of the market orders were made in
+     * @param {int} [since] the earliest time in ms to fetch orders for
+     * @param {int} [limit] the maximum number of order structures to retrieve
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async watchOrders(symbol = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        let market = undefined;
+        if (symbol !== undefined) {
+            market = this.market(symbol);
+            symbol = market['symbol'];
+        }
+        let topic = 'account.orderUpdate';
+        let messageHash = 'orders';
+        if (market !== undefined) {
+            topic = 'account.orderUpdate.' + market['id'];
+            messageHash = 'orders:' + symbol;
+        }
+        const orders = await this.watchPrivate([topic], [messageHash], params);
+        if (this.newUpdates) {
+            limit = orders.getLimit(symbol, limit);
+        }
+        return this.filterBySymbolSinceLimit(orders, symbol, since, limit, true);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchOrders
+     * @description unWatches information on multiple orders made by the user
+     * @see https://docs.backpack.exchange/#tag/Streams/Private/Order-update
+     * @param {string} [symbol] unified market symbol of the market orders were made in
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async unWatchOrders(symbol = undefined, params = {}) {
+        await this.loadMarkets();
+        let market = undefined;
+        if (symbol !== undefined) {
+            market = this.market(symbol);
+            symbol = market['symbol'];
+        }
+        let topic = 'account.orderUpdate';
+        let messageHash = 'unsubscribe:orders';
+        if (market !== undefined) {
+            topic = 'account.orderUpdate.' + market['id'];
+            messageHash = 'unsubscribe:orders:' + symbol;
+        }
+        return await this.watchPrivate([topic], [messageHash], params, true);
+    }
+    handleOrder(client, message) {
+        //
+        //     {
+        //         data: {
+        //             E: '1754939110175843',
+        //             O: 'USER',
+        //             Q: '4.30',
+        //             S: 'Bid',
+        //             T: '1754939110174703',
+        //             V: 'RejectTaker',
+        //             X: 'New',
+        //             Z: '0',
+        //             e: 'orderAccepted',
+        //             f: 'GTC',
+        //             i: '5406825793',
+        //             o: 'MARKET',
+        //             q: '0.0010',
+        //             r: false,
+        //             s: 'ETH_USDC',
+        //             t: null,
+        //             z: '0'
+        //         },
+        //         stream: 'account.orderUpdate.ETH_USDC'
+        //     }
+        //
+        const messageHash = 'orders';
+        const data = this.safeDict(message, 'data', {});
+        const marketId = this.safeString(data, 's');
+        const market = this.safeMarket(marketId);
+        const symbol = market['symbol'];
+        const parsed = this.parseWsOrder(data, market);
+        let orders = this.orders;
+        if (orders === undefined) {
+            const limit = this.safeInteger(this.options, 'ordersLimit', 1000);
+            orders = new _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_4__/* .ArrayCacheBySymbolById */ .Pt(limit);
+            this.orders = orders;
+        }
+        orders.append(parsed);
+        client.resolve(orders, messageHash);
+        const symbolSpecificMessageHash = messageHash + ':' + symbol;
+        client.resolve(orders, symbolSpecificMessageHash);
+    }
+    parseWsOrder(order, market = undefined) {
+        //
+        //     {
+        //         E: '1754939110175879',
+        //         L: '4299.16',
+        //         N: 'ETH',
+        //         O: 'USER',
+        //         Q: '4.30',
+        //         S: 'Bid',
+        //         T: '1754939110174705',
+        //         V: 'RejectTaker',
+        //         X: 'Filled',
+        //         Z: '4.299160',
+        //         e: 'orderFill',
+        //         f: 'GTC',
+        //         i: '5406825793',
+        //         l: '0.0010',
+        //         m: false,
+        //         n: '0.000001',
+        //         o: 'MARKET',
+        //         q: '0.0010',
+        //         r: false,
+        //         s: 'ETH_USDC',
+        //         t: 2888471,
+        //         z: '0.0010'
+        //     },
+        //
+        const id = this.safeString(order, 'i');
+        const clientOrderId = this.safeString(order, 'c');
+        const microseconds = this.safeInteger(order, 'E');
+        const timestamp = this.parseToInt(microseconds / 1000);
+        const status = this.parseWsOrderStatus(this.safeString(order, 'X'), market);
+        const marketId = this.safeString(order, 's');
+        market = this.safeMarket(marketId, market);
+        const symbol = market['symbol'];
+        const type = this.safeStringLower(order, 'o');
+        const timeInForce = this.safeString(order, 'f');
+        const side = this.parseWsOrderSide(this.safeString(order, 'S'));
+        const price = this.safeString(order, 'p');
+        const triggerPrice = this.safeNumber(order, 'P');
+        const amount = this.safeString(order, 'q');
+        const cost = this.safeString(order, 'Z');
+        const filled = this.safeString(order, 'l');
+        let fee = undefined;
+        const feeCurrency = this.safeString(order, 'N');
+        if (feeCurrency !== undefined) {
+            fee = {
+                'currency': feeCurrency,
+                'cost': undefined,
+            };
+        }
+        return this.safeOrder({
+            'id': id,
+            'clientOrderId': clientOrderId,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'lastTradeTimestamp': undefined,
+            'status': status,
+            'symbol': symbol,
+            'type': type,
+            'timeInForce': timeInForce,
+            'side': side,
+            'price': price,
+            'stopPrice': undefined,
+            'triggerPrice': triggerPrice,
+            'average': undefined,
+            'amount': amount,
+            'cost': cost,
+            'filled': filled,
+            'remaining': undefined,
+            'fee': fee,
+            'trades': undefined,
+            'info': order,
+        }, market);
+    }
+    parseWsOrderStatus(status, market = undefined) {
+        const statuses = {
+            'New': 'open',
+            'Filled': 'closed',
+            'Cancelled': 'canceled',
+            'Expired': 'canceled',
+            'PartiallyFilled': 'open',
+            'TriggerPending': 'open',
+            'TriggerFailed': 'rejected',
+        };
+        return this.safeString(statuses, status, status);
+    }
+    parseWsOrderSide(side) {
+        const sides = {
+            'Bid': 'buy',
+            'Ask': 'sell',
+        };
+        return this.safeString(sides, side, side);
+    }
+    /**
+     * @method
+     * @name backpack#watchPositions
+     * @description watch all open positions
+     * @see https://docs.backpack.exchange/#tag/Streams/Private/Position-update
+     * @param {string[]} [symbols] list of unified market symbols to watch positions for
+     * @param {int} [since] the earliest time in ms to fetch positions for
+     * @param {int} [limit] the maximum number of positions to retrieve
+     * @param {object} params extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [position structure]{@link https://docs.ccxt.com/en/latest/manual.html#position-structure}
+     */
+    async watchPositions(symbols = undefined, since = undefined, limit = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols);
+        const messageHashes = [];
+        const topics = [];
+        if (symbols !== undefined) {
+            for (let i = 0; i < symbols.length; i++) {
+                const symbol = symbols[i];
+                messageHashes.push('positions' + ':' + symbol);
+                topics.push('account.positionUpdate.' + this.marketId(symbol));
+            }
+        }
+        else {
+            messageHashes.push('positions');
+            topics.push('account.positionUpdate');
+        }
+        const positions = await this.watchPrivate(topics, messageHashes, params);
+        if (this.newUpdates) {
+            return positions;
+        }
+        return this.filterBySymbolsSinceLimit(this.positions, symbols, since, limit, true);
+    }
+    /**
+     * @method
+     * @name backpack#unWatchPositions
+     * @description unWatches from the stream channel
+     * @see https://docs.backpack.exchange/#tag/Streams/Private/Position-update
+     * @param {string[]} [symbols] list of unified market symbols to watch positions for
+     * @param {object} params extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [position structure]{@link https://docs.ccxt.com/en/latest/manual.html#position-structure}
+     */
+    async unWatchPositions(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        symbols = this.marketSymbols(symbols);
+        const messageHashes = [];
+        const topics = [];
+        if (symbols !== undefined) {
+            for (let i = 0; i < symbols.length; i++) {
+                const symbol = symbols[i];
+                messageHashes.push('unsubscribe:positions' + ':' + symbol);
+                topics.push('account.positionUpdate.' + this.marketId(symbol));
+            }
+        }
+        else {
+            messageHashes.push('unsubscribe:positions');
+            topics.push('account.positionUpdate');
+        }
+        return await this.watchPrivate(topics, messageHashes, params, true);
+    }
+    handlePositions(client, message) {
+        //
+        //     {
+        //         data: {
+        //             B: '4236.36',
+        //             E: '1754943862040486',
+        //             M: '4235.88650933',
+        //             P: '-0.000473',
+        //             Q: '0.0010',
+        //             T: '1754943862040487',
+        //             b: '4238.479',
+        //             e: 'positionOpened',
+        //             f: '0.02',
+        //             i: 5411399049,
+        //             l: '0',
+        //             m: '0.0125',
+        //             n: '4.23588650933',
+        //             p: '0',
+        //             q: '0.0010',
+        //             s: 'ETH_USDC_PERP'
+        //         },
+        //         stream: 'account.positionUpdate'
+        //     }
+        //
+        const messageHash = 'positions';
+        const data = this.safeDict(message, 'data', {});
+        if (this.positions === undefined) {
+            this.positions = new _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_4__/* .ArrayCacheBySymbolById */ .Pt();
+        }
+        const cache = this.positions;
+        const parsedPosition = this.parseWsPosition(data);
+        const microseconds = this.safeInteger(data, 'E');
+        const timestamp = this.parseToInt(microseconds / 1000);
+        parsedPosition['timestamp'] = timestamp;
+        parsedPosition['datetime'] = this.iso8601(timestamp);
+        cache.append(parsedPosition);
+        const symbolSpecificMessageHash = messageHash + ':' + parsedPosition['symbol'];
+        client.resolve([parsedPosition], messageHash);
+        client.resolve([parsedPosition], symbolSpecificMessageHash);
+    }
+    parseWsPosition(position, market = undefined) {
+        //
+        //     {
+        //         B: '4236.36',
+        //         E: '1754943862040486',
+        //         M: '4235.88650933',
+        //         P: '-0.000473',
+        //         Q: '0.0010',
+        //         T: '1754943862040487',
+        //         b: '4238.479',
+        //         e: 'positionOpened',
+        //         f: '0.02',
+        //         i: 5411399049,
+        //         l: '0',
+        //         m: '0.0125',
+        //         n: '4.23588650933',
+        //         p: '0',
+        //         q: '0.0010',
+        //         s: 'ETH_USDC_PERP'
+        //     }
+        //
+        const id = this.safeString(position, 'i');
+        const marketId = this.safeString(position, 's');
+        market = this.safeMarket(marketId, market);
+        const symbol = market['symbol'];
+        const notional = this.safeString(position, 'n');
+        const liquidationPrice = this.safeString(position, 'l');
+        const entryPrice = this.safeString(position, 'b');
+        const realizedPnl = this.safeString(position, 'p');
+        const unrealisedPnl = this.safeString(position, 'P');
+        const contracts = this.safeString(position, 'Q');
+        const markPrice = this.safeString(position, 'M');
+        const netQuantity = this.safeNumber(position, 'q');
+        let hedged = false;
+        let side = 'long';
+        if (netQuantity < 0) {
+            side = 'short';
+        }
+        if (netQuantity === undefined) {
+            hedged = undefined;
+            side = undefined;
+        }
+        const microseconds = this.safeInteger(position, 'E');
+        const timestamp = this.parseToInt(microseconds / 1000);
+        const maintenanceMarginPercentage = this.safeNumber(position, 'm');
+        const initialMarginPercentage = this.safeNumber(position, 'f');
+        return this.safePosition({
+            'info': position,
+            'id': id,
+            'symbol': symbol,
+            'notional': notional,
+            'marginMode': undefined,
+            'liquidationPrice': liquidationPrice,
+            'entryPrice': entryPrice,
+            'realizedPnl': realizedPnl,
+            'unrealizedPnl': unrealisedPnl,
+            'percentage': undefined,
+            'contracts': contracts,
+            'contractSize': undefined,
+            'markPrice': markPrice,
+            'side': side,
+            'hedged': hedged,
+            'timestamp': timestamp,
+            'datetime': this.iso8601(timestamp),
+            'maintenanceMargin': undefined,
+            'maintenanceMarginPercentage': maintenanceMarginPercentage,
+            'collateral': undefined,
+            'initialMargin': undefined,
+            'initialMarginPercentage': initialMarginPercentage,
+            'leverage': undefined,
+            'marginRatio': undefined,
+        });
+    }
+    handleMessage(client, message) {
+        if (!this.handleErrorMessage(client, message)) {
+            return;
+        }
+        const data = this.safeDict(message, 'data');
+        const event = this.safeString(data, 'e');
+        if (event === 'ticker') {
+            this.handleTicker(client, message);
+        }
+        else if (event === 'bookTicker') {
+            this.handleBidAsk(client, message);
+        }
+        else if (event === 'kline') {
+            this.handleOHLCV(client, message);
+        }
+        else if (event === 'trade') {
+            this.handleTrades(client, message);
+        }
+        else if (event === 'depth') {
+            this.handleOrderBook(client, message);
+        }
+        else if (event === 'orderAccepted' || event === 'orderUpdate' || event === 'orderFill' || event === 'orderCancelled' || event === 'orderExpired' || event === 'orderModified' || event === 'triggerPlaced' || event === 'triggerFailed') {
+            this.handleOrder(client, message);
+        }
+        else if (event === 'positionAdjusted' || event === 'positionOpened' || event === 'positionClosed' || event === 'positionUpdated') {
+            this.handlePositions(client, message);
+        }
+    }
+    handleErrorMessage(client, message) {
+        //
+        //     {
+        //         id: null,
+        //         error: {
+        //             code: 4006,
+        //             message: 'Invalid stream'
+        //         }
+        //     }
+        //
+        const error = this.safeDict(message, 'error', {});
+        const code = this.safeInteger(error, 'code');
+        try {
+            if (code !== undefined) {
+                const msg = this.safeString(error, 'message');
+                throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_3__.ExchangeError(this.id + ' ' + msg);
+            }
+            return true;
+        }
+        catch (e) {
+            client.reject(e);
+        }
+        return true;
+    }
+}
+
+
+/***/ }),
+
 /***/ 9338:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -275195,6 +279322,19 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
                         },
                     },
                 },
+                'demo': {
+                    'ws': {
+                        'spot': 'wss://demo-stream.binance.com/ws',
+                        'margin': 'wss://demo-stream.binance.com/ws',
+                        'future': 'wss://fstream.binancefuture.com/ws',
+                        'delivery': 'wss://dstream.binancefuture.com/ws',
+                        'ws-api': {
+                            'spot': 'wss://demo-ws-api.binance.com/ws-api/v3',
+                            'future': 'wss://testnet.binancefuture.com/ws-fapi/v1',
+                            'delivery': 'wss://testnet.binancefuture.com/ws-dapi/v1',
+                        },
+                    },
+                },
                 'api': {
                     'ws': {
                         'spot': 'wss://stream.binance.com:9443/ws',
@@ -275291,6 +279431,9 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         const newValue = this.sum(previousValue, 1);
         this.options['requestId'][url] = newValue;
         return newValue;
+    }
+    isSpotUrl(client) {
+        return (client.url.indexOf('/stream') > -1) || (client.url.indexOf('demo-stream') > -1);
     }
     stream(type, subscriptionHash, numSubscriptions = 1) {
         const streamBySubscriptionsHash = this.safeDict(this.options, 'streamBySubscriptionsHash', this.createSafeDictionary());
@@ -276021,7 +280164,7 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         //         ]
         //     }
         //
-        const isSpot = (client.url.indexOf('/stream') > -1);
+        const isSpot = this.isSpotUrl(client);
         const marketType = (isSpot) ? 'spot' : 'contract';
         const marketId = this.safeString(message, 's');
         const market = this.safeMarket(marketId, undefined, undefined, marketType);
@@ -276481,7 +280624,7 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
     handleTrade(client, message) {
         // the trade streams push raw trade information in real-time
         // each trade has a unique buyer and seller
-        const isSpot = (client.url.indexOf('/stream') > -1);
+        const isSpot = this.isSpotUrl(client);
         const marketType = (isSpot) ? 'spot' : 'contract';
         const marketId = this.safeString(message, 's');
         const market = this.safeMarket(marketId, undefined, undefined, marketType);
@@ -276723,7 +280866,7 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
             this.safeFloat(kline, 'c'),
             this.safeFloat(kline, 'v'),
         ];
-        const isSpot = (client.url.indexOf('/stream') > -1);
+        const isSpot = this.isSpotUrl(client);
         const marketType = (isSpot) ? 'spot' : 'contract';
         const symbol = this.safeSymbol(marketId, undefined, undefined, marketType);
         const messageHash = 'ohlcv::' + symbol + '::' + unifiedTimeframe;
@@ -277368,7 +281511,7 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         this.handleTickersAndBidsAsks(client, message, 'tickers');
     }
     handleTickersAndBidsAsks(client, message, methodType) {
-        const isSpot = (client.url.indexOf('/stream') > -1);
+        const isSpot = this.isSpotUrl(client);
         const marketType = (isSpot) ? 'spot' : 'contract';
         const isBidAsk = (methodType === 'bidasks');
         let channelName = undefined;
@@ -277451,6 +281594,58 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         extendedParams['signature'] = signature;
         return extendedParams;
     }
+    /**
+     * Ensures a User Data Stream WebSocket subscription is active for the specified scope
+     * @param marketType {string} only support on 'spot'
+     * @see {@link https://developers.binance.com/docs/binance-spot-api-docs/websocket-api/user-data-stream-requests#subscribe-to-user-data-stream-through-signature-subscription-user_data Binance User Data Stream Documentation}
+     * @returns Promise<number> The subscription ID for the user data stream
+     */
+    async ensureUserDataStreamWsSubscribeSignature(marketType = 'spot') {
+        const url = this.urls['api']['ws']['ws-api'][marketType];
+        const client = this.client(url);
+        const subscriptions = client.subscriptions;
+        const subscriptionsKeys = Object.keys(subscriptions);
+        const accountType = this.getAccountTypeFromSubscriptions(subscriptionsKeys);
+        if (accountType === marketType) {
+            return;
+        }
+        client.subscriptions[marketType] = true;
+        const requestId = this.requestId(url);
+        const messageHash = requestId.toString();
+        const message = {
+            'id': messageHash,
+            'method': 'userDataStream.subscribe.signature',
+            'params': this.signParams({}),
+        };
+        const subscription = {
+            'id': messageHash,
+            'method': this.handleUserDataStreamSubscribe,
+            'subscription': marketType,
+        };
+        await this.watch(url, messageHash, message, messageHash, subscription);
+    }
+    handleUserDataStreamSubscribe(client, message) {
+        //
+        //   {
+        //     "id": 1,
+        //     "status": 200,
+        //     "result": {
+        //         "subscriptionId": 0
+        //     }
+        //   }
+        //
+        const messageHash = this.safeString(message, 'id');
+        const subscriptions = client.subscriptions;
+        const subscriptionsKeys = Object.keys(subscriptions);
+        const accountType = this.getAccountTypeFromSubscriptions(subscriptionsKeys);
+        const result = this.safeDict(message, 'result', {});
+        const subscriptionId = this.safeInteger(result, 'subscriptionId');
+        if (subscriptionId === undefined) {
+            delete client.subscriptions[accountType];
+            client.reject(message, accountType);
+        }
+        client.resolve(message, messageHash);
+    }
     async authenticate(params = {}) {
         const time = this.milliseconds();
         let type = undefined;
@@ -277464,6 +281659,11 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         }
         else if (this.isInverse(type, subType)) {
             type = 'delivery';
+        }
+        // For spot use WebSocket API signature subscription
+        if (type === 'spot') {
+            await this.ensureUserDataStreamWsSubscribeSignature('spot');
+            return;
         }
         let marginMode = undefined;
         [marginMode, params] = this.handleMarginModeAndParams('authenticate', params);
@@ -277592,7 +281792,7 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         }
     }
     setBalanceCache(client, type, isPortfolioMargin = false) {
-        if (type in client.subscriptions) {
+        if ((type in client.subscriptions) && (type in this.balance)) {
             return;
         }
         const options = this.safeValue(this.options, 'watchBalance');
@@ -277856,11 +282056,18 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         else if (this.isInverse(type, subType)) {
             type = 'delivery';
         }
+        let url = '';
         let urlType = type;
-        if (isPortfolioMargin) {
-            urlType = 'papi';
+        if (type === 'spot') {
+            // route to WebSocket API connection where the user data stream is subscribed
+            url = this.urls['api']['ws']['ws-api'][type];
         }
-        const url = this.urls['api']['ws'][urlType] + '/' + this.options[type]['listenKey'];
+        else {
+            if (isPortfolioMargin) {
+                urlType = 'papi';
+            }
+            url = this.urls['api']['ws'][urlType] + '/' + this.options[type]['listenKey'];
+        }
         const client = this.client(url);
         this.setBalanceCache(client, type, isPortfolioMargin);
         this.setPositionsCache(client, type, undefined, isPortfolioMargin);
@@ -277931,12 +282138,20 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         //             ]
         //         }
         //     }
+        // externalLockUpdate
+        //    {
+        //        "e": "externalLockUpdate",  // Event Type
+        //        "E": 1581557507324,         // Event Time
+        //        "a": "NEO",                 // Asset
+        //        "d": "10.00000000",         // Delta
+        //        "T": 1581557507268          // Transaction Time
+        //    }
         //
         const wallet = this.safeString(this.options, 'wallet', 'wb'); // cw for cross wallet
         // each account is connected to a different endpoint
-        // and has exactly one subscriptionhash which is the account type
-        const subscriptions = Object.keys(client.subscriptions);
-        const accountType = subscriptions[0];
+        const subscriptions = client.subscriptions;
+        const subscriptionsKeys = Object.keys(subscriptions);
+        const accountType = this.getAccountTypeFromSubscriptions(subscriptionsKeys);
         const messageHash = accountType + ':balance';
         if (this.balance[accountType] === undefined) {
             this.balance[accountType] = {};
@@ -277979,6 +282194,17 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         this.balance[accountType]['datetime'] = this.iso8601(timestamp);
         this.balance[accountType] = this.safeBalance(this.balance[accountType]);
         client.resolve(this.balance[accountType], messageHash);
+    }
+    getAccountTypeFromSubscriptions(subscriptions) {
+        let accountType = '';
+        for (let i = 0; i < subscriptions.length; i++) {
+            const subscription = subscriptions[i];
+            if ((subscription === 'spot') || (subscription === 'margin') || (subscription === 'future') || (subscription === 'delivery')) {
+                accountType = subscription;
+                break;
+            }
+        }
+        return accountType;
     }
     getMarketType(method, market, params = {}) {
         let type = undefined;
@@ -278581,10 +282807,17 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         }
         let isPortfolioMargin = undefined;
         [isPortfolioMargin, params] = this.handleOptionAndParams2(params, 'watchOrders', 'papi', 'portfolioMargin', false);
-        if (isPortfolioMargin) {
-            urlType = 'papi';
+        let url = '';
+        if (type === 'spot') {
+            // route orders to ws-api user data stream
+            url = this.urls['api']['ws']['ws-api'][type];
         }
-        const url = this.urls['api']['ws'][urlType] + '/' + this.options[type]['listenKey'];
+        else {
+            if (isPortfolioMargin) {
+                urlType = 'papi';
+            }
+            url = this.urls['api']['ws'][urlType] + '/' + this.options[type]['listenKey'];
+        }
         const client = this.client(url);
         this.setBalanceCache(client, type, isPortfolioMargin);
         this.setPositionsCache(client, type, undefined, isPortfolioMargin);
@@ -278971,8 +283204,9 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         //
         // each account is connected to a different endpoint
         // and has exactly one subscriptionhash which is the account type
-        const subscriptions = Object.keys(client.subscriptions);
-        const accountType = subscriptions[0];
+        const subscriptions = client.subscriptions;
+        const subscriptionsKeys = Object.keys(subscriptions);
+        const accountType = this.getAccountTypeFromSubscriptions(subscriptionsKeys);
         if (this.positions === undefined) {
             this.positions = {};
         }
@@ -279249,10 +283483,16 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
         }
         let isPortfolioMargin = undefined;
         [isPortfolioMargin, params] = this.handleOptionAndParams2(params, 'watchMyTrades', 'papi', 'portfolioMargin', false);
-        if (isPortfolioMargin) {
-            urlType = 'papi';
+        let url = '';
+        if (type === 'spot') {
+            url = this.urls['api']['ws']['ws-api'][type];
         }
-        const url = this.urls['api']['ws'][urlType] + '/' + this.options[type]['listenKey'];
+        else {
+            if (isPortfolioMargin) {
+                urlType = 'papi';
+            }
+            url = this.urls['api']['ws'][urlType] + '/' + this.options[type]['listenKey'];
+        }
         const client = this.client(url);
         this.setBalanceCache(client, type, isPortfolioMargin);
         this.setPositionsCache(client, type, undefined, isPortfolioMargin);
@@ -279398,8 +283638,12 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
             for (let i = 0; i < subscriptionKeys.length; i++) {
                 const subscriptionHash = subscriptionKeys[i];
                 const subscriptionId = this.safeString(client.subscriptions[subscriptionHash], 'id');
+                const subscription = this.safeString(client.subscriptions[subscriptionHash], 'subscription');
                 if (id === subscriptionId) {
                     client.reject(e, subscriptionHash);
+                    if (subscription !== undefined) {
+                        delete client.subscriptions[subscription];
+                    }
                 }
             }
         }
@@ -279412,14 +283656,35 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
             client.reset(message);
         }
     }
+    handleEventStreamTerminated(client, message) {
+        //
+        //    {
+        //        e: 'eventStreamTerminated',
+        //        E: 1757896885229
+        //    }
+        //
+        const event = this.safeString(message, 'e');
+        const subscriptions = client.subscriptions;
+        const subscriptionsKeys = Object.keys(subscriptions);
+        const accountType = this.getAccountTypeFromSubscriptions(subscriptionsKeys);
+        if (event === 'eventStreamTerminated') {
+            delete client.subscriptions[accountType];
+            client.reject(message, accountType);
+        }
+    }
     handleMessage(client, message) {
         // handle WebSocketAPI
+        const eventMsg = this.safeDict(message, 'event');
+        if (eventMsg !== undefined) {
+            message = eventMsg;
+        }
         const status = this.safeString(message, 'status');
         const error = this.safeValue(message, 'error');
         if ((error !== undefined) || (status !== undefined && status !== '200')) {
             this.handleWsError(client, message);
             return;
         }
+        // user subscription wraps message in subscriptionId and event
         const id = this.safeString(message, 'id');
         const subscriptions = this.safeValue(client.subscriptions, id);
         let method = this.safeValue(subscriptions, 'method');
@@ -279454,6 +283719,8 @@ class binance extends _binance_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ 
             'executionReport': this.handleOrderUpdate,
             'ORDER_TRADE_UPDATE': this.handleOrderUpdate,
             'forceOrder': this.handleLiquidation,
+            'eventStreamTerminated': this.handleEventStreamTerminated,
+            'externalLockUpdate': this.handleBalance,
         };
         let event = this.safeString(message, 'e');
         if (Array.isArray(message)) {
@@ -283040,7 +287307,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             args['topic'] = 'kline';
             args['symbol'] = market['id'];
             args['interval'] = interval;
-            params['uta'] = true;
+            params = this.extend(params, { 'uta': true });
             messageHash = 'kline:' + symbol;
         }
         else {
@@ -283089,7 +287356,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             args['topic'] = channel;
             args['symbol'] = market['id'];
             args['interval'] = interval;
-            params['uta'] = true;
+            params = this.extend(params, { 'uta': true });
             params['interval'] = interval;
             messageHash = channel + symbol;
         }
@@ -283239,9 +287506,11 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
      * @description watches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
      * @see https://www.bitget.com/api-doc/spot/websocket/public/Depth-Channel
      * @see https://www.bitget.com/api-doc/contract/websocket/public/Order-Book-Channel
+     * @see https://www.bitget.com/api-doc/uta/websocket/public/Order-Book-Channel
      * @param {string} symbol unified symbol of the market to fetch the order book for
      * @param {int} [limit] the maximum amount of order book entries to return
      * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {boolean} [params.uta] set to true for the unified trading account (uta), defaults to false
      * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
      */
     async watchOrderBook(symbol, limit = undefined, params = {}) {
@@ -283253,16 +287522,18 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
      * @description unsubscribe from the orderbook channel
      * @see https://www.bitget.com/api-doc/spot/websocket/public/Depth-Channel
      * @see https://www.bitget.com/api-doc/contract/websocket/public/Order-Book-Channel
+     * @see https://www.bitget.com/api-doc/uta/websocket/public/Order-Book-Channel
      * @param {string} symbol unified symbol of the market to fetch the order book for
      * @param {object} [params] extra parameters specific to the exchange API endpoint
      * @param {int} [params.limit] orderbook limit, default is undefined
+     * @param {boolean} [params.uta] set to true for the unified trading account (uta), defaults to false
      * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
      */
     async unWatchOrderBook(symbol, params = {}) {
         await this.loadMarkets();
         let channel = 'books';
         const limit = this.safeInteger(params, 'limit');
-        if ((limit === 1) || (limit === 5) || (limit === 15)) {
+        if ((limit === 1) || (limit === 5) || (limit === 15) || (limit === 50)) {
             params = this.omit(params, 'limit');
             channel += limit.toString();
         }
@@ -283283,7 +287554,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             args['topic'] = channel;
             args['symbol'] = market['id'];
             args['interval'] = this.safeString(params, 'interval', '1m');
-            params['uta'] = true;
+            params = this.extend(params, { 'uta': true });
             params = this.omit(params, 'interval');
         }
         else {
@@ -283298,9 +287569,11 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
      * @description watches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
      * @see https://www.bitget.com/api-doc/spot/websocket/public/Depth-Channel
      * @see https://www.bitget.com/api-doc/contract/websocket/public/Order-Book-Channel
+     * @see https://www.bitget.com/api-doc/uta/websocket/public/Order-Book-Channel
      * @param {string[]} symbols unified array of symbols
      * @param {int} [limit] the maximum amount of order book entries to return
      * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {boolean} [params.uta] set to true for the unified trading account (uta), defaults to false
      * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
      */
     async watchOrderBookForSymbols(symbols, limit = undefined, params = {}) {
@@ -283308,24 +287581,31 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         symbols = this.marketSymbols(symbols);
         let channel = 'books';
         let incrementalFeed = true;
-        if ((limit === 1) || (limit === 5) || (limit === 15)) {
+        if ((limit === 1) || (limit === 5) || (limit === 15) || (limit === 50)) {
             channel += limit.toString();
             incrementalFeed = false;
         }
         const topics = [];
         const messageHashes = [];
+        let uta = undefined;
+        [uta, params] = this.handleOptionAndParams(params, 'watchOrderBookForSymbols', 'uta', false);
         for (let i = 0; i < symbols.length; i++) {
             const symbol = symbols[i];
             const market = this.market(symbol);
             let instType = undefined;
-            [instType, params] = this.getInstType(market, false, params);
+            [instType, params] = this.getInstType(market, uta, params);
             const args = {
                 'instType': instType,
-                'channel': channel,
-                'instId': market['id'],
             };
+            const topicOrChannel = uta ? 'topic' : 'channel';
+            const symbolOrInstId = uta ? 'symbol' : 'instId';
+            args[topicOrChannel] = channel;
+            args[symbolOrInstId] = market['id'];
             topics.push(args);
             messageHashes.push('orderbook:' + symbol);
+        }
+        if (uta) {
+            params['uta'] = true;
         }
         const orderbook = await this.watchPublicMultiple(messageHashes, topics, params);
         if (incrementalFeed) {
@@ -283366,11 +287646,27 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         //       ]
         //   }
         //
+        // {
+        //     "action": "snapshot",
+        //     "arg": { "instType": "usdt-futures", "topic": "books", "symbol": "BTCUSDT" },
+        //     "data": [
+        //         {
+        //             "a": [Array],
+        //             "b": [Array],
+        //             "checksum": 0,
+        //             "pseq": 0,
+        //             "seq": "1343064377779269632",
+        //             "ts": "1755937421270"
+        //         }
+        //     ],
+        //     "ts": 1755937421337
+        // }
+        //
         const arg = this.safeValue(message, 'arg');
-        const channel = this.safeString(arg, 'channel');
-        const instType = this.safeString(arg, 'instType');
-        const marketType = (instType === 'SPOT') ? 'spot' : 'contract';
-        const marketId = this.safeString(arg, 'instId');
+        const channel = this.safeString2(arg, 'channel', 'topic');
+        const instType = this.safeStringLower(arg, 'instType');
+        const marketType = (instType === 'spot') ? 'spot' : 'contract';
+        const marketId = this.safeString2(arg, 'instId', 'symbol');
         const market = this.safeMarket(marketId, undefined, undefined, marketType);
         const symbol = market['symbol'];
         const messageHash = 'orderbook:' + symbol;
@@ -283387,8 +287683,8 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
                 this.orderbooks[symbol] = ob;
             }
             const storedOrderBook = this.orderbooks[symbol];
-            const asks = this.safeValue(rawOrderBook, 'asks', []);
-            const bids = this.safeValue(rawOrderBook, 'bids', []);
+            const asks = this.safeList2(rawOrderBook, 'asks', 'a', []);
+            const bids = this.safeList2(rawOrderBook, 'bids', 'b', []);
             this.handleDeltas(storedOrderBook['asks'], asks);
             this.handleDeltas(storedOrderBook['bids'], bids);
             storedOrderBook['timestamp'] = timestamp;
@@ -283507,7 +287803,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             messageHashes.push('trade:' + symbol);
         }
         if (uta) {
-            params['uta'] = true;
+            params = this.extend(params, { 'uta': true });
         }
         const trades = await this.watchPublicMultiple(messageHashes, topics, params);
         if (this.newUpdates) {
@@ -283741,11 +288037,13 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
      * @name bitget#watchPositions
      * @description watch all open positions
      * @see https://www.bitget.com/api-doc/contract/websocket/private/Positions-Channel
+     * @see https://www.bitget.com/api-doc/uta/websocket/private/Positions-Channel
      * @param {string[]|undefined} symbols list of unified market symbols
      * @param {int} [since] the earliest time in ms to fetch positions for
      * @param {int} [limit] the maximum number of positions to retrieve
      * @param {object} params extra parameters specific to the exchange API endpoint
      * @param {string} [params.instType] one of 'USDT-FUTURES', 'USDC-FUTURES', 'COIN-FUTURES', 'SUSDT-FUTURES', 'SUSDC-FUTURES' or 'SCOIN-FUTURES', default is 'USDT-FUTURES'
+     * @param {boolean} [params.uta] set to true for the unified trading account (uta), defaults to false
      * @returns {object[]} a list of [position structure]{@link https://docs.ccxt.com/en/latest/manual.html#position-structure}
      */
     async watchPositions(symbols = undefined, since = undefined, limit = undefined, params = {}) {
@@ -283754,17 +288052,29 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         let messageHash = '';
         const subscriptionHash = 'positions';
         let instType = 'USDT-FUTURES';
+        let uta = undefined;
+        [uta, params] = this.handleOptionAndParams(params, 'watchPositions', 'uta', false);
         symbols = this.marketSymbols(symbols);
         if (!this.isEmpty(symbols)) {
             market = this.getMarketFromSymbols(symbols);
-            [instType, params] = this.getInstType(market, false, params);
+            [instType, params] = this.getInstType(market, uta, params);
+        }
+        if (uta) {
+            instType = 'UTA';
         }
         messageHash = instType + ':positions' + messageHash;
         const args = {
             'instType': instType,
-            'channel': 'positions',
-            'instId': 'default',
         };
+        const topicOrChannel = uta ? 'topic' : 'channel';
+        const channel = uta ? 'position' : 'positions';
+        args[topicOrChannel] = channel;
+        if (!uta) {
+            args['instId'] = 'default';
+        }
+        else {
+            params = this.extend(params, { 'uta': true });
+        }
         const newPositions = await this.watchPrivate(messageHash, subscriptionHash, args, params);
         if (this.newUpdates) {
             return newPositions;
@@ -283809,7 +288119,46 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         //         "ts": 1701913043767
         //     }
         //
-        const arg = this.safeValue(message, 'arg', {});
+        // uta
+        //
+        //     {
+        //         "data": [
+        //             {
+        //                 "symbol": "BTCUSDT",
+        //                 "leverage": "20",
+        //                 "openFeeTotal": "",
+        //                 "mmr": "",
+        //                 "breakEvenPrice": "",
+        //                 "available": "0",
+        //                 "liqPrice": "",
+        //                 "marginMode": "crossed",
+        //                 "unrealisedPnl": "0",
+        //                 "markPrice": "94987.1",
+        //                 "createdTime": "1736378720620",
+        //                 "avgPrice": "0",
+        //                 "totalFundingFee": "0",
+        //                 "updatedTime": "1736378720620",
+        //                 "marginCoin": "USDT",
+        //                 "frozen": "0",
+        //                 "profitRate": "",
+        //                 "closeFeeTotal": "",
+        //                 "marginSize": "0",
+        //                 "curRealisedPnl": "0",
+        //                 "size": "0",
+        //                 "positionStatus": "ended",
+        //                 "posSide": "long",
+        //                 "holdMode": "hedge_mode"
+        //             }
+        //         ],
+        //         "arg": {
+        //             "instType": "UTA",
+        //             "topic": "position"
+        //         },
+        //         "action": "snapshot",
+        //         "ts": 1730711666652
+        //     }
+        //
+        const arg = this.safeDict(message, 'arg', {});
         const instType = this.safeString(arg, 'instType', '');
         if (this.positions === undefined) {
             this.positions = {};
@@ -283819,11 +288168,11 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             this.positions[instType] = new _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_3__/* .ArrayCacheBySymbolBySide */ .Hk();
         }
         const cache = this.positions[instType];
-        const rawPositions = this.safeValue(message, 'data', []);
+        const rawPositions = this.safeList(message, 'data', []);
         const newPositions = [];
         for (let i = 0; i < rawPositions.length; i++) {
             const rawPosition = rawPositions[i];
-            const marketId = this.safeString(rawPosition, 'instId');
+            const marketId = this.safeString2(rawPosition, 'instId', 'symbol');
             const market = this.safeMarket(marketId, undefined, undefined, 'contract');
             const position = this.parseWsPosition(rawPosition, market);
             newPositions.push(position);
@@ -283868,16 +288217,45 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         //         "autoMargin": "off"
         //     }
         //
-        const marketId = this.safeString(position, 'instId');
+        // uta
+        //
+        //     {
+        //         "symbol": "BTCUSDT",
+        //         "leverage": "20",
+        //         "openFeeTotal": "",
+        //         "mmr": "",
+        //         "breakEvenPrice": "",
+        //         "available": "0",
+        //         "liqPrice": "",
+        //         "marginMode": "crossed",
+        //         "unrealisedPnl": "0",
+        //         "markPrice": "94987.1",
+        //         "createdTime": "1736378720620",
+        //         "avgPrice": "0",
+        //         "totalFundingFee": "0",
+        //         "updatedTime": "1736378720620",
+        //         "marginCoin": "USDT",
+        //         "frozen": "0",
+        //         "profitRate": "",
+        //         "closeFeeTotal": "",
+        //         "marginSize": "0",
+        //         "curRealisedPnl": "0",
+        //         "size": "0",
+        //         "positionStatus": "ended",
+        //         "posSide": "long",
+        //         "holdMode": "hedge_mode"
+        //     }
+        //
+        const marketId = this.safeString2(position, 'instId', 'symbol');
         const marginModeId = this.safeString(position, 'marginMode');
         const marginMode = this.getSupportedMapping(marginModeId, {
             'crossed': 'cross',
             'isolated': 'isolated',
         });
-        const hedgedId = this.safeString(position, 'posMode');
+        const hedgedId = this.safeString2(position, 'posMode', 'holdMode');
         const hedged = (hedgedId === 'hedge_mode') ? true : false;
-        const timestamp = this.safeInteger2(position, 'uTime', 'cTime');
-        const percentageDecimal = this.safeString(position, 'unrealizedPLR');
+        const timestamp = this.safeIntegerN(position, ['updatedTime', 'uTime', 'cTime', 'createdTime']);
+        const percentageDecimal = this.safeString2(position, 'unrealizedPLR', 'profitRate');
         const percentage = _base_Precise_js__WEBPACK_IMPORTED_MODULE_2__/* .Precise */ .Y.stringMul(percentageDecimal, '100');
         let contractSize = undefined;
         if (market !== undefined) {
@@ -283889,21 +288267,21 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             'symbol': this.safeSymbol(marketId, market, undefined, 'contract'),
             'notional': undefined,
             'marginMode': marginMode,
-            'liquidationPrice': this.safeNumber(position, 'liquidationPrice'),
-            'entryPrice': this.safeNumber(position, 'openPriceAvg'),
-            'unrealizedPnl': this.safeNumber(position, 'unrealizedPL'),
+            'liquidationPrice': this.safeNumber2(position, 'liquidationPrice', 'liqPrice'),
+            'entryPrice': this.safeNumber2(position, 'openPriceAvg', 'avgPrice'),
+            'unrealizedPnl': this.safeNumber2(position, 'unrealizedPL', 'unrealisedPnl'),
             'percentage': this.parseNumber(percentage),
-            'contracts': this.safeNumber(position, 'total'),
+            'contracts': this.safeNumber2(position, 'total', 'size'),
             'contractSize': contractSize,
-            'markPrice': undefined,
-            'side': this.safeString(position, 'holdSide'),
+            'markPrice': this.safeNumber(position, 'markPrice'),
+            'side': this.safeString2(position, 'holdSide', 'posSide'),
             'hedged': hedged,
             'timestamp': timestamp,
             'datetime': this.iso8601(timestamp),
             'maintenanceMargin': undefined,
-            'maintenanceMarginPercentage': this.safeNumber(position, 'keepMarginRate'),
-            'collateral': undefined,
-            'initialMargin': undefined,
+            'maintenanceMarginPercentage': this.safeNumber2(position, 'keepMarginRate', 'mmr'),
+            'collateral': this.safeNumber(position, 'available'),
+            'initialMargin': this.safeNumber(position, 'marginSize'),
             'initialMarginPercentage': undefined,
             'leverage': this.safeNumber(position, 'leverage'),
             'marginRatio': this.safeNumber(position, 'marginRate'),
@@ -283918,6 +288296,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
      * @see https://www.bitget.com/api-doc/contract/websocket/private/Plan-Order-Channel
      * @see https://www.bitget.com/api-doc/margin/cross/websocket/private/Cross-Orders
      * @see https://www.bitget.com/api-doc/margin/isolated/websocket/private/Isolate-Orders
+     * @see https://www.bitget.com/api-doc/uta/websocket/private/Order-Channel
      * @param {string} symbol unified market symbol of the market orders were made in
      * @param {int} [since] the earliest time in ms to fetch orders for
      * @param {int} [limit] the maximum number of order structures to retrieve
@@ -283926,6 +288305,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
      * @param {string} [params.marginMode] 'isolated' or 'cross' for watching spot margin orders]
      * @param {string} [params.type] 'spot', 'swap'
      * @param {string} [params.subType] 'linear', 'inverse'
+     * @param {boolean} [params.uta] set to true for the unified trading account (uta), defaults to false
      * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
      */
     async watchOrders(symbol = undefined, since = undefined, limit = undefined, params = {}) {
@@ -283942,6 +288322,8 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             marketId = market['id'];
             messageHash = messageHash + ':' + symbol;
         }
+        let uta = undefined;
+        [uta, params] = this.handleOptionAndParams(params, 'watchOrders', 'uta', false);
         const productType = this.safeString(params, 'productType');
         let type = undefined;
         [type, params] = this.handleMarketTypeAndParams('watchOrders', market, params);
@@ -283967,7 +288349,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             instType = 'SPOT';
         }
         else {
-            [instType, params] = this.getInstType(market, false, params);
+            [instType, params] = this.getInstType(market, uta, params);
         }
         if (type === 'spot' && (symbol !== undefined)) {
             subscriptionHash = subscriptionHash + ':' + symbol;
@@ -283989,12 +288371,22 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
                 channel = 'orders-crossed';
             }
         }
+        if (uta) {
+            instType = 'UTA';
+            channel = 'order';
+        }
         subscriptionHash = subscriptionHash + ':' + instType;
         const args = {
             'instType': instType,
-            'channel': channel,
-            'instId': instId,
         };
+        const topicOrChannel = uta ? 'topic' : 'channel';
+        args[topicOrChannel] = channel;
+        if (!uta) {
+            args['instId'] = instId;
+        }
+        else {
+            params = this.extend(params, { 'uta': true });
+        }
         const orders = await this.watchPrivate(messageHash, subscriptionHash, args, params);
         if (this.newUpdates) {
             limit = orders.getLimit(symbol, limit);
@@ -284036,24 +288428,73 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         //         "ts": 1701923982497
         //     }
         //
+        // uta
+        //
+        //     {
+        //         "action": "snapshot",
+        //         "arg": {
+        //             "instType": "UTA",
+        //             "topic": "order"
+        //         },
+        //         "data": [
+        //             {
+        //                 "category": "usdt-futures",
+        //                 "symbol": "BTCUSDT",
+        //                 "orderId": "xxx",
+        //                 "clientOid": "xxx",
+        //                 "price": "",
+        //                 "qty": "0.001",
+        //                 "amount": "1000",
+        //                 "holdMode": "hedge_mode",
+        //                 "holdSide": "long",
+        //                 "tradeSide": "open",
+        //                 "orderType": "market",
+        //                 "timeInForce": "gtc",
+        //                 "side": "buy",
+        //                 "marginMode": "crossed",
+        //                 "marginCoin": "USDT",
+        //                 "reduceOnly": "no",
+        //                 "cumExecQty": "0.001",
+        //                 "cumExecValue": "83.1315",
+        //                 "avgPrice": "83131.5",
+        //                 "totalProfit": "0",
+        //                 "orderStatus": "filled",
+        //                 "cancelReason": "",
+        //                 "leverage": "20",
+        //                 "feeDetail": [
+        //                     {
+        //                         "feeCoin": "USDT",
+        //                         "fee": "0.0332526"
+        //                     }
+        //                 ],
+        //                 "createdTime": "1742367838101",
+        //                 "updatedTime": "1742367838115",
+        //                 "stpMode": "none"
+        //             }
+        //         ],
+        //         "ts": 1742367838124
+        //     }
+        //
         const arg = this.safeDict(message, 'arg', {});
-        const channel = this.safeString(arg, 'channel');
-        const instType = this.safeString(arg, 'instType');
+        const channel = this.safeString2(arg, 'channel', 'topic');
+        const instType = this.safeStringLower(arg, 'instType');
         const argInstId = this.safeString(arg, 'instId');
         let marketType = undefined;
-        if (instType === 'SPOT') {
+        if (instType === 'spot') {
             marketType = 'spot';
         }
-        else if (instType === 'MARGIN') {
+        else if (instType === 'margin') {
             marketType = 'spot';
         }
         else {
             marketType = 'contract';
         }
-        const isLinearSwap = (instType === 'USDT-FUTURES');
-        const isInverseSwap = (instType === 'COIN-FUTURES');
-        const isUSDCFutures = (instType === 'USDC-FUTURES');
-        const data = this.safeValue(message, 'data', []);
+        const data = this.safeList(message, 'data', []);
+        const first = this.safeDict(data, 0, {});
+        const category = this.safeStringLower(first, 'category', instType);
+        const isLinearSwap = (category === 'usdt-futures');
+        const isInverseSwap = (category === 'coin-futures');
+        const isUSDCFutures = (category === 'usdc-futures');
         if (this.orders === undefined) {
             const limit = this.safeInteger(this.options, 'ordersLimit', 1000);
             this.orders = new _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_3__/* .ArrayCacheBySymbolById */ .Pt(limit);
@@ -284065,7 +288506,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         const marketSymbols = {};
         for (let i = 0; i < data.length; i++) {
             const order = data[i];
-            const marketId = this.safeString(order, 'instId', argInstId);
+            const marketId = this.safeString2(order, 'instId', 'symbol', argInstId);
             const market = this.safeMarket(marketId, undefined, undefined, marketType);
             const parsed = this.parseWsOrder(order, market);
             stored.append(parsed);
@@ -284213,13 +288654,57 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         //         orderId: "1183419084588060673",
         //       }
         //
-        const isSpot = !('posMode' in order);
-        const isMargin = ('loanType' in order);
-        const marketId = this.safeString(order, 'instId');
+        // uta
+        //
+        //     {
+        //         "category": "usdt-futures",
+        //         "symbol": "BTCUSDT",
+        //         "orderId": "xxx",
+        //         "clientOid": "xxx",
+        //         "price": "",
+        //         "qty": "0.001",
+        //         "amount": "1000",
+        //         "holdMode": "hedge_mode",
+        //         "holdSide": "long",
+        //         "tradeSide": "open",
+        //         "orderType": "market",
+        //         "timeInForce": "gtc",
+        //         "side": "buy",
+        //         "marginMode": "crossed",
+        //         "marginCoin": "USDT",
+        //         "reduceOnly": "no",
+        //         "cumExecQty": "0.001",
+        //         "cumExecValue": "83.1315",
+        //         "avgPrice": "83131.5",
+        //         "totalProfit": "0",
+        //         "orderStatus": "filled",
+        //         "cancelReason": "",
+        //         "leverage": "20",
+        //         "feeDetail": [
+        //             {
+        //                 "feeCoin": "USDT",
+        //                 "fee": "0.0332526"
+        //             }
+        //         ],
+        //         "createdTime": "1742367838101",
+        //         "updatedTime": "1742367838115",
+        //         "stpMode": "none"
+        //     }
+        //
+        let isSpot = !('posMode' in order);
+        let isMargin = ('loanType' in order);
+        const category = this.safeStringLower(order, 'category');
+        if (category === 'spot') {
+            isSpot = true;
+        }
+        if (category === 'margin') {
+            isMargin = true;
+        }
+        const marketId = this.safeString2(order, 'instId', 'symbol');
         market = this.safeMarket(marketId, market);
-        const timestamp = this.safeInteger(order, 'cTime');
+        const timestamp = this.safeInteger2(order, 'cTime', 'createdTime');
         const symbol = market['symbol'];
-        const rawStatus = this.safeString(order, 'status');
+        const rawStatus = this.safeString2(order, 'status', 'orderStatus');
         const orderFee = this.safeValue(order, 'feeDetail', []);
         const fee = this.safeValue(orderFee, 0);
         const feeAmount = this.safeString(fee, 'fee');
@@ -284241,23 +288726,23 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             // for spot trigger order, limit price is this
             price = this.safeNumber(order, 'executePrice');
         }
-        const avgPrice = this.omitZero(this.safeString2(order, 'priceAvg', 'fillPrice'));
+        const avgPrice = this.omitZero(this.safeStringLowerN(order, ['priceAvg', 'fillPrice', 'avgPrice']));
         const side = this.safeString(order, 'side');
         const type = this.safeString(order, 'orderType');
-        const accBaseVolume = this.omitZero(this.safeString(order, 'accBaseVolume'));
-        const newSizeValue = this.omitZero(this.safeString(order, 'newSize'));
+        const accBaseVolume = this.omitZero(this.safeString2(order, 'accBaseVolume', 'cumExecQty'));
+        const newSizeValue = this.omitZero(this.safeString2(order, 'newSize', 'cumExecValue'));
         const isMarketOrder = (type === 'market');
         const isBuy = (side === 'buy');
         let totalAmount = undefined;
         let filledAmount = undefined;
         let cost = undefined;
         let remaining = undefined;
-        let totalFilled = this.safeString(order, 'accBaseVolume');
+        let totalFilled = this.safeString2(order, 'accBaseVolume', 'cumExecQty');
         if (isSpot) {
             if (isMargin) {
-                totalAmount = this.safeString(order, 'baseSize');
-                totalFilled = this.safeString(order, 'baseVolume');
-                cost = this.safeString(order, 'fillTotalAmount');
+                totalAmount = this.safeString2(order, 'baseSize', 'qty');
+                totalFilled = this.safeString2(order, 'baseVolume', 'cumExecQty');
+                cost = this.safeString2(order, 'fillTotalAmount', 'cumExecValue');
             }
             else {
                 const partialFillAmount = this.safeString(order, 'baseVolume');
@@ -284278,16 +288763,16 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
                     }
                 }
                 else {
-                    totalAmount = this.safeString(order, 'newSize');
+                    totalAmount = this.safeString2(order, 'newSize', 'qty');
                     // we don't have cost for limit order
                 }
             }
         }
         else {
             // baseVolume should not be used for "amount" for contracts !
-            filledAmount = this.safeString(order, 'baseVolume');
-            totalAmount = this.safeString(order, 'size');
-            cost = this.safeString(order, 'fillNotionalUsd');
+            filledAmount = this.safeString2(order, 'baseVolume', 'cumExecQty');
+            totalAmount = this.safeString2(order, 'size', 'qty');
+            cost = this.safeString2(order, 'fillNotionalUsd', 'cumExecValue');
         }
         remaining = _base_Precise_js__WEBPACK_IMPORTED_MODULE_2__/* .Precise */ .Y.stringSub(totalAmount, totalFilled);
         return this.safeOrder({
@@ -284297,9 +288782,9 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             'clientOrderId': this.safeString(order, 'clientOid'),
             'timestamp': timestamp,
             'datetime': this.iso8601(timestamp),
-            'lastTradeTimestamp': this.safeInteger(order, 'uTime'),
+            'lastTradeTimestamp': this.safeInteger2(order, 'uTime', 'updatedTime'),
             'type': type,
-            'timeInForce': this.safeStringUpper(order, 'force'),
+            'timeInForce': this.safeStringUpper2(order, 'force', 'timeInForce'),
             'postOnly': undefined,
             'side': side,
             'price': price,
@@ -284370,7 +288855,7 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             args['instId'] = 'default';
         }
         else {
-            params['uta'] = true;
+            params = this.extend(params, { 'uta': true });
         }
         const trades = await this.watchPrivate(messageHash, subscriptionHash, args, params);
         if (this.newUpdates) {
@@ -284514,13 +288999,17 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
      * @see https://www.bitget.com/api-doc/contract/websocket/private/Account-Channel
      * @see https://www.bitget.com/api-doc/margin/cross/websocket/private/Margin-Cross-Account-Assets
      * @see https://www.bitget.com/api-doc/margin/isolated/websocket/private/Margin-isolated-account-assets
+     * @see https://www.bitget.com/api-doc/uta/websocket/private/Account-Channel
      * @param {object} [params] extra parameters specific to the exchange API endpoint
      * @param {str} [params.type] spot or contract if not provided this.options['defaultType'] is used
      * @param {string} [params.instType] one of 'SPOT', 'MARGIN', 'USDT-FUTURES', 'USDC-FUTURES', 'COIN-FUTURES', 'SUSDT-FUTURES', 'SUSDC-FUTURES' or 'SCOIN-FUTURES'
      * @param {string} [params.marginMode] 'isolated' or 'cross' for watching spot margin balances
+     * @param {boolean} [params.uta] set to true for the unified trading account (uta), defaults to false
      * @returns {object} a [balance structure]{@link https://docs.ccxt.com/#/?id=balance-structure}
      */
     async watchBalance(params = {}) {
+        let uta = undefined;
+        [uta, params] = this.handleOptionAndParams(params, 'watchBalance', 'uta', false);
         let type = undefined;
         [type, params] = this.handleMarketTypeAndParams('watchBalance', undefined, params);
         let marginMode = undefined;
@@ -284532,22 +289021,33 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         }
         else if (marginMode !== undefined) {
             instType = 'MARGIN';
-            if (marginMode === 'isolated') {
-                channel = 'account-isolated';
-            }
-            else {
-                channel = 'account-crossed';
+            if (!uta) {
+                if (marginMode === 'isolated') {
+                    channel = 'account-isolated';
+                }
+                else {
+                    channel = 'account-crossed';
+                }
             }
         }
-        else {
+        else if (!uta) {
             instType = 'SPOT';
         }
         [instType, params] = this.handleOptionAndParams(params, 'watchBalance', 'instType', instType);
+        if (uta) {
+            instType = 'UTA';
+        }
         const args = {
             'instType': instType,
-            'channel': channel,
-            'coin': 'default',
         };
+        const topicOrChannel = uta ? 'topic' : 'channel';
+        args[topicOrChannel] = channel;
+        if (!uta) {
+            args['coin'] = 'default';
+        }
+        else {
+            params = this.extend(params, { 'uta': true });
+        }
         const messageHash = 'balance:' + instType.toLowerCase();
         return await this.watchPrivate(messageHash, messageHash, args, params);
     }
@@ -284610,26 +289110,76 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         //         "ts": 1701933110544
         //     }
         //
+        // uta
+        //
+        //     {
+        //         "data": [{
+        //             "unrealisedPnL": "-10116.55",
+        //             "totalEquity": "4976919.05",
+        //             "positionMgnRatio": "0",
+        //             "mmr": "408.08",
+        //             "effEquity": "4847952.35",
+        //             "imr": "17795.97",
+        //             "mgnRatio": "0",
+        //             "coin": [{
+        //                 "debts": "0",
+        //                 "balance": "0.9992",
+        //                 "available": "0.9992",
+        //                 "borrow": "0",
+        //                 "locked": "0",
+        //                 "equity": "0.9992",
+        //                 "coin": "ETH",
+        //                 "usdValue": "2488.667472"
+        //             }]
+        //         }],
+        //         "arg": {
+        //             "instType": "UTA",
+        //             "topic": "account"
+        //         },
+        //         "action": "snapshot",
+        //         "ts": 1740546523244
+        //     }
+        //
+        const arg = this.safeDict(message, 'arg', {});
+        const instType = this.safeStringLower(arg, 'instType');
         const data = this.safeValue(message, 'data', []);
         for (let i = 0; i < data.length; i++) {
             const rawBalance = data[i];
-            const currencyId = this.safeString2(rawBalance, 'coin', 'marginCoin');
-            const code = this.safeCurrencyCode(currencyId);
-            const account = (code in this.balance) ? this.balance[code] : this.account();
-            const borrow = this.safeString(rawBalance, 'borrow');
-            if (borrow !== undefined) {
-                const interest = this.safeString(rawBalance, 'interest');
-                account['debt'] = _base_Precise_js__WEBPACK_IMPORTED_MODULE_2__/* .Precise */ .Y.stringAdd(borrow, interest);
+            if (instType === 'uta') {
+                const coins = this.safeList(rawBalance, 'coin', []);
+                for (let j = 0; j < coins.length; j++) {
+                    const entry = coins[j];
+                    const currencyId = this.safeString(entry, 'coin');
+                    const code = this.safeCurrencyCode(currencyId);
+                    const account = (code in this.balance) ? this.balance[code] : this.account();
+                    const borrow = this.safeString(entry, 'borrow');
+                    const debts = this.safeString(entry, 'debts');
+                    if ((borrow !== undefined) || (debts !== undefined)) {
+                        account['debt'] = _base_Precise_js__WEBPACK_IMPORTED_MODULE_2__/* .Precise */ .Y.stringAdd(borrow, debts);
+                    }
+                    account['free'] = this.safeString(entry, 'available');
+                    account['used'] = this.safeString(entry, 'locked');
+                    account['total'] = this.safeString(entry, 'balance');
+                    this.balance[code] = account;
+                }
             }
-            const freeQuery = ('maxTransferOut' in rawBalance) ? 'maxTransferOut' : 'available';
-            account['free'] = this.safeString(rawBalance, freeQuery);
-            account['total'] = this.safeString(rawBalance, 'equity');
-            account['used'] = this.safeString(rawBalance, 'frozen');
-            this.balance[code] = account;
+            else {
+                const currencyId = this.safeString2(rawBalance, 'coin', 'marginCoin');
+                const code = this.safeCurrencyCode(currencyId);
+                const account = (code in this.balance) ? this.balance[code] : this.account();
+                const borrow = this.safeString(rawBalance, 'borrow');
+                if (borrow !== undefined) {
+                    const interest = this.safeString(rawBalance, 'interest');
+                    account['debt'] = _base_Precise_js__WEBPACK_IMPORTED_MODULE_2__/* .Precise */ .Y.stringAdd(borrow, interest);
+                }
+                const freeQuery = ('maxTransferOut' in rawBalance) ? 'maxTransferOut' : 'available';
+                account['free'] = this.safeString(rawBalance, freeQuery);
+                account['total'] = this.safeString(rawBalance, 'equity');
+                account['used'] = this.safeString(rawBalance, 'frozen');
+                this.balance[code] = account;
+            }
         }
         this.balance = this.safeBalance(this.balance);
-        const arg = this.safeValue(message, 'arg');
-        const instType = this.safeStringLower(arg, 'instType');
         const messageHash = 'balance:' + instType;
         client.resolve(this.balance, messageHash);
     }
@@ -284929,12 +289479,14 @@ class bitget extends _bitget_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             'trade': this.handleTrades,
             'publicTrade': this.handleTrades,
             'fill': this.handleMyTrades,
+            'order': this.handleOrder,
             'orders': this.handleOrder,
             'ordersAlgo': this.handleOrder,
             'orders-algo': this.handleOrder,
             'orders-crossed': this.handleOrder,
             'orders-isolated': this.handleOrder,
             'account': this.handleBalance,
+            'position': this.handlePositions,
             'positions': this.handlePositions,
             'account-isolated': this.handleBalance,
             'account-crossed': this.handleBalance,
@@ -294495,6 +299047,9 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
      */
     async cancelOrderWs(id, symbol = undefined, params = {}) {
         await this.loadMarkets();
+        if (symbol === undefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ArgumentsRequired(this.id + ' cancelOrderWs() requires a symbol argument');
+        }
         const orderRequest = this.cancelOrderRequest(id, symbol, params);
         const url = this.urls['api']['ws']['private']['trade'];
         await this.authenticate(url);
@@ -295407,11 +299962,13 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
      * @name bybit#watchMyTrades
      * @description watches information on multiple trades made by the user
      * @see https://bybit-exchange.github.io/docs/v5/websocket/private/execution
+     * @see https://bybit-exchange.github.io/docs/v5/websocket/private/fast-execution
      * @param {string} symbol unified market symbol of the market orders were made in
      * @param {int} [since] the earliest time in ms to fetch orders for
      * @param {int} [limit] the maximum number of order structures to retrieve
      * @param {object} [params] extra parameters specific to the exchange API endpoint
      * @param {boolean} [params.unifiedMargin] use unified margin account
+     * @param {boolean} [params.executionFast] use fast execution
      * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
      */
     async watchMyTrades(symbol = undefined, since = undefined, limit = undefined, params = {}) {
@@ -295429,7 +299986,12 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
             'unified': 'execution',
             'usdc': 'user.openapi.perp.trade',
         };
-        const topic = this.safeValue(topicByMarket, this.getPrivateType(url));
+        let topic = this.safeValue(topicByMarket, this.getPrivateType(url));
+        let executionFast = false;
+        [executionFast, params] = this.handleOptionAndParams(params, 'watchMyTrades', 'executionFast', false);
+        if (executionFast) {
+            topic = 'execution.fast';
+        }
         const trades = await this.watchTopics(url, [messageHash], [topic], params);
         if (this.newUpdates) {
             limit = trades.getLimit(symbol, limit);
@@ -295441,9 +300003,11 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
      * @name bybit#unWatchMyTrades
      * @description unWatches information on multiple trades made by the user
      * @see https://bybit-exchange.github.io/docs/v5/websocket/private/execution
+     * @see https://bybit-exchange.github.io/docs/v5/websocket/private/fast-execution
      * @param {string} symbol unified market symbol of the market orders were made in
      * @param {object} [params] extra parameters specific to the exchange API endpoint
      * @param {boolean} [params.unifiedMargin] use unified margin account
+     * @param {boolean} [params.executionFast] use fast execution
      * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
      */
     async unWatchMyTrades(symbol = undefined, params = {}) {
@@ -295461,7 +300025,12 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
             'unified': 'execution',
             'usdc': 'user.openapi.perp.trade',
         };
-        const topic = this.safeValue(topicByMarket, this.getPrivateType(url));
+        let topic = this.safeValue(topicByMarket, this.getPrivateType(url));
+        let executionFast = false;
+        [executionFast, params] = this.handleOptionAndParams(params, 'watchMyTrades', 'executionFast', false);
+        if (executionFast) {
+            topic = 'execution.fast';
+        }
         return await this.unWatchTopics(url, 'myTrades', [], [messageHash], [subHash], [topic], params);
     }
     handleMyTrades(client, message) {
@@ -295527,8 +300096,31 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         //         ]
         //     }
         //
+        // execution.fast
+        //
+        //     {
+        //         "topic": "execution.fast",
+        //         "creationTime": 1757405601981,
+        //         "data": [
+        //             {
+        //                 "category": "linear",
+        //                 "symbol": "BTCUSDT",
+        //                 "execId": "ffcac6ac-7571-536d-a28a-847dd7d08a0f",
+        //                 "execPrice": "112529.6",
+        //                 "execQty": "0.001",
+        //                 "orderId": "6e25ab73-7a55-4ae7-adc2-8ea95f167c85",
+        //                 "isMaker": false,
+        //                 "orderLinkId": "test-00001",
+        //                 "side": "Buy",
+        //                 "execTime": "1757405601977",
+        //                 "seq": 9515624038
+        //             }
+        //         ]
+        //     }
+        //
         const topic = this.safeString(message, 'topic');
         const spot = topic === 'ticketInfo';
+        const executionFast = topic === 'execution.fast';
         let data = this.safeValue(message, 'data', []);
         if (!Array.isArray(data)) {
             data = this.safeValue(data, 'result', []);
@@ -295543,12 +300135,15 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         for (let i = 0; i < data.length; i++) {
             const rawTrade = data[i];
             let parsed = undefined;
-            if (spot) {
+            if (spot && !executionFast) {
                 parsed = this.parseWsTrade(rawTrade);
             }
             else {
                 // filter unified trades
-                const execType = this.safeString(rawTrade, 'execType', '');
+                let execType = this.safeString(rawTrade, 'execType', '');
+                if (executionFast) {
+                    execType = 'Trade';
+                }
                 if (!this.inArray(execType, filterExecTypes)) {
                     continue;
                 }
@@ -296504,12 +301099,13 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         }
     }
     handleMessage(client, message) {
+        const topic = this.safeString2(message, 'topic', 'op', '');
         if (this.handleErrorMessage(client, message)) {
             return;
         }
         // contract pong
         const ret_msg = this.safeString(message, 'ret_msg');
-        if (ret_msg === 'pong') {
+        if ((ret_msg === 'pong') || (topic === 'pong')) {
             this.handlePong(client, message);
             return;
         }
@@ -296521,11 +301117,10 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         }
         // pong
         const event = this.safeString(message, 'event');
-        if (event === 'sub') {
+        if (event === 'sub' || (topic === 'subscribe')) {
             this.handleSubscriptionStatus(client, message);
             return;
         }
-        const topic = this.safeString2(message, 'topic', 'op', '');
         const methods = {
             'orderbook': this.handleOrderBook,
             'kline': this.handleOHLCV,
@@ -296538,6 +301133,7 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
             'wallet': this.handleBalance,
             'outboundAccountInfo': this.handleBalance,
             'execution': this.handleMyTrades,
+            'execution.fast': this.handleMyTrades,
             'ticketInfo': this.handleMyTrades,
             'user.openapi.perp.trade': this.handleMyTrades,
             'position': this.handlePositions,
@@ -296587,6 +301183,14 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         //
         //   { pong: 1653296711335 }
         //
+        //
+        //   {
+        //       "req_id": "2",
+        //       "op": "pong",
+        //       "args": [ "1757405570352" ],
+        //       "conn_id": "d266o6hqo29sqmnq4vk0-1yus1"
+        //   }
+        //
         client.lastPong = this.safeInteger(message, 'pong');
         return message;
     }
@@ -296604,6 +301208,13 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         //        "retMsg":"OK",
         //        "op":"auth",
         //        "connId":"cojifin88smerbj9t560-404"
+        //    }
+        //
+        //    {
+        //        "success": true,
+        //        "ret_msg": "",
+        //        "op": "auth",
+        //        "conn_id": "d266o6hqo29sqmnq4vk0-1yus1"
         //    }
         //
         const success = this.safeValue(message, 'success');
@@ -296671,7 +301282,7 @@ class bybit extends _bybit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
                 for (let j = 0; j < messageHashes.length; j++) {
                     const unsubHash = messageHashes[j];
                     const subHash = subMessageHashes[j];
-                    const usePrefix = (subHash === 'orders') || (subHash === 'myTrades');
+                    const usePrefix = (subHash === 'orders') || (subHash === 'myTrades') || (subHash === 'positions');
                     this.cleanUnsubscription(client, subHash, unsubHash, usePrefix);
                 }
                 this.cleanCache(subscription);
@@ -298235,9 +302846,9 @@ class cex extends _cex_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
 /* harmony export */   A: () => (/* binding */ coinbase)
 /* harmony export */ });
 /* harmony import */ var _coinbase_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7504);
-/* harmony import */ var _base_errors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2079);
+/* harmony import */ var _base_errors_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2079);
 /* harmony import */ var _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2931);
-/* harmony import */ var _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4852);
+/* harmony import */ var _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4852);
 //  ---------------------------------------------------------------------------
 
 
@@ -298268,6 +302879,11 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
                 'watchTickers': true,
                 'watchTrades': true,
                 'watchTradesForSymbols': true,
+                'unWatchTicker': true,
+                'unWatchTickers': true,
+                'unWatchTrades': true,
+                'unWatchOrders': true,
+                'unWatchTradesForSymbols': true,
             },
             'urls': {
                 'api': {
@@ -298329,6 +302945,63 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
     /**
      * @ignore
      * @method
+     * @description unSubscribes to a websocket channel
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-overview#subscribe
+     * @param {string} topic unified topic
+     * @param {string} name the name of the channel
+     * @param {boolean} isPrivate whether the channel is private or not
+     * @param {string} [symbol] unified market symbol
+     * @returns {object} subscription to a websocket channel
+     */
+    async unSubscribe(topic, name, isPrivate, symbol = undefined) {
+        await this.loadMarkets();
+        if (this.safeBool(this.options, 'unSubscriptionPending', false)) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ExchangeError(this.id + ' another unSubscription is pending, coinbase does not support concurrent unSubscriptions');
+        }
+        this.options['unSubscriptionPending'] = true;
+        let market = undefined;
+        let watchMessageHash = name;
+        let unWatchMessageHash = 'unsubscribe:' + name;
+        let productIds = [];
+        if (Array.isArray(symbol)) {
+            const symbols = this.marketSymbols(symbol);
+            const marketIds = this.marketIds(symbols);
+            productIds = marketIds;
+            watchMessageHash = watchMessageHash + '::' + symbol.join(',');
+            unWatchMessageHash = unWatchMessageHash + '::' + symbol.join(',');
+        }
+        else if (symbol !== undefined) {
+            market = this.market(symbol);
+            watchMessageHash = name + '::' + symbol;
+            unWatchMessageHash = unWatchMessageHash + '::' + symbol;
+            productIds = [market['id']];
+        }
+        const url = this.urls['api']['ws'];
+        // '{"type": "unsubscribe", "product_ids": ["BTC-USD", "ETH-USD"], "channel": "ticker"}'
+        let message = {
+            'type': 'unsubscribe',
+            'product_ids': productIds,
+            'channel': name,
+        };
+        const subscription = {
+            'messageHashes': [unWatchMessageHash],
+            'subMessageHashes': [watchMessageHash],
+            'topic': topic,
+            'unsubscribe': true,
+            'symbols': [symbol],
+        };
+        if (isPrivate) {
+            message = this.extend(message, this.createWSAuth(name, productIds));
+        }
+        this.options['unSubscription'] = subscription;
+        const res = await this.watch(url, unWatchMessageHash, message, unWatchMessageHash, subscription);
+        this.options['unSubscriptionPending'] = false;
+        this.options['unSubscription'] = undefined;
+        return res;
+    }
+    /**
+     * @ignore
+     * @method
      * @description subscribes to a websocket channel
      * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-overview#subscribe
      * @param {string} name the name of the channel
@@ -298360,6 +303033,58 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
         }
         return await this.watchMultiple(url, messageHashes, subscribe, messageHashes);
     }
+    /**
+     * @ignore
+     * @method
+     * @description unsubscribes to a websocket channel
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-overview#subscribe
+     * @param {string} topic unified topic
+     * @param {string} name the name of the channel
+     * @param {boolean} isPrivate whether the channel is private or not
+     * @param {string[]} [symbols] unified market symbol
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} subscription to a websocket channel
+     */
+    async unSubscribeMultiple(topic, name, isPrivate, symbols = undefined, params = {}) {
+        if (this.safeBool(this.options, 'unSubscriptionPending', false)) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ExchangeError(this.id + ' another unSubscription is pending, coinbase does not support concurrent unSubscriptions');
+        }
+        this.options['unSubscriptionPending'] = true;
+        await this.loadMarkets();
+        const productIds = [];
+        const watchMessageHashes = [];
+        const unWatchMessageHashes = [];
+        symbols = this.marketSymbols(symbols, undefined, false);
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            const market = this.market(symbol);
+            const marketId = market['id'];
+            productIds.push(marketId);
+            watchMessageHashes.push(name + '::' + symbol);
+            unWatchMessageHashes.push('unsubscribe:' + name + '::' + symbol);
+        }
+        const url = this.urls['api']['ws'];
+        let message = {
+            'type': 'unsubscribe',
+            'product_ids': productIds,
+            'channel': name,
+        };
+        if (isPrivate) {
+            message = this.extend(message, this.createWSAuth(name, productIds));
+        }
+        const subscription = {
+            'messageHashes': unWatchMessageHashes,
+            'subMessageHashes': watchMessageHashes,
+            'topic': topic,
+            'unsubscribe': true,
+            'symbols': symbols,
+        };
+        this.options['unSubscription'] = subscription;
+        const res = await this.watchMultiple(url, unWatchMessageHashes, message, unWatchMessageHashes, subscription);
+        this.options['unSubscriptionPending'] = false;
+        this.options['unSubscription'] = undefined;
+        return res;
+    }
     createWSAuth(name, productIds) {
         const subscribe = {};
         const timestamp = this.numberToString(this.seconds());
@@ -298369,11 +303094,11 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
         if (!isCloudAPiKey) {
             subscribe['api_key'] = this.apiKey;
             subscribe['timestamp'] = timestamp;
-            subscribe['signature'] = this.hmac(this.encode(auth), this.encode(this.secret), _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_1__/* .sha256 */ .s);
+            subscribe['signature'] = this.hmac(this.encode(auth), this.encode(this.secret), _static_dependencies_noble_hashes_sha256_js__WEBPACK_IMPORTED_MODULE_2__/* .sha256 */ .s);
         }
         else {
             if (this.apiKey.startsWith('-----BEGIN')) {
-                throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' apiKey should contain the name (eg: organizations/3b910e93....) and not the public key');
+                throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ArgumentsRequired(this.id + ' apiKey should contain the name (eg: organizations/3b910e93....) and not the public key');
             }
             const currentToken = this.safeString(this.options, 'wsToken');
             const tokenTimestamp = this.safeInteger(this.options, 'wsTokenTimestamp', 0);
@@ -298404,6 +303129,20 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
     }
     /**
      * @method
+     * @name coinbase#unWatchTicker
+     * @description stops watching a price ticker
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#ticker-channel
+     * @param {string} [symbol] unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async unWatchTicker(symbol, params = {}) {
+        await this.loadMarkets();
+        const name = 'ticker';
+        return await this.unSubscribe('ticker', name, false, symbol);
+    }
+    /**
+     * @method
      * @name coinbase#watchTickers
      * @description watches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific market
      * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#ticker-batch-channel
@@ -298425,6 +303164,22 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
             return tickers;
         }
         return this.tickers;
+    }
+    /**
+     * @method
+     * @name coinbase#unWatchTickers
+     * @description stop watching
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#ticker-batch-channel
+     * @param {string[]} [symbols] unified symbol of the market to fetch the ticker for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
+     */
+    async unWatchTickers(symbols = undefined, params = {}) {
+        await this.loadMarkets();
+        if (symbols === undefined) {
+            symbols = this.symbols;
+        }
+        return await this.unSubscribeMultiple('ticker', 'ticker_batch', false, symbols);
     }
     handleTickers(client, message) {
         //
@@ -298610,6 +303365,20 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
     }
     /**
      * @method
+     * @name coinbase#unWatchTrades
+     * @description stops watching the list of most recent trades for a particular symbol
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#market-trades-channel
+     * @param {string} symbol unified symbol of the market to fetch trades for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
+     */
+    async unWatchTrades(symbol, params = {}) {
+        await this.loadMarkets();
+        const name = 'market_trades';
+        return await this.unSubscribe('trades', name, false, symbol);
+    }
+    /**
+     * @method
      * @name coinbase#watchTradesForSymbols
      * @description get the list of most recent trades for a particular symbol
      * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#market-trades-channel
@@ -298629,6 +303398,20 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
             limit = trades.getLimit(tradeSymbol, limit);
         }
         return this.filterBySinceLimit(trades, since, limit, 'timestamp', true);
+    }
+    /**
+     * @method
+     * @name coinbase#unWatchTradesForSymbols
+     * @description get the list of most recent trades for a particular symbol
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#market-trades-channel
+     * @param {string[]} symbols unified symbol of the market to fetch trades for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
+     */
+    async unWatchTradesForSymbols(symbols, params = {}) {
+        await this.loadMarkets();
+        const name = 'market_trades';
+        return await this.unSubscribeMultiple('trades', name, false, symbols, params);
     }
     /**
      * @method
@@ -298652,6 +303435,20 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
     }
     /**
      * @method
+     * @name coinbase#unWatchOrders
+     * @description stops watching information on multiple orders made by the user
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#user-channel
+     * @param {string} [symbol] unified market symbol of the market orders were made in
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
+     */
+    async unWatchOrders(symbol = undefined, params = {}) {
+        await this.loadMarkets();
+        const name = 'user';
+        return await this.unSubscribe('orders', name, true, this.symbol(symbol));
+    }
+    /**
+     * @method
      * @name coinbase#watchOrderBook
      * @description watches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
      * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#level2-channel
@@ -298667,6 +303464,21 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
         symbol = market['symbol'];
         const orderbook = await this.subscribe(name, false, symbol, params);
         return orderbook.limit();
+    }
+    /**
+     * @method
+     * @name coinbase#unWatchOrderBook
+     * @description stops watching information on open orders with bid (buy) and ask (sell) prices, volumes and other data
+     * @see https://docs.cloud.coinbase.com/advanced-trade-api/docs/ws-channels#level2-channel
+     * @param {string} symbol unified symbol of the market to fetch the order book for
+     * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
+     */
+    async unWatchOrderBook(symbol, params = {}) {
+        await this.loadMarkets();
+        symbol = this.symbol(symbol);
+        const name = 'level2';
+        return await this.unSubscribe('orderbook', name, false, symbol);
     }
     /**
      * @method
@@ -298925,6 +303737,31 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
         //         ]
         //     }
         //
+        //
+        //      {
+        //        channel: 'subscriptions',
+        //        client_id: '',
+        //        timestamp: '2025-09-15T17:02:49.90120868Z',
+        //        sequence_num: 3,
+        //        events: [ { subscriptions: {} } ]
+        //      }
+        //
+        const events = this.safeList(message, 'events', []);
+        const firstEvent = this.safeValue(events, 0, {});
+        const isUnsub = ('subscriptions' in firstEvent);
+        const subKeys = Object.keys(firstEvent['subscriptions']);
+        const subKeysLength = subKeys.length;
+        if (isUnsub && subKeysLength === 0) {
+            const unSubObject = this.safeDict(this.options, 'unSubscription', {});
+            const messageHashes = this.safeList(unSubObject, 'messageHashes', []);
+            const subMessageHashes = this.safeList(unSubObject, 'subMessageHashes', []);
+            for (let i = 0; i < messageHashes.length; i++) {
+                const messageHash = messageHashes[i];
+                const subHash = subMessageHashes[i];
+                this.cleanUnsubscription(client, subHash, messageHash);
+            }
+            this.cleanCache(unSubObject);
+        }
         return message;
     }
     handleHeartbeats(client, message) {
@@ -298960,7 +303797,7 @@ class coinbase extends _coinbase_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] *
         const type = this.safeString(message, 'type');
         if (type === 'error') {
             const errorMessage = this.safeString(message, 'message');
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(errorMessage);
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ExchangeError(errorMessage);
         }
         const method = this.safeValue(methods, channel);
         if (method) {
@@ -302355,7 +307192,7 @@ class coincatch extends _coincatch_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"]
 
 /***/ }),
 
-/***/ 5317:
+/***/ 79:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -303334,7 +308171,6 @@ class coinex extends _coinex_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         let type = undefined;
         let callerMethodName = undefined;
         [callerMethodName, params] = this.handleParamString(params, 'callerMethodName', 'watchOrderBookForSymbols');
-        [type, params] = this.handleMarketTypeAndParams(callerMethodName, undefined, params);
         const options = this.safeDict(this.options, 'watchOrderBook', {});
         const limits = this.safeList(options, 'limits', []);
         if (limit === undefined) {
@@ -303351,17 +308187,16 @@ class coinex extends _coinex_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         }
         params = this.omit(params, 'aggregation');
         const symbolsDefined = (symbols !== undefined);
-        if (symbolsDefined) {
-            for (let i = 0; i < symbols.length; i++) {
-                const symbol = symbols[i];
-                market = this.market(symbol);
-                messageHashes.push('orderbook:' + market['symbol']);
-                watchOrderBookSubscriptions[symbol] = [market['id'], limit, aggregation, true];
-            }
+        if (!symbolsDefined) {
+            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_1__.ArgumentsRequired(this.id + ' watchOrderBookForSymbols() requires a symbol argument');
         }
-        else {
-            messageHashes.push('orderbook');
+        for (let i = 0; i < symbols.length; i++) {
+            const symbol = symbols[i];
+            market = this.market(symbol);
+            messageHashes.push('orderbook:' + market['symbol']);
+            watchOrderBookSubscriptions[symbol] = [market['id'], limit, aggregation, true];
         }
+        [type, params] = this.handleMarketTypeAndParams(callerMethodName, market, params);
         const marketList = Object.values(watchOrderBookSubscriptions);
         const subscribe = {
             'method': 'depth.subscribe',
@@ -303428,7 +308263,8 @@ class coinex extends _coinex_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
         //         "id": null
         //     }
         //
-        const defaultType = this.safeString(this.options, 'defaultType');
+        const isSpot = client.url.indexOf('spot') > -1;
+        const defaultType = isSpot ? 'spot' : 'swap';
         const data = this.safeDict(message, 'data', {});
         const depth = this.safeDict(data, 'depth', {});
         const marketId = this.safeString(data, 'market');
@@ -328300,18 +333136,21 @@ class mexc extends _mexc_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
     handleBalance(client, message) {
         //
         // spot
+        //
         //    {
-        //        "c": "spot@private.account.v3.api",
-        //        "d": {
-        //            "a": "USDT",
-        //            "c": 1678185928428,
-        //            "f": "302.185113007893322435",
-        //            "fd": "-4.990689704",
-        //            "l": "4.990689704",
-        //            "ld": "4.990689704",
-        //            "o": "ENTRUST_PLACE"
-        //        },
-        //        "t": 1678185928435
+        //        channel: "spot@private.account.v3.api.pb",
+        //        createTime: "1758134605364",
+        //        sendTime: "1758134605373",
+        //        privateAccount: {
+        //          vcoinName: "USDT",
+        //          coinId: "128f589271cb4951b03e71e6323eb7be",
+        //          balanceAmount: "0.006016465074677006",
+        //          balanceAmountChange: "-4.4022",
+        //          frozenAmount: "4.4022",
+        //          frozenAmountChange: "4.4022",
+        //          type: "ENTRUST_PLACE",
+        //          time: "1758134605364",
+        //       }
         //    }
         //
         //
@@ -328329,27 +333168,23 @@ class mexc extends _mexc_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         //         "ts": 1680059188190
         //     }
         //
-        const c = this.safeString(message, 'c'); // do not add 'channel' here, this is especially for spot
-        const type = (c === undefined) ? 'swap' : 'spot';
+        const channel = this.safeString(message, 'channel');
+        const type = (channel === 'spot@private.account.v3.api.pb') ? 'spot' : 'swap';
         const messageHash = 'balance:' + type;
-        const data = this.safeDictN(message, ['d', 'data', 'privateAccount']);
-        const futuresTimestamp = this.safeInteger(message, 'ts');
-        const timestamp = this.safeInteger2(data, 'c', 'time', futuresTimestamp);
+        const data = this.safeDictN(message, ['data', 'privateAccount']);
+        const futuresTimestamp = this.safeInteger2(message, 'ts', 'createTime');
+        const timestamp = this.safeInteger2(data, 'time', futuresTimestamp);
         if (!(type in this.balance)) {
             this.balance[type] = {};
         }
         this.balance[type]['info'] = data;
         this.balance[type]['timestamp'] = timestamp;
         this.balance[type]['datetime'] = this.iso8601(timestamp);
-        const currencyId = this.safeStringN(data, ['a', 'currency', 'vcoinName']);
+        const currencyId = this.safeStringN(data, ['currency', 'vcoinName']);
         const code = this.safeCurrencyCode(currencyId);
         const account = this.account();
-        const balanceAmount = this.safeString(data, 'balanceAmount');
-        if (balanceAmount !== undefined) {
-            account['free'] = balanceAmount;
-        }
-        account['total'] = this.safeStringN(data, ['f', 'availableBalance']);
-        account['used'] = this.safeStringN(data, ['l', 'frozenBalance', 'frozenAmount']);
+        account['free'] = this.safeString2(data, 'balanceAmount', 'availableBalance');
+        account['used'] = this.safeStringN(data, ['frozenBalance', 'frozenAmount']);
         this.balance[type][code] = account;
         this.balance[type] = this.safeBalance(this.balance[type]);
         client.resolve(this.balance[type], messageHash);
@@ -331698,6 +336533,9 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
     /**
      * @method
      * @name okx#watchTrades
+     * @name okx#watchTradesForSymbols
+     * @see https://www.okx.com/docs-v5/en/#order-book-trading-market-data-ws-trades-channel
+     * @see https://www.okx.com/docs-v5/en/#order-book-trading-market-data-ws-all-trades-channel
      * @description get the list of most recent trades for a particular symbol
      * @param {string} symbol unified symbol of the market to fetch trades for
      * @param {int} [since] timestamp in ms of the earliest trade to fetch
@@ -331711,11 +336549,14 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
     /**
      * @method
      * @name okx#watchTradesForSymbols
+     * @see https://www.okx.com/docs-v5/en/#order-book-trading-market-data-ws-trades-channel
+     * @see https://www.okx.com/docs-v5/en/#order-book-trading-market-data-ws-all-trades-channel
      * @description get the list of most recent trades for a particular symbol
      * @param {string} symbols
      * @param {int} [since] timestamp in ms of the earliest trade to fetch
      * @param {int} [limit] the maximum amount of trades to fetch
      * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {string} [params.channel] the channel to subscribe to, trades by default. Can be 'trades' and 'trades-all'
      * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
      */
     async watchTradesForSymbols(symbols, since = undefined, limit = undefined, params = {}) {
@@ -331725,7 +336566,8 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         }
         await this.loadMarkets();
         symbols = this.marketSymbols(symbols);
-        const channel = 'trades';
+        let channel = undefined;
+        [channel, params] = this.handleOptionAndParams(params, 'watchTrades', 'channel', 'trades');
         const topics = [];
         const messageHashes = [];
         for (let i = 0; i < symbols.length; i++) {
@@ -331742,7 +336584,12 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
             'op': 'subscribe',
             'args': topics,
         };
-        const url = this.getUrl(channel, 'public');
+        let access = 'public';
+        if (channel === 'trades-all') {
+            access = 'business';
+            await this.authenticate({ 'access': access });
+        }
+        const url = this.getUrl(channel, access);
         const trades = await this.watchMultiple(url, messageHashes, request, messageHashes);
         if (this.newUpdates) {
             const first = this.safeValue(trades, 0);
@@ -331757,17 +336604,19 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
      * @description unWatches from the stream channel
      * @param {string[]} symbols
      * @param {object} [params] extra parameters specific to the exchange API endpoint
+     * @param {string} [params.channel] the channel to subscribe to, trades by default. Can be trades, trades-all
      * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
      */
     async unWatchTradesForSymbols(symbols, params = {}) {
         await this.loadMarkets();
         symbols = this.marketSymbols(symbols, undefined, false);
-        const channel = 'trades';
+        let channel = undefined;
+        [channel, params] = this.handleOptionAndParams(params, 'watchTrades', 'channel', 'trades');
         const topics = [];
         const messageHashes = [];
         for (let i = 0; i < symbols.length; i++) {
             const symbol = symbols[i];
-            messageHashes.push('unsubscribe:trades:' + symbol);
+            messageHashes.push('unsubscribe:' + channel + symbol);
             const marketId = this.marketId(symbol);
             const topic = {
                 'channel': channel,
@@ -331779,7 +336628,12 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
             'op': 'unsubscribe',
             'args': topics,
         };
-        const url = this.getUrl(channel, 'public');
+        let access = 'public';
+        if (channel === 'trades-all') {
+            access = 'business';
+            await this.authenticate({ 'access': access });
+        }
+        const url = this.getUrl(channel, access);
         return await this.watchMultiple(url, messageHashes, request, messageHashes);
     }
     /**
@@ -331805,6 +336659,23 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         //                 "sz": "0.00001186",
         //                 "side": "buy",
         //                 "ts": "1626531038288"
+        //             }
+        //         ]
+        //     }
+        //     {
+        //         "arg": {
+        //             "channel": "trades-all",
+        //             "instId": "BTC-USDT"
+        //         },
+        //         "data": [
+        //             {
+        //                 "instId": "BTC-USDT",
+        //                 "tradeId": "130639474",
+        //                 "px": "42219.9",
+        //                 "sz": "0.12060306",
+        //                 "side": "buy",
+        //                 "source": "0",
+        //                 "ts": "1630048897897"
         //             }
         //         ]
         //     }
@@ -333923,6 +338794,7 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
                 'sprd-tickers': this.handleTicker,
                 'block-tickers': this.handleTicker,
                 'trades': this.handleTrades,
+                'trades-all': this.handleTrades,
                 'account': this.handleBalance,
                 'funding-rate': this.handleFundingRate,
                 // 'margin_account': this.handleBalance,
@@ -333942,9 +338814,9 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
             }
         }
     }
-    handleUnSubscriptionTrades(client, symbol) {
-        const subMessageHash = 'trades:' + symbol;
-        const messageHash = 'unsubscribe:trades:' + symbol;
+    handleUnSubscriptionTrades(client, symbol, channel) {
+        const subMessageHash = channel + ':' + symbol;
+        const messageHash = 'unsubscribe:' + subMessageHash;
         this.cleanUnsubscription(client, subMessageHash, messageHash);
         if (symbol in this.trades) {
             delete this.trades[symbol];
@@ -333991,8 +338863,8 @@ class okx extends _okx_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
         const channel = this.safeString(arg, 'channel', '');
         const marketId = this.safeString(arg, 'instId');
         const symbol = this.safeSymbol(marketId);
-        if (channel === 'trades') {
-            this.handleUnSubscriptionTrades(client, symbol);
+        if (channel === 'trades' || channel === 'trades-all') {
+            this.handleUnSubscriptionTrades(client, symbol, channel);
         }
         else if (channel.startsWith('bbo') || channel.startsWith('book')) {
             this.handleUnsubscriptionOrderBook(client, symbol, channel);
@@ -340912,296 +345784,6 @@ class probit extends _probit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A
             client.subscriptions[messageHash] = future;
         }
         return future;
-    }
-}
-
-
-/***/ }),
-
-/***/ 8719:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (/* binding */ tradeogre)
-/* harmony export */ });
-/* harmony import */ var _tradeogre_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5887);
-/* harmony import */ var _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2931);
-//  ---------------------------------------------------------------------------
-
-
-//  ---------------------------------------------------------------------------
-class tradeogre extends _tradeogre_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
-    describe() {
-        return this.deepExtend(super.describe(), {
-            'has': {
-                'ws': true,
-                'watchTrades': true,
-                'watchTradesForSymbols': true,
-                'watchOrderBook': true,
-                'watchOrderBookForSymbols': false,
-                'watchOHLCV': false,
-                'watchOHLCVForSymbols': false,
-                'watchOrders': false,
-                'watchMyTrades': false,
-                'watchTicker': false,
-                'watchTickers': false,
-                'watchBidsAsks': false,
-                'watchBalance': false,
-                'createOrderWs': false,
-                'editOrderWs': false,
-                'cancelOrderWs': false,
-                'cancelOrdersWs': false,
-            },
-            'urls': {
-                'api': {
-                    'ws': 'wss://tradeogre.com:8443',
-                },
-            },
-            'options': {},
-            'streaming': {},
-        });
-    }
-    /**
-     * @method
-     * @name tradeogre#watchOrderBook
-     * @description watches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
-     * @see https://tradeogre.com/help/api
-     * @param {string} symbol unified symbol of the market to fetch the order book for
-     * @param {int} [limit] the maximum amount of order book entries to return (not used by the exchange)
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
-     */
-    async watchOrderBook(symbol, limit = undefined, params = {}) {
-        await this.loadMarkets();
-        const market = this.market(symbol);
-        const url = this.urls['api']['ws'];
-        const messageHash = 'orderbook' + ':' + market['symbol'];
-        const request = {
-            'a': 'subscribe',
-            'e': 'book',
-            't': market['id'],
-        };
-        const orderbook = await this.watch(url, messageHash, this.extend(request, params), messageHash);
-        return orderbook.limit();
-    }
-    handleOrderBook(client, message) {
-        //
-        // initial snapshot is fetched with ccxt's fetchOrderBook
-        // the feed does not include a snapshot, just the deltas
-        //
-        //     {
-        //         "e": "book",
-        //         "t": "ETH-USDT",
-        //         "s": "10752324",
-        //         "d": {
-        //             "bids": { "1787.02497915": "0" },
-        //             "asks": {}
-        //         }
-        //     }
-        //
-        const marketId = this.safeString(message, 't');
-        const symbol = this.safeSymbol(marketId);
-        if (!(symbol in this.orderbooks)) {
-            this.orderbooks[symbol] = this.orderBook({});
-        }
-        const storedOrderBook = this.orderbooks[symbol];
-        const nonce = this.safeInteger(storedOrderBook, 'nonce');
-        const deltaNonce = this.safeInteger(message, 's');
-        const messageHash = 'orderbook:' + symbol;
-        if (nonce === undefined) {
-            const cacheLength = storedOrderBook.cache.length;
-            const snapshotDelay = this.handleOption('watchOrderBook', 'snapshotDelay', 6);
-            if (cacheLength === snapshotDelay) {
-                this.spawn(this.loadOrderBook, client, messageHash, symbol, null, {});
-            }
-            storedOrderBook.cache.push(message);
-            return;
-        }
-        else if (nonce >= deltaNonce) {
-            return;
-        }
-        this.handleDelta(storedOrderBook, message);
-        client.resolve(storedOrderBook, messageHash);
-    }
-    handleDelta(orderbook, delta) {
-        // const timestamp = this.milliseconds (); // todo check if this is correct
-        // orderbook['timestamp'] = timestamp;
-        // orderbook['datetime'] = this.iso8601 (timestamp);
-        orderbook['nonce'] = this.safeInteger(delta, 's');
-        const data = this.safeDict(delta, 'd', {});
-        const bids = this.safeDict(data, 'bids', {});
-        const asks = this.safeDict(data, 'asks', {});
-        const storedBids = orderbook['bids'];
-        const storedAsks = orderbook['asks'];
-        this.handleBidAsks(storedBids, bids);
-        this.handleBidAsks(storedAsks, asks);
-    }
-    handleBidAsks(bookSide, bidAsks) {
-        const keys = Object.keys(bidAsks);
-        for (let i = 0; i < keys.length; i++) {
-            const price = this.safeString(keys, i);
-            const amount = this.safeNumber(bidAsks, price);
-            const bidAsk = [this.parseNumber(price), amount];
-            bookSide.storeArray(bidAsk);
-            // for (let i = 0; i < bidAsks.length; i++) {
-            //     const bidAsk = this.parseBidAsk (bidAsks[i]);
-            //     bookSide.storeArray (bidAsk);
-            // }
-        }
-    }
-    getCacheIndex(orderbook, deltas) {
-        const firstElement = deltas[0];
-        const firstElementNonce = this.safeInteger(firstElement, 's');
-        const nonce = this.safeInteger(orderbook, 'nonce');
-        if (nonce < firstElementNonce) {
-            return -1;
-        }
-        for (let i = 0; i < deltas.length; i++) {
-            const delta = deltas[i];
-            const deltaNonce = this.safeInteger(delta, 's');
-            if (deltaNonce === nonce) {
-                return i + 1;
-            }
-        }
-        return deltas.length;
-    }
-    /**
-     * @method
-     * @name tradeogre#watchTrades
-     * @description watches information on multiple trades made in a market
-     * @see https://tradeogre.com/help/api
-     * @param {string} symbol unified market symbol of the market trades were made in
-     * @param {int} [since] the earliest time in ms to fetch trades for
-     * @param {int} [limit] the maximum number of trade structures to retrieve
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=trade-structure}
-     */
-    async watchTrades(symbol, since = undefined, limit = undefined, params = {}) {
-        await this.loadMarkets();
-        const market = this.market(symbol);
-        symbol = market['symbol'];
-        return await this.watchTradesForSymbols([symbol], since, limit, params);
-    }
-    /**
-     * @method
-     * @name tradeogre#watchTradesForSymbols
-     * @see https://tradeogre.com/help/api
-     * @description get the list of most recent trades for a list of symbols
-     * @param {string[]} symbols unified symbol of the market to fetch trades for (empty array means all markets)
-     * @param {int} [since] timestamp in ms of the earliest trade to fetch
-     * @param {int} [limit] the maximum amount of trades to fetch
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
-     */
-    async watchTradesForSymbols(symbols, since = undefined, limit = undefined, params = {}) {
-        await this.loadMarkets();
-        symbols = this.marketSymbols(symbols, undefined, true);
-        const messageHashes = [];
-        let symbolsLength = 0;
-        if (symbols !== undefined) {
-            symbolsLength = symbols.length;
-        }
-        if (symbolsLength > 0) {
-            for (let i = 0; i < symbols.length; i++) {
-                const symbol = symbols[i];
-                const messageHash = 'trades:' + symbol;
-                messageHashes.push(messageHash);
-            }
-        }
-        else {
-            const messageHash = 'trades';
-            messageHashes.push(messageHash);
-        }
-        const request = {
-            'a': 'subscribe',
-            'e': 'trade',
-            't': '*',
-        };
-        const url = this.urls['api']['ws'];
-        const trades = await this.watchMultiple(url, messageHashes, this.extend(request, params), ['trades']);
-        if (this.newUpdates) {
-            const first = this.safeDict(trades, 0);
-            const tradeSymbol = this.safeString(first, 'symbol');
-            limit = trades.getLimit(tradeSymbol, limit);
-        }
-        return this.filterBySinceLimit(trades, since, limit, 'timestamp', true);
-    }
-    handleTrade(client, message) {
-        //
-        //     {
-        //         "e": "trade",
-        //         "t": "LTC-USDT",
-        //         "d": {
-        //             "t": 0,
-        //             "p": "84.50000000",
-        //             "q": "1.28471270",
-        //             "d": "1745392002"
-        //         }
-        //     }
-        //
-        const marketId = this.safeString(message, 't');
-        const market = this.safeMarket(marketId);
-        const data = this.safeDict(message, 'd', {});
-        const symbol = market['symbol'];
-        if (!(symbol in this.trades)) {
-            const limit = this.safeInteger(this.options, 'tradesLimit', 1000);
-            const stored = new _base_ws_Cache_js__WEBPACK_IMPORTED_MODULE_1__/* .ArrayCache */ .I3(limit);
-            this.trades[symbol] = stored;
-        }
-        const cache = this.trades[symbol];
-        const trade = this.parseWsTrade(data, market);
-        cache.append(trade);
-        const messageHash = 'trades:' + symbol;
-        client.resolve(cache, messageHash);
-        client.resolve(cache, 'trades');
-    }
-    parseWsTrade(trade, market = undefined) {
-        //
-        //     {
-        //         "t": 0,
-        //         "p": "84.50000000",
-        //         "q": "1.28471270",
-        //         "d": "1745392002"
-        //     }
-        //
-        const timestamp = this.safeIntegerProduct(trade, 'd', 1000);
-        const sideEnum = this.safeString(trade, 't');
-        return this.safeTrade({
-            'info': trade,
-            'id': undefined,
-            'timestamp': timestamp,
-            'datetime': this.iso8601(timestamp),
-            'symbol': this.safeString(market, 'symbol'),
-            'order': undefined,
-            'type': undefined,
-            'side': this.parseWsTradeSide(sideEnum),
-            'takerOrMaker': undefined,
-            'price': this.safeString(trade, 'p'),
-            'amount': this.safeString(trade, 'q'),
-            'cost': undefined,
-            'fee': {
-                'currency': undefined,
-                'cost': undefined,
-            },
-        }, market);
-    }
-    parseWsTradeSide(side) {
-        const sides = {
-            '0': 'buy',
-            '1': 'sell',
-        };
-        return this.safeString(sides, side, side);
-    }
-    handleMessage(client, message) {
-        const methods = {
-            'book': this.handleOrderBook,
-            'trade': this.handleTrade,
-        };
-        const event = this.safeString(message, 'e');
-        const method = this.safeValue(methods, event);
-        if (method !== undefined) {
-            method.call(this, client, message);
-        }
     }
 }
 
@@ -373243,891 +377825,6 @@ class tokocrypto extends _abstract_tokocrypto_js__WEBPACK_IMPORTED_MODULE_0__/* 
 
 /***/ }),
 
-/***/ 5887:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (/* binding */ tradeogre)
-/* harmony export */ });
-/* harmony import */ var _abstract_tradeogre_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4352);
-/* harmony import */ var _base_errors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2079);
-/* harmony import */ var _base_functions_number_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1579);
-// ---------------------------------------------------------------------------
-
-
-
-// ---------------------------------------------------------------------------
-/**
- * @class tradeogre
- * @augments Exchange
- */
-class tradeogre extends _abstract_tradeogre_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A {
-    describe() {
-        return this.deepExtend(super.describe(), {
-            'id': 'tradeogre',
-            'name': 'tradeogre',
-            'countries': [],
-            'rateLimit': 100,
-            'version': 'v2',
-            'pro': true,
-            'has': {
-                'CORS': undefined,
-                'spot': true,
-                'margin': false,
-                'swap': false,
-                'future': false,
-                'option': false,
-                'addMargin': false,
-                'borrowCrossMargin': false,
-                'borrowIsolatedMargin': false,
-                'borrowMargin': false,
-                'cancelAllOrders': true,
-                'cancelOrder': true,
-                'cancelOrders': false,
-                'closeAllPositions': false,
-                'closePosition': false,
-                'createDepositAddress': false,
-                'createMarketOrder': false,
-                'createOrder': true,
-                'createOrders': false,
-                'createPostOnlyOrder': false,
-                'createReduceOnlyOrder': false,
-                'createStopLimitOrder': false,
-                'createStopMarketOrder': false,
-                'createStopOrder': false,
-                'fetchAccounts': false,
-                'fetchAllGreeks': false,
-                'fetchBalance': true,
-                'fetchBorrowInterest': false,
-                'fetchBorrowRate': false,
-                'fetchBorrowRateHistories': false,
-                'fetchBorrowRateHistory': false,
-                'fetchBorrowRates': false,
-                'fetchBorrowRatesPerSymbol': false,
-                'fetchClosedOrders': false,
-                'fetchCrossBorrowRate': false,
-                'fetchCrossBorrowRates': false,
-                'fetchDeposit': false,
-                'fetchDepositAddress': false,
-                'fetchDepositAddresses': false,
-                'fetchDepositAddressesByNetwork': false,
-                'fetchDeposits': false,
-                'fetchDepositsWithdrawals': false,
-                'fetchFundingHistory': false,
-                'fetchFundingInterval': false,
-                'fetchFundingIntervals': false,
-                'fetchFundingRate': false,
-                'fetchFundingRateHistory': false,
-                'fetchFundingRates': false,
-                'fetchGreeks': false,
-                'fetchIndexOHLCV': false,
-                'fetchIsolatedBorrowRate': false,
-                'fetchIsolatedBorrowRates': false,
-                'fetchIsolatedPositions': false,
-                'fetchLedger': false,
-                'fetchLedgerEntry': false,
-                'fetchLeverage': false,
-                'fetchLeverages': false,
-                'fetchLeverageTiers': false,
-                'fetchLiquidations': false,
-                'fetchLongShortRatio': false,
-                'fetchLongShortRatioHistory': false,
-                'fetchMarginAdjustmentHistory': false,
-                'fetchMarginMode': false,
-                'fetchMarginModes': false,
-                'fetchMarketLeverageTiers': false,
-                'fetchMarkets': true,
-                'fetchMarkOHLCV': false,
-                'fetchMarkPrice': false,
-                'fetchMarkPrices': false,
-                'fetchMyLiquidations': false,
-                'fetchMySettlementHistory': false,
-                'fetchMyTrades': false,
-                'fetchOHLCV': true,
-                'fetchOpenInterest': false,
-                'fetchOpenInterestHistory': false,
-                'fetchOpenInterests': false,
-                'fetchOpenOrders': true,
-                'fetchOption': false,
-                'fetchOptionChain': false,
-                'fetchOrder': true,
-                'fetchOrderBook': true,
-                'fetchOrderBooks': false,
-                'fetchOrders': false,
-                'fetchOrderTrades': false,
-                'fetchPosition': false,
-                'fetchPositionHistory': false,
-                'fetchPositionMode': false,
-                'fetchPositions': false,
-                'fetchPositionsForSymbol': false,
-                'fetchPositionsHistory': false,
-                'fetchPositionsRisk': false,
-                'fetchPremiumIndexOHLCV': false,
-                'fetchSettlementHistory': false,
-                'fetchTicker': true,
-                'fetchTickers': true,
-                'fetchTrades': true,
-                'fetchTradingLimits': false,
-                'fetchTransactionFee': false,
-                'fetchTransactionFees': false,
-                'fetchTransactions': false,
-                'fetchTransfers': false,
-                'fetchUnderlyingAssets': false,
-                'fetchVolatilityHistory': false,
-                'fetchWithdrawAddresses': false,
-                'fetchWithdrawal': false,
-                'fetchWithdrawals': false,
-                'reduceMargin': false,
-                'repayCrossMargin': false,
-                'repayIsolatedMargin': false,
-                'setLeverage': false,
-                'setMargin': false,
-                'setMarginMode': false,
-                'setPositionMode': false,
-                'signIn': false,
-                'transfer': false,
-                'withdraw': false,
-            },
-            'urls': {
-                'referral': '',
-                'logo': 'https://github.com/ccxt/ccxt/assets/43336371/3aa748b7-ea44-45e9-a9e7-b1d207a2578a',
-                'api': {
-                    'rest': 'https://tradeogre.com/api/v1',
-                },
-                'www': 'https://tradeogre.com',
-                'doc': 'https://tradeogre.com/help/api',
-                'fees': 'https://tradeogre.com/help/fees',
-            },
-            'fees': {
-                'trading': {
-                    'maker': this.parseNumber('0.002'),
-                    'taker': this.parseNumber('0.002'),
-                },
-            },
-            'api': {
-                'public': {
-                    'get': {
-                        'markets': 1,
-                        'orders/{market}': 1,
-                        'ticker/{market}': 1,
-                        'history/{market}': 1,
-                        'chart/{interval}/{market}/{timestamp}': 1,
-                        'chart/{interval}/{market}': 1,
-                    },
-                },
-                'private': {
-                    'get': {
-                        'account/balances': 1,
-                        'account/order/{uuid}': 1,
-                    },
-                    'post': {
-                        'order/buy': 1,
-                        'order/sell': 1,
-                        'order/cancel': 1,
-                        'orders': 1,
-                        'account/orders': 1,
-                        'account/balance': 1,
-                    },
-                },
-            },
-            'commonCurrencies': {},
-            'precisionMode': _base_functions_number_js__WEBPACK_IMPORTED_MODULE_1__/* .TICK_SIZE */ .kb,
-            'exceptions': {
-                'exact': {
-                    'Must be authorized': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.AuthenticationError,
-                    'Market not found': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
-                    'Insufficient funds': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.InsufficientFunds,
-                    'Order not found': _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest,
-                },
-            },
-            'timeframes': {
-                '1m': '1m',
-                '15m': '15m',
-                '1h': '1h',
-                '4h': '4h',
-                '1d': '1d',
-                '1w': '1w',
-            },
-            'options': {},
-            'features': {
-                'spot': {
-                    'sandbox': false,
-                    'createOrder': {
-                        'marginMode': false,
-                        'triggerPrice': false,
-                        'triggerDirection': false,
-                        'triggerPriceType': undefined,
-                        'stopLossPrice': false,
-                        'takeProfitPrice': false,
-                        'attachedStopLossTakeProfit': undefined,
-                        'timeInForce': {
-                            'IOC': false,
-                            'FOK': false,
-                            'PO': false,
-                            'GTD': false,
-                        },
-                        'hedged': false,
-                        'trailing': false,
-                        'leverage': false,
-                        'marketBuyByCost': false,
-                        'marketBuyRequiresPrice': false,
-                        'selfTradePrevention': false,
-                        'iceberg': false,
-                    },
-                    'createOrders': undefined,
-                    'fetchMyTrades': undefined,
-                    'fetchOrder': {
-                        'marginMode': false,
-                        'trigger': false,
-                        'trailing': false,
-                        'symbolRequired': false,
-                    },
-                    'fetchOpenOrders': {
-                        'marginMode': false,
-                        'limit': undefined,
-                        'trigger': false,
-                        'trailing': false,
-                        'symbolRequired': false,
-                    },
-                    'fetchOrders': undefined,
-                    'fetchClosedOrders': undefined,
-                    'fetchOHLCV': undefined, // todo
-                },
-                'swap': {
-                    'linear': undefined,
-                    'inverse': undefined,
-                },
-                'future': {
-                    'linear': undefined,
-                    'inverse': undefined,
-                },
-            },
-        });
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchMarkets
-     * @description retrieves data on all markets for bigone
-     * @see https://github.com/P2B-team/p2b-api-docs/blob/master/api-doc.md#markets
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object[]} an array of objects representing market data
-     */
-    async fetchMarkets(params = {}) {
-        const response = await this.publicGetMarkets(params);
-        //
-        //   [
-        //       {
-        //          "AEON-BTC": {
-        //             "initialprice": "0.00022004",
-        //             "price": "0.00025992",
-        //             "high": "0.00025992",
-        //             "low": "0.00022003",
-        //             "volume": "0.00359066",
-        //             "bid": "0.00022456",
-        //             "ask": "0.00025993"
-        //          }
-        //       }
-        //   ]
-        //
-        const result = [];
-        for (let i = 0; i < response.length; i++) {
-            const rawMarket = response[i];
-            const keys = Object.keys(rawMarket);
-            const id = this.safeString(keys, 0);
-            const keyParts = id.split('-');
-            const baseId = this.safeString(keyParts, 0);
-            const quoteId = this.safeString(keyParts, 1);
-            const base = this.safeCurrencyCode(baseId);
-            const quote = this.safeCurrencyCode(quoteId);
-            const market = this.safeMarketStructure({
-                'id': id,
-                'symbol': base + '/' + quote,
-                'base': base,
-                'quote': quote,
-                'settle': undefined,
-                'baseId': baseId,
-                'quoteId': quoteId,
-                'settleId': undefined,
-                'type': 'spot',
-                'spot': true,
-                'margin': false,
-                'swap': false,
-                'future': false,
-                'option': false,
-                'active': true,
-                'contract': false,
-                'linear': undefined,
-                'inverse': undefined,
-                'contractSize': undefined,
-                'taker': this.fees['trading']['taker'],
-                'maker': this.fees['trading']['maker'],
-                'expiry': undefined,
-                'expiryDatetime': undefined,
-                'strike': undefined,
-                'optionType': undefined,
-                'precision': {
-                    'amount': this.parseNumber(this.parsePrecision('8')),
-                    'price': this.parseNumber(this.parsePrecision('8')), // they're not explicit about it
-                },
-                'limits': {
-                    'leverage': {
-                        'min': undefined,
-                        'max': undefined,
-                    },
-                    'amount': {
-                        'min': undefined,
-                        'max': undefined,
-                    },
-                    'price': {
-                        'min': undefined,
-                        'max': undefined,
-                    },
-                    'cost': {
-                        'min': undefined,
-                        'max': undefined,
-                    },
-                },
-                'created': undefined,
-                'info': rawMarket,
-            });
-            result.push(market);
-        }
-        return result;
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchTicker
-     * @description fetches a price ticker, a statistical calculation with the information calculated over the past 24 hours for a specific market
-     * @param {string} symbol unified symbol of the market to fetch the ticker for
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object} a [ticker structure]{@link https://docs.ccxt.com/#/?id=ticker-structure}
-     */
-    async fetchTicker(symbol, params = {}) {
-        await this.loadMarkets();
-        const market = this.market(symbol);
-        const request = {
-            'market': market['id'],
-        };
-        const response = await this.publicGetTickerMarket(this.extend(request, params));
-        //
-        //   {
-        //       "success":true,
-        //       "initialprice":"0.02502002",
-        //       "price":"0.02500000",
-        //       "high":"0.03102001",
-        //       "low":"0.02500000",
-        //       "volume":"0.15549958",
-        //       "bid":"0.02420000",
-        //       "ask":"0.02625000"
-        //   }
-        //
-        return this.parseTicker(response, market);
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchTickers
-     * @description fetches price tickers for multiple markets, statistical information calculated over the past 24 hours for each market
-     * @param {string[]|undefined} symbols unified symbols of the markets to fetch the ticker for, all market tickers are returned if not assigned
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object} a dictionary of [ticker structures]{@link https://docs.ccxt.com/#/?id=ticker-structure}
-     */
-    async fetchTickers(symbols = undefined, params = {}) {
-        await this.loadMarkets();
-        symbols = this.marketSymbols(symbols);
-        const request = {};
-        const response = await this.publicGetMarkets(this.extend(request, params));
-        //
-        //     [
-        //         {
-        //             "AAVE-USDT": {
-        //                 "initialprice": "177.20325711",
-        //                 "price": "177.20325711",
-        //                 "high": "177.20325711",
-        //                 "low": "177.20325711",
-        //                 "volume": "0.00000000",
-        //                 "bid": "160.72768581",
-        //                 "ask": "348.99999999",
-        //                 "basename": "Aave"
-        //             }
-        //         },
-        //         ...
-        //     ]
-        //
-        const result = {};
-        for (let i = 0; i < response.length; i++) {
-            const entry = response[i];
-            const marketIdArray = Object.keys(entry);
-            const marketId = this.safeString(marketIdArray, 0);
-            const market = this.safeMarket(marketId);
-            const data = entry[marketId];
-            const ticker = this.parseTicker(data, market);
-            const symbol = ticker['symbol'];
-            result[symbol] = ticker;
-        }
-        return this.filterByArrayTickers(result, 'symbol', symbols);
-    }
-    parseTicker(ticker, market = undefined) {
-        //
-        //  fetchTicker:
-        //     {
-        //         "success":true,
-        //         "initialprice":"0.02502002",
-        //         "price":"0.02500000",
-        //         "high":"0.03102001",
-        //         "low":"0.02500000",
-        //         "volume":"0.15549958",
-        //         "bid":"0.02420000",
-        //         "ask":"0.02625000"
-        //     }
-        //
-        //  fetchTickers:
-        //     {
-        //         "initialprice": "177.20325711",
-        //         "price": "177.20325711",
-        //         "high": "177.20325711",
-        //         "low": "177.20325711",
-        //         "volume": "0.00000000",
-        //         "bid": "160.72768581",
-        //         "ask": "348.99999999",
-        //         "basename": "Aave"
-        //     },
-        //     ...
-        //
-        return this.safeTicker({
-            'symbol': this.safeString(market, 'symbol'),
-            'timestamp': undefined,
-            'datetime': undefined,
-            'high': this.safeString(ticker, 'high'),
-            'low': this.safeString(ticker, 'low'),
-            'bid': this.safeString(ticker, 'bid'),
-            'bidVolume': undefined,
-            'ask': this.safeString(ticker, 'ask'),
-            'askVolume': undefined,
-            'vwap': undefined,
-            'open': this.safeString(ticker, 'initialprice'),
-            'close': this.safeString(ticker, 'price'),
-            'last': this.safeString(ticker, 'price'),
-            'previousClose': undefined,
-            'change': undefined,
-            'percentage': undefined,
-            'average': undefined,
-            'baseVolume': this.safeString(ticker, 'volume'),
-            'quoteVolume': undefined,
-            'info': ticker,
-        }, market);
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchOHLCV
-     * @description fetches historical candlestick data containing the open, high, low, and close price, and the volume of a market
-     * @param {string} symbol unified symbol of the market to fetch OHLCV data for
-     * @param {string} timeframe the length of time each candle represents
-     * @param {int} [since] timestamp in ms of the earliest candle to fetch
-     * @param {int} [limit] the maximum amount of candles to fetch
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @param {int} [params.until] timestamp of the latest candle in ms
-     * @returns {int[][]} A list of candles ordered as timestamp, open, high, low, close, volume
-     */
-    async fetchOHLCV(symbol, timeframe = '1m', since = undefined, limit = undefined, params = {}) {
-        await this.loadMarkets();
-        const market = this.market(symbol);
-        const request = {
-            'market': market['id'],
-            'interval': this.safeString(this.timeframes, timeframe, timeframe),
-        };
-        let response = undefined;
-        const until = this.safeInteger(params, 'until');
-        if (until !== undefined) {
-            params = this.omit(params, 'until');
-            request['timestamp'] = this.parseToInt(until / 1000);
-            response = await this.publicGetChartIntervalMarketTimestamp(this.extend(request, params));
-        }
-        else {
-            response = await this.publicGetChartIntervalMarket(this.extend(request, params));
-        }
-        //
-        //     [
-        //         [
-        //             1729130040,
-        //             67581.47235999,
-        //             67581.47235999,
-        //             67338.01,
-        //             67338.01,
-        //             6.72168016
-        //         ],
-        //     ]
-        //
-        return this.parseOHLCVs(response, market, timeframe, since, limit);
-    }
-    parseOHLCV(ohlcv, market = undefined) {
-        //
-        //     [
-        //         1729130040,
-        //         67581.47235999,
-        //         67581.47235999,
-        //         67338.01,
-        //         67338.01,
-        //         6.72168016
-        //     ]
-        //
-        return [
-            this.safeTimestamp(ohlcv, 0),
-            this.safeNumber(ohlcv, 1),
-            this.safeNumber(ohlcv, 2),
-            this.safeNumber(ohlcv, 3),
-            this.safeNumber(ohlcv, 4),
-            this.safeNumber(ohlcv, 5),
-        ];
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchOrderBook
-     * @description fetches information on open orders with bid (buy) and ask (sell) prices, volumes and other data
-     * @param {string} symbol unified symbol of the market to fetch the order book for
-     * @param {int} [limit] the maximum amount of order book entries to return
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object} A dictionary of [order book structures]{@link https://docs.ccxt.com/#/?id=order-book-structure} indexed by market symbols
-     */
-    async fetchOrderBook(symbol, limit = undefined, params = {}) {
-        await this.loadMarkets();
-        const market = this.market(symbol);
-        const request = {
-            'market': market['id'],
-        };
-        const response = await this.publicGetOrdersMarket(this.extend(request, params));
-        //
-        // {
-        //     "success": true,
-        //     "buy": {
-        //        "0.02425501": "36.46986607",
-        //        "0.02425502": "93.64201137",
-        //        "0.02425503": "19.02000000",
-        //        "0.02425515": "115.49000000"
-        // }
-        //
-        const rawBids = this.safeDict(response, 'buy', {});
-        const rawAsks = this.safeDict(response, 'sell', {});
-        const rawOrderbook = {
-            'bids': rawBids,
-            'asks': rawAsks,
-        };
-        const orderbook = this.parseOrderBook(rawOrderbook, symbol);
-        orderbook['nonce'] = this.safeInteger(response, 's');
-        return orderbook;
-    }
-    parseBidsAsks(bidasks, priceKey = 0, amountKey = 1, countOrIdKey = 2) {
-        const prices = Object.keys(bidasks);
-        const result = [];
-        for (let i = 0; i < prices.length; i++) {
-            const priceString = this.safeString(prices, i);
-            const price = this.safeNumber(prices, i);
-            const volume = this.safeNumber(bidasks, priceString);
-            result.push([price, volume]);
-        }
-        return result;
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchTrades
-     * @description get the list of most recent trades for a particular symbol
-     * @param {string} symbol unified symbol of the market to fetch trades for
-     * @param {int} [since] timestamp in ms of the earliest trade to fetch
-     * @param {int} [limit] the maximum number of trades to fetch
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @param {int} params.lastId order id
-     * @returns {Trade[]} a list of [trade structures]{@link https://docs.ccxt.com/#/?id=public-trades}
-     */
-    async fetchTrades(symbol, since = undefined, limit = undefined, params = {}) {
-        await this.loadMarkets();
-        const market = this.market(symbol);
-        const request = {
-            'market': market['id'],
-        };
-        const response = await this.publicGetHistoryMarket(this.extend(request, params));
-        return this.parseTrades(response, market, since, limit);
-    }
-    parseTrade(trade, market = undefined) {
-        //
-        //  {
-        //      "date":1515128233,
-        //      "type":"sell",
-        //      "price":"0.02454320",
-        //      "quantity":"0.17614230"
-        //  }
-        //
-        const timestamp = this.safeIntegerProduct(trade, 'date', 1000);
-        return this.safeTrade({
-            'info': trade,
-            'id': undefined,
-            'timestamp': timestamp,
-            'datetime': this.iso8601(timestamp),
-            'symbol': this.safeString(market, 'symbol'),
-            'order': undefined,
-            'type': undefined,
-            'side': this.safeString(trade, 'type'),
-            'takerOrMaker': undefined,
-            'price': this.safeString(trade, 'price'),
-            'amount': this.safeString(trade, 'quantity'),
-            'cost': undefined,
-            'fee': {
-                'currency': undefined,
-                'cost': undefined,
-            },
-        }, market);
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchBalance
-     * @description query for balance and get the amount of funds available for trading or funds locked in orders
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @param {string} [params.currency] currency to fetch the balance for
-     * @returns {object} a [balance structure]{@link https://docs.ccxt.com/#/?id=balance-structure}
-     */
-    async fetchBalance(params = {}) {
-        await this.loadMarkets();
-        let response = undefined;
-        const currency = this.safeString(params, 'currency');
-        if (currency !== undefined) {
-            response = await this.privatePostAccountBalance(params);
-            const singleCurrencyresult = {
-                'info': response,
-            };
-            const code = this.safeCurrencyCode(currency);
-            const account = {
-                'total': this.safeNumber(response, 'balance'),
-                'free': this.safeNumber(response, 'available'),
-            };
-            singleCurrencyresult[code] = account;
-            return this.safeBalance(singleCurrencyresult);
-        }
-        else {
-            response = await this.privateGetAccountBalances(params);
-        }
-        const result = this.safeDict(response, 'balances', {});
-        return this.parseBalance(result);
-    }
-    parseBalance(response) {
-        //
-        //    {
-        //        "USDT": "12"
-        //    }
-        //
-        const result = {
-            'info': response,
-        };
-        const keys = Object.keys(response);
-        for (let i = 0; i < keys.length; i++) {
-            const currencyId = keys[i];
-            const balance = response[currencyId];
-            const code = this.safeCurrencyCode(currencyId);
-            const account = {
-                'total': balance,
-            };
-            result[code] = account;
-        }
-        return this.safeBalance(result);
-    }
-    /**
-     * @method
-     * @name tradeogre#createOrder
-     * @description create a trade order
-     * @see https://tradeogre.com/help/api#:~:text=u%20%27%7Bpublic%7D%3A%7Bprivate%7D%27-,Submit%20Buy%20Order
-     * @param {string} symbol unified symbol of the market to create an order in
-     * @param {string} type must be 'limit'
-     * @param {string} side 'buy' or 'sell'
-     * @param {float} amount how much of currency you want to trade in units of base currency
-     * @param {float} price the price at which the order is to be fulfilled, in units of the quote currency
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object} an [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
-     */
-    async createOrder(symbol, type, side, amount, price = undefined, params = {}) {
-        await this.loadMarkets();
-        const market = this.market(symbol);
-        if (type === 'market') {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadRequest(this.id + ' createOrder does not support market orders');
-        }
-        if (price === undefined) {
-            throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' createOrder requires a price parameter');
-        }
-        const request = {
-            'market': market['id'],
-            'quantity': this.amountToPrecision(symbol, amount),
-            'price': this.priceToPrecision(symbol, price),
-        };
-        let response = undefined;
-        if (side === 'buy') {
-            response = await this.privatePostOrderBuy(this.extend(request, params));
-        }
-        else {
-            response = await this.privatePostOrderSell(this.extend(request, params));
-        }
-        return this.parseOrder(response, market);
-    }
-    /**
-     * @method
-     * @name tradeogre#cancelOrder
-     * @description cancels an open order
-     * @param {string} id order id
-     * @param {string} symbol unified symbol of the market the order was made in
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object} An [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
-     */
-    async cancelOrder(id, symbol = undefined, params = {}) {
-        await this.loadMarkets();
-        const request = {
-            'uuid': id,
-        };
-        const response = await this.privatePostOrderCancel(this.extend(request, params));
-        return this.parseOrder(response);
-    }
-    /**
-     * @method
-     * @name tradeogre#cancelAllOrders
-     * @description cancel all open orders
-     * @param {string} symbol alpaca cancelAllOrders cannot setting symbol, it will cancel all open orders
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
-     */
-    async cancelAllOrders(symbol = undefined, params = {}) {
-        await this.loadMarkets();
-        const response = await this.cancelOrder('all', symbol, params);
-        return [
-            response,
-        ];
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchOpenOrders
-     * @description fetch all unfilled currently open orders
-     * @see https://tradeogre.com/help/api#:~:text=%7B%22success%22%3Atrue%7D-,Get%20Orders,-Method%20(POST)
-     * @param {string} symbol unified market symbol of the market orders were made in
-     * @param {int} [since] the earliest time in ms to fetch orders for
-     * @param {int} [limit] the maximum number of order structures to retrieve
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {Order[]} a list of [order structures]{@link https://docs.ccxt.com/#/?id=order-structure}
-     */
-    async fetchOpenOrders(symbol = undefined, since = undefined, limit = undefined, params = {}) {
-        await this.loadMarkets();
-        let market = undefined;
-        if (symbol !== undefined) {
-            market = this.market(symbol);
-        }
-        const request = {};
-        if (symbol !== undefined) {
-            request['market'] = market['id'];
-        }
-        const response = await this.privatePostAccountOrders(this.extend(request, params));
-        return this.parseOrders(response, market, since, limit);
-    }
-    /**
-     * @method
-     * @name tradeogre#fetchOrder
-     * @description fetches information on an order made by the user
-     * @see https://tradeogre.com/help/api#:~:text=market%22%3A%22XMR%2DBTC%22%7D%5D-,Get%20Order,-Method%20(GET)
-     * @param {string} id order id
-     * @param {string} symbol unified symbol of the market the order was made in
-     * @param {object} [params] extra parameters specific to the exchange API endpoint
-     * @returns {object} An [order structure]{@link https://docs.ccxt.com/#/?id=order-structure}
-     */
-    async fetchOrder(id, symbol = undefined, params = {}) {
-        await this.loadMarkets();
-        const request = {
-            'uuid': id,
-        };
-        const response = await this.privateGetAccountOrderUuid(this.extend(request, params));
-        return this.parseOrder(response, undefined);
-    }
-    parseOrder(order, market = undefined) {
-        //
-        //
-        // {
-        //     "uuid": "a40ac710-8dc5-b5a8-aa69-389715197b14",
-        //     "date": 1514876938,
-        //     "type": "sell",
-        //     "price": "0.02621960",
-        //     "quantity": "1.55772526",
-        //     "market": "XMR-BTC"
-        // }
-        //
-        const timestamp = this.safeIntegerProduct(order, 'date', 1000);
-        const marketId = this.safeString(order, 'market');
-        market = this.safeMarket(marketId, market);
-        return this.safeOrder({
-            'info': order,
-            'id': this.safeString(order, 'uuid'),
-            'clientOrderId': undefined,
-            'timestamp': timestamp,
-            'datetime': this.iso8601(timestamp),
-            'lastTradeTimestamp': undefined,
-            'symbol': market['symbol'],
-            'type': undefined,
-            'timeInForce': undefined,
-            'postOnly': undefined,
-            'side': this.safeString(order, 'type'),
-            'price': this.safeString(order, 'price'),
-            'triggerPrice': undefined,
-            'amount': undefined,
-            'cost': undefined,
-            'average': undefined,
-            'filled': this.safeString(order, 'fulfilled'),
-            'remaining': this.safeString(order, 'quantity'),
-            'status': undefined,
-            'fee': {
-                'currency': undefined,
-                'cost': undefined,
-            },
-            'trades': undefined,
-        }, market);
-    }
-    sign(path, api = 'public', method = 'GET', params = {}, headers = undefined, body = undefined) {
-        let url = this.urls['api']['rest'] + '/' + this.implodeParams(path, params);
-        params = this.omit(params, this.extractParams(path));
-        if (method === 'GET') {
-            if (Object.keys(params).length) {
-                url += '?' + this.urlencode(params);
-            }
-        }
-        if (api === 'private') {
-            headers = {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Referer': 'CCXT',
-                'authorization': 'Basic ' + this.stringToBase64(this.apiKey + ':' + this.secret),
-            };
-            if (method !== 'GET') {
-                body = this.urlencode(params);
-            }
-        }
-        return { 'url': url, 'method': method, 'body': body, 'headers': headers };
-    }
-    handleErrors(code, reason, url, method, headers, body, response, requestHeaders, requestBody) {
-        if (response === undefined) {
-            return undefined;
-        }
-        if (!('success' in response)) {
-            return undefined;
-        }
-        //
-        //  {"success":false,"error":"Must be authorized"}
-        //
-        const success = this.safeBool(response, 'success');
-        if (success) {
-            return undefined;
-        }
-        const successString = this.safeString(response, 'success');
-        if (successString === 'true') {
-            return undefined;
-        }
-        const error = this.safeValue(response, 'error');
-        const errorCode = this.safeString(error, 'code');
-        const feedback = this.id + ' ' + this.json(response);
-        this.throwExactlyMatchedException(this.exceptions['exact'], errorCode, feedback);
-        throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ExchangeError(feedback);
-    }
-}
-
-
-/***/ }),
-
 /***/ 930:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -376485,7 +380182,7 @@ class upbit extends _abstract_upbit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (/* binding */ wavesexchange)
 /* harmony export */ });
-/* harmony import */ var _abstract_wavesexchange_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7698);
+/* harmony import */ var _abstract_wavesexchange_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5317);
 /* harmony import */ var _base_errors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2079);
 /* harmony import */ var _base_Precise_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5147);
 /* harmony import */ var _static_dependencies_noble_curves_ed25519_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6414);
@@ -394267,6 +397964,7 @@ class xt extends _abstract_xt_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .
      * @param {int} [since] timestamp in ms of the earliest funding rate to fetch
      * @param {int} [limit] the maximum amount of [funding rate structures] to fetch
      * @param {object} params extra parameters specific to the xt api endpoint
+     * @param {bool} params.paginate true/false whether to use the pagination helper to aumatically paginate through the results
      * @returns {object[]} a list of [funding rate structures]{@link https://docs.ccxt.com/en/latest/manual.html?#funding-rate-history-structure}
      */
     async fetchFundingRateHistory(symbol = undefined, since = undefined, limit = undefined, params = {}) {
@@ -394274,6 +397972,11 @@ class xt extends _abstract_xt_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.ArgumentsRequired(this.id + ' fetchFundingRateHistory() requires a symbol argument');
         }
         await this.loadMarkets();
+        let paginate = false;
+        [paginate, params] = this.handleOptionAndParams(params, 'fetchFundingRateHistory', 'paginate');
+        if (paginate) {
+            return await this.fetchPaginatedCallCursor('fetchFundingRateHistory', symbol, since, limit, params, 'id', 'id', 1, 200);
+        }
         const market = this.market(symbol);
         if (!market['swap']) {
             throw new _base_errors_js__WEBPACK_IMPORTED_MODULE_2__.BadSymbol(this.id + ' fetchFundingRateHistory() supports swap contracts only');
@@ -394283,6 +397986,9 @@ class xt extends _abstract_xt_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .
         };
         if (limit !== undefined) {
             request['limit'] = limit;
+        }
+        else {
+            request['limit'] = 200; // max
         }
         let subType = undefined;
         [subType, params] = this.handleSubTypeAndParams('fetchFundingRateHistory', market, params);
@@ -395091,6 +398797,9 @@ class yobit extends _abstract_yobit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
                 'future': false,
                 'option': false,
                 'addMargin': false,
+                'borrowCrossMargin': false,
+                'borrowIsolatedMargin': false,
+                'borrowMargin': false,
                 'cancelOrder': true,
                 'closeAllPositions': false,
                 'closePosition': false,
@@ -395101,6 +398810,7 @@ class yobit extends _abstract_yobit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
                 'createStopLimitOrder': false,
                 'createStopMarketOrder': false,
                 'createStopOrder': false,
+                'fetchAllGreeks': false,
                 'fetchBalance': true,
                 'fetchBorrowInterest': false,
                 'fetchBorrowRate': false,
@@ -395129,18 +398839,22 @@ class yobit extends _abstract_yobit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
                 'fetchLeverages': false,
                 'fetchLeverageTiers': false,
                 'fetchLiquidations': false,
+                'fetchLongShortRatio': false,
+                'fetchLongShortRatioHistory': false,
                 'fetchMarginAdjustmentHistory': false,
                 'fetchMarginMode': false,
                 'fetchMarginModes': false,
                 'fetchMarketLeverageTiers': false,
                 'fetchMarkets': true,
                 'fetchMarkOHLCV': false,
+                'fetchMarkPrice': false,
                 'fetchMarkPrices': false,
                 'fetchMyLiquidations': false,
                 'fetchMySettlementHistory': false,
                 'fetchMyTrades': true,
                 'fetchOpenInterest': false,
                 'fetchOpenInterestHistory': false,
+                'fetchOpenInterests': false,
                 'fetchOpenOrders': true,
                 'fetchOption': false,
                 'fetchOptionChain': false,
@@ -395170,6 +398884,7 @@ class yobit extends _abstract_yobit_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"
                 'reduceMargin': false,
                 'repayCrossMargin': false,
                 'repayIsolatedMargin': false,
+                'repayMargin': false,
                 'setLeverage': false,
                 'setMargin': false,
                 'setMarginMode': false,
@@ -399360,6 +403075,7632 @@ module.exports = function () {
       'WebSocket object'
   );
 };
+
+
+/***/ }),
+
+/***/ 2373:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
+
+
+var $protobuf = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'protobufjs/minimal'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+// Common aliases
+var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+
+// Exported root namespace
+var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
+
+$root.PrivateAccountV3Api = (function() {
+
+    /**
+     * Properties of a PrivateAccountV3Api.
+     * @exports IPrivateAccountV3Api
+     * @interface IPrivateAccountV3Api
+     * @property {string|null} [vcoinName] PrivateAccountV3Api vcoinName
+     * @property {string|null} [coinId] PrivateAccountV3Api coinId
+     * @property {string|null} [balanceAmount] PrivateAccountV3Api balanceAmount
+     * @property {string|null} [balanceAmountChange] PrivateAccountV3Api balanceAmountChange
+     * @property {string|null} [frozenAmount] PrivateAccountV3Api frozenAmount
+     * @property {string|null} [frozenAmountChange] PrivateAccountV3Api frozenAmountChange
+     * @property {string|null} [type] PrivateAccountV3Api type
+     * @property {number|Long|null} [time] PrivateAccountV3Api time
+     */
+
+    /**
+     * Constructs a new PrivateAccountV3Api.
+     * @exports PrivateAccountV3Api
+     * @classdesc Represents a PrivateAccountV3Api.
+     * @implements IPrivateAccountV3Api
+     * @constructor
+     * @param {IPrivateAccountV3Api=} [properties] Properties to set
+     */
+    function PrivateAccountV3Api(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PrivateAccountV3Api vcoinName.
+     * @member {string} vcoinName
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.vcoinName = "";
+
+    /**
+     * PrivateAccountV3Api coinId.
+     * @member {string} coinId
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.coinId = "";
+
+    /**
+     * PrivateAccountV3Api balanceAmount.
+     * @member {string} balanceAmount
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.balanceAmount = "";
+
+    /**
+     * PrivateAccountV3Api balanceAmountChange.
+     * @member {string} balanceAmountChange
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.balanceAmountChange = "";
+
+    /**
+     * PrivateAccountV3Api frozenAmount.
+     * @member {string} frozenAmount
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.frozenAmount = "";
+
+    /**
+     * PrivateAccountV3Api frozenAmountChange.
+     * @member {string} frozenAmountChange
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.frozenAmountChange = "";
+
+    /**
+     * PrivateAccountV3Api type.
+     * @member {string} type
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.type = "";
+
+    /**
+     * PrivateAccountV3Api time.
+     * @member {number|Long} time
+     * @memberof PrivateAccountV3Api
+     * @instance
+     */
+    PrivateAccountV3Api.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+    /**
+     * Creates a new PrivateAccountV3Api instance using the specified properties.
+     * @function create
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {IPrivateAccountV3Api=} [properties] Properties to set
+     * @returns {PrivateAccountV3Api} PrivateAccountV3Api instance
+     */
+    PrivateAccountV3Api.create = function create(properties) {
+        return new PrivateAccountV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PrivateAccountV3Api message. Does not implicitly {@link PrivateAccountV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {IPrivateAccountV3Api} message PrivateAccountV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PrivateAccountV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.vcoinName != null && Object.hasOwnProperty.call(message, "vcoinName"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.vcoinName);
+        if (message.coinId != null && Object.hasOwnProperty.call(message, "coinId"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.coinId);
+        if (message.balanceAmount != null && Object.hasOwnProperty.call(message, "balanceAmount"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.balanceAmount);
+        if (message.balanceAmountChange != null && Object.hasOwnProperty.call(message, "balanceAmountChange"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.balanceAmountChange);
+        if (message.frozenAmount != null && Object.hasOwnProperty.call(message, "frozenAmount"))
+            writer.uint32(/* id 5, wireType 2 =*/42).string(message.frozenAmount);
+        if (message.frozenAmountChange != null && Object.hasOwnProperty.call(message, "frozenAmountChange"))
+            writer.uint32(/* id 6, wireType 2 =*/50).string(message.frozenAmountChange);
+        if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+            writer.uint32(/* id 7, wireType 2 =*/58).string(message.type);
+        if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+            writer.uint32(/* id 8, wireType 0 =*/64).int64(message.time);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PrivateAccountV3Api message, length delimited. Does not implicitly {@link PrivateAccountV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {IPrivateAccountV3Api} message PrivateAccountV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PrivateAccountV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PrivateAccountV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PrivateAccountV3Api} PrivateAccountV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PrivateAccountV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PrivateAccountV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.vcoinName = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.coinId = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.balanceAmount = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.balanceAmountChange = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.frozenAmount = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.frozenAmountChange = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.type = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.time = reader.int64();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PrivateAccountV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PrivateAccountV3Api} PrivateAccountV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PrivateAccountV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PrivateAccountV3Api message.
+     * @function verify
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PrivateAccountV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.vcoinName != null && message.hasOwnProperty("vcoinName"))
+            if (!$util.isString(message.vcoinName))
+                return "vcoinName: string expected";
+        if (message.coinId != null && message.hasOwnProperty("coinId"))
+            if (!$util.isString(message.coinId))
+                return "coinId: string expected";
+        if (message.balanceAmount != null && message.hasOwnProperty("balanceAmount"))
+            if (!$util.isString(message.balanceAmount))
+                return "balanceAmount: string expected";
+        if (message.balanceAmountChange != null && message.hasOwnProperty("balanceAmountChange"))
+            if (!$util.isString(message.balanceAmountChange))
+                return "balanceAmountChange: string expected";
+        if (message.frozenAmount != null && message.hasOwnProperty("frozenAmount"))
+            if (!$util.isString(message.frozenAmount))
+                return "frozenAmount: string expected";
+        if (message.frozenAmountChange != null && message.hasOwnProperty("frozenAmountChange"))
+            if (!$util.isString(message.frozenAmountChange))
+                return "frozenAmountChange: string expected";
+        if (message.type != null && message.hasOwnProperty("type"))
+            if (!$util.isString(message.type))
+                return "type: string expected";
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                return "time: integer|Long expected";
+        return null;
+    };
+
+    /**
+     * Creates a PrivateAccountV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PrivateAccountV3Api} PrivateAccountV3Api
+     */
+    PrivateAccountV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PrivateAccountV3Api)
+            return object;
+        var message = new $root.PrivateAccountV3Api();
+        if (object.vcoinName != null)
+            message.vcoinName = String(object.vcoinName);
+        if (object.coinId != null)
+            message.coinId = String(object.coinId);
+        if (object.balanceAmount != null)
+            message.balanceAmount = String(object.balanceAmount);
+        if (object.balanceAmountChange != null)
+            message.balanceAmountChange = String(object.balanceAmountChange);
+        if (object.frozenAmount != null)
+            message.frozenAmount = String(object.frozenAmount);
+        if (object.frozenAmountChange != null)
+            message.frozenAmountChange = String(object.frozenAmountChange);
+        if (object.type != null)
+            message.type = String(object.type);
+        if (object.time != null)
+            if ($util.Long)
+                (message.time = $util.Long.fromValue(object.time)).unsigned = false;
+            else if (typeof object.time === "string")
+                message.time = parseInt(object.time, 10);
+            else if (typeof object.time === "number")
+                message.time = object.time;
+            else if (typeof object.time === "object")
+                message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber();
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PrivateAccountV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {PrivateAccountV3Api} message PrivateAccountV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PrivateAccountV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.vcoinName = "";
+            object.coinId = "";
+            object.balanceAmount = "";
+            object.balanceAmountChange = "";
+            object.frozenAmount = "";
+            object.frozenAmountChange = "";
+            object.type = "";
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, false);
+                object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.time = options.longs === String ? "0" : 0;
+        }
+        if (message.vcoinName != null && message.hasOwnProperty("vcoinName"))
+            object.vcoinName = message.vcoinName;
+        if (message.coinId != null && message.hasOwnProperty("coinId"))
+            object.coinId = message.coinId;
+        if (message.balanceAmount != null && message.hasOwnProperty("balanceAmount"))
+            object.balanceAmount = message.balanceAmount;
+        if (message.balanceAmountChange != null && message.hasOwnProperty("balanceAmountChange"))
+            object.balanceAmountChange = message.balanceAmountChange;
+        if (message.frozenAmount != null && message.hasOwnProperty("frozenAmount"))
+            object.frozenAmount = message.frozenAmount;
+        if (message.frozenAmountChange != null && message.hasOwnProperty("frozenAmountChange"))
+            object.frozenAmountChange = message.frozenAmountChange;
+        if (message.type != null && message.hasOwnProperty("type"))
+            object.type = message.type;
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (typeof message.time === "number")
+                object.time = options.longs === String ? String(message.time) : message.time;
+            else
+                object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber() : message.time;
+        return object;
+    };
+
+    /**
+     * Converts this PrivateAccountV3Api to JSON.
+     * @function toJSON
+     * @memberof PrivateAccountV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PrivateAccountV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PrivateAccountV3Api
+     * @function getTypeUrl
+     * @memberof PrivateAccountV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PrivateAccountV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PrivateAccountV3Api";
+    };
+
+    return PrivateAccountV3Api;
+})();
+
+$root.PrivateDealsV3Api = (function() {
+
+    /**
+     * Properties of a PrivateDealsV3Api.
+     * @exports IPrivateDealsV3Api
+     * @interface IPrivateDealsV3Api
+     * @property {string|null} [price] PrivateDealsV3Api price
+     * @property {string|null} [quantity] PrivateDealsV3Api quantity
+     * @property {string|null} [amount] PrivateDealsV3Api amount
+     * @property {number|null} [tradeType] PrivateDealsV3Api tradeType
+     * @property {boolean|null} [isMaker] PrivateDealsV3Api isMaker
+     * @property {boolean|null} [isSelfTrade] PrivateDealsV3Api isSelfTrade
+     * @property {string|null} [tradeId] PrivateDealsV3Api tradeId
+     * @property {string|null} [clientOrderId] PrivateDealsV3Api clientOrderId
+     * @property {string|null} [orderId] PrivateDealsV3Api orderId
+     * @property {string|null} [feeAmount] PrivateDealsV3Api feeAmount
+     * @property {string|null} [feeCurrency] PrivateDealsV3Api feeCurrency
+     * @property {number|Long|null} [time] PrivateDealsV3Api time
+     */
+
+    /**
+     * Constructs a new PrivateDealsV3Api.
+     * @exports PrivateDealsV3Api
+     * @classdesc Represents a PrivateDealsV3Api.
+     * @implements IPrivateDealsV3Api
+     * @constructor
+     * @param {IPrivateDealsV3Api=} [properties] Properties to set
+     */
+    function PrivateDealsV3Api(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PrivateDealsV3Api price.
+     * @member {string} price
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.price = "";
+
+    /**
+     * PrivateDealsV3Api quantity.
+     * @member {string} quantity
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.quantity = "";
+
+    /**
+     * PrivateDealsV3Api amount.
+     * @member {string} amount
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.amount = "";
+
+    /**
+     * PrivateDealsV3Api tradeType.
+     * @member {number} tradeType
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.tradeType = 0;
+
+    /**
+     * PrivateDealsV3Api isMaker.
+     * @member {boolean} isMaker
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.isMaker = false;
+
+    /**
+     * PrivateDealsV3Api isSelfTrade.
+     * @member {boolean} isSelfTrade
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.isSelfTrade = false;
+
+    /**
+     * PrivateDealsV3Api tradeId.
+     * @member {string} tradeId
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.tradeId = "";
+
+    /**
+     * PrivateDealsV3Api clientOrderId.
+     * @member {string} clientOrderId
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.clientOrderId = "";
+
+    /**
+     * PrivateDealsV3Api orderId.
+     * @member {string} orderId
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.orderId = "";
+
+    /**
+     * PrivateDealsV3Api feeAmount.
+     * @member {string} feeAmount
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.feeAmount = "";
+
+    /**
+     * PrivateDealsV3Api feeCurrency.
+     * @member {string} feeCurrency
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.feeCurrency = "";
+
+    /**
+     * PrivateDealsV3Api time.
+     * @member {number|Long} time
+     * @memberof PrivateDealsV3Api
+     * @instance
+     */
+    PrivateDealsV3Api.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+    /**
+     * Creates a new PrivateDealsV3Api instance using the specified properties.
+     * @function create
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {IPrivateDealsV3Api=} [properties] Properties to set
+     * @returns {PrivateDealsV3Api} PrivateDealsV3Api instance
+     */
+    PrivateDealsV3Api.create = function create(properties) {
+        return new PrivateDealsV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PrivateDealsV3Api message. Does not implicitly {@link PrivateDealsV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {IPrivateDealsV3Api} message PrivateDealsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PrivateDealsV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.price);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.quantity);
+        if (message.amount != null && Object.hasOwnProperty.call(message, "amount"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.amount);
+        if (message.tradeType != null && Object.hasOwnProperty.call(message, "tradeType"))
+            writer.uint32(/* id 4, wireType 0 =*/32).int32(message.tradeType);
+        if (message.isMaker != null && Object.hasOwnProperty.call(message, "isMaker"))
+            writer.uint32(/* id 5, wireType 0 =*/40).bool(message.isMaker);
+        if (message.isSelfTrade != null && Object.hasOwnProperty.call(message, "isSelfTrade"))
+            writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isSelfTrade);
+        if (message.tradeId != null && Object.hasOwnProperty.call(message, "tradeId"))
+            writer.uint32(/* id 7, wireType 2 =*/58).string(message.tradeId);
+        if (message.clientOrderId != null && Object.hasOwnProperty.call(message, "clientOrderId"))
+            writer.uint32(/* id 8, wireType 2 =*/66).string(message.clientOrderId);
+        if (message.orderId != null && Object.hasOwnProperty.call(message, "orderId"))
+            writer.uint32(/* id 9, wireType 2 =*/74).string(message.orderId);
+        if (message.feeAmount != null && Object.hasOwnProperty.call(message, "feeAmount"))
+            writer.uint32(/* id 10, wireType 2 =*/82).string(message.feeAmount);
+        if (message.feeCurrency != null && Object.hasOwnProperty.call(message, "feeCurrency"))
+            writer.uint32(/* id 11, wireType 2 =*/90).string(message.feeCurrency);
+        if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+            writer.uint32(/* id 12, wireType 0 =*/96).int64(message.time);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PrivateDealsV3Api message, length delimited. Does not implicitly {@link PrivateDealsV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {IPrivateDealsV3Api} message PrivateDealsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PrivateDealsV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PrivateDealsV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PrivateDealsV3Api} PrivateDealsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PrivateDealsV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PrivateDealsV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.amount = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.tradeType = reader.int32();
+                    break;
+                }
+            case 5: {
+                    message.isMaker = reader.bool();
+                    break;
+                }
+            case 6: {
+                    message.isSelfTrade = reader.bool();
+                    break;
+                }
+            case 7: {
+                    message.tradeId = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.clientOrderId = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.orderId = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.feeAmount = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.feeCurrency = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.time = reader.int64();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PrivateDealsV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PrivateDealsV3Api} PrivateDealsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PrivateDealsV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PrivateDealsV3Api message.
+     * @function verify
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PrivateDealsV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        if (message.amount != null && message.hasOwnProperty("amount"))
+            if (!$util.isString(message.amount))
+                return "amount: string expected";
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            if (!$util.isInteger(message.tradeType))
+                return "tradeType: integer expected";
+        if (message.isMaker != null && message.hasOwnProperty("isMaker"))
+            if (typeof message.isMaker !== "boolean")
+                return "isMaker: boolean expected";
+        if (message.isSelfTrade != null && message.hasOwnProperty("isSelfTrade"))
+            if (typeof message.isSelfTrade !== "boolean")
+                return "isSelfTrade: boolean expected";
+        if (message.tradeId != null && message.hasOwnProperty("tradeId"))
+            if (!$util.isString(message.tradeId))
+                return "tradeId: string expected";
+        if (message.clientOrderId != null && message.hasOwnProperty("clientOrderId"))
+            if (!$util.isString(message.clientOrderId))
+                return "clientOrderId: string expected";
+        if (message.orderId != null && message.hasOwnProperty("orderId"))
+            if (!$util.isString(message.orderId))
+                return "orderId: string expected";
+        if (message.feeAmount != null && message.hasOwnProperty("feeAmount"))
+            if (!$util.isString(message.feeAmount))
+                return "feeAmount: string expected";
+        if (message.feeCurrency != null && message.hasOwnProperty("feeCurrency"))
+            if (!$util.isString(message.feeCurrency))
+                return "feeCurrency: string expected";
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                return "time: integer|Long expected";
+        return null;
+    };
+
+    /**
+     * Creates a PrivateDealsV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PrivateDealsV3Api} PrivateDealsV3Api
+     */
+    PrivateDealsV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PrivateDealsV3Api)
+            return object;
+        var message = new $root.PrivateDealsV3Api();
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        if (object.amount != null)
+            message.amount = String(object.amount);
+        if (object.tradeType != null)
+            message.tradeType = object.tradeType | 0;
+        if (object.isMaker != null)
+            message.isMaker = Boolean(object.isMaker);
+        if (object.isSelfTrade != null)
+            message.isSelfTrade = Boolean(object.isSelfTrade);
+        if (object.tradeId != null)
+            message.tradeId = String(object.tradeId);
+        if (object.clientOrderId != null)
+            message.clientOrderId = String(object.clientOrderId);
+        if (object.orderId != null)
+            message.orderId = String(object.orderId);
+        if (object.feeAmount != null)
+            message.feeAmount = String(object.feeAmount);
+        if (object.feeCurrency != null)
+            message.feeCurrency = String(object.feeCurrency);
+        if (object.time != null)
+            if ($util.Long)
+                (message.time = $util.Long.fromValue(object.time)).unsigned = false;
+            else if (typeof object.time === "string")
+                message.time = parseInt(object.time, 10);
+            else if (typeof object.time === "number")
+                message.time = object.time;
+            else if (typeof object.time === "object")
+                message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber();
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PrivateDealsV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {PrivateDealsV3Api} message PrivateDealsV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PrivateDealsV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.price = "";
+            object.quantity = "";
+            object.amount = "";
+            object.tradeType = 0;
+            object.isMaker = false;
+            object.isSelfTrade = false;
+            object.tradeId = "";
+            object.clientOrderId = "";
+            object.orderId = "";
+            object.feeAmount = "";
+            object.feeCurrency = "";
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, false);
+                object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.time = options.longs === String ? "0" : 0;
+        }
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        if (message.amount != null && message.hasOwnProperty("amount"))
+            object.amount = message.amount;
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            object.tradeType = message.tradeType;
+        if (message.isMaker != null && message.hasOwnProperty("isMaker"))
+            object.isMaker = message.isMaker;
+        if (message.isSelfTrade != null && message.hasOwnProperty("isSelfTrade"))
+            object.isSelfTrade = message.isSelfTrade;
+        if (message.tradeId != null && message.hasOwnProperty("tradeId"))
+            object.tradeId = message.tradeId;
+        if (message.clientOrderId != null && message.hasOwnProperty("clientOrderId"))
+            object.clientOrderId = message.clientOrderId;
+        if (message.orderId != null && message.hasOwnProperty("orderId"))
+            object.orderId = message.orderId;
+        if (message.feeAmount != null && message.hasOwnProperty("feeAmount"))
+            object.feeAmount = message.feeAmount;
+        if (message.feeCurrency != null && message.hasOwnProperty("feeCurrency"))
+            object.feeCurrency = message.feeCurrency;
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (typeof message.time === "number")
+                object.time = options.longs === String ? String(message.time) : message.time;
+            else
+                object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber() : message.time;
+        return object;
+    };
+
+    /**
+     * Converts this PrivateDealsV3Api to JSON.
+     * @function toJSON
+     * @memberof PrivateDealsV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PrivateDealsV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PrivateDealsV3Api
+     * @function getTypeUrl
+     * @memberof PrivateDealsV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PrivateDealsV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PrivateDealsV3Api";
+    };
+
+    return PrivateDealsV3Api;
+})();
+
+$root.PrivateOrdersV3Api = (function() {
+
+    /**
+     * Properties of a PrivateOrdersV3Api.
+     * @exports IPrivateOrdersV3Api
+     * @interface IPrivateOrdersV3Api
+     * @property {string|null} [id] PrivateOrdersV3Api id
+     * @property {string|null} [clientId] PrivateOrdersV3Api clientId
+     * @property {string|null} [price] PrivateOrdersV3Api price
+     * @property {string|null} [quantity] PrivateOrdersV3Api quantity
+     * @property {string|null} [amount] PrivateOrdersV3Api amount
+     * @property {string|null} [avgPrice] PrivateOrdersV3Api avgPrice
+     * @property {number|null} [orderType] PrivateOrdersV3Api orderType
+     * @property {number|null} [tradeType] PrivateOrdersV3Api tradeType
+     * @property {boolean|null} [isMaker] PrivateOrdersV3Api isMaker
+     * @property {string|null} [remainAmount] PrivateOrdersV3Api remainAmount
+     * @property {string|null} [remainQuantity] PrivateOrdersV3Api remainQuantity
+     * @property {string|null} [lastDealQuantity] PrivateOrdersV3Api lastDealQuantity
+     * @property {string|null} [cumulativeQuantity] PrivateOrdersV3Api cumulativeQuantity
+     * @property {string|null} [cumulativeAmount] PrivateOrdersV3Api cumulativeAmount
+     * @property {number|null} [status] PrivateOrdersV3Api status
+     * @property {number|Long|null} [createTime] PrivateOrdersV3Api createTime
+     * @property {string|null} [market] PrivateOrdersV3Api market
+     * @property {number|null} [triggerType] PrivateOrdersV3Api triggerType
+     * @property {string|null} [triggerPrice] PrivateOrdersV3Api triggerPrice
+     * @property {number|null} [state] PrivateOrdersV3Api state
+     * @property {string|null} [ocoId] PrivateOrdersV3Api ocoId
+     * @property {string|null} [routeFactor] PrivateOrdersV3Api routeFactor
+     * @property {string|null} [symbolId] PrivateOrdersV3Api symbolId
+     * @property {string|null} [marketId] PrivateOrdersV3Api marketId
+     * @property {string|null} [marketCurrencyId] PrivateOrdersV3Api marketCurrencyId
+     * @property {string|null} [currencyId] PrivateOrdersV3Api currencyId
+     */
+
+    /**
+     * Constructs a new PrivateOrdersV3Api.
+     * @exports PrivateOrdersV3Api
+     * @classdesc Represents a PrivateOrdersV3Api.
+     * @implements IPrivateOrdersV3Api
+     * @constructor
+     * @param {IPrivateOrdersV3Api=} [properties] Properties to set
+     */
+    function PrivateOrdersV3Api(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PrivateOrdersV3Api id.
+     * @member {string} id
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.id = "";
+
+    /**
+     * PrivateOrdersV3Api clientId.
+     * @member {string} clientId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.clientId = "";
+
+    /**
+     * PrivateOrdersV3Api price.
+     * @member {string} price
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.price = "";
+
+    /**
+     * PrivateOrdersV3Api quantity.
+     * @member {string} quantity
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.quantity = "";
+
+    /**
+     * PrivateOrdersV3Api amount.
+     * @member {string} amount
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.amount = "";
+
+    /**
+     * PrivateOrdersV3Api avgPrice.
+     * @member {string} avgPrice
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.avgPrice = "";
+
+    /**
+     * PrivateOrdersV3Api orderType.
+     * @member {number} orderType
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.orderType = 0;
+
+    /**
+     * PrivateOrdersV3Api tradeType.
+     * @member {number} tradeType
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.tradeType = 0;
+
+    /**
+     * PrivateOrdersV3Api isMaker.
+     * @member {boolean} isMaker
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.isMaker = false;
+
+    /**
+     * PrivateOrdersV3Api remainAmount.
+     * @member {string} remainAmount
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.remainAmount = "";
+
+    /**
+     * PrivateOrdersV3Api remainQuantity.
+     * @member {string} remainQuantity
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.remainQuantity = "";
+
+    /**
+     * PrivateOrdersV3Api lastDealQuantity.
+     * @member {string|null|undefined} lastDealQuantity
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.lastDealQuantity = null;
+
+    /**
+     * PrivateOrdersV3Api cumulativeQuantity.
+     * @member {string} cumulativeQuantity
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.cumulativeQuantity = "";
+
+    /**
+     * PrivateOrdersV3Api cumulativeAmount.
+     * @member {string} cumulativeAmount
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.cumulativeAmount = "";
+
+    /**
+     * PrivateOrdersV3Api status.
+     * @member {number} status
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.status = 0;
+
+    /**
+     * PrivateOrdersV3Api createTime.
+     * @member {number|Long} createTime
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.createTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+    /**
+     * PrivateOrdersV3Api market.
+     * @member {string|null|undefined} market
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.market = null;
+
+    /**
+     * PrivateOrdersV3Api triggerType.
+     * @member {number|null|undefined} triggerType
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.triggerType = null;
+
+    /**
+     * PrivateOrdersV3Api triggerPrice.
+     * @member {string|null|undefined} triggerPrice
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.triggerPrice = null;
+
+    /**
+     * PrivateOrdersV3Api state.
+     * @member {number|null|undefined} state
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.state = null;
+
+    /**
+     * PrivateOrdersV3Api ocoId.
+     * @member {string|null|undefined} ocoId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.ocoId = null;
+
+    /**
+     * PrivateOrdersV3Api routeFactor.
+     * @member {string|null|undefined} routeFactor
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.routeFactor = null;
+
+    /**
+     * PrivateOrdersV3Api symbolId.
+     * @member {string|null|undefined} symbolId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.symbolId = null;
+
+    /**
+     * PrivateOrdersV3Api marketId.
+     * @member {string|null|undefined} marketId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.marketId = null;
+
+    /**
+     * PrivateOrdersV3Api marketCurrencyId.
+     * @member {string|null|undefined} marketCurrencyId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.marketCurrencyId = null;
+
+    /**
+     * PrivateOrdersV3Api currencyId.
+     * @member {string|null|undefined} currencyId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    PrivateOrdersV3Api.prototype.currencyId = null;
+
+    // OneOf field names bound to virtual getters and setters
+    var $oneOfFields;
+
+    /**
+     * PrivateOrdersV3Api _lastDealQuantity.
+     * @member {"lastDealQuantity"|undefined} _lastDealQuantity
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_lastDealQuantity", {
+        get: $util.oneOfGetter($oneOfFields = ["lastDealQuantity"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _market.
+     * @member {"market"|undefined} _market
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_market", {
+        get: $util.oneOfGetter($oneOfFields = ["market"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _triggerType.
+     * @member {"triggerType"|undefined} _triggerType
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_triggerType", {
+        get: $util.oneOfGetter($oneOfFields = ["triggerType"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _triggerPrice.
+     * @member {"triggerPrice"|undefined} _triggerPrice
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_triggerPrice", {
+        get: $util.oneOfGetter($oneOfFields = ["triggerPrice"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _state.
+     * @member {"state"|undefined} _state
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_state", {
+        get: $util.oneOfGetter($oneOfFields = ["state"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _ocoId.
+     * @member {"ocoId"|undefined} _ocoId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_ocoId", {
+        get: $util.oneOfGetter($oneOfFields = ["ocoId"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _routeFactor.
+     * @member {"routeFactor"|undefined} _routeFactor
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_routeFactor", {
+        get: $util.oneOfGetter($oneOfFields = ["routeFactor"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _symbolId.
+     * @member {"symbolId"|undefined} _symbolId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_symbolId", {
+        get: $util.oneOfGetter($oneOfFields = ["symbolId"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _marketId.
+     * @member {"marketId"|undefined} _marketId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_marketId", {
+        get: $util.oneOfGetter($oneOfFields = ["marketId"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _marketCurrencyId.
+     * @member {"marketCurrencyId"|undefined} _marketCurrencyId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_marketCurrencyId", {
+        get: $util.oneOfGetter($oneOfFields = ["marketCurrencyId"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PrivateOrdersV3Api _currencyId.
+     * @member {"currencyId"|undefined} _currencyId
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     */
+    Object.defineProperty(PrivateOrdersV3Api.prototype, "_currencyId", {
+        get: $util.oneOfGetter($oneOfFields = ["currencyId"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * Creates a new PrivateOrdersV3Api instance using the specified properties.
+     * @function create
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {IPrivateOrdersV3Api=} [properties] Properties to set
+     * @returns {PrivateOrdersV3Api} PrivateOrdersV3Api instance
+     */
+    PrivateOrdersV3Api.create = function create(properties) {
+        return new PrivateOrdersV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PrivateOrdersV3Api message. Does not implicitly {@link PrivateOrdersV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {IPrivateOrdersV3Api} message PrivateOrdersV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PrivateOrdersV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+        if (message.clientId != null && Object.hasOwnProperty.call(message, "clientId"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.clientId);
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.price);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.quantity);
+        if (message.amount != null && Object.hasOwnProperty.call(message, "amount"))
+            writer.uint32(/* id 5, wireType 2 =*/42).string(message.amount);
+        if (message.avgPrice != null && Object.hasOwnProperty.call(message, "avgPrice"))
+            writer.uint32(/* id 6, wireType 2 =*/50).string(message.avgPrice);
+        if (message.orderType != null && Object.hasOwnProperty.call(message, "orderType"))
+            writer.uint32(/* id 7, wireType 0 =*/56).int32(message.orderType);
+        if (message.tradeType != null && Object.hasOwnProperty.call(message, "tradeType"))
+            writer.uint32(/* id 8, wireType 0 =*/64).int32(message.tradeType);
+        if (message.isMaker != null && Object.hasOwnProperty.call(message, "isMaker"))
+            writer.uint32(/* id 9, wireType 0 =*/72).bool(message.isMaker);
+        if (message.remainAmount != null && Object.hasOwnProperty.call(message, "remainAmount"))
+            writer.uint32(/* id 10, wireType 2 =*/82).string(message.remainAmount);
+        if (message.remainQuantity != null && Object.hasOwnProperty.call(message, "remainQuantity"))
+            writer.uint32(/* id 11, wireType 2 =*/90).string(message.remainQuantity);
+        if (message.lastDealQuantity != null && Object.hasOwnProperty.call(message, "lastDealQuantity"))
+            writer.uint32(/* id 12, wireType 2 =*/98).string(message.lastDealQuantity);
+        if (message.cumulativeQuantity != null && Object.hasOwnProperty.call(message, "cumulativeQuantity"))
+            writer.uint32(/* id 13, wireType 2 =*/106).string(message.cumulativeQuantity);
+        if (message.cumulativeAmount != null && Object.hasOwnProperty.call(message, "cumulativeAmount"))
+            writer.uint32(/* id 14, wireType 2 =*/114).string(message.cumulativeAmount);
+        if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+            writer.uint32(/* id 15, wireType 0 =*/120).int32(message.status);
+        if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
+            writer.uint32(/* id 16, wireType 0 =*/128).int64(message.createTime);
+        if (message.market != null && Object.hasOwnProperty.call(message, "market"))
+            writer.uint32(/* id 17, wireType 2 =*/138).string(message.market);
+        if (message.triggerType != null && Object.hasOwnProperty.call(message, "triggerType"))
+            writer.uint32(/* id 18, wireType 0 =*/144).int32(message.triggerType);
+        if (message.triggerPrice != null && Object.hasOwnProperty.call(message, "triggerPrice"))
+            writer.uint32(/* id 19, wireType 2 =*/154).string(message.triggerPrice);
+        if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+            writer.uint32(/* id 20, wireType 0 =*/160).int32(message.state);
+        if (message.ocoId != null && Object.hasOwnProperty.call(message, "ocoId"))
+            writer.uint32(/* id 21, wireType 2 =*/170).string(message.ocoId);
+        if (message.routeFactor != null && Object.hasOwnProperty.call(message, "routeFactor"))
+            writer.uint32(/* id 22, wireType 2 =*/178).string(message.routeFactor);
+        if (message.symbolId != null && Object.hasOwnProperty.call(message, "symbolId"))
+            writer.uint32(/* id 23, wireType 2 =*/186).string(message.symbolId);
+        if (message.marketId != null && Object.hasOwnProperty.call(message, "marketId"))
+            writer.uint32(/* id 24, wireType 2 =*/194).string(message.marketId);
+        if (message.marketCurrencyId != null && Object.hasOwnProperty.call(message, "marketCurrencyId"))
+            writer.uint32(/* id 25, wireType 2 =*/202).string(message.marketCurrencyId);
+        if (message.currencyId != null && Object.hasOwnProperty.call(message, "currencyId"))
+            writer.uint32(/* id 26, wireType 2 =*/210).string(message.currencyId);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PrivateOrdersV3Api message, length delimited. Does not implicitly {@link PrivateOrdersV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {IPrivateOrdersV3Api} message PrivateOrdersV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PrivateOrdersV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PrivateOrdersV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PrivateOrdersV3Api} PrivateOrdersV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PrivateOrdersV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PrivateOrdersV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.id = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.clientId = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.amount = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.avgPrice = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.orderType = reader.int32();
+                    break;
+                }
+            case 8: {
+                    message.tradeType = reader.int32();
+                    break;
+                }
+            case 9: {
+                    message.isMaker = reader.bool();
+                    break;
+                }
+            case 10: {
+                    message.remainAmount = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.remainQuantity = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.lastDealQuantity = reader.string();
+                    break;
+                }
+            case 13: {
+                    message.cumulativeQuantity = reader.string();
+                    break;
+                }
+            case 14: {
+                    message.cumulativeAmount = reader.string();
+                    break;
+                }
+            case 15: {
+                    message.status = reader.int32();
+                    break;
+                }
+            case 16: {
+                    message.createTime = reader.int64();
+                    break;
+                }
+            case 17: {
+                    message.market = reader.string();
+                    break;
+                }
+            case 18: {
+                    message.triggerType = reader.int32();
+                    break;
+                }
+            case 19: {
+                    message.triggerPrice = reader.string();
+                    break;
+                }
+            case 20: {
+                    message.state = reader.int32();
+                    break;
+                }
+            case 21: {
+                    message.ocoId = reader.string();
+                    break;
+                }
+            case 22: {
+                    message.routeFactor = reader.string();
+                    break;
+                }
+            case 23: {
+                    message.symbolId = reader.string();
+                    break;
+                }
+            case 24: {
+                    message.marketId = reader.string();
+                    break;
+                }
+            case 25: {
+                    message.marketCurrencyId = reader.string();
+                    break;
+                }
+            case 26: {
+                    message.currencyId = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PrivateOrdersV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PrivateOrdersV3Api} PrivateOrdersV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PrivateOrdersV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PrivateOrdersV3Api message.
+     * @function verify
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PrivateOrdersV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        var properties = {};
+        if (message.id != null && message.hasOwnProperty("id"))
+            if (!$util.isString(message.id))
+                return "id: string expected";
+        if (message.clientId != null && message.hasOwnProperty("clientId"))
+            if (!$util.isString(message.clientId))
+                return "clientId: string expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        if (message.amount != null && message.hasOwnProperty("amount"))
+            if (!$util.isString(message.amount))
+                return "amount: string expected";
+        if (message.avgPrice != null && message.hasOwnProperty("avgPrice"))
+            if (!$util.isString(message.avgPrice))
+                return "avgPrice: string expected";
+        if (message.orderType != null && message.hasOwnProperty("orderType"))
+            if (!$util.isInteger(message.orderType))
+                return "orderType: integer expected";
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            if (!$util.isInteger(message.tradeType))
+                return "tradeType: integer expected";
+        if (message.isMaker != null && message.hasOwnProperty("isMaker"))
+            if (typeof message.isMaker !== "boolean")
+                return "isMaker: boolean expected";
+        if (message.remainAmount != null && message.hasOwnProperty("remainAmount"))
+            if (!$util.isString(message.remainAmount))
+                return "remainAmount: string expected";
+        if (message.remainQuantity != null && message.hasOwnProperty("remainQuantity"))
+            if (!$util.isString(message.remainQuantity))
+                return "remainQuantity: string expected";
+        if (message.lastDealQuantity != null && message.hasOwnProperty("lastDealQuantity")) {
+            properties._lastDealQuantity = 1;
+            if (!$util.isString(message.lastDealQuantity))
+                return "lastDealQuantity: string expected";
+        }
+        if (message.cumulativeQuantity != null && message.hasOwnProperty("cumulativeQuantity"))
+            if (!$util.isString(message.cumulativeQuantity))
+                return "cumulativeQuantity: string expected";
+        if (message.cumulativeAmount != null && message.hasOwnProperty("cumulativeAmount"))
+            if (!$util.isString(message.cumulativeAmount))
+                return "cumulativeAmount: string expected";
+        if (message.status != null && message.hasOwnProperty("status"))
+            if (!$util.isInteger(message.status))
+                return "status: integer expected";
+        if (message.createTime != null && message.hasOwnProperty("createTime"))
+            if (!$util.isInteger(message.createTime) && !(message.createTime && $util.isInteger(message.createTime.low) && $util.isInteger(message.createTime.high)))
+                return "createTime: integer|Long expected";
+        if (message.market != null && message.hasOwnProperty("market")) {
+            properties._market = 1;
+            if (!$util.isString(message.market))
+                return "market: string expected";
+        }
+        if (message.triggerType != null && message.hasOwnProperty("triggerType")) {
+            properties._triggerType = 1;
+            if (!$util.isInteger(message.triggerType))
+                return "triggerType: integer expected";
+        }
+        if (message.triggerPrice != null && message.hasOwnProperty("triggerPrice")) {
+            properties._triggerPrice = 1;
+            if (!$util.isString(message.triggerPrice))
+                return "triggerPrice: string expected";
+        }
+        if (message.state != null && message.hasOwnProperty("state")) {
+            properties._state = 1;
+            if (!$util.isInteger(message.state))
+                return "state: integer expected";
+        }
+        if (message.ocoId != null && message.hasOwnProperty("ocoId")) {
+            properties._ocoId = 1;
+            if (!$util.isString(message.ocoId))
+                return "ocoId: string expected";
+        }
+        if (message.routeFactor != null && message.hasOwnProperty("routeFactor")) {
+            properties._routeFactor = 1;
+            if (!$util.isString(message.routeFactor))
+                return "routeFactor: string expected";
+        }
+        if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
+            properties._symbolId = 1;
+            if (!$util.isString(message.symbolId))
+                return "symbolId: string expected";
+        }
+        if (message.marketId != null && message.hasOwnProperty("marketId")) {
+            properties._marketId = 1;
+            if (!$util.isString(message.marketId))
+                return "marketId: string expected";
+        }
+        if (message.marketCurrencyId != null && message.hasOwnProperty("marketCurrencyId")) {
+            properties._marketCurrencyId = 1;
+            if (!$util.isString(message.marketCurrencyId))
+                return "marketCurrencyId: string expected";
+        }
+        if (message.currencyId != null && message.hasOwnProperty("currencyId")) {
+            properties._currencyId = 1;
+            if (!$util.isString(message.currencyId))
+                return "currencyId: string expected";
+        }
+        return null;
+    };
+
+    /**
+     * Creates a PrivateOrdersV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PrivateOrdersV3Api} PrivateOrdersV3Api
+     */
+    PrivateOrdersV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PrivateOrdersV3Api)
+            return object;
+        var message = new $root.PrivateOrdersV3Api();
+        if (object.id != null)
+            message.id = String(object.id);
+        if (object.clientId != null)
+            message.clientId = String(object.clientId);
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        if (object.amount != null)
+            message.amount = String(object.amount);
+        if (object.avgPrice != null)
+            message.avgPrice = String(object.avgPrice);
+        if (object.orderType != null)
+            message.orderType = object.orderType | 0;
+        if (object.tradeType != null)
+            message.tradeType = object.tradeType | 0;
+        if (object.isMaker != null)
+            message.isMaker = Boolean(object.isMaker);
+        if (object.remainAmount != null)
+            message.remainAmount = String(object.remainAmount);
+        if (object.remainQuantity != null)
+            message.remainQuantity = String(object.remainQuantity);
+        if (object.lastDealQuantity != null)
+            message.lastDealQuantity = String(object.lastDealQuantity);
+        if (object.cumulativeQuantity != null)
+            message.cumulativeQuantity = String(object.cumulativeQuantity);
+        if (object.cumulativeAmount != null)
+            message.cumulativeAmount = String(object.cumulativeAmount);
+        if (object.status != null)
+            message.status = object.status | 0;
+        if (object.createTime != null)
+            if ($util.Long)
+                (message.createTime = $util.Long.fromValue(object.createTime)).unsigned = false;
+            else if (typeof object.createTime === "string")
+                message.createTime = parseInt(object.createTime, 10);
+            else if (typeof object.createTime === "number")
+                message.createTime = object.createTime;
+            else if (typeof object.createTime === "object")
+                message.createTime = new $util.LongBits(object.createTime.low >>> 0, object.createTime.high >>> 0).toNumber();
+        if (object.market != null)
+            message.market = String(object.market);
+        if (object.triggerType != null)
+            message.triggerType = object.triggerType | 0;
+        if (object.triggerPrice != null)
+            message.triggerPrice = String(object.triggerPrice);
+        if (object.state != null)
+            message.state = object.state | 0;
+        if (object.ocoId != null)
+            message.ocoId = String(object.ocoId);
+        if (object.routeFactor != null)
+            message.routeFactor = String(object.routeFactor);
+        if (object.symbolId != null)
+            message.symbolId = String(object.symbolId);
+        if (object.marketId != null)
+            message.marketId = String(object.marketId);
+        if (object.marketCurrencyId != null)
+            message.marketCurrencyId = String(object.marketCurrencyId);
+        if (object.currencyId != null)
+            message.currencyId = String(object.currencyId);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PrivateOrdersV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {PrivateOrdersV3Api} message PrivateOrdersV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PrivateOrdersV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.id = "";
+            object.clientId = "";
+            object.price = "";
+            object.quantity = "";
+            object.amount = "";
+            object.avgPrice = "";
+            object.orderType = 0;
+            object.tradeType = 0;
+            object.isMaker = false;
+            object.remainAmount = "";
+            object.remainQuantity = "";
+            object.cumulativeQuantity = "";
+            object.cumulativeAmount = "";
+            object.status = 0;
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, false);
+                object.createTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.createTime = options.longs === String ? "0" : 0;
+        }
+        if (message.id != null && message.hasOwnProperty("id"))
+            object.id = message.id;
+        if (message.clientId != null && message.hasOwnProperty("clientId"))
+            object.clientId = message.clientId;
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        if (message.amount != null && message.hasOwnProperty("amount"))
+            object.amount = message.amount;
+        if (message.avgPrice != null && message.hasOwnProperty("avgPrice"))
+            object.avgPrice = message.avgPrice;
+        if (message.orderType != null && message.hasOwnProperty("orderType"))
+            object.orderType = message.orderType;
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            object.tradeType = message.tradeType;
+        if (message.isMaker != null && message.hasOwnProperty("isMaker"))
+            object.isMaker = message.isMaker;
+        if (message.remainAmount != null && message.hasOwnProperty("remainAmount"))
+            object.remainAmount = message.remainAmount;
+        if (message.remainQuantity != null && message.hasOwnProperty("remainQuantity"))
+            object.remainQuantity = message.remainQuantity;
+        if (message.lastDealQuantity != null && message.hasOwnProperty("lastDealQuantity")) {
+            object.lastDealQuantity = message.lastDealQuantity;
+            if (options.oneofs)
+                object._lastDealQuantity = "lastDealQuantity";
+        }
+        if (message.cumulativeQuantity != null && message.hasOwnProperty("cumulativeQuantity"))
+            object.cumulativeQuantity = message.cumulativeQuantity;
+        if (message.cumulativeAmount != null && message.hasOwnProperty("cumulativeAmount"))
+            object.cumulativeAmount = message.cumulativeAmount;
+        if (message.status != null && message.hasOwnProperty("status"))
+            object.status = message.status;
+        if (message.createTime != null && message.hasOwnProperty("createTime"))
+            if (typeof message.createTime === "number")
+                object.createTime = options.longs === String ? String(message.createTime) : message.createTime;
+            else
+                object.createTime = options.longs === String ? $util.Long.prototype.toString.call(message.createTime) : options.longs === Number ? new $util.LongBits(message.createTime.low >>> 0, message.createTime.high >>> 0).toNumber() : message.createTime;
+        if (message.market != null && message.hasOwnProperty("market")) {
+            object.market = message.market;
+            if (options.oneofs)
+                object._market = "market";
+        }
+        if (message.triggerType != null && message.hasOwnProperty("triggerType")) {
+            object.triggerType = message.triggerType;
+            if (options.oneofs)
+                object._triggerType = "triggerType";
+        }
+        if (message.triggerPrice != null && message.hasOwnProperty("triggerPrice")) {
+            object.triggerPrice = message.triggerPrice;
+            if (options.oneofs)
+                object._triggerPrice = "triggerPrice";
+        }
+        if (message.state != null && message.hasOwnProperty("state")) {
+            object.state = message.state;
+            if (options.oneofs)
+                object._state = "state";
+        }
+        if (message.ocoId != null && message.hasOwnProperty("ocoId")) {
+            object.ocoId = message.ocoId;
+            if (options.oneofs)
+                object._ocoId = "ocoId";
+        }
+        if (message.routeFactor != null && message.hasOwnProperty("routeFactor")) {
+            object.routeFactor = message.routeFactor;
+            if (options.oneofs)
+                object._routeFactor = "routeFactor";
+        }
+        if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
+            object.symbolId = message.symbolId;
+            if (options.oneofs)
+                object._symbolId = "symbolId";
+        }
+        if (message.marketId != null && message.hasOwnProperty("marketId")) {
+            object.marketId = message.marketId;
+            if (options.oneofs)
+                object._marketId = "marketId";
+        }
+        if (message.marketCurrencyId != null && message.hasOwnProperty("marketCurrencyId")) {
+            object.marketCurrencyId = message.marketCurrencyId;
+            if (options.oneofs)
+                object._marketCurrencyId = "marketCurrencyId";
+        }
+        if (message.currencyId != null && message.hasOwnProperty("currencyId")) {
+            object.currencyId = message.currencyId;
+            if (options.oneofs)
+                object._currencyId = "currencyId";
+        }
+        return object;
+    };
+
+    /**
+     * Converts this PrivateOrdersV3Api to JSON.
+     * @function toJSON
+     * @memberof PrivateOrdersV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PrivateOrdersV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PrivateOrdersV3Api
+     * @function getTypeUrl
+     * @memberof PrivateOrdersV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PrivateOrdersV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PrivateOrdersV3Api";
+    };
+
+    return PrivateOrdersV3Api;
+})();
+
+$root.PublicAggreBookTickerV3Api = (function() {
+
+    /**
+     * Properties of a PublicAggreBookTickerV3Api.
+     * @exports IPublicAggreBookTickerV3Api
+     * @interface IPublicAggreBookTickerV3Api
+     * @property {string|null} [bidPrice] PublicAggreBookTickerV3Api bidPrice
+     * @property {string|null} [bidQuantity] PublicAggreBookTickerV3Api bidQuantity
+     * @property {string|null} [askPrice] PublicAggreBookTickerV3Api askPrice
+     * @property {string|null} [askQuantity] PublicAggreBookTickerV3Api askQuantity
+     */
+
+    /**
+     * Constructs a new PublicAggreBookTickerV3Api.
+     * @exports PublicAggreBookTickerV3Api
+     * @classdesc Represents a PublicAggreBookTickerV3Api.
+     * @implements IPublicAggreBookTickerV3Api
+     * @constructor
+     * @param {IPublicAggreBookTickerV3Api=} [properties] Properties to set
+     */
+    function PublicAggreBookTickerV3Api(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicAggreBookTickerV3Api bidPrice.
+     * @member {string} bidPrice
+     * @memberof PublicAggreBookTickerV3Api
+     * @instance
+     */
+    PublicAggreBookTickerV3Api.prototype.bidPrice = "";
+
+    /**
+     * PublicAggreBookTickerV3Api bidQuantity.
+     * @member {string} bidQuantity
+     * @memberof PublicAggreBookTickerV3Api
+     * @instance
+     */
+    PublicAggreBookTickerV3Api.prototype.bidQuantity = "";
+
+    /**
+     * PublicAggreBookTickerV3Api askPrice.
+     * @member {string} askPrice
+     * @memberof PublicAggreBookTickerV3Api
+     * @instance
+     */
+    PublicAggreBookTickerV3Api.prototype.askPrice = "";
+
+    /**
+     * PublicAggreBookTickerV3Api askQuantity.
+     * @member {string} askQuantity
+     * @memberof PublicAggreBookTickerV3Api
+     * @instance
+     */
+    PublicAggreBookTickerV3Api.prototype.askQuantity = "";
+
+    /**
+     * Creates a new PublicAggreBookTickerV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {IPublicAggreBookTickerV3Api=} [properties] Properties to set
+     * @returns {PublicAggreBookTickerV3Api} PublicAggreBookTickerV3Api instance
+     */
+    PublicAggreBookTickerV3Api.create = function create(properties) {
+        return new PublicAggreBookTickerV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicAggreBookTickerV3Api message. Does not implicitly {@link PublicAggreBookTickerV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {IPublicAggreBookTickerV3Api} message PublicAggreBookTickerV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreBookTickerV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.bidPrice != null && Object.hasOwnProperty.call(message, "bidPrice"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.bidPrice);
+        if (message.bidQuantity != null && Object.hasOwnProperty.call(message, "bidQuantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.bidQuantity);
+        if (message.askPrice != null && Object.hasOwnProperty.call(message, "askPrice"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.askPrice);
+        if (message.askQuantity != null && Object.hasOwnProperty.call(message, "askQuantity"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.askQuantity);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicAggreBookTickerV3Api message, length delimited. Does not implicitly {@link PublicAggreBookTickerV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {IPublicAggreBookTickerV3Api} message PublicAggreBookTickerV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreBookTickerV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicAggreBookTickerV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicAggreBookTickerV3Api} PublicAggreBookTickerV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreBookTickerV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicAggreBookTickerV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.bidPrice = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.bidQuantity = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.askPrice = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.askQuantity = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicAggreBookTickerV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicAggreBookTickerV3Api} PublicAggreBookTickerV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreBookTickerV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicAggreBookTickerV3Api message.
+     * @function verify
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicAggreBookTickerV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.bidPrice != null && message.hasOwnProperty("bidPrice"))
+            if (!$util.isString(message.bidPrice))
+                return "bidPrice: string expected";
+        if (message.bidQuantity != null && message.hasOwnProperty("bidQuantity"))
+            if (!$util.isString(message.bidQuantity))
+                return "bidQuantity: string expected";
+        if (message.askPrice != null && message.hasOwnProperty("askPrice"))
+            if (!$util.isString(message.askPrice))
+                return "askPrice: string expected";
+        if (message.askQuantity != null && message.hasOwnProperty("askQuantity"))
+            if (!$util.isString(message.askQuantity))
+                return "askQuantity: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicAggreBookTickerV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicAggreBookTickerV3Api} PublicAggreBookTickerV3Api
+     */
+    PublicAggreBookTickerV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicAggreBookTickerV3Api)
+            return object;
+        var message = new $root.PublicAggreBookTickerV3Api();
+        if (object.bidPrice != null)
+            message.bidPrice = String(object.bidPrice);
+        if (object.bidQuantity != null)
+            message.bidQuantity = String(object.bidQuantity);
+        if (object.askPrice != null)
+            message.askPrice = String(object.askPrice);
+        if (object.askQuantity != null)
+            message.askQuantity = String(object.askQuantity);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicAggreBookTickerV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {PublicAggreBookTickerV3Api} message PublicAggreBookTickerV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicAggreBookTickerV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.bidPrice = "";
+            object.bidQuantity = "";
+            object.askPrice = "";
+            object.askQuantity = "";
+        }
+        if (message.bidPrice != null && message.hasOwnProperty("bidPrice"))
+            object.bidPrice = message.bidPrice;
+        if (message.bidQuantity != null && message.hasOwnProperty("bidQuantity"))
+            object.bidQuantity = message.bidQuantity;
+        if (message.askPrice != null && message.hasOwnProperty("askPrice"))
+            object.askPrice = message.askPrice;
+        if (message.askQuantity != null && message.hasOwnProperty("askQuantity"))
+            object.askQuantity = message.askQuantity;
+        return object;
+    };
+
+    /**
+     * Converts this PublicAggreBookTickerV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicAggreBookTickerV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicAggreBookTickerV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicAggreBookTickerV3Api
+     * @function getTypeUrl
+     * @memberof PublicAggreBookTickerV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicAggreBookTickerV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicAggreBookTickerV3Api";
+    };
+
+    return PublicAggreBookTickerV3Api;
+})();
+
+$root.PublicAggreDealsV3Api = (function() {
+
+    /**
+     * Properties of a PublicAggreDealsV3Api.
+     * @exports IPublicAggreDealsV3Api
+     * @interface IPublicAggreDealsV3Api
+     * @property {Array.<IPublicAggreDealsV3ApiItem>|null} [deals] PublicAggreDealsV3Api deals
+     * @property {string|null} [eventType] PublicAggreDealsV3Api eventType
+     */
+
+    /**
+     * Constructs a new PublicAggreDealsV3Api.
+     * @exports PublicAggreDealsV3Api
+     * @classdesc Represents a PublicAggreDealsV3Api.
+     * @implements IPublicAggreDealsV3Api
+     * @constructor
+     * @param {IPublicAggreDealsV3Api=} [properties] Properties to set
+     */
+    function PublicAggreDealsV3Api(properties) {
+        this.deals = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicAggreDealsV3Api deals.
+     * @member {Array.<IPublicAggreDealsV3ApiItem>} deals
+     * @memberof PublicAggreDealsV3Api
+     * @instance
+     */
+    PublicAggreDealsV3Api.prototype.deals = $util.emptyArray;
+
+    /**
+     * PublicAggreDealsV3Api eventType.
+     * @member {string} eventType
+     * @memberof PublicAggreDealsV3Api
+     * @instance
+     */
+    PublicAggreDealsV3Api.prototype.eventType = "";
+
+    /**
+     * Creates a new PublicAggreDealsV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {IPublicAggreDealsV3Api=} [properties] Properties to set
+     * @returns {PublicAggreDealsV3Api} PublicAggreDealsV3Api instance
+     */
+    PublicAggreDealsV3Api.create = function create(properties) {
+        return new PublicAggreDealsV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicAggreDealsV3Api message. Does not implicitly {@link PublicAggreDealsV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {IPublicAggreDealsV3Api} message PublicAggreDealsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDealsV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.deals != null && message.deals.length)
+            for (var i = 0; i < message.deals.length; ++i)
+                $root.PublicAggreDealsV3ApiItem.encode(message.deals[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        if (message.eventType != null && Object.hasOwnProperty.call(message, "eventType"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.eventType);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicAggreDealsV3Api message, length delimited. Does not implicitly {@link PublicAggreDealsV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {IPublicAggreDealsV3Api} message PublicAggreDealsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDealsV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicAggreDealsV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicAggreDealsV3Api} PublicAggreDealsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDealsV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicAggreDealsV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.deals && message.deals.length))
+                        message.deals = [];
+                    message.deals.push($root.PublicAggreDealsV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.eventType = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicAggreDealsV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicAggreDealsV3Api} PublicAggreDealsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDealsV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicAggreDealsV3Api message.
+     * @function verify
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicAggreDealsV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.deals != null && message.hasOwnProperty("deals")) {
+            if (!Array.isArray(message.deals))
+                return "deals: array expected";
+            for (var i = 0; i < message.deals.length; ++i) {
+                var error = $root.PublicAggreDealsV3ApiItem.verify(message.deals[i]);
+                if (error)
+                    return "deals." + error;
+            }
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            if (!$util.isString(message.eventType))
+                return "eventType: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicAggreDealsV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicAggreDealsV3Api} PublicAggreDealsV3Api
+     */
+    PublicAggreDealsV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicAggreDealsV3Api)
+            return object;
+        var message = new $root.PublicAggreDealsV3Api();
+        if (object.deals) {
+            if (!Array.isArray(object.deals))
+                throw TypeError(".PublicAggreDealsV3Api.deals: array expected");
+            message.deals = [];
+            for (var i = 0; i < object.deals.length; ++i) {
+                if (typeof object.deals[i] !== "object")
+                    throw TypeError(".PublicAggreDealsV3Api.deals: object expected");
+                message.deals[i] = $root.PublicAggreDealsV3ApiItem.fromObject(object.deals[i]);
+            }
+        }
+        if (object.eventType != null)
+            message.eventType = String(object.eventType);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicAggreDealsV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {PublicAggreDealsV3Api} message PublicAggreDealsV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicAggreDealsV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults)
+            object.deals = [];
+        if (options.defaults)
+            object.eventType = "";
+        if (message.deals && message.deals.length) {
+            object.deals = [];
+            for (var j = 0; j < message.deals.length; ++j)
+                object.deals[j] = $root.PublicAggreDealsV3ApiItem.toObject(message.deals[j], options);
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            object.eventType = message.eventType;
+        return object;
+    };
+
+    /**
+     * Converts this PublicAggreDealsV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicAggreDealsV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicAggreDealsV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicAggreDealsV3Api
+     * @function getTypeUrl
+     * @memberof PublicAggreDealsV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicAggreDealsV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicAggreDealsV3Api";
+    };
+
+    return PublicAggreDealsV3Api;
+})();
+
+$root.PublicAggreDealsV3ApiItem = (function() {
+
+    /**
+     * Properties of a PublicAggreDealsV3ApiItem.
+     * @exports IPublicAggreDealsV3ApiItem
+     * @interface IPublicAggreDealsV3ApiItem
+     * @property {string|null} [price] PublicAggreDealsV3ApiItem price
+     * @property {string|null} [quantity] PublicAggreDealsV3ApiItem quantity
+     * @property {number|null} [tradeType] PublicAggreDealsV3ApiItem tradeType
+     * @property {number|Long|null} [time] PublicAggreDealsV3ApiItem time
+     */
+
+    /**
+     * Constructs a new PublicAggreDealsV3ApiItem.
+     * @exports PublicAggreDealsV3ApiItem
+     * @classdesc Represents a PublicAggreDealsV3ApiItem.
+     * @implements IPublicAggreDealsV3ApiItem
+     * @constructor
+     * @param {IPublicAggreDealsV3ApiItem=} [properties] Properties to set
+     */
+    function PublicAggreDealsV3ApiItem(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicAggreDealsV3ApiItem price.
+     * @member {string} price
+     * @memberof PublicAggreDealsV3ApiItem
+     * @instance
+     */
+    PublicAggreDealsV3ApiItem.prototype.price = "";
+
+    /**
+     * PublicAggreDealsV3ApiItem quantity.
+     * @member {string} quantity
+     * @memberof PublicAggreDealsV3ApiItem
+     * @instance
+     */
+    PublicAggreDealsV3ApiItem.prototype.quantity = "";
+
+    /**
+     * PublicAggreDealsV3ApiItem tradeType.
+     * @member {number} tradeType
+     * @memberof PublicAggreDealsV3ApiItem
+     * @instance
+     */
+    PublicAggreDealsV3ApiItem.prototype.tradeType = 0;
+
+    /**
+     * PublicAggreDealsV3ApiItem time.
+     * @member {number|Long} time
+     * @memberof PublicAggreDealsV3ApiItem
+     * @instance
+     */
+    PublicAggreDealsV3ApiItem.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+    /**
+     * Creates a new PublicAggreDealsV3ApiItem instance using the specified properties.
+     * @function create
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {IPublicAggreDealsV3ApiItem=} [properties] Properties to set
+     * @returns {PublicAggreDealsV3ApiItem} PublicAggreDealsV3ApiItem instance
+     */
+    PublicAggreDealsV3ApiItem.create = function create(properties) {
+        return new PublicAggreDealsV3ApiItem(properties);
+    };
+
+    /**
+     * Encodes the specified PublicAggreDealsV3ApiItem message. Does not implicitly {@link PublicAggreDealsV3ApiItem.verify|verify} messages.
+     * @function encode
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {IPublicAggreDealsV3ApiItem} message PublicAggreDealsV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDealsV3ApiItem.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.price);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.quantity);
+        if (message.tradeType != null && Object.hasOwnProperty.call(message, "tradeType"))
+            writer.uint32(/* id 3, wireType 0 =*/24).int32(message.tradeType);
+        if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+            writer.uint32(/* id 4, wireType 0 =*/32).int64(message.time);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicAggreDealsV3ApiItem message, length delimited. Does not implicitly {@link PublicAggreDealsV3ApiItem.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {IPublicAggreDealsV3ApiItem} message PublicAggreDealsV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDealsV3ApiItem.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicAggreDealsV3ApiItem message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicAggreDealsV3ApiItem} PublicAggreDealsV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDealsV3ApiItem.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicAggreDealsV3ApiItem();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.tradeType = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.time = reader.int64();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicAggreDealsV3ApiItem message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicAggreDealsV3ApiItem} PublicAggreDealsV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDealsV3ApiItem.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicAggreDealsV3ApiItem message.
+     * @function verify
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicAggreDealsV3ApiItem.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            if (!$util.isInteger(message.tradeType))
+                return "tradeType: integer expected";
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                return "time: integer|Long expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicAggreDealsV3ApiItem message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicAggreDealsV3ApiItem} PublicAggreDealsV3ApiItem
+     */
+    PublicAggreDealsV3ApiItem.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicAggreDealsV3ApiItem)
+            return object;
+        var message = new $root.PublicAggreDealsV3ApiItem();
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        if (object.tradeType != null)
+            message.tradeType = object.tradeType | 0;
+        if (object.time != null)
+            if ($util.Long)
+                (message.time = $util.Long.fromValue(object.time)).unsigned = false;
+            else if (typeof object.time === "string")
+                message.time = parseInt(object.time, 10);
+            else if (typeof object.time === "number")
+                message.time = object.time;
+            else if (typeof object.time === "object")
+                message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber();
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicAggreDealsV3ApiItem message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {PublicAggreDealsV3ApiItem} message PublicAggreDealsV3ApiItem
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicAggreDealsV3ApiItem.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.price = "";
+            object.quantity = "";
+            object.tradeType = 0;
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, false);
+                object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.time = options.longs === String ? "0" : 0;
+        }
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            object.tradeType = message.tradeType;
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (typeof message.time === "number")
+                object.time = options.longs === String ? String(message.time) : message.time;
+            else
+                object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber() : message.time;
+        return object;
+    };
+
+    /**
+     * Converts this PublicAggreDealsV3ApiItem to JSON.
+     * @function toJSON
+     * @memberof PublicAggreDealsV3ApiItem
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicAggreDealsV3ApiItem.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicAggreDealsV3ApiItem
+     * @function getTypeUrl
+     * @memberof PublicAggreDealsV3ApiItem
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicAggreDealsV3ApiItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicAggreDealsV3ApiItem";
+    };
+
+    return PublicAggreDealsV3ApiItem;
+})();
+
+$root.PublicAggreDepthsV3Api = (function() {
+
+    /**
+     * Properties of a PublicAggreDepthsV3Api.
+     * @exports IPublicAggreDepthsV3Api
+     * @interface IPublicAggreDepthsV3Api
+     * @property {Array.<IPublicAggreDepthV3ApiItem>|null} [asks] PublicAggreDepthsV3Api asks
+     * @property {Array.<IPublicAggreDepthV3ApiItem>|null} [bids] PublicAggreDepthsV3Api bids
+     * @property {string|null} [eventType] PublicAggreDepthsV3Api eventType
+     * @property {string|null} [fromVersion] PublicAggreDepthsV3Api fromVersion
+     * @property {string|null} [toVersion] PublicAggreDepthsV3Api toVersion
+     */
+
+    /**
+     * Constructs a new PublicAggreDepthsV3Api.
+     * @exports PublicAggreDepthsV3Api
+     * @classdesc Represents a PublicAggreDepthsV3Api.
+     * @implements IPublicAggreDepthsV3Api
+     * @constructor
+     * @param {IPublicAggreDepthsV3Api=} [properties] Properties to set
+     */
+    function PublicAggreDepthsV3Api(properties) {
+        this.asks = [];
+        this.bids = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicAggreDepthsV3Api asks.
+     * @member {Array.<IPublicAggreDepthV3ApiItem>} asks
+     * @memberof PublicAggreDepthsV3Api
+     * @instance
+     */
+    PublicAggreDepthsV3Api.prototype.asks = $util.emptyArray;
+
+    /**
+     * PublicAggreDepthsV3Api bids.
+     * @member {Array.<IPublicAggreDepthV3ApiItem>} bids
+     * @memberof PublicAggreDepthsV3Api
+     * @instance
+     */
+    PublicAggreDepthsV3Api.prototype.bids = $util.emptyArray;
+
+    /**
+     * PublicAggreDepthsV3Api eventType.
+     * @member {string} eventType
+     * @memberof PublicAggreDepthsV3Api
+     * @instance
+     */
+    PublicAggreDepthsV3Api.prototype.eventType = "";
+
+    /**
+     * PublicAggreDepthsV3Api fromVersion.
+     * @member {string} fromVersion
+     * @memberof PublicAggreDepthsV3Api
+     * @instance
+     */
+    PublicAggreDepthsV3Api.prototype.fromVersion = "";
+
+    /**
+     * PublicAggreDepthsV3Api toVersion.
+     * @member {string} toVersion
+     * @memberof PublicAggreDepthsV3Api
+     * @instance
+     */
+    PublicAggreDepthsV3Api.prototype.toVersion = "";
+
+    /**
+     * Creates a new PublicAggreDepthsV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {IPublicAggreDepthsV3Api=} [properties] Properties to set
+     * @returns {PublicAggreDepthsV3Api} PublicAggreDepthsV3Api instance
+     */
+    PublicAggreDepthsV3Api.create = function create(properties) {
+        return new PublicAggreDepthsV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicAggreDepthsV3Api message. Does not implicitly {@link PublicAggreDepthsV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {IPublicAggreDepthsV3Api} message PublicAggreDepthsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDepthsV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.asks != null && message.asks.length)
+            for (var i = 0; i < message.asks.length; ++i)
+                $root.PublicAggreDepthV3ApiItem.encode(message.asks[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        if (message.bids != null && message.bids.length)
+            for (var i = 0; i < message.bids.length; ++i)
+                $root.PublicAggreDepthV3ApiItem.encode(message.bids[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+        if (message.eventType != null && Object.hasOwnProperty.call(message, "eventType"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.eventType);
+        if (message.fromVersion != null && Object.hasOwnProperty.call(message, "fromVersion"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.fromVersion);
+        if (message.toVersion != null && Object.hasOwnProperty.call(message, "toVersion"))
+            writer.uint32(/* id 5, wireType 2 =*/42).string(message.toVersion);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicAggreDepthsV3Api message, length delimited. Does not implicitly {@link PublicAggreDepthsV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {IPublicAggreDepthsV3Api} message PublicAggreDepthsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDepthsV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicAggreDepthsV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicAggreDepthsV3Api} PublicAggreDepthsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDepthsV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicAggreDepthsV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.asks && message.asks.length))
+                        message.asks = [];
+                    message.asks.push($root.PublicAggreDepthV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    if (!(message.bids && message.bids.length))
+                        message.bids = [];
+                    message.bids.push($root.PublicAggreDepthV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 3: {
+                    message.eventType = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.fromVersion = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.toVersion = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicAggreDepthsV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicAggreDepthsV3Api} PublicAggreDepthsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDepthsV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicAggreDepthsV3Api message.
+     * @function verify
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicAggreDepthsV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.asks != null && message.hasOwnProperty("asks")) {
+            if (!Array.isArray(message.asks))
+                return "asks: array expected";
+            for (var i = 0; i < message.asks.length; ++i) {
+                var error = $root.PublicAggreDepthV3ApiItem.verify(message.asks[i]);
+                if (error)
+                    return "asks." + error;
+            }
+        }
+        if (message.bids != null && message.hasOwnProperty("bids")) {
+            if (!Array.isArray(message.bids))
+                return "bids: array expected";
+            for (var i = 0; i < message.bids.length; ++i) {
+                var error = $root.PublicAggreDepthV3ApiItem.verify(message.bids[i]);
+                if (error)
+                    return "bids." + error;
+            }
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            if (!$util.isString(message.eventType))
+                return "eventType: string expected";
+        if (message.fromVersion != null && message.hasOwnProperty("fromVersion"))
+            if (!$util.isString(message.fromVersion))
+                return "fromVersion: string expected";
+        if (message.toVersion != null && message.hasOwnProperty("toVersion"))
+            if (!$util.isString(message.toVersion))
+                return "toVersion: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicAggreDepthsV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicAggreDepthsV3Api} PublicAggreDepthsV3Api
+     */
+    PublicAggreDepthsV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicAggreDepthsV3Api)
+            return object;
+        var message = new $root.PublicAggreDepthsV3Api();
+        if (object.asks) {
+            if (!Array.isArray(object.asks))
+                throw TypeError(".PublicAggreDepthsV3Api.asks: array expected");
+            message.asks = [];
+            for (var i = 0; i < object.asks.length; ++i) {
+                if (typeof object.asks[i] !== "object")
+                    throw TypeError(".PublicAggreDepthsV3Api.asks: object expected");
+                message.asks[i] = $root.PublicAggreDepthV3ApiItem.fromObject(object.asks[i]);
+            }
+        }
+        if (object.bids) {
+            if (!Array.isArray(object.bids))
+                throw TypeError(".PublicAggreDepthsV3Api.bids: array expected");
+            message.bids = [];
+            for (var i = 0; i < object.bids.length; ++i) {
+                if (typeof object.bids[i] !== "object")
+                    throw TypeError(".PublicAggreDepthsV3Api.bids: object expected");
+                message.bids[i] = $root.PublicAggreDepthV3ApiItem.fromObject(object.bids[i]);
+            }
+        }
+        if (object.eventType != null)
+            message.eventType = String(object.eventType);
+        if (object.fromVersion != null)
+            message.fromVersion = String(object.fromVersion);
+        if (object.toVersion != null)
+            message.toVersion = String(object.toVersion);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicAggreDepthsV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {PublicAggreDepthsV3Api} message PublicAggreDepthsV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicAggreDepthsV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults) {
+            object.asks = [];
+            object.bids = [];
+        }
+        if (options.defaults) {
+            object.eventType = "";
+            object.fromVersion = "";
+            object.toVersion = "";
+        }
+        if (message.asks && message.asks.length) {
+            object.asks = [];
+            for (var j = 0; j < message.asks.length; ++j)
+                object.asks[j] = $root.PublicAggreDepthV3ApiItem.toObject(message.asks[j], options);
+        }
+        if (message.bids && message.bids.length) {
+            object.bids = [];
+            for (var j = 0; j < message.bids.length; ++j)
+                object.bids[j] = $root.PublicAggreDepthV3ApiItem.toObject(message.bids[j], options);
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            object.eventType = message.eventType;
+        if (message.fromVersion != null && message.hasOwnProperty("fromVersion"))
+            object.fromVersion = message.fromVersion;
+        if (message.toVersion != null && message.hasOwnProperty("toVersion"))
+            object.toVersion = message.toVersion;
+        return object;
+    };
+
+    /**
+     * Converts this PublicAggreDepthsV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicAggreDepthsV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicAggreDepthsV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicAggreDepthsV3Api
+     * @function getTypeUrl
+     * @memberof PublicAggreDepthsV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicAggreDepthsV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicAggreDepthsV3Api";
+    };
+
+    return PublicAggreDepthsV3Api;
+})();
+
+$root.PublicAggreDepthV3ApiItem = (function() {
+
+    /**
+     * Properties of a PublicAggreDepthV3ApiItem.
+     * @exports IPublicAggreDepthV3ApiItem
+     * @interface IPublicAggreDepthV3ApiItem
+     * @property {string|null} [price] PublicAggreDepthV3ApiItem price
+     * @property {string|null} [quantity] PublicAggreDepthV3ApiItem quantity
+     */
+
+    /**
+     * Constructs a new PublicAggreDepthV3ApiItem.
+     * @exports PublicAggreDepthV3ApiItem
+     * @classdesc Represents a PublicAggreDepthV3ApiItem.
+     * @implements IPublicAggreDepthV3ApiItem
+     * @constructor
+     * @param {IPublicAggreDepthV3ApiItem=} [properties] Properties to set
+     */
+    function PublicAggreDepthV3ApiItem(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicAggreDepthV3ApiItem price.
+     * @member {string} price
+     * @memberof PublicAggreDepthV3ApiItem
+     * @instance
+     */
+    PublicAggreDepthV3ApiItem.prototype.price = "";
+
+    /**
+     * PublicAggreDepthV3ApiItem quantity.
+     * @member {string} quantity
+     * @memberof PublicAggreDepthV3ApiItem
+     * @instance
+     */
+    PublicAggreDepthV3ApiItem.prototype.quantity = "";
+
+    /**
+     * Creates a new PublicAggreDepthV3ApiItem instance using the specified properties.
+     * @function create
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {IPublicAggreDepthV3ApiItem=} [properties] Properties to set
+     * @returns {PublicAggreDepthV3ApiItem} PublicAggreDepthV3ApiItem instance
+     */
+    PublicAggreDepthV3ApiItem.create = function create(properties) {
+        return new PublicAggreDepthV3ApiItem(properties);
+    };
+
+    /**
+     * Encodes the specified PublicAggreDepthV3ApiItem message. Does not implicitly {@link PublicAggreDepthV3ApiItem.verify|verify} messages.
+     * @function encode
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {IPublicAggreDepthV3ApiItem} message PublicAggreDepthV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDepthV3ApiItem.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.price);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.quantity);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicAggreDepthV3ApiItem message, length delimited. Does not implicitly {@link PublicAggreDepthV3ApiItem.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {IPublicAggreDepthV3ApiItem} message PublicAggreDepthV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicAggreDepthV3ApiItem.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicAggreDepthV3ApiItem message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicAggreDepthV3ApiItem} PublicAggreDepthV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDepthV3ApiItem.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicAggreDepthV3ApiItem();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicAggreDepthV3ApiItem message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicAggreDepthV3ApiItem} PublicAggreDepthV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicAggreDepthV3ApiItem.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicAggreDepthV3ApiItem message.
+     * @function verify
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicAggreDepthV3ApiItem.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicAggreDepthV3ApiItem message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicAggreDepthV3ApiItem} PublicAggreDepthV3ApiItem
+     */
+    PublicAggreDepthV3ApiItem.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicAggreDepthV3ApiItem)
+            return object;
+        var message = new $root.PublicAggreDepthV3ApiItem();
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicAggreDepthV3ApiItem message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {PublicAggreDepthV3ApiItem} message PublicAggreDepthV3ApiItem
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicAggreDepthV3ApiItem.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.price = "";
+            object.quantity = "";
+        }
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        return object;
+    };
+
+    /**
+     * Converts this PublicAggreDepthV3ApiItem to JSON.
+     * @function toJSON
+     * @memberof PublicAggreDepthV3ApiItem
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicAggreDepthV3ApiItem.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicAggreDepthV3ApiItem
+     * @function getTypeUrl
+     * @memberof PublicAggreDepthV3ApiItem
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicAggreDepthV3ApiItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicAggreDepthV3ApiItem";
+    };
+
+    return PublicAggreDepthV3ApiItem;
+})();
+
+$root.PublicBookTickerBatchV3Api = (function() {
+
+    /**
+     * Properties of a PublicBookTickerBatchV3Api.
+     * @exports IPublicBookTickerBatchV3Api
+     * @interface IPublicBookTickerBatchV3Api
+     * @property {Array.<IPublicBookTickerV3Api>|null} [items] PublicBookTickerBatchV3Api items
+     */
+
+    /**
+     * Constructs a new PublicBookTickerBatchV3Api.
+     * @exports PublicBookTickerBatchV3Api
+     * @classdesc Represents a PublicBookTickerBatchV3Api.
+     * @implements IPublicBookTickerBatchV3Api
+     * @constructor
+     * @param {IPublicBookTickerBatchV3Api=} [properties] Properties to set
+     */
+    function PublicBookTickerBatchV3Api(properties) {
+        this.items = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicBookTickerBatchV3Api items.
+     * @member {Array.<IPublicBookTickerV3Api>} items
+     * @memberof PublicBookTickerBatchV3Api
+     * @instance
+     */
+    PublicBookTickerBatchV3Api.prototype.items = $util.emptyArray;
+
+    /**
+     * Creates a new PublicBookTickerBatchV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {IPublicBookTickerBatchV3Api=} [properties] Properties to set
+     * @returns {PublicBookTickerBatchV3Api} PublicBookTickerBatchV3Api instance
+     */
+    PublicBookTickerBatchV3Api.create = function create(properties) {
+        return new PublicBookTickerBatchV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicBookTickerBatchV3Api message. Does not implicitly {@link PublicBookTickerBatchV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {IPublicBookTickerBatchV3Api} message PublicBookTickerBatchV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicBookTickerBatchV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.items != null && message.items.length)
+            for (var i = 0; i < message.items.length; ++i)
+                $root.PublicBookTickerV3Api.encode(message.items[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicBookTickerBatchV3Api message, length delimited. Does not implicitly {@link PublicBookTickerBatchV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {IPublicBookTickerBatchV3Api} message PublicBookTickerBatchV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicBookTickerBatchV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicBookTickerBatchV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicBookTickerBatchV3Api} PublicBookTickerBatchV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicBookTickerBatchV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicBookTickerBatchV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.items && message.items.length))
+                        message.items = [];
+                    message.items.push($root.PublicBookTickerV3Api.decode(reader, reader.uint32()));
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicBookTickerBatchV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicBookTickerBatchV3Api} PublicBookTickerBatchV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicBookTickerBatchV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicBookTickerBatchV3Api message.
+     * @function verify
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicBookTickerBatchV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.items != null && message.hasOwnProperty("items")) {
+            if (!Array.isArray(message.items))
+                return "items: array expected";
+            for (var i = 0; i < message.items.length; ++i) {
+                var error = $root.PublicBookTickerV3Api.verify(message.items[i]);
+                if (error)
+                    return "items." + error;
+            }
+        }
+        return null;
+    };
+
+    /**
+     * Creates a PublicBookTickerBatchV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicBookTickerBatchV3Api} PublicBookTickerBatchV3Api
+     */
+    PublicBookTickerBatchV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicBookTickerBatchV3Api)
+            return object;
+        var message = new $root.PublicBookTickerBatchV3Api();
+        if (object.items) {
+            if (!Array.isArray(object.items))
+                throw TypeError(".PublicBookTickerBatchV3Api.items: array expected");
+            message.items = [];
+            for (var i = 0; i < object.items.length; ++i) {
+                if (typeof object.items[i] !== "object")
+                    throw TypeError(".PublicBookTickerBatchV3Api.items: object expected");
+                message.items[i] = $root.PublicBookTickerV3Api.fromObject(object.items[i]);
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicBookTickerBatchV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {PublicBookTickerBatchV3Api} message PublicBookTickerBatchV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicBookTickerBatchV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults)
+            object.items = [];
+        if (message.items && message.items.length) {
+            object.items = [];
+            for (var j = 0; j < message.items.length; ++j)
+                object.items[j] = $root.PublicBookTickerV3Api.toObject(message.items[j], options);
+        }
+        return object;
+    };
+
+    /**
+     * Converts this PublicBookTickerBatchV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicBookTickerBatchV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicBookTickerBatchV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicBookTickerBatchV3Api
+     * @function getTypeUrl
+     * @memberof PublicBookTickerBatchV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicBookTickerBatchV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicBookTickerBatchV3Api";
+    };
+
+    return PublicBookTickerBatchV3Api;
+})();
+
+$root.PublicBookTickerV3Api = (function() {
+
+    /**
+     * Properties of a PublicBookTickerV3Api.
+     * @exports IPublicBookTickerV3Api
+     * @interface IPublicBookTickerV3Api
+     * @property {string|null} [bidPrice] PublicBookTickerV3Api bidPrice
+     * @property {string|null} [bidQuantity] PublicBookTickerV3Api bidQuantity
+     * @property {string|null} [askPrice] PublicBookTickerV3Api askPrice
+     * @property {string|null} [askQuantity] PublicBookTickerV3Api askQuantity
+     */
+
+    /**
+     * Constructs a new PublicBookTickerV3Api.
+     * @exports PublicBookTickerV3Api
+     * @classdesc Represents a PublicBookTickerV3Api.
+     * @implements IPublicBookTickerV3Api
+     * @constructor
+     * @param {IPublicBookTickerV3Api=} [properties] Properties to set
+     */
+    function PublicBookTickerV3Api(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicBookTickerV3Api bidPrice.
+     * @member {string} bidPrice
+     * @memberof PublicBookTickerV3Api
+     * @instance
+     */
+    PublicBookTickerV3Api.prototype.bidPrice = "";
+
+    /**
+     * PublicBookTickerV3Api bidQuantity.
+     * @member {string} bidQuantity
+     * @memberof PublicBookTickerV3Api
+     * @instance
+     */
+    PublicBookTickerV3Api.prototype.bidQuantity = "";
+
+    /**
+     * PublicBookTickerV3Api askPrice.
+     * @member {string} askPrice
+     * @memberof PublicBookTickerV3Api
+     * @instance
+     */
+    PublicBookTickerV3Api.prototype.askPrice = "";
+
+    /**
+     * PublicBookTickerV3Api askQuantity.
+     * @member {string} askQuantity
+     * @memberof PublicBookTickerV3Api
+     * @instance
+     */
+    PublicBookTickerV3Api.prototype.askQuantity = "";
+
+    /**
+     * Creates a new PublicBookTickerV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {IPublicBookTickerV3Api=} [properties] Properties to set
+     * @returns {PublicBookTickerV3Api} PublicBookTickerV3Api instance
+     */
+    PublicBookTickerV3Api.create = function create(properties) {
+        return new PublicBookTickerV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicBookTickerV3Api message. Does not implicitly {@link PublicBookTickerV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {IPublicBookTickerV3Api} message PublicBookTickerV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicBookTickerV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.bidPrice != null && Object.hasOwnProperty.call(message, "bidPrice"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.bidPrice);
+        if (message.bidQuantity != null && Object.hasOwnProperty.call(message, "bidQuantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.bidQuantity);
+        if (message.askPrice != null && Object.hasOwnProperty.call(message, "askPrice"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.askPrice);
+        if (message.askQuantity != null && Object.hasOwnProperty.call(message, "askQuantity"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.askQuantity);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicBookTickerV3Api message, length delimited. Does not implicitly {@link PublicBookTickerV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {IPublicBookTickerV3Api} message PublicBookTickerV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicBookTickerV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicBookTickerV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicBookTickerV3Api} PublicBookTickerV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicBookTickerV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicBookTickerV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.bidPrice = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.bidQuantity = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.askPrice = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.askQuantity = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicBookTickerV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicBookTickerV3Api} PublicBookTickerV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicBookTickerV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicBookTickerV3Api message.
+     * @function verify
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicBookTickerV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.bidPrice != null && message.hasOwnProperty("bidPrice"))
+            if (!$util.isString(message.bidPrice))
+                return "bidPrice: string expected";
+        if (message.bidQuantity != null && message.hasOwnProperty("bidQuantity"))
+            if (!$util.isString(message.bidQuantity))
+                return "bidQuantity: string expected";
+        if (message.askPrice != null && message.hasOwnProperty("askPrice"))
+            if (!$util.isString(message.askPrice))
+                return "askPrice: string expected";
+        if (message.askQuantity != null && message.hasOwnProperty("askQuantity"))
+            if (!$util.isString(message.askQuantity))
+                return "askQuantity: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicBookTickerV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicBookTickerV3Api} PublicBookTickerV3Api
+     */
+    PublicBookTickerV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicBookTickerV3Api)
+            return object;
+        var message = new $root.PublicBookTickerV3Api();
+        if (object.bidPrice != null)
+            message.bidPrice = String(object.bidPrice);
+        if (object.bidQuantity != null)
+            message.bidQuantity = String(object.bidQuantity);
+        if (object.askPrice != null)
+            message.askPrice = String(object.askPrice);
+        if (object.askQuantity != null)
+            message.askQuantity = String(object.askQuantity);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicBookTickerV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {PublicBookTickerV3Api} message PublicBookTickerV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicBookTickerV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.bidPrice = "";
+            object.bidQuantity = "";
+            object.askPrice = "";
+            object.askQuantity = "";
+        }
+        if (message.bidPrice != null && message.hasOwnProperty("bidPrice"))
+            object.bidPrice = message.bidPrice;
+        if (message.bidQuantity != null && message.hasOwnProperty("bidQuantity"))
+            object.bidQuantity = message.bidQuantity;
+        if (message.askPrice != null && message.hasOwnProperty("askPrice"))
+            object.askPrice = message.askPrice;
+        if (message.askQuantity != null && message.hasOwnProperty("askQuantity"))
+            object.askQuantity = message.askQuantity;
+        return object;
+    };
+
+    /**
+     * Converts this PublicBookTickerV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicBookTickerV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicBookTickerV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicBookTickerV3Api
+     * @function getTypeUrl
+     * @memberof PublicBookTickerV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicBookTickerV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicBookTickerV3Api";
+    };
+
+    return PublicBookTickerV3Api;
+})();
+
+$root.PublicDealsV3Api = (function() {
+
+    /**
+     * Properties of a PublicDealsV3Api.
+     * @exports IPublicDealsV3Api
+     * @interface IPublicDealsV3Api
+     * @property {Array.<IPublicDealsV3ApiItem>|null} [deals] PublicDealsV3Api deals
+     * @property {string|null} [eventType] PublicDealsV3Api eventType
+     */
+
+    /**
+     * Constructs a new PublicDealsV3Api.
+     * @exports PublicDealsV3Api
+     * @classdesc Represents a PublicDealsV3Api.
+     * @implements IPublicDealsV3Api
+     * @constructor
+     * @param {IPublicDealsV3Api=} [properties] Properties to set
+     */
+    function PublicDealsV3Api(properties) {
+        this.deals = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicDealsV3Api deals.
+     * @member {Array.<IPublicDealsV3ApiItem>} deals
+     * @memberof PublicDealsV3Api
+     * @instance
+     */
+    PublicDealsV3Api.prototype.deals = $util.emptyArray;
+
+    /**
+     * PublicDealsV3Api eventType.
+     * @member {string} eventType
+     * @memberof PublicDealsV3Api
+     * @instance
+     */
+    PublicDealsV3Api.prototype.eventType = "";
+
+    /**
+     * Creates a new PublicDealsV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {IPublicDealsV3Api=} [properties] Properties to set
+     * @returns {PublicDealsV3Api} PublicDealsV3Api instance
+     */
+    PublicDealsV3Api.create = function create(properties) {
+        return new PublicDealsV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicDealsV3Api message. Does not implicitly {@link PublicDealsV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {IPublicDealsV3Api} message PublicDealsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicDealsV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.deals != null && message.deals.length)
+            for (var i = 0; i < message.deals.length; ++i)
+                $root.PublicDealsV3ApiItem.encode(message.deals[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        if (message.eventType != null && Object.hasOwnProperty.call(message, "eventType"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.eventType);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicDealsV3Api message, length delimited. Does not implicitly {@link PublicDealsV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {IPublicDealsV3Api} message PublicDealsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicDealsV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicDealsV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicDealsV3Api} PublicDealsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicDealsV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicDealsV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.deals && message.deals.length))
+                        message.deals = [];
+                    message.deals.push($root.PublicDealsV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.eventType = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicDealsV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicDealsV3Api} PublicDealsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicDealsV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicDealsV3Api message.
+     * @function verify
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicDealsV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.deals != null && message.hasOwnProperty("deals")) {
+            if (!Array.isArray(message.deals))
+                return "deals: array expected";
+            for (var i = 0; i < message.deals.length; ++i) {
+                var error = $root.PublicDealsV3ApiItem.verify(message.deals[i]);
+                if (error)
+                    return "deals." + error;
+            }
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            if (!$util.isString(message.eventType))
+                return "eventType: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicDealsV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicDealsV3Api} PublicDealsV3Api
+     */
+    PublicDealsV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicDealsV3Api)
+            return object;
+        var message = new $root.PublicDealsV3Api();
+        if (object.deals) {
+            if (!Array.isArray(object.deals))
+                throw TypeError(".PublicDealsV3Api.deals: array expected");
+            message.deals = [];
+            for (var i = 0; i < object.deals.length; ++i) {
+                if (typeof object.deals[i] !== "object")
+                    throw TypeError(".PublicDealsV3Api.deals: object expected");
+                message.deals[i] = $root.PublicDealsV3ApiItem.fromObject(object.deals[i]);
+            }
+        }
+        if (object.eventType != null)
+            message.eventType = String(object.eventType);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicDealsV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {PublicDealsV3Api} message PublicDealsV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicDealsV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults)
+            object.deals = [];
+        if (options.defaults)
+            object.eventType = "";
+        if (message.deals && message.deals.length) {
+            object.deals = [];
+            for (var j = 0; j < message.deals.length; ++j)
+                object.deals[j] = $root.PublicDealsV3ApiItem.toObject(message.deals[j], options);
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            object.eventType = message.eventType;
+        return object;
+    };
+
+    /**
+     * Converts this PublicDealsV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicDealsV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicDealsV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicDealsV3Api
+     * @function getTypeUrl
+     * @memberof PublicDealsV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicDealsV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicDealsV3Api";
+    };
+
+    return PublicDealsV3Api;
+})();
+
+$root.PublicDealsV3ApiItem = (function() {
+
+    /**
+     * Properties of a PublicDealsV3ApiItem.
+     * @exports IPublicDealsV3ApiItem
+     * @interface IPublicDealsV3ApiItem
+     * @property {string|null} [price] PublicDealsV3ApiItem price
+     * @property {string|null} [quantity] PublicDealsV3ApiItem quantity
+     * @property {number|null} [tradeType] PublicDealsV3ApiItem tradeType
+     * @property {number|Long|null} [time] PublicDealsV3ApiItem time
+     */
+
+    /**
+     * Constructs a new PublicDealsV3ApiItem.
+     * @exports PublicDealsV3ApiItem
+     * @classdesc Represents a PublicDealsV3ApiItem.
+     * @implements IPublicDealsV3ApiItem
+     * @constructor
+     * @param {IPublicDealsV3ApiItem=} [properties] Properties to set
+     */
+    function PublicDealsV3ApiItem(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicDealsV3ApiItem price.
+     * @member {string} price
+     * @memberof PublicDealsV3ApiItem
+     * @instance
+     */
+    PublicDealsV3ApiItem.prototype.price = "";
+
+    /**
+     * PublicDealsV3ApiItem quantity.
+     * @member {string} quantity
+     * @memberof PublicDealsV3ApiItem
+     * @instance
+     */
+    PublicDealsV3ApiItem.prototype.quantity = "";
+
+    /**
+     * PublicDealsV3ApiItem tradeType.
+     * @member {number} tradeType
+     * @memberof PublicDealsV3ApiItem
+     * @instance
+     */
+    PublicDealsV3ApiItem.prototype.tradeType = 0;
+
+    /**
+     * PublicDealsV3ApiItem time.
+     * @member {number|Long} time
+     * @memberof PublicDealsV3ApiItem
+     * @instance
+     */
+    PublicDealsV3ApiItem.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+    /**
+     * Creates a new PublicDealsV3ApiItem instance using the specified properties.
+     * @function create
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {IPublicDealsV3ApiItem=} [properties] Properties to set
+     * @returns {PublicDealsV3ApiItem} PublicDealsV3ApiItem instance
+     */
+    PublicDealsV3ApiItem.create = function create(properties) {
+        return new PublicDealsV3ApiItem(properties);
+    };
+
+    /**
+     * Encodes the specified PublicDealsV3ApiItem message. Does not implicitly {@link PublicDealsV3ApiItem.verify|verify} messages.
+     * @function encode
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {IPublicDealsV3ApiItem} message PublicDealsV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicDealsV3ApiItem.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.price);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.quantity);
+        if (message.tradeType != null && Object.hasOwnProperty.call(message, "tradeType"))
+            writer.uint32(/* id 3, wireType 0 =*/24).int32(message.tradeType);
+        if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+            writer.uint32(/* id 4, wireType 0 =*/32).int64(message.time);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicDealsV3ApiItem message, length delimited. Does not implicitly {@link PublicDealsV3ApiItem.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {IPublicDealsV3ApiItem} message PublicDealsV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicDealsV3ApiItem.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicDealsV3ApiItem message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicDealsV3ApiItem} PublicDealsV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicDealsV3ApiItem.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicDealsV3ApiItem();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.tradeType = reader.int32();
+                    break;
+                }
+            case 4: {
+                    message.time = reader.int64();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicDealsV3ApiItem message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicDealsV3ApiItem} PublicDealsV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicDealsV3ApiItem.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicDealsV3ApiItem message.
+     * @function verify
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicDealsV3ApiItem.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            if (!$util.isInteger(message.tradeType))
+                return "tradeType: integer expected";
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                return "time: integer|Long expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicDealsV3ApiItem message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicDealsV3ApiItem} PublicDealsV3ApiItem
+     */
+    PublicDealsV3ApiItem.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicDealsV3ApiItem)
+            return object;
+        var message = new $root.PublicDealsV3ApiItem();
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        if (object.tradeType != null)
+            message.tradeType = object.tradeType | 0;
+        if (object.time != null)
+            if ($util.Long)
+                (message.time = $util.Long.fromValue(object.time)).unsigned = false;
+            else if (typeof object.time === "string")
+                message.time = parseInt(object.time, 10);
+            else if (typeof object.time === "number")
+                message.time = object.time;
+            else if (typeof object.time === "object")
+                message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber();
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicDealsV3ApiItem message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {PublicDealsV3ApiItem} message PublicDealsV3ApiItem
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicDealsV3ApiItem.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.price = "";
+            object.quantity = "";
+            object.tradeType = 0;
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, false);
+                object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.time = options.longs === String ? "0" : 0;
+        }
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        if (message.tradeType != null && message.hasOwnProperty("tradeType"))
+            object.tradeType = message.tradeType;
+        if (message.time != null && message.hasOwnProperty("time"))
+            if (typeof message.time === "number")
+                object.time = options.longs === String ? String(message.time) : message.time;
+            else
+                object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber() : message.time;
+        return object;
+    };
+
+    /**
+     * Converts this PublicDealsV3ApiItem to JSON.
+     * @function toJSON
+     * @memberof PublicDealsV3ApiItem
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicDealsV3ApiItem.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicDealsV3ApiItem
+     * @function getTypeUrl
+     * @memberof PublicDealsV3ApiItem
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicDealsV3ApiItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicDealsV3ApiItem";
+    };
+
+    return PublicDealsV3ApiItem;
+})();
+
+$root.PublicIncreaseDepthsBatchV3Api = (function() {
+
+    /**
+     * Properties of a PublicIncreaseDepthsBatchV3Api.
+     * @exports IPublicIncreaseDepthsBatchV3Api
+     * @interface IPublicIncreaseDepthsBatchV3Api
+     * @property {Array.<IPublicIncreaseDepthsV3Api>|null} [items] PublicIncreaseDepthsBatchV3Api items
+     * @property {string|null} [eventType] PublicIncreaseDepthsBatchV3Api eventType
+     */
+
+    /**
+     * Constructs a new PublicIncreaseDepthsBatchV3Api.
+     * @exports PublicIncreaseDepthsBatchV3Api
+     * @classdesc Represents a PublicIncreaseDepthsBatchV3Api.
+     * @implements IPublicIncreaseDepthsBatchV3Api
+     * @constructor
+     * @param {IPublicIncreaseDepthsBatchV3Api=} [properties] Properties to set
+     */
+    function PublicIncreaseDepthsBatchV3Api(properties) {
+        this.items = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicIncreaseDepthsBatchV3Api items.
+     * @member {Array.<IPublicIncreaseDepthsV3Api>} items
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @instance
+     */
+    PublicIncreaseDepthsBatchV3Api.prototype.items = $util.emptyArray;
+
+    /**
+     * PublicIncreaseDepthsBatchV3Api eventType.
+     * @member {string} eventType
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @instance
+     */
+    PublicIncreaseDepthsBatchV3Api.prototype.eventType = "";
+
+    /**
+     * Creates a new PublicIncreaseDepthsBatchV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {IPublicIncreaseDepthsBatchV3Api=} [properties] Properties to set
+     * @returns {PublicIncreaseDepthsBatchV3Api} PublicIncreaseDepthsBatchV3Api instance
+     */
+    PublicIncreaseDepthsBatchV3Api.create = function create(properties) {
+        return new PublicIncreaseDepthsBatchV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicIncreaseDepthsBatchV3Api message. Does not implicitly {@link PublicIncreaseDepthsBatchV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {IPublicIncreaseDepthsBatchV3Api} message PublicIncreaseDepthsBatchV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicIncreaseDepthsBatchV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.items != null && message.items.length)
+            for (var i = 0; i < message.items.length; ++i)
+                $root.PublicIncreaseDepthsV3Api.encode(message.items[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        if (message.eventType != null && Object.hasOwnProperty.call(message, "eventType"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.eventType);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicIncreaseDepthsBatchV3Api message, length delimited. Does not implicitly {@link PublicIncreaseDepthsBatchV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {IPublicIncreaseDepthsBatchV3Api} message PublicIncreaseDepthsBatchV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicIncreaseDepthsBatchV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicIncreaseDepthsBatchV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicIncreaseDepthsBatchV3Api} PublicIncreaseDepthsBatchV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicIncreaseDepthsBatchV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicIncreaseDepthsBatchV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.items && message.items.length))
+                        message.items = [];
+                    message.items.push($root.PublicIncreaseDepthsV3Api.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    message.eventType = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicIncreaseDepthsBatchV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicIncreaseDepthsBatchV3Api} PublicIncreaseDepthsBatchV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicIncreaseDepthsBatchV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicIncreaseDepthsBatchV3Api message.
+     * @function verify
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicIncreaseDepthsBatchV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.items != null && message.hasOwnProperty("items")) {
+            if (!Array.isArray(message.items))
+                return "items: array expected";
+            for (var i = 0; i < message.items.length; ++i) {
+                var error = $root.PublicIncreaseDepthsV3Api.verify(message.items[i]);
+                if (error)
+                    return "items." + error;
+            }
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            if (!$util.isString(message.eventType))
+                return "eventType: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicIncreaseDepthsBatchV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicIncreaseDepthsBatchV3Api} PublicIncreaseDepthsBatchV3Api
+     */
+    PublicIncreaseDepthsBatchV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicIncreaseDepthsBatchV3Api)
+            return object;
+        var message = new $root.PublicIncreaseDepthsBatchV3Api();
+        if (object.items) {
+            if (!Array.isArray(object.items))
+                throw TypeError(".PublicIncreaseDepthsBatchV3Api.items: array expected");
+            message.items = [];
+            for (var i = 0; i < object.items.length; ++i) {
+                if (typeof object.items[i] !== "object")
+                    throw TypeError(".PublicIncreaseDepthsBatchV3Api.items: object expected");
+                message.items[i] = $root.PublicIncreaseDepthsV3Api.fromObject(object.items[i]);
+            }
+        }
+        if (object.eventType != null)
+            message.eventType = String(object.eventType);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicIncreaseDepthsBatchV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {PublicIncreaseDepthsBatchV3Api} message PublicIncreaseDepthsBatchV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicIncreaseDepthsBatchV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults)
+            object.items = [];
+        if (options.defaults)
+            object.eventType = "";
+        if (message.items && message.items.length) {
+            object.items = [];
+            for (var j = 0; j < message.items.length; ++j)
+                object.items[j] = $root.PublicIncreaseDepthsV3Api.toObject(message.items[j], options);
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            object.eventType = message.eventType;
+        return object;
+    };
+
+    /**
+     * Converts this PublicIncreaseDepthsBatchV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicIncreaseDepthsBatchV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicIncreaseDepthsBatchV3Api
+     * @function getTypeUrl
+     * @memberof PublicIncreaseDepthsBatchV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicIncreaseDepthsBatchV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicIncreaseDepthsBatchV3Api";
+    };
+
+    return PublicIncreaseDepthsBatchV3Api;
+})();
+
+$root.PublicIncreaseDepthsV3Api = (function() {
+
+    /**
+     * Properties of a PublicIncreaseDepthsV3Api.
+     * @exports IPublicIncreaseDepthsV3Api
+     * @interface IPublicIncreaseDepthsV3Api
+     * @property {Array.<IPublicIncreaseDepthV3ApiItem>|null} [asks] PublicIncreaseDepthsV3Api asks
+     * @property {Array.<IPublicIncreaseDepthV3ApiItem>|null} [bids] PublicIncreaseDepthsV3Api bids
+     * @property {string|null} [eventType] PublicIncreaseDepthsV3Api eventType
+     * @property {string|null} [version] PublicIncreaseDepthsV3Api version
+     */
+
+    /**
+     * Constructs a new PublicIncreaseDepthsV3Api.
+     * @exports PublicIncreaseDepthsV3Api
+     * @classdesc Represents a PublicIncreaseDepthsV3Api.
+     * @implements IPublicIncreaseDepthsV3Api
+     * @constructor
+     * @param {IPublicIncreaseDepthsV3Api=} [properties] Properties to set
+     */
+    function PublicIncreaseDepthsV3Api(properties) {
+        this.asks = [];
+        this.bids = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicIncreaseDepthsV3Api asks.
+     * @member {Array.<IPublicIncreaseDepthV3ApiItem>} asks
+     * @memberof PublicIncreaseDepthsV3Api
+     * @instance
+     */
+    PublicIncreaseDepthsV3Api.prototype.asks = $util.emptyArray;
+
+    /**
+     * PublicIncreaseDepthsV3Api bids.
+     * @member {Array.<IPublicIncreaseDepthV3ApiItem>} bids
+     * @memberof PublicIncreaseDepthsV3Api
+     * @instance
+     */
+    PublicIncreaseDepthsV3Api.prototype.bids = $util.emptyArray;
+
+    /**
+     * PublicIncreaseDepthsV3Api eventType.
+     * @member {string} eventType
+     * @memberof PublicIncreaseDepthsV3Api
+     * @instance
+     */
+    PublicIncreaseDepthsV3Api.prototype.eventType = "";
+
+    /**
+     * PublicIncreaseDepthsV3Api version.
+     * @member {string} version
+     * @memberof PublicIncreaseDepthsV3Api
+     * @instance
+     */
+    PublicIncreaseDepthsV3Api.prototype.version = "";
+
+    /**
+     * Creates a new PublicIncreaseDepthsV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {IPublicIncreaseDepthsV3Api=} [properties] Properties to set
+     * @returns {PublicIncreaseDepthsV3Api} PublicIncreaseDepthsV3Api instance
+     */
+    PublicIncreaseDepthsV3Api.create = function create(properties) {
+        return new PublicIncreaseDepthsV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicIncreaseDepthsV3Api message. Does not implicitly {@link PublicIncreaseDepthsV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {IPublicIncreaseDepthsV3Api} message PublicIncreaseDepthsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicIncreaseDepthsV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.asks != null && message.asks.length)
+            for (var i = 0; i < message.asks.length; ++i)
+                $root.PublicIncreaseDepthV3ApiItem.encode(message.asks[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        if (message.bids != null && message.bids.length)
+            for (var i = 0; i < message.bids.length; ++i)
+                $root.PublicIncreaseDepthV3ApiItem.encode(message.bids[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+        if (message.eventType != null && Object.hasOwnProperty.call(message, "eventType"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.eventType);
+        if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.version);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicIncreaseDepthsV3Api message, length delimited. Does not implicitly {@link PublicIncreaseDepthsV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {IPublicIncreaseDepthsV3Api} message PublicIncreaseDepthsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicIncreaseDepthsV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicIncreaseDepthsV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicIncreaseDepthsV3Api} PublicIncreaseDepthsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicIncreaseDepthsV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicIncreaseDepthsV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.asks && message.asks.length))
+                        message.asks = [];
+                    message.asks.push($root.PublicIncreaseDepthV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    if (!(message.bids && message.bids.length))
+                        message.bids = [];
+                    message.bids.push($root.PublicIncreaseDepthV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 3: {
+                    message.eventType = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.version = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicIncreaseDepthsV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicIncreaseDepthsV3Api} PublicIncreaseDepthsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicIncreaseDepthsV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicIncreaseDepthsV3Api message.
+     * @function verify
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicIncreaseDepthsV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.asks != null && message.hasOwnProperty("asks")) {
+            if (!Array.isArray(message.asks))
+                return "asks: array expected";
+            for (var i = 0; i < message.asks.length; ++i) {
+                var error = $root.PublicIncreaseDepthV3ApiItem.verify(message.asks[i]);
+                if (error)
+                    return "asks." + error;
+            }
+        }
+        if (message.bids != null && message.hasOwnProperty("bids")) {
+            if (!Array.isArray(message.bids))
+                return "bids: array expected";
+            for (var i = 0; i < message.bids.length; ++i) {
+                var error = $root.PublicIncreaseDepthV3ApiItem.verify(message.bids[i]);
+                if (error)
+                    return "bids." + error;
+            }
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            if (!$util.isString(message.eventType))
+                return "eventType: string expected";
+        if (message.version != null && message.hasOwnProperty("version"))
+            if (!$util.isString(message.version))
+                return "version: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicIncreaseDepthsV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicIncreaseDepthsV3Api} PublicIncreaseDepthsV3Api
+     */
+    PublicIncreaseDepthsV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicIncreaseDepthsV3Api)
+            return object;
+        var message = new $root.PublicIncreaseDepthsV3Api();
+        if (object.asks) {
+            if (!Array.isArray(object.asks))
+                throw TypeError(".PublicIncreaseDepthsV3Api.asks: array expected");
+            message.asks = [];
+            for (var i = 0; i < object.asks.length; ++i) {
+                if (typeof object.asks[i] !== "object")
+                    throw TypeError(".PublicIncreaseDepthsV3Api.asks: object expected");
+                message.asks[i] = $root.PublicIncreaseDepthV3ApiItem.fromObject(object.asks[i]);
+            }
+        }
+        if (object.bids) {
+            if (!Array.isArray(object.bids))
+                throw TypeError(".PublicIncreaseDepthsV3Api.bids: array expected");
+            message.bids = [];
+            for (var i = 0; i < object.bids.length; ++i) {
+                if (typeof object.bids[i] !== "object")
+                    throw TypeError(".PublicIncreaseDepthsV3Api.bids: object expected");
+                message.bids[i] = $root.PublicIncreaseDepthV3ApiItem.fromObject(object.bids[i]);
+            }
+        }
+        if (object.eventType != null)
+            message.eventType = String(object.eventType);
+        if (object.version != null)
+            message.version = String(object.version);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicIncreaseDepthsV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {PublicIncreaseDepthsV3Api} message PublicIncreaseDepthsV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicIncreaseDepthsV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults) {
+            object.asks = [];
+            object.bids = [];
+        }
+        if (options.defaults) {
+            object.eventType = "";
+            object.version = "";
+        }
+        if (message.asks && message.asks.length) {
+            object.asks = [];
+            for (var j = 0; j < message.asks.length; ++j)
+                object.asks[j] = $root.PublicIncreaseDepthV3ApiItem.toObject(message.asks[j], options);
+        }
+        if (message.bids && message.bids.length) {
+            object.bids = [];
+            for (var j = 0; j < message.bids.length; ++j)
+                object.bids[j] = $root.PublicIncreaseDepthV3ApiItem.toObject(message.bids[j], options);
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            object.eventType = message.eventType;
+        if (message.version != null && message.hasOwnProperty("version"))
+            object.version = message.version;
+        return object;
+    };
+
+    /**
+     * Converts this PublicIncreaseDepthsV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicIncreaseDepthsV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicIncreaseDepthsV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicIncreaseDepthsV3Api
+     * @function getTypeUrl
+     * @memberof PublicIncreaseDepthsV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicIncreaseDepthsV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicIncreaseDepthsV3Api";
+    };
+
+    return PublicIncreaseDepthsV3Api;
+})();
+
+$root.PublicIncreaseDepthV3ApiItem = (function() {
+
+    /**
+     * Properties of a PublicIncreaseDepthV3ApiItem.
+     * @exports IPublicIncreaseDepthV3ApiItem
+     * @interface IPublicIncreaseDepthV3ApiItem
+     * @property {string|null} [price] PublicIncreaseDepthV3ApiItem price
+     * @property {string|null} [quantity] PublicIncreaseDepthV3ApiItem quantity
+     */
+
+    /**
+     * Constructs a new PublicIncreaseDepthV3ApiItem.
+     * @exports PublicIncreaseDepthV3ApiItem
+     * @classdesc Represents a PublicIncreaseDepthV3ApiItem.
+     * @implements IPublicIncreaseDepthV3ApiItem
+     * @constructor
+     * @param {IPublicIncreaseDepthV3ApiItem=} [properties] Properties to set
+     */
+    function PublicIncreaseDepthV3ApiItem(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicIncreaseDepthV3ApiItem price.
+     * @member {string} price
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @instance
+     */
+    PublicIncreaseDepthV3ApiItem.prototype.price = "";
+
+    /**
+     * PublicIncreaseDepthV3ApiItem quantity.
+     * @member {string} quantity
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @instance
+     */
+    PublicIncreaseDepthV3ApiItem.prototype.quantity = "";
+
+    /**
+     * Creates a new PublicIncreaseDepthV3ApiItem instance using the specified properties.
+     * @function create
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {IPublicIncreaseDepthV3ApiItem=} [properties] Properties to set
+     * @returns {PublicIncreaseDepthV3ApiItem} PublicIncreaseDepthV3ApiItem instance
+     */
+    PublicIncreaseDepthV3ApiItem.create = function create(properties) {
+        return new PublicIncreaseDepthV3ApiItem(properties);
+    };
+
+    /**
+     * Encodes the specified PublicIncreaseDepthV3ApiItem message. Does not implicitly {@link PublicIncreaseDepthV3ApiItem.verify|verify} messages.
+     * @function encode
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {IPublicIncreaseDepthV3ApiItem} message PublicIncreaseDepthV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicIncreaseDepthV3ApiItem.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.price);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.quantity);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicIncreaseDepthV3ApiItem message, length delimited. Does not implicitly {@link PublicIncreaseDepthV3ApiItem.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {IPublicIncreaseDepthV3ApiItem} message PublicIncreaseDepthV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicIncreaseDepthV3ApiItem.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicIncreaseDepthV3ApiItem message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicIncreaseDepthV3ApiItem} PublicIncreaseDepthV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicIncreaseDepthV3ApiItem.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicIncreaseDepthV3ApiItem();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicIncreaseDepthV3ApiItem message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicIncreaseDepthV3ApiItem} PublicIncreaseDepthV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicIncreaseDepthV3ApiItem.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicIncreaseDepthV3ApiItem message.
+     * @function verify
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicIncreaseDepthV3ApiItem.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicIncreaseDepthV3ApiItem message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicIncreaseDepthV3ApiItem} PublicIncreaseDepthV3ApiItem
+     */
+    PublicIncreaseDepthV3ApiItem.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicIncreaseDepthV3ApiItem)
+            return object;
+        var message = new $root.PublicIncreaseDepthV3ApiItem();
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicIncreaseDepthV3ApiItem message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {PublicIncreaseDepthV3ApiItem} message PublicIncreaseDepthV3ApiItem
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicIncreaseDepthV3ApiItem.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.price = "";
+            object.quantity = "";
+        }
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        return object;
+    };
+
+    /**
+     * Converts this PublicIncreaseDepthV3ApiItem to JSON.
+     * @function toJSON
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicIncreaseDepthV3ApiItem.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicIncreaseDepthV3ApiItem
+     * @function getTypeUrl
+     * @memberof PublicIncreaseDepthV3ApiItem
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicIncreaseDepthV3ApiItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicIncreaseDepthV3ApiItem";
+    };
+
+    return PublicIncreaseDepthV3ApiItem;
+})();
+
+$root.PublicLimitDepthsV3Api = (function() {
+
+    /**
+     * Properties of a PublicLimitDepthsV3Api.
+     * @exports IPublicLimitDepthsV3Api
+     * @interface IPublicLimitDepthsV3Api
+     * @property {Array.<IPublicLimitDepthV3ApiItem>|null} [asks] PublicLimitDepthsV3Api asks
+     * @property {Array.<IPublicLimitDepthV3ApiItem>|null} [bids] PublicLimitDepthsV3Api bids
+     * @property {string|null} [eventType] PublicLimitDepthsV3Api eventType
+     * @property {string|null} [version] PublicLimitDepthsV3Api version
+     */
+
+    /**
+     * Constructs a new PublicLimitDepthsV3Api.
+     * @exports PublicLimitDepthsV3Api
+     * @classdesc Represents a PublicLimitDepthsV3Api.
+     * @implements IPublicLimitDepthsV3Api
+     * @constructor
+     * @param {IPublicLimitDepthsV3Api=} [properties] Properties to set
+     */
+    function PublicLimitDepthsV3Api(properties) {
+        this.asks = [];
+        this.bids = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicLimitDepthsV3Api asks.
+     * @member {Array.<IPublicLimitDepthV3ApiItem>} asks
+     * @memberof PublicLimitDepthsV3Api
+     * @instance
+     */
+    PublicLimitDepthsV3Api.prototype.asks = $util.emptyArray;
+
+    /**
+     * PublicLimitDepthsV3Api bids.
+     * @member {Array.<IPublicLimitDepthV3ApiItem>} bids
+     * @memberof PublicLimitDepthsV3Api
+     * @instance
+     */
+    PublicLimitDepthsV3Api.prototype.bids = $util.emptyArray;
+
+    /**
+     * PublicLimitDepthsV3Api eventType.
+     * @member {string} eventType
+     * @memberof PublicLimitDepthsV3Api
+     * @instance
+     */
+    PublicLimitDepthsV3Api.prototype.eventType = "";
+
+    /**
+     * PublicLimitDepthsV3Api version.
+     * @member {string} version
+     * @memberof PublicLimitDepthsV3Api
+     * @instance
+     */
+    PublicLimitDepthsV3Api.prototype.version = "";
+
+    /**
+     * Creates a new PublicLimitDepthsV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {IPublicLimitDepthsV3Api=} [properties] Properties to set
+     * @returns {PublicLimitDepthsV3Api} PublicLimitDepthsV3Api instance
+     */
+    PublicLimitDepthsV3Api.create = function create(properties) {
+        return new PublicLimitDepthsV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicLimitDepthsV3Api message. Does not implicitly {@link PublicLimitDepthsV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {IPublicLimitDepthsV3Api} message PublicLimitDepthsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicLimitDepthsV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.asks != null && message.asks.length)
+            for (var i = 0; i < message.asks.length; ++i)
+                $root.PublicLimitDepthV3ApiItem.encode(message.asks[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        if (message.bids != null && message.bids.length)
+            for (var i = 0; i < message.bids.length; ++i)
+                $root.PublicLimitDepthV3ApiItem.encode(message.bids[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+        if (message.eventType != null && Object.hasOwnProperty.call(message, "eventType"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.eventType);
+        if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.version);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicLimitDepthsV3Api message, length delimited. Does not implicitly {@link PublicLimitDepthsV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {IPublicLimitDepthsV3Api} message PublicLimitDepthsV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicLimitDepthsV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicLimitDepthsV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicLimitDepthsV3Api} PublicLimitDepthsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicLimitDepthsV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicLimitDepthsV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.asks && message.asks.length))
+                        message.asks = [];
+                    message.asks.push($root.PublicLimitDepthV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 2: {
+                    if (!(message.bids && message.bids.length))
+                        message.bids = [];
+                    message.bids.push($root.PublicLimitDepthV3ApiItem.decode(reader, reader.uint32()));
+                    break;
+                }
+            case 3: {
+                    message.eventType = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.version = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicLimitDepthsV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicLimitDepthsV3Api} PublicLimitDepthsV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicLimitDepthsV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicLimitDepthsV3Api message.
+     * @function verify
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicLimitDepthsV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.asks != null && message.hasOwnProperty("asks")) {
+            if (!Array.isArray(message.asks))
+                return "asks: array expected";
+            for (var i = 0; i < message.asks.length; ++i) {
+                var error = $root.PublicLimitDepthV3ApiItem.verify(message.asks[i]);
+                if (error)
+                    return "asks." + error;
+            }
+        }
+        if (message.bids != null && message.hasOwnProperty("bids")) {
+            if (!Array.isArray(message.bids))
+                return "bids: array expected";
+            for (var i = 0; i < message.bids.length; ++i) {
+                var error = $root.PublicLimitDepthV3ApiItem.verify(message.bids[i]);
+                if (error)
+                    return "bids." + error;
+            }
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            if (!$util.isString(message.eventType))
+                return "eventType: string expected";
+        if (message.version != null && message.hasOwnProperty("version"))
+            if (!$util.isString(message.version))
+                return "version: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicLimitDepthsV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicLimitDepthsV3Api} PublicLimitDepthsV3Api
+     */
+    PublicLimitDepthsV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicLimitDepthsV3Api)
+            return object;
+        var message = new $root.PublicLimitDepthsV3Api();
+        if (object.asks) {
+            if (!Array.isArray(object.asks))
+                throw TypeError(".PublicLimitDepthsV3Api.asks: array expected");
+            message.asks = [];
+            for (var i = 0; i < object.asks.length; ++i) {
+                if (typeof object.asks[i] !== "object")
+                    throw TypeError(".PublicLimitDepthsV3Api.asks: object expected");
+                message.asks[i] = $root.PublicLimitDepthV3ApiItem.fromObject(object.asks[i]);
+            }
+        }
+        if (object.bids) {
+            if (!Array.isArray(object.bids))
+                throw TypeError(".PublicLimitDepthsV3Api.bids: array expected");
+            message.bids = [];
+            for (var i = 0; i < object.bids.length; ++i) {
+                if (typeof object.bids[i] !== "object")
+                    throw TypeError(".PublicLimitDepthsV3Api.bids: object expected");
+                message.bids[i] = $root.PublicLimitDepthV3ApiItem.fromObject(object.bids[i]);
+            }
+        }
+        if (object.eventType != null)
+            message.eventType = String(object.eventType);
+        if (object.version != null)
+            message.version = String(object.version);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicLimitDepthsV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {PublicLimitDepthsV3Api} message PublicLimitDepthsV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicLimitDepthsV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults) {
+            object.asks = [];
+            object.bids = [];
+        }
+        if (options.defaults) {
+            object.eventType = "";
+            object.version = "";
+        }
+        if (message.asks && message.asks.length) {
+            object.asks = [];
+            for (var j = 0; j < message.asks.length; ++j)
+                object.asks[j] = $root.PublicLimitDepthV3ApiItem.toObject(message.asks[j], options);
+        }
+        if (message.bids && message.bids.length) {
+            object.bids = [];
+            for (var j = 0; j < message.bids.length; ++j)
+                object.bids[j] = $root.PublicLimitDepthV3ApiItem.toObject(message.bids[j], options);
+        }
+        if (message.eventType != null && message.hasOwnProperty("eventType"))
+            object.eventType = message.eventType;
+        if (message.version != null && message.hasOwnProperty("version"))
+            object.version = message.version;
+        return object;
+    };
+
+    /**
+     * Converts this PublicLimitDepthsV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicLimitDepthsV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicLimitDepthsV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicLimitDepthsV3Api
+     * @function getTypeUrl
+     * @memberof PublicLimitDepthsV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicLimitDepthsV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicLimitDepthsV3Api";
+    };
+
+    return PublicLimitDepthsV3Api;
+})();
+
+$root.PublicLimitDepthV3ApiItem = (function() {
+
+    /**
+     * Properties of a PublicLimitDepthV3ApiItem.
+     * @exports IPublicLimitDepthV3ApiItem
+     * @interface IPublicLimitDepthV3ApiItem
+     * @property {string|null} [price] PublicLimitDepthV3ApiItem price
+     * @property {string|null} [quantity] PublicLimitDepthV3ApiItem quantity
+     */
+
+    /**
+     * Constructs a new PublicLimitDepthV3ApiItem.
+     * @exports PublicLimitDepthV3ApiItem
+     * @classdesc Represents a PublicLimitDepthV3ApiItem.
+     * @implements IPublicLimitDepthV3ApiItem
+     * @constructor
+     * @param {IPublicLimitDepthV3ApiItem=} [properties] Properties to set
+     */
+    function PublicLimitDepthV3ApiItem(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicLimitDepthV3ApiItem price.
+     * @member {string} price
+     * @memberof PublicLimitDepthV3ApiItem
+     * @instance
+     */
+    PublicLimitDepthV3ApiItem.prototype.price = "";
+
+    /**
+     * PublicLimitDepthV3ApiItem quantity.
+     * @member {string} quantity
+     * @memberof PublicLimitDepthV3ApiItem
+     * @instance
+     */
+    PublicLimitDepthV3ApiItem.prototype.quantity = "";
+
+    /**
+     * Creates a new PublicLimitDepthV3ApiItem instance using the specified properties.
+     * @function create
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {IPublicLimitDepthV3ApiItem=} [properties] Properties to set
+     * @returns {PublicLimitDepthV3ApiItem} PublicLimitDepthV3ApiItem instance
+     */
+    PublicLimitDepthV3ApiItem.create = function create(properties) {
+        return new PublicLimitDepthV3ApiItem(properties);
+    };
+
+    /**
+     * Encodes the specified PublicLimitDepthV3ApiItem message. Does not implicitly {@link PublicLimitDepthV3ApiItem.verify|verify} messages.
+     * @function encode
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {IPublicLimitDepthV3ApiItem} message PublicLimitDepthV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicLimitDepthV3ApiItem.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.price);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.quantity);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicLimitDepthV3ApiItem message, length delimited. Does not implicitly {@link PublicLimitDepthV3ApiItem.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {IPublicLimitDepthV3ApiItem} message PublicLimitDepthV3ApiItem message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicLimitDepthV3ApiItem.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicLimitDepthV3ApiItem message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicLimitDepthV3ApiItem} PublicLimitDepthV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicLimitDepthV3ApiItem.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicLimitDepthV3ApiItem();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicLimitDepthV3ApiItem message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicLimitDepthV3ApiItem} PublicLimitDepthV3ApiItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicLimitDepthV3ApiItem.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicLimitDepthV3ApiItem message.
+     * @function verify
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicLimitDepthV3ApiItem.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicLimitDepthV3ApiItem message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicLimitDepthV3ApiItem} PublicLimitDepthV3ApiItem
+     */
+    PublicLimitDepthV3ApiItem.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicLimitDepthV3ApiItem)
+            return object;
+        var message = new $root.PublicLimitDepthV3ApiItem();
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicLimitDepthV3ApiItem message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {PublicLimitDepthV3ApiItem} message PublicLimitDepthV3ApiItem
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicLimitDepthV3ApiItem.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.price = "";
+            object.quantity = "";
+        }
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        return object;
+    };
+
+    /**
+     * Converts this PublicLimitDepthV3ApiItem to JSON.
+     * @function toJSON
+     * @memberof PublicLimitDepthV3ApiItem
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicLimitDepthV3ApiItem.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicLimitDepthV3ApiItem
+     * @function getTypeUrl
+     * @memberof PublicLimitDepthV3ApiItem
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicLimitDepthV3ApiItem.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicLimitDepthV3ApiItem";
+    };
+
+    return PublicLimitDepthV3ApiItem;
+})();
+
+$root.PublicMiniTickerV3Api = (function() {
+
+    /**
+     * Properties of a PublicMiniTickerV3Api.
+     * @exports IPublicMiniTickerV3Api
+     * @interface IPublicMiniTickerV3Api
+     * @property {string|null} [symbol] PublicMiniTickerV3Api symbol
+     * @property {string|null} [price] PublicMiniTickerV3Api price
+     * @property {string|null} [rate] PublicMiniTickerV3Api rate
+     * @property {string|null} [zonedRate] PublicMiniTickerV3Api zonedRate
+     * @property {string|null} [high] PublicMiniTickerV3Api high
+     * @property {string|null} [low] PublicMiniTickerV3Api low
+     * @property {string|null} [volume] PublicMiniTickerV3Api volume
+     * @property {string|null} [quantity] PublicMiniTickerV3Api quantity
+     * @property {string|null} [lastCloseRate] PublicMiniTickerV3Api lastCloseRate
+     * @property {string|null} [lastCloseZonedRate] PublicMiniTickerV3Api lastCloseZonedRate
+     * @property {string|null} [lastCloseHigh] PublicMiniTickerV3Api lastCloseHigh
+     * @property {string|null} [lastCloseLow] PublicMiniTickerV3Api lastCloseLow
+     */
+
+    /**
+     * Constructs a new PublicMiniTickerV3Api.
+     * @exports PublicMiniTickerV3Api
+     * @classdesc Represents a PublicMiniTickerV3Api.
+     * @implements IPublicMiniTickerV3Api
+     * @constructor
+     * @param {IPublicMiniTickerV3Api=} [properties] Properties to set
+     */
+    function PublicMiniTickerV3Api(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicMiniTickerV3Api symbol.
+     * @member {string} symbol
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.symbol = "";
+
+    /**
+     * PublicMiniTickerV3Api price.
+     * @member {string} price
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.price = "";
+
+    /**
+     * PublicMiniTickerV3Api rate.
+     * @member {string} rate
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.rate = "";
+
+    /**
+     * PublicMiniTickerV3Api zonedRate.
+     * @member {string} zonedRate
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.zonedRate = "";
+
+    /**
+     * PublicMiniTickerV3Api high.
+     * @member {string} high
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.high = "";
+
+    /**
+     * PublicMiniTickerV3Api low.
+     * @member {string} low
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.low = "";
+
+    /**
+     * PublicMiniTickerV3Api volume.
+     * @member {string} volume
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.volume = "";
+
+    /**
+     * PublicMiniTickerV3Api quantity.
+     * @member {string} quantity
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.quantity = "";
+
+    /**
+     * PublicMiniTickerV3Api lastCloseRate.
+     * @member {string} lastCloseRate
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.lastCloseRate = "";
+
+    /**
+     * PublicMiniTickerV3Api lastCloseZonedRate.
+     * @member {string} lastCloseZonedRate
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.lastCloseZonedRate = "";
+
+    /**
+     * PublicMiniTickerV3Api lastCloseHigh.
+     * @member {string} lastCloseHigh
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.lastCloseHigh = "";
+
+    /**
+     * PublicMiniTickerV3Api lastCloseLow.
+     * @member {string} lastCloseLow
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     */
+    PublicMiniTickerV3Api.prototype.lastCloseLow = "";
+
+    /**
+     * Creates a new PublicMiniTickerV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {IPublicMiniTickerV3Api=} [properties] Properties to set
+     * @returns {PublicMiniTickerV3Api} PublicMiniTickerV3Api instance
+     */
+    PublicMiniTickerV3Api.create = function create(properties) {
+        return new PublicMiniTickerV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicMiniTickerV3Api message. Does not implicitly {@link PublicMiniTickerV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {IPublicMiniTickerV3Api} message PublicMiniTickerV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicMiniTickerV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.symbol != null && Object.hasOwnProperty.call(message, "symbol"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.symbol);
+        if (message.price != null && Object.hasOwnProperty.call(message, "price"))
+            writer.uint32(/* id 2, wireType 2 =*/18).string(message.price);
+        if (message.rate != null && Object.hasOwnProperty.call(message, "rate"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.rate);
+        if (message.zonedRate != null && Object.hasOwnProperty.call(message, "zonedRate"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.zonedRate);
+        if (message.high != null && Object.hasOwnProperty.call(message, "high"))
+            writer.uint32(/* id 5, wireType 2 =*/42).string(message.high);
+        if (message.low != null && Object.hasOwnProperty.call(message, "low"))
+            writer.uint32(/* id 6, wireType 2 =*/50).string(message.low);
+        if (message.volume != null && Object.hasOwnProperty.call(message, "volume"))
+            writer.uint32(/* id 7, wireType 2 =*/58).string(message.volume);
+        if (message.quantity != null && Object.hasOwnProperty.call(message, "quantity"))
+            writer.uint32(/* id 8, wireType 2 =*/66).string(message.quantity);
+        if (message.lastCloseRate != null && Object.hasOwnProperty.call(message, "lastCloseRate"))
+            writer.uint32(/* id 9, wireType 2 =*/74).string(message.lastCloseRate);
+        if (message.lastCloseZonedRate != null && Object.hasOwnProperty.call(message, "lastCloseZonedRate"))
+            writer.uint32(/* id 10, wireType 2 =*/82).string(message.lastCloseZonedRate);
+        if (message.lastCloseHigh != null && Object.hasOwnProperty.call(message, "lastCloseHigh"))
+            writer.uint32(/* id 11, wireType 2 =*/90).string(message.lastCloseHigh);
+        if (message.lastCloseLow != null && Object.hasOwnProperty.call(message, "lastCloseLow"))
+            writer.uint32(/* id 12, wireType 2 =*/98).string(message.lastCloseLow);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicMiniTickerV3Api message, length delimited. Does not implicitly {@link PublicMiniTickerV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {IPublicMiniTickerV3Api} message PublicMiniTickerV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicMiniTickerV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicMiniTickerV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicMiniTickerV3Api} PublicMiniTickerV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicMiniTickerV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicMiniTickerV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.symbol = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.price = reader.string();
+                    break;
+                }
+            case 3: {
+                    message.rate = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.zonedRate = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.high = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.low = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.volume = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.quantity = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.lastCloseRate = reader.string();
+                    break;
+                }
+            case 10: {
+                    message.lastCloseZonedRate = reader.string();
+                    break;
+                }
+            case 11: {
+                    message.lastCloseHigh = reader.string();
+                    break;
+                }
+            case 12: {
+                    message.lastCloseLow = reader.string();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicMiniTickerV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicMiniTickerV3Api} PublicMiniTickerV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicMiniTickerV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicMiniTickerV3Api message.
+     * @function verify
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicMiniTickerV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.symbol != null && message.hasOwnProperty("symbol"))
+            if (!$util.isString(message.symbol))
+                return "symbol: string expected";
+        if (message.price != null && message.hasOwnProperty("price"))
+            if (!$util.isString(message.price))
+                return "price: string expected";
+        if (message.rate != null && message.hasOwnProperty("rate"))
+            if (!$util.isString(message.rate))
+                return "rate: string expected";
+        if (message.zonedRate != null && message.hasOwnProperty("zonedRate"))
+            if (!$util.isString(message.zonedRate))
+                return "zonedRate: string expected";
+        if (message.high != null && message.hasOwnProperty("high"))
+            if (!$util.isString(message.high))
+                return "high: string expected";
+        if (message.low != null && message.hasOwnProperty("low"))
+            if (!$util.isString(message.low))
+                return "low: string expected";
+        if (message.volume != null && message.hasOwnProperty("volume"))
+            if (!$util.isString(message.volume))
+                return "volume: string expected";
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            if (!$util.isString(message.quantity))
+                return "quantity: string expected";
+        if (message.lastCloseRate != null && message.hasOwnProperty("lastCloseRate"))
+            if (!$util.isString(message.lastCloseRate))
+                return "lastCloseRate: string expected";
+        if (message.lastCloseZonedRate != null && message.hasOwnProperty("lastCloseZonedRate"))
+            if (!$util.isString(message.lastCloseZonedRate))
+                return "lastCloseZonedRate: string expected";
+        if (message.lastCloseHigh != null && message.hasOwnProperty("lastCloseHigh"))
+            if (!$util.isString(message.lastCloseHigh))
+                return "lastCloseHigh: string expected";
+        if (message.lastCloseLow != null && message.hasOwnProperty("lastCloseLow"))
+            if (!$util.isString(message.lastCloseLow))
+                return "lastCloseLow: string expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicMiniTickerV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicMiniTickerV3Api} PublicMiniTickerV3Api
+     */
+    PublicMiniTickerV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicMiniTickerV3Api)
+            return object;
+        var message = new $root.PublicMiniTickerV3Api();
+        if (object.symbol != null)
+            message.symbol = String(object.symbol);
+        if (object.price != null)
+            message.price = String(object.price);
+        if (object.rate != null)
+            message.rate = String(object.rate);
+        if (object.zonedRate != null)
+            message.zonedRate = String(object.zonedRate);
+        if (object.high != null)
+            message.high = String(object.high);
+        if (object.low != null)
+            message.low = String(object.low);
+        if (object.volume != null)
+            message.volume = String(object.volume);
+        if (object.quantity != null)
+            message.quantity = String(object.quantity);
+        if (object.lastCloseRate != null)
+            message.lastCloseRate = String(object.lastCloseRate);
+        if (object.lastCloseZonedRate != null)
+            message.lastCloseZonedRate = String(object.lastCloseZonedRate);
+        if (object.lastCloseHigh != null)
+            message.lastCloseHigh = String(object.lastCloseHigh);
+        if (object.lastCloseLow != null)
+            message.lastCloseLow = String(object.lastCloseLow);
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicMiniTickerV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {PublicMiniTickerV3Api} message PublicMiniTickerV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicMiniTickerV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.symbol = "";
+            object.price = "";
+            object.rate = "";
+            object.zonedRate = "";
+            object.high = "";
+            object.low = "";
+            object.volume = "";
+            object.quantity = "";
+            object.lastCloseRate = "";
+            object.lastCloseZonedRate = "";
+            object.lastCloseHigh = "";
+            object.lastCloseLow = "";
+        }
+        if (message.symbol != null && message.hasOwnProperty("symbol"))
+            object.symbol = message.symbol;
+        if (message.price != null && message.hasOwnProperty("price"))
+            object.price = message.price;
+        if (message.rate != null && message.hasOwnProperty("rate"))
+            object.rate = message.rate;
+        if (message.zonedRate != null && message.hasOwnProperty("zonedRate"))
+            object.zonedRate = message.zonedRate;
+        if (message.high != null && message.hasOwnProperty("high"))
+            object.high = message.high;
+        if (message.low != null && message.hasOwnProperty("low"))
+            object.low = message.low;
+        if (message.volume != null && message.hasOwnProperty("volume"))
+            object.volume = message.volume;
+        if (message.quantity != null && message.hasOwnProperty("quantity"))
+            object.quantity = message.quantity;
+        if (message.lastCloseRate != null && message.hasOwnProperty("lastCloseRate"))
+            object.lastCloseRate = message.lastCloseRate;
+        if (message.lastCloseZonedRate != null && message.hasOwnProperty("lastCloseZonedRate"))
+            object.lastCloseZonedRate = message.lastCloseZonedRate;
+        if (message.lastCloseHigh != null && message.hasOwnProperty("lastCloseHigh"))
+            object.lastCloseHigh = message.lastCloseHigh;
+        if (message.lastCloseLow != null && message.hasOwnProperty("lastCloseLow"))
+            object.lastCloseLow = message.lastCloseLow;
+        return object;
+    };
+
+    /**
+     * Converts this PublicMiniTickerV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicMiniTickerV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicMiniTickerV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicMiniTickerV3Api
+     * @function getTypeUrl
+     * @memberof PublicMiniTickerV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicMiniTickerV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicMiniTickerV3Api";
+    };
+
+    return PublicMiniTickerV3Api;
+})();
+
+$root.PublicMiniTickersV3Api = (function() {
+
+    /**
+     * Properties of a PublicMiniTickersV3Api.
+     * @exports IPublicMiniTickersV3Api
+     * @interface IPublicMiniTickersV3Api
+     * @property {Array.<IPublicMiniTickerV3Api>|null} [items] PublicMiniTickersV3Api items
+     */
+
+    /**
+     * Constructs a new PublicMiniTickersV3Api.
+     * @exports PublicMiniTickersV3Api
+     * @classdesc Represents a PublicMiniTickersV3Api.
+     * @implements IPublicMiniTickersV3Api
+     * @constructor
+     * @param {IPublicMiniTickersV3Api=} [properties] Properties to set
+     */
+    function PublicMiniTickersV3Api(properties) {
+        this.items = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicMiniTickersV3Api items.
+     * @member {Array.<IPublicMiniTickerV3Api>} items
+     * @memberof PublicMiniTickersV3Api
+     * @instance
+     */
+    PublicMiniTickersV3Api.prototype.items = $util.emptyArray;
+
+    /**
+     * Creates a new PublicMiniTickersV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {IPublicMiniTickersV3Api=} [properties] Properties to set
+     * @returns {PublicMiniTickersV3Api} PublicMiniTickersV3Api instance
+     */
+    PublicMiniTickersV3Api.create = function create(properties) {
+        return new PublicMiniTickersV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicMiniTickersV3Api message. Does not implicitly {@link PublicMiniTickersV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {IPublicMiniTickersV3Api} message PublicMiniTickersV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicMiniTickersV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.items != null && message.items.length)
+            for (var i = 0; i < message.items.length; ++i)
+                $root.PublicMiniTickerV3Api.encode(message.items[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicMiniTickersV3Api message, length delimited. Does not implicitly {@link PublicMiniTickersV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {IPublicMiniTickersV3Api} message PublicMiniTickersV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicMiniTickersV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicMiniTickersV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicMiniTickersV3Api} PublicMiniTickersV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicMiniTickersV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicMiniTickersV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    if (!(message.items && message.items.length))
+                        message.items = [];
+                    message.items.push($root.PublicMiniTickerV3Api.decode(reader, reader.uint32()));
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicMiniTickersV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicMiniTickersV3Api} PublicMiniTickersV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicMiniTickersV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicMiniTickersV3Api message.
+     * @function verify
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicMiniTickersV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.items != null && message.hasOwnProperty("items")) {
+            if (!Array.isArray(message.items))
+                return "items: array expected";
+            for (var i = 0; i < message.items.length; ++i) {
+                var error = $root.PublicMiniTickerV3Api.verify(message.items[i]);
+                if (error)
+                    return "items." + error;
+            }
+        }
+        return null;
+    };
+
+    /**
+     * Creates a PublicMiniTickersV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicMiniTickersV3Api} PublicMiniTickersV3Api
+     */
+    PublicMiniTickersV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicMiniTickersV3Api)
+            return object;
+        var message = new $root.PublicMiniTickersV3Api();
+        if (object.items) {
+            if (!Array.isArray(object.items))
+                throw TypeError(".PublicMiniTickersV3Api.items: array expected");
+            message.items = [];
+            for (var i = 0; i < object.items.length; ++i) {
+                if (typeof object.items[i] !== "object")
+                    throw TypeError(".PublicMiniTickersV3Api.items: object expected");
+                message.items[i] = $root.PublicMiniTickerV3Api.fromObject(object.items[i]);
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicMiniTickersV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {PublicMiniTickersV3Api} message PublicMiniTickersV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicMiniTickersV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults)
+            object.items = [];
+        if (message.items && message.items.length) {
+            object.items = [];
+            for (var j = 0; j < message.items.length; ++j)
+                object.items[j] = $root.PublicMiniTickerV3Api.toObject(message.items[j], options);
+        }
+        return object;
+    };
+
+    /**
+     * Converts this PublicMiniTickersV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicMiniTickersV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicMiniTickersV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicMiniTickersV3Api
+     * @function getTypeUrl
+     * @memberof PublicMiniTickersV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicMiniTickersV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicMiniTickersV3Api";
+    };
+
+    return PublicMiniTickersV3Api;
+})();
+
+$root.PublicSpotKlineV3Api = (function() {
+
+    /**
+     * Properties of a PublicSpotKlineV3Api.
+     * @exports IPublicSpotKlineV3Api
+     * @interface IPublicSpotKlineV3Api
+     * @property {string|null} [interval] PublicSpotKlineV3Api interval
+     * @property {number|Long|null} [windowStart] PublicSpotKlineV3Api windowStart
+     * @property {string|null} [openingPrice] PublicSpotKlineV3Api openingPrice
+     * @property {string|null} [closingPrice] PublicSpotKlineV3Api closingPrice
+     * @property {string|null} [highestPrice] PublicSpotKlineV3Api highestPrice
+     * @property {string|null} [lowestPrice] PublicSpotKlineV3Api lowestPrice
+     * @property {string|null} [volume] PublicSpotKlineV3Api volume
+     * @property {string|null} [amount] PublicSpotKlineV3Api amount
+     * @property {number|Long|null} [windowEnd] PublicSpotKlineV3Api windowEnd
+     */
+
+    /**
+     * Constructs a new PublicSpotKlineV3Api.
+     * @exports PublicSpotKlineV3Api
+     * @classdesc Represents a PublicSpotKlineV3Api.
+     * @implements IPublicSpotKlineV3Api
+     * @constructor
+     * @param {IPublicSpotKlineV3Api=} [properties] Properties to set
+     */
+    function PublicSpotKlineV3Api(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * PublicSpotKlineV3Api interval.
+     * @member {string} interval
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.interval = "";
+
+    /**
+     * PublicSpotKlineV3Api windowStart.
+     * @member {number|Long} windowStart
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.windowStart = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+    /**
+     * PublicSpotKlineV3Api openingPrice.
+     * @member {string} openingPrice
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.openingPrice = "";
+
+    /**
+     * PublicSpotKlineV3Api closingPrice.
+     * @member {string} closingPrice
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.closingPrice = "";
+
+    /**
+     * PublicSpotKlineV3Api highestPrice.
+     * @member {string} highestPrice
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.highestPrice = "";
+
+    /**
+     * PublicSpotKlineV3Api lowestPrice.
+     * @member {string} lowestPrice
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.lowestPrice = "";
+
+    /**
+     * PublicSpotKlineV3Api volume.
+     * @member {string} volume
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.volume = "";
+
+    /**
+     * PublicSpotKlineV3Api amount.
+     * @member {string} amount
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.amount = "";
+
+    /**
+     * PublicSpotKlineV3Api windowEnd.
+     * @member {number|Long} windowEnd
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     */
+    PublicSpotKlineV3Api.prototype.windowEnd = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+    /**
+     * Creates a new PublicSpotKlineV3Api instance using the specified properties.
+     * @function create
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {IPublicSpotKlineV3Api=} [properties] Properties to set
+     * @returns {PublicSpotKlineV3Api} PublicSpotKlineV3Api instance
+     */
+    PublicSpotKlineV3Api.create = function create(properties) {
+        return new PublicSpotKlineV3Api(properties);
+    };
+
+    /**
+     * Encodes the specified PublicSpotKlineV3Api message. Does not implicitly {@link PublicSpotKlineV3Api.verify|verify} messages.
+     * @function encode
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {IPublicSpotKlineV3Api} message PublicSpotKlineV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicSpotKlineV3Api.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.interval != null && Object.hasOwnProperty.call(message, "interval"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.interval);
+        if (message.windowStart != null && Object.hasOwnProperty.call(message, "windowStart"))
+            writer.uint32(/* id 2, wireType 0 =*/16).int64(message.windowStart);
+        if (message.openingPrice != null && Object.hasOwnProperty.call(message, "openingPrice"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.openingPrice);
+        if (message.closingPrice != null && Object.hasOwnProperty.call(message, "closingPrice"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.closingPrice);
+        if (message.highestPrice != null && Object.hasOwnProperty.call(message, "highestPrice"))
+            writer.uint32(/* id 5, wireType 2 =*/42).string(message.highestPrice);
+        if (message.lowestPrice != null && Object.hasOwnProperty.call(message, "lowestPrice"))
+            writer.uint32(/* id 6, wireType 2 =*/50).string(message.lowestPrice);
+        if (message.volume != null && Object.hasOwnProperty.call(message, "volume"))
+            writer.uint32(/* id 7, wireType 2 =*/58).string(message.volume);
+        if (message.amount != null && Object.hasOwnProperty.call(message, "amount"))
+            writer.uint32(/* id 8, wireType 2 =*/66).string(message.amount);
+        if (message.windowEnd != null && Object.hasOwnProperty.call(message, "windowEnd"))
+            writer.uint32(/* id 9, wireType 0 =*/72).int64(message.windowEnd);
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PublicSpotKlineV3Api message, length delimited. Does not implicitly {@link PublicSpotKlineV3Api.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {IPublicSpotKlineV3Api} message PublicSpotKlineV3Api message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PublicSpotKlineV3Api.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PublicSpotKlineV3Api message from the specified reader or buffer.
+     * @function decode
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PublicSpotKlineV3Api} PublicSpotKlineV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicSpotKlineV3Api.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PublicSpotKlineV3Api();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.interval = reader.string();
+                    break;
+                }
+            case 2: {
+                    message.windowStart = reader.int64();
+                    break;
+                }
+            case 3: {
+                    message.openingPrice = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.closingPrice = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.highestPrice = reader.string();
+                    break;
+                }
+            case 6: {
+                    message.lowestPrice = reader.string();
+                    break;
+                }
+            case 7: {
+                    message.volume = reader.string();
+                    break;
+                }
+            case 8: {
+                    message.amount = reader.string();
+                    break;
+                }
+            case 9: {
+                    message.windowEnd = reader.int64();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PublicSpotKlineV3Api message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PublicSpotKlineV3Api} PublicSpotKlineV3Api
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PublicSpotKlineV3Api.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PublicSpotKlineV3Api message.
+     * @function verify
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PublicSpotKlineV3Api.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.interval != null && message.hasOwnProperty("interval"))
+            if (!$util.isString(message.interval))
+                return "interval: string expected";
+        if (message.windowStart != null && message.hasOwnProperty("windowStart"))
+            if (!$util.isInteger(message.windowStart) && !(message.windowStart && $util.isInteger(message.windowStart.low) && $util.isInteger(message.windowStart.high)))
+                return "windowStart: integer|Long expected";
+        if (message.openingPrice != null && message.hasOwnProperty("openingPrice"))
+            if (!$util.isString(message.openingPrice))
+                return "openingPrice: string expected";
+        if (message.closingPrice != null && message.hasOwnProperty("closingPrice"))
+            if (!$util.isString(message.closingPrice))
+                return "closingPrice: string expected";
+        if (message.highestPrice != null && message.hasOwnProperty("highestPrice"))
+            if (!$util.isString(message.highestPrice))
+                return "highestPrice: string expected";
+        if (message.lowestPrice != null && message.hasOwnProperty("lowestPrice"))
+            if (!$util.isString(message.lowestPrice))
+                return "lowestPrice: string expected";
+        if (message.volume != null && message.hasOwnProperty("volume"))
+            if (!$util.isString(message.volume))
+                return "volume: string expected";
+        if (message.amount != null && message.hasOwnProperty("amount"))
+            if (!$util.isString(message.amount))
+                return "amount: string expected";
+        if (message.windowEnd != null && message.hasOwnProperty("windowEnd"))
+            if (!$util.isInteger(message.windowEnd) && !(message.windowEnd && $util.isInteger(message.windowEnd.low) && $util.isInteger(message.windowEnd.high)))
+                return "windowEnd: integer|Long expected";
+        return null;
+    };
+
+    /**
+     * Creates a PublicSpotKlineV3Api message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PublicSpotKlineV3Api} PublicSpotKlineV3Api
+     */
+    PublicSpotKlineV3Api.fromObject = function fromObject(object) {
+        if (object instanceof $root.PublicSpotKlineV3Api)
+            return object;
+        var message = new $root.PublicSpotKlineV3Api();
+        if (object.interval != null)
+            message.interval = String(object.interval);
+        if (object.windowStart != null)
+            if ($util.Long)
+                (message.windowStart = $util.Long.fromValue(object.windowStart)).unsigned = false;
+            else if (typeof object.windowStart === "string")
+                message.windowStart = parseInt(object.windowStart, 10);
+            else if (typeof object.windowStart === "number")
+                message.windowStart = object.windowStart;
+            else if (typeof object.windowStart === "object")
+                message.windowStart = new $util.LongBits(object.windowStart.low >>> 0, object.windowStart.high >>> 0).toNumber();
+        if (object.openingPrice != null)
+            message.openingPrice = String(object.openingPrice);
+        if (object.closingPrice != null)
+            message.closingPrice = String(object.closingPrice);
+        if (object.highestPrice != null)
+            message.highestPrice = String(object.highestPrice);
+        if (object.lowestPrice != null)
+            message.lowestPrice = String(object.lowestPrice);
+        if (object.volume != null)
+            message.volume = String(object.volume);
+        if (object.amount != null)
+            message.amount = String(object.amount);
+        if (object.windowEnd != null)
+            if ($util.Long)
+                (message.windowEnd = $util.Long.fromValue(object.windowEnd)).unsigned = false;
+            else if (typeof object.windowEnd === "string")
+                message.windowEnd = parseInt(object.windowEnd, 10);
+            else if (typeof object.windowEnd === "number")
+                message.windowEnd = object.windowEnd;
+            else if (typeof object.windowEnd === "object")
+                message.windowEnd = new $util.LongBits(object.windowEnd.low >>> 0, object.windowEnd.high >>> 0).toNumber();
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PublicSpotKlineV3Api message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {PublicSpotKlineV3Api} message PublicSpotKlineV3Api
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PublicSpotKlineV3Api.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.interval = "";
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, false);
+                object.windowStart = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.windowStart = options.longs === String ? "0" : 0;
+            object.openingPrice = "";
+            object.closingPrice = "";
+            object.highestPrice = "";
+            object.lowestPrice = "";
+            object.volume = "";
+            object.amount = "";
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, false);
+                object.windowEnd = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+            } else
+                object.windowEnd = options.longs === String ? "0" : 0;
+        }
+        if (message.interval != null && message.hasOwnProperty("interval"))
+            object.interval = message.interval;
+        if (message.windowStart != null && message.hasOwnProperty("windowStart"))
+            if (typeof message.windowStart === "number")
+                object.windowStart = options.longs === String ? String(message.windowStart) : message.windowStart;
+            else
+                object.windowStart = options.longs === String ? $util.Long.prototype.toString.call(message.windowStart) : options.longs === Number ? new $util.LongBits(message.windowStart.low >>> 0, message.windowStart.high >>> 0).toNumber() : message.windowStart;
+        if (message.openingPrice != null && message.hasOwnProperty("openingPrice"))
+            object.openingPrice = message.openingPrice;
+        if (message.closingPrice != null && message.hasOwnProperty("closingPrice"))
+            object.closingPrice = message.closingPrice;
+        if (message.highestPrice != null && message.hasOwnProperty("highestPrice"))
+            object.highestPrice = message.highestPrice;
+        if (message.lowestPrice != null && message.hasOwnProperty("lowestPrice"))
+            object.lowestPrice = message.lowestPrice;
+        if (message.volume != null && message.hasOwnProperty("volume"))
+            object.volume = message.volume;
+        if (message.amount != null && message.hasOwnProperty("amount"))
+            object.amount = message.amount;
+        if (message.windowEnd != null && message.hasOwnProperty("windowEnd"))
+            if (typeof message.windowEnd === "number")
+                object.windowEnd = options.longs === String ? String(message.windowEnd) : message.windowEnd;
+            else
+                object.windowEnd = options.longs === String ? $util.Long.prototype.toString.call(message.windowEnd) : options.longs === Number ? new $util.LongBits(message.windowEnd.low >>> 0, message.windowEnd.high >>> 0).toNumber() : message.windowEnd;
+        return object;
+    };
+
+    /**
+     * Converts this PublicSpotKlineV3Api to JSON.
+     * @function toJSON
+     * @memberof PublicSpotKlineV3Api
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PublicSpotKlineV3Api.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PublicSpotKlineV3Api
+     * @function getTypeUrl
+     * @memberof PublicSpotKlineV3Api
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PublicSpotKlineV3Api.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PublicSpotKlineV3Api";
+    };
+
+    return PublicSpotKlineV3Api;
+})();
+
+$root.PushDataV3ApiWrapper = (function() {
+
+    /**
+     * Properties of a PushDataV3ApiWrapper.
+     * @exports IPushDataV3ApiWrapper
+     * @interface IPushDataV3ApiWrapper
+     * @property {string|null} [channel] 频道
+     * @property {IPublicDealsV3Api|null} [publicDeals] PushDataV3ApiWrapper publicDeals
+     * @property {IPublicIncreaseDepthsV3Api|null} [publicIncreaseDepths] PushDataV3ApiWrapper publicIncreaseDepths
+     * @property {IPublicLimitDepthsV3Api|null} [publicLimitDepths] PushDataV3ApiWrapper publicLimitDepths
+     * @property {IPrivateOrdersV3Api|null} [privateOrders] PushDataV3ApiWrapper privateOrders
+     * @property {IPublicBookTickerV3Api|null} [publicBookTicker] PushDataV3ApiWrapper publicBookTicker
+     * @property {IPrivateDealsV3Api|null} [privateDeals] PushDataV3ApiWrapper privateDeals
+     * @property {IPrivateAccountV3Api|null} [privateAccount] PushDataV3ApiWrapper privateAccount
+     * @property {IPublicSpotKlineV3Api|null} [publicSpotKline] PushDataV3ApiWrapper publicSpotKline
+     * @property {IPublicMiniTickerV3Api|null} [publicMiniTicker] PushDataV3ApiWrapper publicMiniTicker
+     * @property {IPublicMiniTickersV3Api|null} [publicMiniTickers] PushDataV3ApiWrapper publicMiniTickers
+     * @property {IPublicBookTickerBatchV3Api|null} [publicBookTickerBatch] PushDataV3ApiWrapper publicBookTickerBatch
+     * @property {IPublicIncreaseDepthsBatchV3Api|null} [publicIncreaseDepthsBatch] PushDataV3ApiWrapper publicIncreaseDepthsBatch
+     * @property {IPublicAggreDepthsV3Api|null} [publicAggreDepths] PushDataV3ApiWrapper publicAggreDepths
+     * @property {IPublicAggreDealsV3Api|null} [publicAggreDeals] PushDataV3ApiWrapper publicAggreDeals
+     * @property {IPublicAggreBookTickerV3Api|null} [publicAggreBookTicker] PushDataV3ApiWrapper publicAggreBookTicker
+     * @property {string|null} [symbol] 交易对
+     * @property {string|null} [symbolId] 交易对ID
+     * @property {number|Long|null} [createTime] 消息生成时间
+     * @property {number|Long|null} [sendTime] 消息推送时间
+     */
+
+    /**
+     * Constructs a new PushDataV3ApiWrapper.
+     * @exports PushDataV3ApiWrapper
+     * @classdesc Represents a PushDataV3ApiWrapper.
+     * @implements IPushDataV3ApiWrapper
+     * @constructor
+     * @param {IPushDataV3ApiWrapper=} [properties] Properties to set
+     */
+    function PushDataV3ApiWrapper(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+
+    /**
+     * 频道
+     * @member {string} channel
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.channel = "";
+
+    /**
+     * PushDataV3ApiWrapper publicDeals.
+     * @member {IPublicDealsV3Api|null|undefined} publicDeals
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicDeals = null;
+
+    /**
+     * PushDataV3ApiWrapper publicIncreaseDepths.
+     * @member {IPublicIncreaseDepthsV3Api|null|undefined} publicIncreaseDepths
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicIncreaseDepths = null;
+
+    /**
+     * PushDataV3ApiWrapper publicLimitDepths.
+     * @member {IPublicLimitDepthsV3Api|null|undefined} publicLimitDepths
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicLimitDepths = null;
+
+    /**
+     * PushDataV3ApiWrapper privateOrders.
+     * @member {IPrivateOrdersV3Api|null|undefined} privateOrders
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.privateOrders = null;
+
+    /**
+     * PushDataV3ApiWrapper publicBookTicker.
+     * @member {IPublicBookTickerV3Api|null|undefined} publicBookTicker
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicBookTicker = null;
+
+    /**
+     * PushDataV3ApiWrapper privateDeals.
+     * @member {IPrivateDealsV3Api|null|undefined} privateDeals
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.privateDeals = null;
+
+    /**
+     * PushDataV3ApiWrapper privateAccount.
+     * @member {IPrivateAccountV3Api|null|undefined} privateAccount
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.privateAccount = null;
+
+    /**
+     * PushDataV3ApiWrapper publicSpotKline.
+     * @member {IPublicSpotKlineV3Api|null|undefined} publicSpotKline
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicSpotKline = null;
+
+    /**
+     * PushDataV3ApiWrapper publicMiniTicker.
+     * @member {IPublicMiniTickerV3Api|null|undefined} publicMiniTicker
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicMiniTicker = null;
+
+    /**
+     * PushDataV3ApiWrapper publicMiniTickers.
+     * @member {IPublicMiniTickersV3Api|null|undefined} publicMiniTickers
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicMiniTickers = null;
+
+    /**
+     * PushDataV3ApiWrapper publicBookTickerBatch.
+     * @member {IPublicBookTickerBatchV3Api|null|undefined} publicBookTickerBatch
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicBookTickerBatch = null;
+
+    /**
+     * PushDataV3ApiWrapper publicIncreaseDepthsBatch.
+     * @member {IPublicIncreaseDepthsBatchV3Api|null|undefined} publicIncreaseDepthsBatch
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicIncreaseDepthsBatch = null;
+
+    /**
+     * PushDataV3ApiWrapper publicAggreDepths.
+     * @member {IPublicAggreDepthsV3Api|null|undefined} publicAggreDepths
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicAggreDepths = null;
+
+    /**
+     * PushDataV3ApiWrapper publicAggreDeals.
+     * @member {IPublicAggreDealsV3Api|null|undefined} publicAggreDeals
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicAggreDeals = null;
+
+    /**
+     * PushDataV3ApiWrapper publicAggreBookTicker.
+     * @member {IPublicAggreBookTickerV3Api|null|undefined} publicAggreBookTicker
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.publicAggreBookTicker = null;
+
+    /**
+     * 交易对
+     * @member {string|null|undefined} symbol
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.symbol = null;
+
+    /**
+     * 交易对ID
+     * @member {string|null|undefined} symbolId
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.symbolId = null;
+
+    /**
+     * 消息生成时间
+     * @member {number|Long|null|undefined} createTime
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.createTime = null;
+
+    /**
+     * 消息推送时间
+     * @member {number|Long|null|undefined} sendTime
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    PushDataV3ApiWrapper.prototype.sendTime = null;
+
+    // OneOf field names bound to virtual getters and setters
+    var $oneOfFields;
+
+    /**
+     * 数据，NOTE：因为不能重复，所以类型和变量名尽量使用全名
+     * @member {"publicDeals"|"publicIncreaseDepths"|"publicLimitDepths"|"privateOrders"|"publicBookTicker"|"privateDeals"|"privateAccount"|"publicSpotKline"|"publicMiniTicker"|"publicMiniTickers"|"publicBookTickerBatch"|"publicIncreaseDepthsBatch"|"publicAggreDepths"|"publicAggreDeals"|"publicAggreBookTicker"|undefined} body
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    Object.defineProperty(PushDataV3ApiWrapper.prototype, "body", {
+        get: $util.oneOfGetter($oneOfFields = ["publicDeals", "publicIncreaseDepths", "publicLimitDepths", "privateOrders", "publicBookTicker", "privateDeals", "privateAccount", "publicSpotKline", "publicMiniTicker", "publicMiniTickers", "publicBookTickerBatch", "publicIncreaseDepthsBatch", "publicAggreDepths", "publicAggreDeals", "publicAggreBookTicker"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PushDataV3ApiWrapper _symbol.
+     * @member {"symbol"|undefined} _symbol
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    Object.defineProperty(PushDataV3ApiWrapper.prototype, "_symbol", {
+        get: $util.oneOfGetter($oneOfFields = ["symbol"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PushDataV3ApiWrapper _symbolId.
+     * @member {"symbolId"|undefined} _symbolId
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    Object.defineProperty(PushDataV3ApiWrapper.prototype, "_symbolId", {
+        get: $util.oneOfGetter($oneOfFields = ["symbolId"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PushDataV3ApiWrapper _createTime.
+     * @member {"createTime"|undefined} _createTime
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    Object.defineProperty(PushDataV3ApiWrapper.prototype, "_createTime", {
+        get: $util.oneOfGetter($oneOfFields = ["createTime"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * PushDataV3ApiWrapper _sendTime.
+     * @member {"sendTime"|undefined} _sendTime
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     */
+    Object.defineProperty(PushDataV3ApiWrapper.prototype, "_sendTime", {
+        get: $util.oneOfGetter($oneOfFields = ["sendTime"]),
+        set: $util.oneOfSetter($oneOfFields)
+    });
+
+    /**
+     * Creates a new PushDataV3ApiWrapper instance using the specified properties.
+     * @function create
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {IPushDataV3ApiWrapper=} [properties] Properties to set
+     * @returns {PushDataV3ApiWrapper} PushDataV3ApiWrapper instance
+     */
+    PushDataV3ApiWrapper.create = function create(properties) {
+        return new PushDataV3ApiWrapper(properties);
+    };
+
+    /**
+     * Encodes the specified PushDataV3ApiWrapper message. Does not implicitly {@link PushDataV3ApiWrapper.verify|verify} messages.
+     * @function encode
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {IPushDataV3ApiWrapper} message PushDataV3ApiWrapper message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PushDataV3ApiWrapper.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.channel != null && Object.hasOwnProperty.call(message, "channel"))
+            writer.uint32(/* id 1, wireType 2 =*/10).string(message.channel);
+        if (message.symbol != null && Object.hasOwnProperty.call(message, "symbol"))
+            writer.uint32(/* id 3, wireType 2 =*/26).string(message.symbol);
+        if (message.symbolId != null && Object.hasOwnProperty.call(message, "symbolId"))
+            writer.uint32(/* id 4, wireType 2 =*/34).string(message.symbolId);
+        if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
+            writer.uint32(/* id 5, wireType 0 =*/40).int64(message.createTime);
+        if (message.sendTime != null && Object.hasOwnProperty.call(message, "sendTime"))
+            writer.uint32(/* id 6, wireType 0 =*/48).int64(message.sendTime);
+        if (message.publicDeals != null && Object.hasOwnProperty.call(message, "publicDeals"))
+            $root.PublicDealsV3Api.encode(message.publicDeals, writer.uint32(/* id 301, wireType 2 =*/2410).fork()).ldelim();
+        if (message.publicIncreaseDepths != null && Object.hasOwnProperty.call(message, "publicIncreaseDepths"))
+            $root.PublicIncreaseDepthsV3Api.encode(message.publicIncreaseDepths, writer.uint32(/* id 302, wireType 2 =*/2418).fork()).ldelim();
+        if (message.publicLimitDepths != null && Object.hasOwnProperty.call(message, "publicLimitDepths"))
+            $root.PublicLimitDepthsV3Api.encode(message.publicLimitDepths, writer.uint32(/* id 303, wireType 2 =*/2426).fork()).ldelim();
+        if (message.privateOrders != null && Object.hasOwnProperty.call(message, "privateOrders"))
+            $root.PrivateOrdersV3Api.encode(message.privateOrders, writer.uint32(/* id 304, wireType 2 =*/2434).fork()).ldelim();
+        if (message.publicBookTicker != null && Object.hasOwnProperty.call(message, "publicBookTicker"))
+            $root.PublicBookTickerV3Api.encode(message.publicBookTicker, writer.uint32(/* id 305, wireType 2 =*/2442).fork()).ldelim();
+        if (message.privateDeals != null && Object.hasOwnProperty.call(message, "privateDeals"))
+            $root.PrivateDealsV3Api.encode(message.privateDeals, writer.uint32(/* id 306, wireType 2 =*/2450).fork()).ldelim();
+        if (message.privateAccount != null && Object.hasOwnProperty.call(message, "privateAccount"))
+            $root.PrivateAccountV3Api.encode(message.privateAccount, writer.uint32(/* id 307, wireType 2 =*/2458).fork()).ldelim();
+        if (message.publicSpotKline != null && Object.hasOwnProperty.call(message, "publicSpotKline"))
+            $root.PublicSpotKlineV3Api.encode(message.publicSpotKline, writer.uint32(/* id 308, wireType 2 =*/2466).fork()).ldelim();
+        if (message.publicMiniTicker != null && Object.hasOwnProperty.call(message, "publicMiniTicker"))
+            $root.PublicMiniTickerV3Api.encode(message.publicMiniTicker, writer.uint32(/* id 309, wireType 2 =*/2474).fork()).ldelim();
+        if (message.publicMiniTickers != null && Object.hasOwnProperty.call(message, "publicMiniTickers"))
+            $root.PublicMiniTickersV3Api.encode(message.publicMiniTickers, writer.uint32(/* id 310, wireType 2 =*/2482).fork()).ldelim();
+        if (message.publicBookTickerBatch != null && Object.hasOwnProperty.call(message, "publicBookTickerBatch"))
+            $root.PublicBookTickerBatchV3Api.encode(message.publicBookTickerBatch, writer.uint32(/* id 311, wireType 2 =*/2490).fork()).ldelim();
+        if (message.publicIncreaseDepthsBatch != null && Object.hasOwnProperty.call(message, "publicIncreaseDepthsBatch"))
+            $root.PublicIncreaseDepthsBatchV3Api.encode(message.publicIncreaseDepthsBatch, writer.uint32(/* id 312, wireType 2 =*/2498).fork()).ldelim();
+        if (message.publicAggreDepths != null && Object.hasOwnProperty.call(message, "publicAggreDepths"))
+            $root.PublicAggreDepthsV3Api.encode(message.publicAggreDepths, writer.uint32(/* id 313, wireType 2 =*/2506).fork()).ldelim();
+        if (message.publicAggreDeals != null && Object.hasOwnProperty.call(message, "publicAggreDeals"))
+            $root.PublicAggreDealsV3Api.encode(message.publicAggreDeals, writer.uint32(/* id 314, wireType 2 =*/2514).fork()).ldelim();
+        if (message.publicAggreBookTicker != null && Object.hasOwnProperty.call(message, "publicAggreBookTicker"))
+            $root.PublicAggreBookTickerV3Api.encode(message.publicAggreBookTicker, writer.uint32(/* id 315, wireType 2 =*/2522).fork()).ldelim();
+        return writer;
+    };
+
+    /**
+     * Encodes the specified PushDataV3ApiWrapper message, length delimited. Does not implicitly {@link PushDataV3ApiWrapper.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {IPushDataV3ApiWrapper} message PushDataV3ApiWrapper message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    PushDataV3ApiWrapper.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+
+    /**
+     * Decodes a PushDataV3ApiWrapper message from the specified reader or buffer.
+     * @function decode
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {PushDataV3ApiWrapper} PushDataV3ApiWrapper
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PushDataV3ApiWrapper.decode = function decode(reader, length, error) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PushDataV3ApiWrapper();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+            case 1: {
+                    message.channel = reader.string();
+                    break;
+                }
+            case 301: {
+                    message.publicDeals = $root.PublicDealsV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 302: {
+                    message.publicIncreaseDepths = $root.PublicIncreaseDepthsV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 303: {
+                    message.publicLimitDepths = $root.PublicLimitDepthsV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 304: {
+                    message.privateOrders = $root.PrivateOrdersV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 305: {
+                    message.publicBookTicker = $root.PublicBookTickerV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 306: {
+                    message.privateDeals = $root.PrivateDealsV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 307: {
+                    message.privateAccount = $root.PrivateAccountV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 308: {
+                    message.publicSpotKline = $root.PublicSpotKlineV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 309: {
+                    message.publicMiniTicker = $root.PublicMiniTickerV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 310: {
+                    message.publicMiniTickers = $root.PublicMiniTickersV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 311: {
+                    message.publicBookTickerBatch = $root.PublicBookTickerBatchV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 312: {
+                    message.publicIncreaseDepthsBatch = $root.PublicIncreaseDepthsBatchV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 313: {
+                    message.publicAggreDepths = $root.PublicAggreDepthsV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 314: {
+                    message.publicAggreDeals = $root.PublicAggreDealsV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 315: {
+                    message.publicAggreBookTicker = $root.PublicAggreBookTickerV3Api.decode(reader, reader.uint32());
+                    break;
+                }
+            case 3: {
+                    message.symbol = reader.string();
+                    break;
+                }
+            case 4: {
+                    message.symbolId = reader.string();
+                    break;
+                }
+            case 5: {
+                    message.createTime = reader.int64();
+                    break;
+                }
+            case 6: {
+                    message.sendTime = reader.int64();
+                    break;
+                }
+            default:
+                reader.skipType(tag & 7);
+                break;
+            }
+        }
+        return message;
+    };
+
+    /**
+     * Decodes a PushDataV3ApiWrapper message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {PushDataV3ApiWrapper} PushDataV3ApiWrapper
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    PushDataV3ApiWrapper.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+
+    /**
+     * Verifies a PushDataV3ApiWrapper message.
+     * @function verify
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    PushDataV3ApiWrapper.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        var properties = {};
+        if (message.channel != null && message.hasOwnProperty("channel"))
+            if (!$util.isString(message.channel))
+                return "channel: string expected";
+        if (message.publicDeals != null && message.hasOwnProperty("publicDeals")) {
+            properties.body = 1;
+            {
+                var error = $root.PublicDealsV3Api.verify(message.publicDeals);
+                if (error)
+                    return "publicDeals." + error;
+            }
+        }
+        if (message.publicIncreaseDepths != null && message.hasOwnProperty("publicIncreaseDepths")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicIncreaseDepthsV3Api.verify(message.publicIncreaseDepths);
+                if (error)
+                    return "publicIncreaseDepths." + error;
+            }
+        }
+        if (message.publicLimitDepths != null && message.hasOwnProperty("publicLimitDepths")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicLimitDepthsV3Api.verify(message.publicLimitDepths);
+                if (error)
+                    return "publicLimitDepths." + error;
+            }
+        }
+        if (message.privateOrders != null && message.hasOwnProperty("privateOrders")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PrivateOrdersV3Api.verify(message.privateOrders);
+                if (error)
+                    return "privateOrders." + error;
+            }
+        }
+        if (message.publicBookTicker != null && message.hasOwnProperty("publicBookTicker")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicBookTickerV3Api.verify(message.publicBookTicker);
+                if (error)
+                    return "publicBookTicker." + error;
+            }
+        }
+        if (message.privateDeals != null && message.hasOwnProperty("privateDeals")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PrivateDealsV3Api.verify(message.privateDeals);
+                if (error)
+                    return "privateDeals." + error;
+            }
+        }
+        if (message.privateAccount != null && message.hasOwnProperty("privateAccount")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PrivateAccountV3Api.verify(message.privateAccount);
+                if (error)
+                    return "privateAccount." + error;
+            }
+        }
+        if (message.publicSpotKline != null && message.hasOwnProperty("publicSpotKline")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicSpotKlineV3Api.verify(message.publicSpotKline);
+                if (error)
+                    return "publicSpotKline." + error;
+            }
+        }
+        if (message.publicMiniTicker != null && message.hasOwnProperty("publicMiniTicker")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicMiniTickerV3Api.verify(message.publicMiniTicker);
+                if (error)
+                    return "publicMiniTicker." + error;
+            }
+        }
+        if (message.publicMiniTickers != null && message.hasOwnProperty("publicMiniTickers")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicMiniTickersV3Api.verify(message.publicMiniTickers);
+                if (error)
+                    return "publicMiniTickers." + error;
+            }
+        }
+        if (message.publicBookTickerBatch != null && message.hasOwnProperty("publicBookTickerBatch")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicBookTickerBatchV3Api.verify(message.publicBookTickerBatch);
+                if (error)
+                    return "publicBookTickerBatch." + error;
+            }
+        }
+        if (message.publicIncreaseDepthsBatch != null && message.hasOwnProperty("publicIncreaseDepthsBatch")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicIncreaseDepthsBatchV3Api.verify(message.publicIncreaseDepthsBatch);
+                if (error)
+                    return "publicIncreaseDepthsBatch." + error;
+            }
+        }
+        if (message.publicAggreDepths != null && message.hasOwnProperty("publicAggreDepths")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicAggreDepthsV3Api.verify(message.publicAggreDepths);
+                if (error)
+                    return "publicAggreDepths." + error;
+            }
+        }
+        if (message.publicAggreDeals != null && message.hasOwnProperty("publicAggreDeals")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicAggreDealsV3Api.verify(message.publicAggreDeals);
+                if (error)
+                    return "publicAggreDeals." + error;
+            }
+        }
+        if (message.publicAggreBookTicker != null && message.hasOwnProperty("publicAggreBookTicker")) {
+            if (properties.body === 1)
+                return "body: multiple values";
+            properties.body = 1;
+            {
+                var error = $root.PublicAggreBookTickerV3Api.verify(message.publicAggreBookTicker);
+                if (error)
+                    return "publicAggreBookTicker." + error;
+            }
+        }
+        if (message.symbol != null && message.hasOwnProperty("symbol")) {
+            properties._symbol = 1;
+            if (!$util.isString(message.symbol))
+                return "symbol: string expected";
+        }
+        if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
+            properties._symbolId = 1;
+            if (!$util.isString(message.symbolId))
+                return "symbolId: string expected";
+        }
+        if (message.createTime != null && message.hasOwnProperty("createTime")) {
+            properties._createTime = 1;
+            if (!$util.isInteger(message.createTime) && !(message.createTime && $util.isInteger(message.createTime.low) && $util.isInteger(message.createTime.high)))
+                return "createTime: integer|Long expected";
+        }
+        if (message.sendTime != null && message.hasOwnProperty("sendTime")) {
+            properties._sendTime = 1;
+            if (!$util.isInteger(message.sendTime) && !(message.sendTime && $util.isInteger(message.sendTime.low) && $util.isInteger(message.sendTime.high)))
+                return "sendTime: integer|Long expected";
+        }
+        return null;
+    };
+
+    /**
+     * Creates a PushDataV3ApiWrapper message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {PushDataV3ApiWrapper} PushDataV3ApiWrapper
+     */
+    PushDataV3ApiWrapper.fromObject = function fromObject(object) {
+        if (object instanceof $root.PushDataV3ApiWrapper)
+            return object;
+        var message = new $root.PushDataV3ApiWrapper();
+        if (object.channel != null)
+            message.channel = String(object.channel);
+        if (object.publicDeals != null) {
+            if (typeof object.publicDeals !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicDeals: object expected");
+            message.publicDeals = $root.PublicDealsV3Api.fromObject(object.publicDeals);
+        }
+        if (object.publicIncreaseDepths != null) {
+            if (typeof object.publicIncreaseDepths !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicIncreaseDepths: object expected");
+            message.publicIncreaseDepths = $root.PublicIncreaseDepthsV3Api.fromObject(object.publicIncreaseDepths);
+        }
+        if (object.publicLimitDepths != null) {
+            if (typeof object.publicLimitDepths !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicLimitDepths: object expected");
+            message.publicLimitDepths = $root.PublicLimitDepthsV3Api.fromObject(object.publicLimitDepths);
+        }
+        if (object.privateOrders != null) {
+            if (typeof object.privateOrders !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.privateOrders: object expected");
+            message.privateOrders = $root.PrivateOrdersV3Api.fromObject(object.privateOrders);
+        }
+        if (object.publicBookTicker != null) {
+            if (typeof object.publicBookTicker !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicBookTicker: object expected");
+            message.publicBookTicker = $root.PublicBookTickerV3Api.fromObject(object.publicBookTicker);
+        }
+        if (object.privateDeals != null) {
+            if (typeof object.privateDeals !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.privateDeals: object expected");
+            message.privateDeals = $root.PrivateDealsV3Api.fromObject(object.privateDeals);
+        }
+        if (object.privateAccount != null) {
+            if (typeof object.privateAccount !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.privateAccount: object expected");
+            message.privateAccount = $root.PrivateAccountV3Api.fromObject(object.privateAccount);
+        }
+        if (object.publicSpotKline != null) {
+            if (typeof object.publicSpotKline !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicSpotKline: object expected");
+            message.publicSpotKline = $root.PublicSpotKlineV3Api.fromObject(object.publicSpotKline);
+        }
+        if (object.publicMiniTicker != null) {
+            if (typeof object.publicMiniTicker !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicMiniTicker: object expected");
+            message.publicMiniTicker = $root.PublicMiniTickerV3Api.fromObject(object.publicMiniTicker);
+        }
+        if (object.publicMiniTickers != null) {
+            if (typeof object.publicMiniTickers !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicMiniTickers: object expected");
+            message.publicMiniTickers = $root.PublicMiniTickersV3Api.fromObject(object.publicMiniTickers);
+        }
+        if (object.publicBookTickerBatch != null) {
+            if (typeof object.publicBookTickerBatch !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicBookTickerBatch: object expected");
+            message.publicBookTickerBatch = $root.PublicBookTickerBatchV3Api.fromObject(object.publicBookTickerBatch);
+        }
+        if (object.publicIncreaseDepthsBatch != null) {
+            if (typeof object.publicIncreaseDepthsBatch !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicIncreaseDepthsBatch: object expected");
+            message.publicIncreaseDepthsBatch = $root.PublicIncreaseDepthsBatchV3Api.fromObject(object.publicIncreaseDepthsBatch);
+        }
+        if (object.publicAggreDepths != null) {
+            if (typeof object.publicAggreDepths !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicAggreDepths: object expected");
+            message.publicAggreDepths = $root.PublicAggreDepthsV3Api.fromObject(object.publicAggreDepths);
+        }
+        if (object.publicAggreDeals != null) {
+            if (typeof object.publicAggreDeals !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicAggreDeals: object expected");
+            message.publicAggreDeals = $root.PublicAggreDealsV3Api.fromObject(object.publicAggreDeals);
+        }
+        if (object.publicAggreBookTicker != null) {
+            if (typeof object.publicAggreBookTicker !== "object")
+                throw TypeError(".PushDataV3ApiWrapper.publicAggreBookTicker: object expected");
+            message.publicAggreBookTicker = $root.PublicAggreBookTickerV3Api.fromObject(object.publicAggreBookTicker);
+        }
+        if (object.symbol != null)
+            message.symbol = String(object.symbol);
+        if (object.symbolId != null)
+            message.symbolId = String(object.symbolId);
+        if (object.createTime != null)
+            if ($util.Long)
+                (message.createTime = $util.Long.fromValue(object.createTime)).unsigned = false;
+            else if (typeof object.createTime === "string")
+                message.createTime = parseInt(object.createTime, 10);
+            else if (typeof object.createTime === "number")
+                message.createTime = object.createTime;
+            else if (typeof object.createTime === "object")
+                message.createTime = new $util.LongBits(object.createTime.low >>> 0, object.createTime.high >>> 0).toNumber();
+        if (object.sendTime != null)
+            if ($util.Long)
+                (message.sendTime = $util.Long.fromValue(object.sendTime)).unsigned = false;
+            else if (typeof object.sendTime === "string")
+                message.sendTime = parseInt(object.sendTime, 10);
+            else if (typeof object.sendTime === "number")
+                message.sendTime = object.sendTime;
+            else if (typeof object.sendTime === "object")
+                message.sendTime = new $util.LongBits(object.sendTime.low >>> 0, object.sendTime.high >>> 0).toNumber();
+        return message;
+    };
+
+    /**
+     * Creates a plain object from a PushDataV3ApiWrapper message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {PushDataV3ApiWrapper} message PushDataV3ApiWrapper
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    PushDataV3ApiWrapper.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.channel = "";
+        if (message.channel != null && message.hasOwnProperty("channel"))
+            object.channel = message.channel;
+        if (message.symbol != null && message.hasOwnProperty("symbol")) {
+            object.symbol = message.symbol;
+            if (options.oneofs)
+                object._symbol = "symbol";
+        }
+        if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
+            object.symbolId = message.symbolId;
+            if (options.oneofs)
+                object._symbolId = "symbolId";
+        }
+        if (message.createTime != null && message.hasOwnProperty("createTime")) {
+            if (typeof message.createTime === "number")
+                object.createTime = options.longs === String ? String(message.createTime) : message.createTime;
+            else
+                object.createTime = options.longs === String ? $util.Long.prototype.toString.call(message.createTime) : options.longs === Number ? new $util.LongBits(message.createTime.low >>> 0, message.createTime.high >>> 0).toNumber() : message.createTime;
+            if (options.oneofs)
+                object._createTime = "createTime";
+        }
+        if (message.sendTime != null && message.hasOwnProperty("sendTime")) {
+            if (typeof message.sendTime === "number")
+                object.sendTime = options.longs === String ? String(message.sendTime) : message.sendTime;
+            else
+                object.sendTime = options.longs === String ? $util.Long.prototype.toString.call(message.sendTime) : options.longs === Number ? new $util.LongBits(message.sendTime.low >>> 0, message.sendTime.high >>> 0).toNumber() : message.sendTime;
+            if (options.oneofs)
+                object._sendTime = "sendTime";
+        }
+        if (message.publicDeals != null && message.hasOwnProperty("publicDeals")) {
+            object.publicDeals = $root.PublicDealsV3Api.toObject(message.publicDeals, options);
+            if (options.oneofs)
+                object.body = "publicDeals";
+        }
+        if (message.publicIncreaseDepths != null && message.hasOwnProperty("publicIncreaseDepths")) {
+            object.publicIncreaseDepths = $root.PublicIncreaseDepthsV3Api.toObject(message.publicIncreaseDepths, options);
+            if (options.oneofs)
+                object.body = "publicIncreaseDepths";
+        }
+        if (message.publicLimitDepths != null && message.hasOwnProperty("publicLimitDepths")) {
+            object.publicLimitDepths = $root.PublicLimitDepthsV3Api.toObject(message.publicLimitDepths, options);
+            if (options.oneofs)
+                object.body = "publicLimitDepths";
+        }
+        if (message.privateOrders != null && message.hasOwnProperty("privateOrders")) {
+            object.privateOrders = $root.PrivateOrdersV3Api.toObject(message.privateOrders, options);
+            if (options.oneofs)
+                object.body = "privateOrders";
+        }
+        if (message.publicBookTicker != null && message.hasOwnProperty("publicBookTicker")) {
+            object.publicBookTicker = $root.PublicBookTickerV3Api.toObject(message.publicBookTicker, options);
+            if (options.oneofs)
+                object.body = "publicBookTicker";
+        }
+        if (message.privateDeals != null && message.hasOwnProperty("privateDeals")) {
+            object.privateDeals = $root.PrivateDealsV3Api.toObject(message.privateDeals, options);
+            if (options.oneofs)
+                object.body = "privateDeals";
+        }
+        if (message.privateAccount != null && message.hasOwnProperty("privateAccount")) {
+            object.privateAccount = $root.PrivateAccountV3Api.toObject(message.privateAccount, options);
+            if (options.oneofs)
+                object.body = "privateAccount";
+        }
+        if (message.publicSpotKline != null && message.hasOwnProperty("publicSpotKline")) {
+            object.publicSpotKline = $root.PublicSpotKlineV3Api.toObject(message.publicSpotKline, options);
+            if (options.oneofs)
+                object.body = "publicSpotKline";
+        }
+        if (message.publicMiniTicker != null && message.hasOwnProperty("publicMiniTicker")) {
+            object.publicMiniTicker = $root.PublicMiniTickerV3Api.toObject(message.publicMiniTicker, options);
+            if (options.oneofs)
+                object.body = "publicMiniTicker";
+        }
+        if (message.publicMiniTickers != null && message.hasOwnProperty("publicMiniTickers")) {
+            object.publicMiniTickers = $root.PublicMiniTickersV3Api.toObject(message.publicMiniTickers, options);
+            if (options.oneofs)
+                object.body = "publicMiniTickers";
+        }
+        if (message.publicBookTickerBatch != null && message.hasOwnProperty("publicBookTickerBatch")) {
+            object.publicBookTickerBatch = $root.PublicBookTickerBatchV3Api.toObject(message.publicBookTickerBatch, options);
+            if (options.oneofs)
+                object.body = "publicBookTickerBatch";
+        }
+        if (message.publicIncreaseDepthsBatch != null && message.hasOwnProperty("publicIncreaseDepthsBatch")) {
+            object.publicIncreaseDepthsBatch = $root.PublicIncreaseDepthsBatchV3Api.toObject(message.publicIncreaseDepthsBatch, options);
+            if (options.oneofs)
+                object.body = "publicIncreaseDepthsBatch";
+        }
+        if (message.publicAggreDepths != null && message.hasOwnProperty("publicAggreDepths")) {
+            object.publicAggreDepths = $root.PublicAggreDepthsV3Api.toObject(message.publicAggreDepths, options);
+            if (options.oneofs)
+                object.body = "publicAggreDepths";
+        }
+        if (message.publicAggreDeals != null && message.hasOwnProperty("publicAggreDeals")) {
+            object.publicAggreDeals = $root.PublicAggreDealsV3Api.toObject(message.publicAggreDeals, options);
+            if (options.oneofs)
+                object.body = "publicAggreDeals";
+        }
+        if (message.publicAggreBookTicker != null && message.hasOwnProperty("publicAggreBookTicker")) {
+            object.publicAggreBookTicker = $root.PublicAggreBookTickerV3Api.toObject(message.publicAggreBookTicker, options);
+            if (options.oneofs)
+                object.body = "publicAggreBookTicker";
+        }
+        return object;
+    };
+
+    /**
+     * Converts this PushDataV3ApiWrapper to JSON.
+     * @function toJSON
+     * @memberof PushDataV3ApiWrapper
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    PushDataV3ApiWrapper.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+
+    /**
+     * Gets the default type url for PushDataV3ApiWrapper
+     * @function getTypeUrl
+     * @memberof PushDataV3ApiWrapper
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    PushDataV3ApiWrapper.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/PushDataV3ApiWrapper";
+    };
+
+    return PushDataV3ApiWrapper;
+})();
+
+module.exports = $root;
 
 
 /***/ }),
@@ -408148,9 +419489,6 @@ async function __wbg_init(input) {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -408206,89 +419544,9 @@ async function __wbg_init(input) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/ensure chunk */
-/******/ 	(() => {
-/******/ 		__webpack_require__.f = {};
-/******/ 		// This file contains only the entry chunk.
-/******/ 		// The chunk loading function for additional chunks
-/******/ 		__webpack_require__.e = (chunkId) => {
-/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
-/******/ 				__webpack_require__.f[key](chunkId, promises);
-/******/ 				return promises;
-/******/ 			}, []));
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/get javascript chunk filename */
-/******/ 	(() => {
-/******/ 		// This function allow to reference async chunks
-/******/ 		__webpack_require__.u = (chunkId) => {
-/******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".ccxt.browser.js";
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/load script */
-/******/ 	(() => {
-/******/ 		var inProgress = {};
-/******/ 		var dataWebpackPrefix = "ccxt:";
-/******/ 		// loadScript function to load a script via script tag
-/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
-/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
-/******/ 			var script, needAttach;
-/******/ 			if(key !== undefined) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				for(var i = 0; i < scripts.length; i++) {
-/******/ 					var s = scripts[i];
-/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
-/******/ 				}
-/******/ 			}
-/******/ 			if(!script) {
-/******/ 				needAttach = true;
-/******/ 				script = document.createElement('script');
-/******/ 		
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
-/******/ 		
-/******/ 				script.src = url;
-/******/ 			}
-/******/ 			inProgress[url] = [done];
-/******/ 			var onScriptComplete = (prev, event) => {
-/******/ 				// avoid mem leaks in IE.
-/******/ 				script.onerror = script.onload = null;
-/******/ 				clearTimeout(timeout);
-/******/ 				var doneFns = inProgress[url];
-/******/ 				delete inProgress[url];
-/******/ 				script.parentNode && script.parentNode.removeChild(script);
-/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
-/******/ 				if(prev) return prev(event);
-/******/ 			}
-/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
-/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
-/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
-/******/ 			needAttach && document.head.appendChild(script);
-/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -408300,119 +419558,6 @@ async function __wbg_init(input) {
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			792: 0
-/******/ 		};
-/******/ 		
-/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
-/******/ 				// JSONP chunk loading for javascript
-/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
-/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
-/******/ 		
-/******/ 					// a Promise means "currently loading".
-/******/ 					if(installedChunkData) {
-/******/ 						promises.push(installedChunkData[2]);
-/******/ 					} else {
-/******/ 						if(true) { // all chunks have JS
-/******/ 							// setup Promise in chunk cache
-/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
-/******/ 							promises.push(installedChunkData[2] = promise);
-/******/ 		
-/******/ 							// start chunk loading
-/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
-/******/ 							// create error before stack unwound to get useful stacktrace later
-/******/ 							var error = new Error();
-/******/ 							var loadingEnded = (event) => {
-/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
-/******/ 									installedChunkData = installedChunks[chunkId];
-/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
-/******/ 									if(installedChunkData) {
-/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 										var realSrc = event && event.target && event.target.src;
-/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 										error.name = 'ChunkLoadError';
-/******/ 										error.type = errorType;
-/******/ 										error.request = realSrc;
-/******/ 										installedChunkData[1](error);
-/******/ 									}
-/******/ 								}
-/******/ 							};
-/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
-/******/ 						}
-/******/ 					}
-/******/ 				}
-/******/ 		};
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		// no on chunks loaded
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 		
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkccxt"] = self["webpackChunkccxt"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -408465,104 +419610,104 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   alpaca: () => (/* reexport safe */ ccxt_src_alpaca_js_WEBPACK_IMPORTED_MODULE_1_.A),
 /* harmony export */   apex: () => (/* reexport safe */ ccxt_src_apex_js_WEBPACK_IMPORTED_MODULE_2_.A),
 /* harmony export */   ascendex: () => (/* reexport safe */ ccxt_src_ascendex_js_WEBPACK_IMPORTED_MODULE_3_.A),
-/* harmony export */   bequant: () => (/* reexport safe */ ccxt_src_bequant_js_WEBPACK_IMPORTED_MODULE_4_.A),
-/* harmony export */   bigone: () => (/* reexport safe */ ccxt_src_bigone_js_WEBPACK_IMPORTED_MODULE_5_.A),
-/* harmony export */   binance: () => (/* reexport safe */ ccxt_src_binance_js_WEBPACK_IMPORTED_MODULE_6_.A),
-/* harmony export */   binancecoinm: () => (/* reexport safe */ ccxt_src_binancecoinm_js_WEBPACK_IMPORTED_MODULE_7_.A),
-/* harmony export */   binanceus: () => (/* reexport safe */ ccxt_src_binanceus_js_WEBPACK_IMPORTED_MODULE_8_.A),
-/* harmony export */   binanceusdm: () => (/* reexport safe */ ccxt_src_binanceusdm_js_WEBPACK_IMPORTED_MODULE_9_.A),
-/* harmony export */   bingx: () => (/* reexport safe */ ccxt_src_bingx_js_WEBPACK_IMPORTED_MODULE_10_.A),
-/* harmony export */   bit2c: () => (/* reexport safe */ ccxt_src_bit2c_js_WEBPACK_IMPORTED_MODULE_11_.A),
-/* harmony export */   bitbank: () => (/* reexport safe */ ccxt_src_bitbank_js_WEBPACK_IMPORTED_MODULE_12_.A),
-/* harmony export */   bitbns: () => (/* reexport safe */ ccxt_src_bitbns_js_WEBPACK_IMPORTED_MODULE_13_.A),
-/* harmony export */   bitfinex: () => (/* reexport safe */ ccxt_src_bitfinex_js_WEBPACK_IMPORTED_MODULE_14_.A),
-/* harmony export */   bitflyer: () => (/* reexport safe */ ccxt_src_bitflyer_js_WEBPACK_IMPORTED_MODULE_15_.A),
-/* harmony export */   bitget: () => (/* reexport safe */ ccxt_src_bitget_js_WEBPACK_IMPORTED_MODULE_16_.A),
-/* harmony export */   bithumb: () => (/* reexport safe */ ccxt_src_bithumb_js_WEBPACK_IMPORTED_MODULE_17_.A),
-/* harmony export */   bitmart: () => (/* reexport safe */ ccxt_src_bitmart_js_WEBPACK_IMPORTED_MODULE_18_.A),
-/* harmony export */   bitmex: () => (/* reexport safe */ ccxt_src_bitmex_js_WEBPACK_IMPORTED_MODULE_19_.A),
-/* harmony export */   bitopro: () => (/* reexport safe */ ccxt_src_bitopro_js_WEBPACK_IMPORTED_MODULE_20_.A),
-/* harmony export */   bitrue: () => (/* reexport safe */ ccxt_src_bitrue_js_WEBPACK_IMPORTED_MODULE_21_.A),
-/* harmony export */   bitso: () => (/* reexport safe */ ccxt_src_bitso_js_WEBPACK_IMPORTED_MODULE_22_.A),
-/* harmony export */   bitstamp: () => (/* reexport safe */ ccxt_src_bitstamp_js_WEBPACK_IMPORTED_MODULE_23_.A),
-/* harmony export */   bitteam: () => (/* reexport safe */ ccxt_src_bitteam_js_WEBPACK_IMPORTED_MODULE_24_.A),
-/* harmony export */   bittrade: () => (/* reexport safe */ ccxt_src_bittrade_js_WEBPACK_IMPORTED_MODULE_25_.A),
-/* harmony export */   bitvavo: () => (/* reexport safe */ ccxt_src_bitvavo_js_WEBPACK_IMPORTED_MODULE_26_.A),
-/* harmony export */   blockchaincom: () => (/* reexport safe */ ccxt_src_blockchaincom_js_WEBPACK_IMPORTED_MODULE_27_.A),
-/* harmony export */   blofin: () => (/* reexport safe */ ccxt_src_blofin_js_WEBPACK_IMPORTED_MODULE_28_.A),
-/* harmony export */   btcalpha: () => (/* reexport safe */ ccxt_src_btcalpha_js_WEBPACK_IMPORTED_MODULE_29_.A),
-/* harmony export */   btcbox: () => (/* reexport safe */ ccxt_src_btcbox_js_WEBPACK_IMPORTED_MODULE_30_.A),
-/* harmony export */   btcmarkets: () => (/* reexport safe */ ccxt_src_btcmarkets_js_WEBPACK_IMPORTED_MODULE_31_.A),
-/* harmony export */   btcturk: () => (/* reexport safe */ ccxt_src_btcturk_js_WEBPACK_IMPORTED_MODULE_32_.A),
-/* harmony export */   bybit: () => (/* reexport safe */ ccxt_src_bybit_js_WEBPACK_IMPORTED_MODULE_33_.A),
-/* harmony export */   cex: () => (/* reexport safe */ ccxt_src_cex_js_WEBPACK_IMPORTED_MODULE_34_.A),
-/* harmony export */   coinbase: () => (/* reexport safe */ ccxt_src_coinbase_js_WEBPACK_IMPORTED_MODULE_35_.A),
-/* harmony export */   coinbaseadvanced: () => (/* reexport safe */ ccxt_src_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_36_.A),
-/* harmony export */   coinbaseexchange: () => (/* reexport safe */ ccxt_src_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_37_.A),
-/* harmony export */   coinbaseinternational: () => (/* reexport safe */ ccxt_src_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_38_.A),
-/* harmony export */   coincatch: () => (/* reexport safe */ ccxt_src_coincatch_js_WEBPACK_IMPORTED_MODULE_39_.A),
-/* harmony export */   coincheck: () => (/* reexport safe */ ccxt_src_coincheck_js_WEBPACK_IMPORTED_MODULE_40_.A),
-/* harmony export */   coinex: () => (/* reexport safe */ ccxt_src_coinex_js_WEBPACK_IMPORTED_MODULE_41_.A),
-/* harmony export */   coinmate: () => (/* reexport safe */ ccxt_src_coinmate_js_WEBPACK_IMPORTED_MODULE_42_.A),
-/* harmony export */   coinmetro: () => (/* reexport safe */ ccxt_src_coinmetro_js_WEBPACK_IMPORTED_MODULE_43_.A),
-/* harmony export */   coinone: () => (/* reexport safe */ ccxt_src_coinone_js_WEBPACK_IMPORTED_MODULE_44_.A),
-/* harmony export */   coinsph: () => (/* reexport safe */ ccxt_src_coinsph_js_WEBPACK_IMPORTED_MODULE_45_.A),
-/* harmony export */   coinspot: () => (/* reexport safe */ ccxt_src_coinspot_js_WEBPACK_IMPORTED_MODULE_46_.A),
-/* harmony export */   cryptocom: () => (/* reexport safe */ ccxt_src_cryptocom_js_WEBPACK_IMPORTED_MODULE_47_.A),
-/* harmony export */   cryptomus: () => (/* reexport safe */ ccxt_src_cryptomus_js_WEBPACK_IMPORTED_MODULE_48_.A),
+/* harmony export */   backpack: () => (/* reexport safe */ ccxt_src_backpack_js_WEBPACK_IMPORTED_MODULE_4_.A),
+/* harmony export */   bequant: () => (/* reexport safe */ ccxt_src_bequant_js_WEBPACK_IMPORTED_MODULE_5_.A),
+/* harmony export */   bigone: () => (/* reexport safe */ ccxt_src_bigone_js_WEBPACK_IMPORTED_MODULE_6_.A),
+/* harmony export */   binance: () => (/* reexport safe */ ccxt_src_binance_js_WEBPACK_IMPORTED_MODULE_7_.A),
+/* harmony export */   binancecoinm: () => (/* reexport safe */ ccxt_src_binancecoinm_js_WEBPACK_IMPORTED_MODULE_8_.A),
+/* harmony export */   binanceus: () => (/* reexport safe */ ccxt_src_binanceus_js_WEBPACK_IMPORTED_MODULE_9_.A),
+/* harmony export */   binanceusdm: () => (/* reexport safe */ ccxt_src_binanceusdm_js_WEBPACK_IMPORTED_MODULE_10_.A),
+/* harmony export */   bingx: () => (/* reexport safe */ ccxt_src_bingx_js_WEBPACK_IMPORTED_MODULE_11_.A),
+/* harmony export */   bit2c: () => (/* reexport safe */ ccxt_src_bit2c_js_WEBPACK_IMPORTED_MODULE_12_.A),
+/* harmony export */   bitbank: () => (/* reexport safe */ ccxt_src_bitbank_js_WEBPACK_IMPORTED_MODULE_13_.A),
+/* harmony export */   bitbns: () => (/* reexport safe */ ccxt_src_bitbns_js_WEBPACK_IMPORTED_MODULE_14_.A),
+/* harmony export */   bitfinex: () => (/* reexport safe */ ccxt_src_bitfinex_js_WEBPACK_IMPORTED_MODULE_15_.A),
+/* harmony export */   bitflyer: () => (/* reexport safe */ ccxt_src_bitflyer_js_WEBPACK_IMPORTED_MODULE_16_.A),
+/* harmony export */   bitget: () => (/* reexport safe */ ccxt_src_bitget_js_WEBPACK_IMPORTED_MODULE_17_.A),
+/* harmony export */   bithumb: () => (/* reexport safe */ ccxt_src_bithumb_js_WEBPACK_IMPORTED_MODULE_18_.A),
+/* harmony export */   bitmart: () => (/* reexport safe */ ccxt_src_bitmart_js_WEBPACK_IMPORTED_MODULE_19_.A),
+/* harmony export */   bitmex: () => (/* reexport safe */ ccxt_src_bitmex_js_WEBPACK_IMPORTED_MODULE_20_.A),
+/* harmony export */   bitopro: () => (/* reexport safe */ ccxt_src_bitopro_js_WEBPACK_IMPORTED_MODULE_21_.A),
+/* harmony export */   bitrue: () => (/* reexport safe */ ccxt_src_bitrue_js_WEBPACK_IMPORTED_MODULE_22_.A),
+/* harmony export */   bitso: () => (/* reexport safe */ ccxt_src_bitso_js_WEBPACK_IMPORTED_MODULE_23_.A),
+/* harmony export */   bitstamp: () => (/* reexport safe */ ccxt_src_bitstamp_js_WEBPACK_IMPORTED_MODULE_24_.A),
+/* harmony export */   bitteam: () => (/* reexport safe */ ccxt_src_bitteam_js_WEBPACK_IMPORTED_MODULE_25_.A),
+/* harmony export */   bittrade: () => (/* reexport safe */ ccxt_src_bittrade_js_WEBPACK_IMPORTED_MODULE_26_.A),
+/* harmony export */   bitvavo: () => (/* reexport safe */ ccxt_src_bitvavo_js_WEBPACK_IMPORTED_MODULE_27_.A),
+/* harmony export */   blockchaincom: () => (/* reexport safe */ ccxt_src_blockchaincom_js_WEBPACK_IMPORTED_MODULE_28_.A),
+/* harmony export */   blofin: () => (/* reexport safe */ ccxt_src_blofin_js_WEBPACK_IMPORTED_MODULE_29_.A),
+/* harmony export */   btcalpha: () => (/* reexport safe */ ccxt_src_btcalpha_js_WEBPACK_IMPORTED_MODULE_30_.A),
+/* harmony export */   btcbox: () => (/* reexport safe */ ccxt_src_btcbox_js_WEBPACK_IMPORTED_MODULE_31_.A),
+/* harmony export */   btcmarkets: () => (/* reexport safe */ ccxt_src_btcmarkets_js_WEBPACK_IMPORTED_MODULE_32_.A),
+/* harmony export */   btcturk: () => (/* reexport safe */ ccxt_src_btcturk_js_WEBPACK_IMPORTED_MODULE_33_.A),
+/* harmony export */   bybit: () => (/* reexport safe */ ccxt_src_bybit_js_WEBPACK_IMPORTED_MODULE_34_.A),
+/* harmony export */   cex: () => (/* reexport safe */ ccxt_src_cex_js_WEBPACK_IMPORTED_MODULE_35_.A),
+/* harmony export */   coinbase: () => (/* reexport safe */ ccxt_src_coinbase_js_WEBPACK_IMPORTED_MODULE_36_.A),
+/* harmony export */   coinbaseadvanced: () => (/* reexport safe */ ccxt_src_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_37_.A),
+/* harmony export */   coinbaseexchange: () => (/* reexport safe */ ccxt_src_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_38_.A),
+/* harmony export */   coinbaseinternational: () => (/* reexport safe */ ccxt_src_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_39_.A),
+/* harmony export */   coincatch: () => (/* reexport safe */ ccxt_src_coincatch_js_WEBPACK_IMPORTED_MODULE_40_.A),
+/* harmony export */   coincheck: () => (/* reexport safe */ ccxt_src_coincheck_js_WEBPACK_IMPORTED_MODULE_41_.A),
+/* harmony export */   coinex: () => (/* reexport safe */ ccxt_src_coinex_js_WEBPACK_IMPORTED_MODULE_42_.A),
+/* harmony export */   coinmate: () => (/* reexport safe */ ccxt_src_coinmate_js_WEBPACK_IMPORTED_MODULE_43_.A),
+/* harmony export */   coinmetro: () => (/* reexport safe */ ccxt_src_coinmetro_js_WEBPACK_IMPORTED_MODULE_44_.A),
+/* harmony export */   coinone: () => (/* reexport safe */ ccxt_src_coinone_js_WEBPACK_IMPORTED_MODULE_45_.A),
+/* harmony export */   coinsph: () => (/* reexport safe */ ccxt_src_coinsph_js_WEBPACK_IMPORTED_MODULE_46_.A),
+/* harmony export */   coinspot: () => (/* reexport safe */ ccxt_src_coinspot_js_WEBPACK_IMPORTED_MODULE_47_.A),
+/* harmony export */   cryptocom: () => (/* reexport safe */ ccxt_src_cryptocom_js_WEBPACK_IMPORTED_MODULE_48_.A),
+/* harmony export */   cryptomus: () => (/* reexport safe */ ccxt_src_cryptomus_js_WEBPACK_IMPORTED_MODULE_49_.A),
 /* harmony export */   "default": () => (ts_ccxt),
-/* harmony export */   defx: () => (/* reexport safe */ ccxt_src_defx_js_WEBPACK_IMPORTED_MODULE_49_.A),
-/* harmony export */   delta: () => (/* reexport safe */ ccxt_src_delta_js_WEBPACK_IMPORTED_MODULE_50_.A),
-/* harmony export */   deribit: () => (/* reexport safe */ ccxt_src_deribit_js_WEBPACK_IMPORTED_MODULE_51_.A),
-/* harmony export */   derive: () => (/* reexport safe */ ccxt_src_derive_js_WEBPACK_IMPORTED_MODULE_52_.A),
-/* harmony export */   digifinex: () => (/* reexport safe */ ccxt_src_digifinex_js_WEBPACK_IMPORTED_MODULE_53_.A),
+/* harmony export */   defx: () => (/* reexport safe */ ccxt_src_defx_js_WEBPACK_IMPORTED_MODULE_50_.A),
+/* harmony export */   delta: () => (/* reexport safe */ ccxt_src_delta_js_WEBPACK_IMPORTED_MODULE_51_.A),
+/* harmony export */   deribit: () => (/* reexport safe */ ccxt_src_deribit_js_WEBPACK_IMPORTED_MODULE_52_.A),
+/* harmony export */   derive: () => (/* reexport safe */ ccxt_src_derive_js_WEBPACK_IMPORTED_MODULE_53_.A),
+/* harmony export */   digifinex: () => (/* reexport safe */ ccxt_src_digifinex_js_WEBPACK_IMPORTED_MODULE_54_.A),
 /* harmony export */   errors: () => (/* reexport module object */ ccxt_src_base_errors_js_WEBPACK_IMPORTED_MODULE_180_),
 /* harmony export */   exchanges: () => (/* binding */ ccxt_exchanges),
-/* harmony export */   exmo: () => (/* reexport safe */ ccxt_src_exmo_js_WEBPACK_IMPORTED_MODULE_54_.A),
-/* harmony export */   fmfwio: () => (/* reexport safe */ ccxt_src_fmfwio_js_WEBPACK_IMPORTED_MODULE_55_.A),
-/* harmony export */   foxbit: () => (/* reexport safe */ ccxt_src_foxbit_js_WEBPACK_IMPORTED_MODULE_56_.A),
+/* harmony export */   exmo: () => (/* reexport safe */ ccxt_src_exmo_js_WEBPACK_IMPORTED_MODULE_55_.A),
+/* harmony export */   fmfwio: () => (/* reexport safe */ ccxt_src_fmfwio_js_WEBPACK_IMPORTED_MODULE_56_.A),
+/* harmony export */   foxbit: () => (/* reexport safe */ ccxt_src_foxbit_js_WEBPACK_IMPORTED_MODULE_57_.A),
 /* harmony export */   functions: () => (/* reexport module object */ ccxt_src_base_functions_js_WEBPACK_IMPORTED_MODULE_179_),
-/* harmony export */   gate: () => (/* reexport safe */ ccxt_src_gate_js_WEBPACK_IMPORTED_MODULE_57_.A),
-/* harmony export */   gateio: () => (/* reexport safe */ ccxt_src_gateio_js_WEBPACK_IMPORTED_MODULE_58_.A),
-/* harmony export */   gemini: () => (/* reexport safe */ ccxt_src_gemini_js_WEBPACK_IMPORTED_MODULE_59_.A),
-/* harmony export */   hashkey: () => (/* reexport safe */ ccxt_src_hashkey_js_WEBPACK_IMPORTED_MODULE_60_.A),
-/* harmony export */   hibachi: () => (/* reexport safe */ ccxt_src_hibachi_js_WEBPACK_IMPORTED_MODULE_61_.A),
-/* harmony export */   hitbtc: () => (/* reexport safe */ ccxt_src_hitbtc_js_WEBPACK_IMPORTED_MODULE_62_.A),
-/* harmony export */   hollaex: () => (/* reexport safe */ ccxt_src_hollaex_js_WEBPACK_IMPORTED_MODULE_63_.A),
-/* harmony export */   htx: () => (/* reexport safe */ ccxt_src_htx_js_WEBPACK_IMPORTED_MODULE_64_.A),
-/* harmony export */   huobi: () => (/* reexport safe */ ccxt_src_huobi_js_WEBPACK_IMPORTED_MODULE_65_.A),
-/* harmony export */   hyperliquid: () => (/* reexport safe */ ccxt_src_hyperliquid_js_WEBPACK_IMPORTED_MODULE_66_.A),
-/* harmony export */   independentreserve: () => (/* reexport safe */ ccxt_src_independentreserve_js_WEBPACK_IMPORTED_MODULE_67_.A),
-/* harmony export */   indodax: () => (/* reexport safe */ ccxt_src_indodax_js_WEBPACK_IMPORTED_MODULE_68_.A),
-/* harmony export */   kraken: () => (/* reexport safe */ ccxt_src_kraken_js_WEBPACK_IMPORTED_MODULE_69_.A),
-/* harmony export */   krakenfutures: () => (/* reexport safe */ ccxt_src_krakenfutures_js_WEBPACK_IMPORTED_MODULE_70_.A),
-/* harmony export */   kucoin: () => (/* reexport safe */ ccxt_src_kucoin_js_WEBPACK_IMPORTED_MODULE_71_.A),
-/* harmony export */   kucoinfutures: () => (/* reexport safe */ ccxt_src_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_72_.A),
-/* harmony export */   latoken: () => (/* reexport safe */ ccxt_src_latoken_js_WEBPACK_IMPORTED_MODULE_73_.A),
-/* harmony export */   lbank: () => (/* reexport safe */ ccxt_src_lbank_js_WEBPACK_IMPORTED_MODULE_74_.A),
-/* harmony export */   luno: () => (/* reexport safe */ ccxt_src_luno_js_WEBPACK_IMPORTED_MODULE_75_.A),
-/* harmony export */   mercado: () => (/* reexport safe */ ccxt_src_mercado_js_WEBPACK_IMPORTED_MODULE_76_.A),
-/* harmony export */   mexc: () => (/* reexport safe */ ccxt_src_mexc_js_WEBPACK_IMPORTED_MODULE_77_.A),
-/* harmony export */   modetrade: () => (/* reexport safe */ ccxt_src_modetrade_js_WEBPACK_IMPORTED_MODULE_78_.A),
-/* harmony export */   myokx: () => (/* reexport safe */ ccxt_src_myokx_js_WEBPACK_IMPORTED_MODULE_79_.A),
-/* harmony export */   ndax: () => (/* reexport safe */ ccxt_src_ndax_js_WEBPACK_IMPORTED_MODULE_80_.A),
-/* harmony export */   novadax: () => (/* reexport safe */ ccxt_src_novadax_js_WEBPACK_IMPORTED_MODULE_81_.A),
-/* harmony export */   oceanex: () => (/* reexport safe */ ccxt_src_oceanex_js_WEBPACK_IMPORTED_MODULE_82_.A),
-/* harmony export */   okcoin: () => (/* reexport safe */ ccxt_src_okcoin_js_WEBPACK_IMPORTED_MODULE_83_.A),
-/* harmony export */   okx: () => (/* reexport safe */ ccxt_src_okx_js_WEBPACK_IMPORTED_MODULE_84_.A),
-/* harmony export */   okxus: () => (/* reexport safe */ ccxt_src_okxus_js_WEBPACK_IMPORTED_MODULE_85_.A),
-/* harmony export */   onetrading: () => (/* reexport safe */ ccxt_src_onetrading_js_WEBPACK_IMPORTED_MODULE_86_.A),
-/* harmony export */   oxfun: () => (/* reexport safe */ ccxt_src_oxfun_js_WEBPACK_IMPORTED_MODULE_87_.A),
-/* harmony export */   p2b: () => (/* reexport safe */ ccxt_src_p2b_js_WEBPACK_IMPORTED_MODULE_88_.A),
-/* harmony export */   paradex: () => (/* reexport safe */ ccxt_src_paradex_js_WEBPACK_IMPORTED_MODULE_89_.A),
-/* harmony export */   paymium: () => (/* reexport safe */ ccxt_src_paymium_js_WEBPACK_IMPORTED_MODULE_90_.A),
-/* harmony export */   phemex: () => (/* reexport safe */ ccxt_src_phemex_js_WEBPACK_IMPORTED_MODULE_91_.A),
-/* harmony export */   poloniex: () => (/* reexport safe */ ccxt_src_poloniex_js_WEBPACK_IMPORTED_MODULE_92_.A),
+/* harmony export */   gate: () => (/* reexport safe */ ccxt_src_gate_js_WEBPACK_IMPORTED_MODULE_58_.A),
+/* harmony export */   gateio: () => (/* reexport safe */ ccxt_src_gateio_js_WEBPACK_IMPORTED_MODULE_59_.A),
+/* harmony export */   gemini: () => (/* reexport safe */ ccxt_src_gemini_js_WEBPACK_IMPORTED_MODULE_60_.A),
+/* harmony export */   hashkey: () => (/* reexport safe */ ccxt_src_hashkey_js_WEBPACK_IMPORTED_MODULE_61_.A),
+/* harmony export */   hibachi: () => (/* reexport safe */ ccxt_src_hibachi_js_WEBPACK_IMPORTED_MODULE_62_.A),
+/* harmony export */   hitbtc: () => (/* reexport safe */ ccxt_src_hitbtc_js_WEBPACK_IMPORTED_MODULE_63_.A),
+/* harmony export */   hollaex: () => (/* reexport safe */ ccxt_src_hollaex_js_WEBPACK_IMPORTED_MODULE_64_.A),
+/* harmony export */   htx: () => (/* reexport safe */ ccxt_src_htx_js_WEBPACK_IMPORTED_MODULE_65_.A),
+/* harmony export */   huobi: () => (/* reexport safe */ ccxt_src_huobi_js_WEBPACK_IMPORTED_MODULE_66_.A),
+/* harmony export */   hyperliquid: () => (/* reexport safe */ ccxt_src_hyperliquid_js_WEBPACK_IMPORTED_MODULE_67_.A),
+/* harmony export */   independentreserve: () => (/* reexport safe */ ccxt_src_independentreserve_js_WEBPACK_IMPORTED_MODULE_68_.A),
+/* harmony export */   indodax: () => (/* reexport safe */ ccxt_src_indodax_js_WEBPACK_IMPORTED_MODULE_69_.A),
+/* harmony export */   kraken: () => (/* reexport safe */ ccxt_src_kraken_js_WEBPACK_IMPORTED_MODULE_70_.A),
+/* harmony export */   krakenfutures: () => (/* reexport safe */ ccxt_src_krakenfutures_js_WEBPACK_IMPORTED_MODULE_71_.A),
+/* harmony export */   kucoin: () => (/* reexport safe */ ccxt_src_kucoin_js_WEBPACK_IMPORTED_MODULE_72_.A),
+/* harmony export */   kucoinfutures: () => (/* reexport safe */ ccxt_src_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_73_.A),
+/* harmony export */   latoken: () => (/* reexport safe */ ccxt_src_latoken_js_WEBPACK_IMPORTED_MODULE_74_.A),
+/* harmony export */   lbank: () => (/* reexport safe */ ccxt_src_lbank_js_WEBPACK_IMPORTED_MODULE_75_.A),
+/* harmony export */   luno: () => (/* reexport safe */ ccxt_src_luno_js_WEBPACK_IMPORTED_MODULE_76_.A),
+/* harmony export */   mercado: () => (/* reexport safe */ ccxt_src_mercado_js_WEBPACK_IMPORTED_MODULE_77_.A),
+/* harmony export */   mexc: () => (/* reexport safe */ ccxt_src_mexc_js_WEBPACK_IMPORTED_MODULE_78_.A),
+/* harmony export */   modetrade: () => (/* reexport safe */ ccxt_src_modetrade_js_WEBPACK_IMPORTED_MODULE_79_.A),
+/* harmony export */   myokx: () => (/* reexport safe */ ccxt_src_myokx_js_WEBPACK_IMPORTED_MODULE_80_.A),
+/* harmony export */   ndax: () => (/* reexport safe */ ccxt_src_ndax_js_WEBPACK_IMPORTED_MODULE_81_.A),
+/* harmony export */   novadax: () => (/* reexport safe */ ccxt_src_novadax_js_WEBPACK_IMPORTED_MODULE_82_.A),
+/* harmony export */   oceanex: () => (/* reexport safe */ ccxt_src_oceanex_js_WEBPACK_IMPORTED_MODULE_83_.A),
+/* harmony export */   okcoin: () => (/* reexport safe */ ccxt_src_okcoin_js_WEBPACK_IMPORTED_MODULE_84_.A),
+/* harmony export */   okx: () => (/* reexport safe */ ccxt_src_okx_js_WEBPACK_IMPORTED_MODULE_85_.A),
+/* harmony export */   okxus: () => (/* reexport safe */ ccxt_src_okxus_js_WEBPACK_IMPORTED_MODULE_86_.A),
+/* harmony export */   onetrading: () => (/* reexport safe */ ccxt_src_onetrading_js_WEBPACK_IMPORTED_MODULE_87_.A),
+/* harmony export */   oxfun: () => (/* reexport safe */ ccxt_src_oxfun_js_WEBPACK_IMPORTED_MODULE_88_.A),
+/* harmony export */   p2b: () => (/* reexport safe */ ccxt_src_p2b_js_WEBPACK_IMPORTED_MODULE_89_.A),
+/* harmony export */   paradex: () => (/* reexport safe */ ccxt_src_paradex_js_WEBPACK_IMPORTED_MODULE_90_.A),
+/* harmony export */   paymium: () => (/* reexport safe */ ccxt_src_paymium_js_WEBPACK_IMPORTED_MODULE_91_.A),
+/* harmony export */   phemex: () => (/* reexport safe */ ccxt_src_phemex_js_WEBPACK_IMPORTED_MODULE_92_.A),
+/* harmony export */   poloniex: () => (/* reexport safe */ ccxt_src_poloniex_js_WEBPACK_IMPORTED_MODULE_93_.A),
 /* harmony export */   pro: () => (/* binding */ ccxt_pro),
-/* harmony export */   probit: () => (/* reexport safe */ ccxt_src_probit_js_WEBPACK_IMPORTED_MODULE_93_.A),
-/* harmony export */   timex: () => (/* reexport safe */ ccxt_src_timex_js_WEBPACK_IMPORTED_MODULE_94_.A),
-/* harmony export */   tokocrypto: () => (/* reexport safe */ ccxt_src_tokocrypto_js_WEBPACK_IMPORTED_MODULE_95_.A),
-/* harmony export */   tradeogre: () => (/* reexport safe */ ccxt_src_tradeogre_js_WEBPACK_IMPORTED_MODULE_96_.A),
+/* harmony export */   probit: () => (/* reexport safe */ ccxt_src_probit_js_WEBPACK_IMPORTED_MODULE_94_.A),
+/* harmony export */   timex: () => (/* reexport safe */ ccxt_src_timex_js_WEBPACK_IMPORTED_MODULE_95_.A),
+/* harmony export */   tokocrypto: () => (/* reexport safe */ ccxt_src_tokocrypto_js_WEBPACK_IMPORTED_MODULE_96_.A),
 /* harmony export */   upbit: () => (/* reexport safe */ ccxt_src_upbit_js_WEBPACK_IMPORTED_MODULE_97_.A),
 /* harmony export */   version: () => (/* binding */ ccxt_version),
 /* harmony export */   wavesexchange: () => (/* reexport safe */ ccxt_src_wavesexchange_js_WEBPACK_IMPORTED_MODULE_98_.A),
@@ -408581,99 +419726,99 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ccxt_src_alpaca_js_WEBPACK_IMPORTED_MODULE_1_ = __webpack_require__(7930);
 /* harmony import */ var ccxt_src_apex_js_WEBPACK_IMPORTED_MODULE_2_ = __webpack_require__(4920);
 /* harmony import */ var ccxt_src_ascendex_js_WEBPACK_IMPORTED_MODULE_3_ = __webpack_require__(1411);
-/* harmony import */ var ccxt_src_bequant_js_WEBPACK_IMPORTED_MODULE_4_ = __webpack_require__(9002);
-/* harmony import */ var ccxt_src_bigone_js_WEBPACK_IMPORTED_MODULE_5_ = __webpack_require__(8698);
-/* harmony import */ var ccxt_src_binance_js_WEBPACK_IMPORTED_MODULE_6_ = __webpack_require__(3192);
-/* harmony import */ var ccxt_src_binancecoinm_js_WEBPACK_IMPORTED_MODULE_7_ = __webpack_require__(1510);
-/* harmony import */ var ccxt_src_binanceus_js_WEBPACK_IMPORTED_MODULE_8_ = __webpack_require__(8228);
-/* harmony import */ var ccxt_src_binanceusdm_js_WEBPACK_IMPORTED_MODULE_9_ = __webpack_require__(2171);
-/* harmony import */ var ccxt_src_bingx_js_WEBPACK_IMPORTED_MODULE_10_ = __webpack_require__(2480);
-/* harmony import */ var ccxt_src_bit2c_js_WEBPACK_IMPORTED_MODULE_11_ = __webpack_require__(2342);
-/* harmony import */ var ccxt_src_bitbank_js_WEBPACK_IMPORTED_MODULE_12_ = __webpack_require__(7399);
-/* harmony import */ var ccxt_src_bitbns_js_WEBPACK_IMPORTED_MODULE_13_ = __webpack_require__(6328);
-/* harmony import */ var ccxt_src_bitfinex_js_WEBPACK_IMPORTED_MODULE_14_ = __webpack_require__(8657);
-/* harmony import */ var ccxt_src_bitflyer_js_WEBPACK_IMPORTED_MODULE_15_ = __webpack_require__(1787);
-/* harmony import */ var ccxt_src_bitget_js_WEBPACK_IMPORTED_MODULE_16_ = __webpack_require__(7757);
-/* harmony import */ var ccxt_src_bithumb_js_WEBPACK_IMPORTED_MODULE_17_ = __webpack_require__(357);
-/* harmony import */ var ccxt_src_bitmart_js_WEBPACK_IMPORTED_MODULE_18_ = __webpack_require__(1837);
-/* harmony import */ var ccxt_src_bitmex_js_WEBPACK_IMPORTED_MODULE_19_ = __webpack_require__(9523);
-/* harmony import */ var ccxt_src_bitopro_js_WEBPACK_IMPORTED_MODULE_20_ = __webpack_require__(2753);
-/* harmony import */ var ccxt_src_bitrue_js_WEBPACK_IMPORTED_MODULE_21_ = __webpack_require__(9061);
-/* harmony import */ var ccxt_src_bitso_js_WEBPACK_IMPORTED_MODULE_22_ = __webpack_require__(3019);
-/* harmony import */ var ccxt_src_bitstamp_js_WEBPACK_IMPORTED_MODULE_23_ = __webpack_require__(382);
-/* harmony import */ var ccxt_src_bitteam_js_WEBPACK_IMPORTED_MODULE_24_ = __webpack_require__(112);
-/* harmony import */ var ccxt_src_bittrade_js_WEBPACK_IMPORTED_MODULE_25_ = __webpack_require__(2263);
-/* harmony import */ var ccxt_src_bitvavo_js_WEBPACK_IMPORTED_MODULE_26_ = __webpack_require__(3727);
-/* harmony import */ var ccxt_src_blockchaincom_js_WEBPACK_IMPORTED_MODULE_27_ = __webpack_require__(3205);
-/* harmony import */ var ccxt_src_blofin_js_WEBPACK_IMPORTED_MODULE_28_ = __webpack_require__(2520);
-/* harmony import */ var ccxt_src_btcalpha_js_WEBPACK_IMPORTED_MODULE_29_ = __webpack_require__(3413);
-/* harmony import */ var ccxt_src_btcbox_js_WEBPACK_IMPORTED_MODULE_30_ = __webpack_require__(5376);
-/* harmony import */ var ccxt_src_btcmarkets_js_WEBPACK_IMPORTED_MODULE_31_ = __webpack_require__(4936);
-/* harmony import */ var ccxt_src_btcturk_js_WEBPACK_IMPORTED_MODULE_32_ = __webpack_require__(9265);
-/* harmony import */ var ccxt_src_bybit_js_WEBPACK_IMPORTED_MODULE_33_ = __webpack_require__(5462);
-/* harmony import */ var ccxt_src_cex_js_WEBPACK_IMPORTED_MODULE_34_ = __webpack_require__(8846);
-/* harmony import */ var ccxt_src_coinbase_js_WEBPACK_IMPORTED_MODULE_35_ = __webpack_require__(7504);
-/* harmony import */ var ccxt_src_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_36_ = __webpack_require__(3278);
-/* harmony import */ var ccxt_src_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_37_ = __webpack_require__(4293);
-/* harmony import */ var ccxt_src_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_38_ = __webpack_require__(1558);
-/* harmony import */ var ccxt_src_coincatch_js_WEBPACK_IMPORTED_MODULE_39_ = __webpack_require__(570);
-/* harmony import */ var ccxt_src_coincheck_js_WEBPACK_IMPORTED_MODULE_40_ = __webpack_require__(2741);
-/* harmony import */ var ccxt_src_coinex_js_WEBPACK_IMPORTED_MODULE_41_ = __webpack_require__(9344);
-/* harmony import */ var ccxt_src_coinmate_js_WEBPACK_IMPORTED_MODULE_42_ = __webpack_require__(6016);
-/* harmony import */ var ccxt_src_coinmetro_js_WEBPACK_IMPORTED_MODULE_43_ = __webpack_require__(8692);
-/* harmony import */ var ccxt_src_coinone_js_WEBPACK_IMPORTED_MODULE_44_ = __webpack_require__(5377);
-/* harmony import */ var ccxt_src_coinsph_js_WEBPACK_IMPORTED_MODULE_45_ = __webpack_require__(2692);
-/* harmony import */ var ccxt_src_coinspot_js_WEBPACK_IMPORTED_MODULE_46_ = __webpack_require__(1669);
-/* harmony import */ var ccxt_src_cryptocom_js_WEBPACK_IMPORTED_MODULE_47_ = __webpack_require__(6068);
-/* harmony import */ var ccxt_src_cryptomus_js_WEBPACK_IMPORTED_MODULE_48_ = __webpack_require__(870);
-/* harmony import */ var ccxt_src_defx_js_WEBPACK_IMPORTED_MODULE_49_ = __webpack_require__(6077);
-/* harmony import */ var ccxt_src_delta_js_WEBPACK_IMPORTED_MODULE_50_ = __webpack_require__(1080);
-/* harmony import */ var ccxt_src_deribit_js_WEBPACK_IMPORTED_MODULE_51_ = __webpack_require__(2591);
-/* harmony import */ var ccxt_src_derive_js_WEBPACK_IMPORTED_MODULE_52_ = __webpack_require__(1839);
-/* harmony import */ var ccxt_src_digifinex_js_WEBPACK_IMPORTED_MODULE_53_ = __webpack_require__(779);
-/* harmony import */ var ccxt_src_exmo_js_WEBPACK_IMPORTED_MODULE_54_ = __webpack_require__(7057);
-/* harmony import */ var ccxt_src_fmfwio_js_WEBPACK_IMPORTED_MODULE_55_ = __webpack_require__(3042);
-/* harmony import */ var ccxt_src_foxbit_js_WEBPACK_IMPORTED_MODULE_56_ = __webpack_require__(448);
-/* harmony import */ var ccxt_src_gate_js_WEBPACK_IMPORTED_MODULE_57_ = __webpack_require__(9403);
-/* harmony import */ var ccxt_src_gateio_js_WEBPACK_IMPORTED_MODULE_58_ = __webpack_require__(784);
-/* harmony import */ var ccxt_src_gemini_js_WEBPACK_IMPORTED_MODULE_59_ = __webpack_require__(8823);
-/* harmony import */ var ccxt_src_hashkey_js_WEBPACK_IMPORTED_MODULE_60_ = __webpack_require__(2937);
-/* harmony import */ var ccxt_src_hibachi_js_WEBPACK_IMPORTED_MODULE_61_ = __webpack_require__(5106);
-/* harmony import */ var ccxt_src_hitbtc_js_WEBPACK_IMPORTED_MODULE_62_ = __webpack_require__(7996);
-/* harmony import */ var ccxt_src_hollaex_js_WEBPACK_IMPORTED_MODULE_63_ = __webpack_require__(4455);
-/* harmony import */ var ccxt_src_htx_js_WEBPACK_IMPORTED_MODULE_64_ = __webpack_require__(9946);
-/* harmony import */ var ccxt_src_huobi_js_WEBPACK_IMPORTED_MODULE_65_ = __webpack_require__(63);
-/* harmony import */ var ccxt_src_hyperliquid_js_WEBPACK_IMPORTED_MODULE_66_ = __webpack_require__(1936);
-/* harmony import */ var ccxt_src_independentreserve_js_WEBPACK_IMPORTED_MODULE_67_ = __webpack_require__(4162);
-/* harmony import */ var ccxt_src_indodax_js_WEBPACK_IMPORTED_MODULE_68_ = __webpack_require__(7325);
-/* harmony import */ var ccxt_src_kraken_js_WEBPACK_IMPORTED_MODULE_69_ = __webpack_require__(8042);
-/* harmony import */ var ccxt_src_krakenfutures_js_WEBPACK_IMPORTED_MODULE_70_ = __webpack_require__(2300);
-/* harmony import */ var ccxt_src_kucoin_js_WEBPACK_IMPORTED_MODULE_71_ = __webpack_require__(1397);
-/* harmony import */ var ccxt_src_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_72_ = __webpack_require__(6217);
-/* harmony import */ var ccxt_src_latoken_js_WEBPACK_IMPORTED_MODULE_73_ = __webpack_require__(8146);
-/* harmony import */ var ccxt_src_lbank_js_WEBPACK_IMPORTED_MODULE_74_ = __webpack_require__(3144);
-/* harmony import */ var ccxt_src_luno_js_WEBPACK_IMPORTED_MODULE_75_ = __webpack_require__(9248);
-/* harmony import */ var ccxt_src_mercado_js_WEBPACK_IMPORTED_MODULE_76_ = __webpack_require__(6419);
-/* harmony import */ var ccxt_src_mexc_js_WEBPACK_IMPORTED_MODULE_77_ = __webpack_require__(2403);
-/* harmony import */ var ccxt_src_modetrade_js_WEBPACK_IMPORTED_MODULE_78_ = __webpack_require__(5345);
-/* harmony import */ var ccxt_src_myokx_js_WEBPACK_IMPORTED_MODULE_79_ = __webpack_require__(8982);
-/* harmony import */ var ccxt_src_ndax_js_WEBPACK_IMPORTED_MODULE_80_ = __webpack_require__(4460);
-/* harmony import */ var ccxt_src_novadax_js_WEBPACK_IMPORTED_MODULE_81_ = __webpack_require__(8473);
-/* harmony import */ var ccxt_src_oceanex_js_WEBPACK_IMPORTED_MODULE_82_ = __webpack_require__(3805);
-/* harmony import */ var ccxt_src_okcoin_js_WEBPACK_IMPORTED_MODULE_83_ = __webpack_require__(7915);
-/* harmony import */ var ccxt_src_okx_js_WEBPACK_IMPORTED_MODULE_84_ = __webpack_require__(3660);
-/* harmony import */ var ccxt_src_okxus_js_WEBPACK_IMPORTED_MODULE_85_ = __webpack_require__(3536);
-/* harmony import */ var ccxt_src_onetrading_js_WEBPACK_IMPORTED_MODULE_86_ = __webpack_require__(3573);
-/* harmony import */ var ccxt_src_oxfun_js_WEBPACK_IMPORTED_MODULE_87_ = __webpack_require__(6358);
-/* harmony import */ var ccxt_src_p2b_js_WEBPACK_IMPORTED_MODULE_88_ = __webpack_require__(4998);
-/* harmony import */ var ccxt_src_paradex_js_WEBPACK_IMPORTED_MODULE_89_ = __webpack_require__(6993);
-/* harmony import */ var ccxt_src_paymium_js_WEBPACK_IMPORTED_MODULE_90_ = __webpack_require__(3280);
-/* harmony import */ var ccxt_src_phemex_js_WEBPACK_IMPORTED_MODULE_91_ = __webpack_require__(9075);
-/* harmony import */ var ccxt_src_poloniex_js_WEBPACK_IMPORTED_MODULE_92_ = __webpack_require__(288);
-/* harmony import */ var ccxt_src_probit_js_WEBPACK_IMPORTED_MODULE_93_ = __webpack_require__(5037);
-/* harmony import */ var ccxt_src_timex_js_WEBPACK_IMPORTED_MODULE_94_ = __webpack_require__(6213);
-/* harmony import */ var ccxt_src_tokocrypto_js_WEBPACK_IMPORTED_MODULE_95_ = __webpack_require__(2490);
-/* harmony import */ var ccxt_src_tradeogre_js_WEBPACK_IMPORTED_MODULE_96_ = __webpack_require__(5887);
+/* harmony import */ var ccxt_src_backpack_js_WEBPACK_IMPORTED_MODULE_4_ = __webpack_require__(7698);
+/* harmony import */ var ccxt_src_bequant_js_WEBPACK_IMPORTED_MODULE_5_ = __webpack_require__(9002);
+/* harmony import */ var ccxt_src_bigone_js_WEBPACK_IMPORTED_MODULE_6_ = __webpack_require__(8698);
+/* harmony import */ var ccxt_src_binance_js_WEBPACK_IMPORTED_MODULE_7_ = __webpack_require__(3192);
+/* harmony import */ var ccxt_src_binancecoinm_js_WEBPACK_IMPORTED_MODULE_8_ = __webpack_require__(1510);
+/* harmony import */ var ccxt_src_binanceus_js_WEBPACK_IMPORTED_MODULE_9_ = __webpack_require__(8228);
+/* harmony import */ var ccxt_src_binanceusdm_js_WEBPACK_IMPORTED_MODULE_10_ = __webpack_require__(2171);
+/* harmony import */ var ccxt_src_bingx_js_WEBPACK_IMPORTED_MODULE_11_ = __webpack_require__(2480);
+/* harmony import */ var ccxt_src_bit2c_js_WEBPACK_IMPORTED_MODULE_12_ = __webpack_require__(2342);
+/* harmony import */ var ccxt_src_bitbank_js_WEBPACK_IMPORTED_MODULE_13_ = __webpack_require__(7399);
+/* harmony import */ var ccxt_src_bitbns_js_WEBPACK_IMPORTED_MODULE_14_ = __webpack_require__(6328);
+/* harmony import */ var ccxt_src_bitfinex_js_WEBPACK_IMPORTED_MODULE_15_ = __webpack_require__(8657);
+/* harmony import */ var ccxt_src_bitflyer_js_WEBPACK_IMPORTED_MODULE_16_ = __webpack_require__(1787);
+/* harmony import */ var ccxt_src_bitget_js_WEBPACK_IMPORTED_MODULE_17_ = __webpack_require__(7757);
+/* harmony import */ var ccxt_src_bithumb_js_WEBPACK_IMPORTED_MODULE_18_ = __webpack_require__(357);
+/* harmony import */ var ccxt_src_bitmart_js_WEBPACK_IMPORTED_MODULE_19_ = __webpack_require__(1837);
+/* harmony import */ var ccxt_src_bitmex_js_WEBPACK_IMPORTED_MODULE_20_ = __webpack_require__(9523);
+/* harmony import */ var ccxt_src_bitopro_js_WEBPACK_IMPORTED_MODULE_21_ = __webpack_require__(2753);
+/* harmony import */ var ccxt_src_bitrue_js_WEBPACK_IMPORTED_MODULE_22_ = __webpack_require__(9061);
+/* harmony import */ var ccxt_src_bitso_js_WEBPACK_IMPORTED_MODULE_23_ = __webpack_require__(3019);
+/* harmony import */ var ccxt_src_bitstamp_js_WEBPACK_IMPORTED_MODULE_24_ = __webpack_require__(382);
+/* harmony import */ var ccxt_src_bitteam_js_WEBPACK_IMPORTED_MODULE_25_ = __webpack_require__(112);
+/* harmony import */ var ccxt_src_bittrade_js_WEBPACK_IMPORTED_MODULE_26_ = __webpack_require__(2263);
+/* harmony import */ var ccxt_src_bitvavo_js_WEBPACK_IMPORTED_MODULE_27_ = __webpack_require__(3727);
+/* harmony import */ var ccxt_src_blockchaincom_js_WEBPACK_IMPORTED_MODULE_28_ = __webpack_require__(3205);
+/* harmony import */ var ccxt_src_blofin_js_WEBPACK_IMPORTED_MODULE_29_ = __webpack_require__(2520);
+/* harmony import */ var ccxt_src_btcalpha_js_WEBPACK_IMPORTED_MODULE_30_ = __webpack_require__(3413);
+/* harmony import */ var ccxt_src_btcbox_js_WEBPACK_IMPORTED_MODULE_31_ = __webpack_require__(5376);
+/* harmony import */ var ccxt_src_btcmarkets_js_WEBPACK_IMPORTED_MODULE_32_ = __webpack_require__(4936);
+/* harmony import */ var ccxt_src_btcturk_js_WEBPACK_IMPORTED_MODULE_33_ = __webpack_require__(9265);
+/* harmony import */ var ccxt_src_bybit_js_WEBPACK_IMPORTED_MODULE_34_ = __webpack_require__(5462);
+/* harmony import */ var ccxt_src_cex_js_WEBPACK_IMPORTED_MODULE_35_ = __webpack_require__(8846);
+/* harmony import */ var ccxt_src_coinbase_js_WEBPACK_IMPORTED_MODULE_36_ = __webpack_require__(7504);
+/* harmony import */ var ccxt_src_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_37_ = __webpack_require__(3278);
+/* harmony import */ var ccxt_src_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_38_ = __webpack_require__(4293);
+/* harmony import */ var ccxt_src_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_39_ = __webpack_require__(1558);
+/* harmony import */ var ccxt_src_coincatch_js_WEBPACK_IMPORTED_MODULE_40_ = __webpack_require__(570);
+/* harmony import */ var ccxt_src_coincheck_js_WEBPACK_IMPORTED_MODULE_41_ = __webpack_require__(2741);
+/* harmony import */ var ccxt_src_coinex_js_WEBPACK_IMPORTED_MODULE_42_ = __webpack_require__(9344);
+/* harmony import */ var ccxt_src_coinmate_js_WEBPACK_IMPORTED_MODULE_43_ = __webpack_require__(6016);
+/* harmony import */ var ccxt_src_coinmetro_js_WEBPACK_IMPORTED_MODULE_44_ = __webpack_require__(8692);
+/* harmony import */ var ccxt_src_coinone_js_WEBPACK_IMPORTED_MODULE_45_ = __webpack_require__(5377);
+/* harmony import */ var ccxt_src_coinsph_js_WEBPACK_IMPORTED_MODULE_46_ = __webpack_require__(2692);
+/* harmony import */ var ccxt_src_coinspot_js_WEBPACK_IMPORTED_MODULE_47_ = __webpack_require__(1669);
+/* harmony import */ var ccxt_src_cryptocom_js_WEBPACK_IMPORTED_MODULE_48_ = __webpack_require__(6068);
+/* harmony import */ var ccxt_src_cryptomus_js_WEBPACK_IMPORTED_MODULE_49_ = __webpack_require__(870);
+/* harmony import */ var ccxt_src_defx_js_WEBPACK_IMPORTED_MODULE_50_ = __webpack_require__(6077);
+/* harmony import */ var ccxt_src_delta_js_WEBPACK_IMPORTED_MODULE_51_ = __webpack_require__(1080);
+/* harmony import */ var ccxt_src_deribit_js_WEBPACK_IMPORTED_MODULE_52_ = __webpack_require__(2591);
+/* harmony import */ var ccxt_src_derive_js_WEBPACK_IMPORTED_MODULE_53_ = __webpack_require__(1839);
+/* harmony import */ var ccxt_src_digifinex_js_WEBPACK_IMPORTED_MODULE_54_ = __webpack_require__(779);
+/* harmony import */ var ccxt_src_exmo_js_WEBPACK_IMPORTED_MODULE_55_ = __webpack_require__(7057);
+/* harmony import */ var ccxt_src_fmfwio_js_WEBPACK_IMPORTED_MODULE_56_ = __webpack_require__(3042);
+/* harmony import */ var ccxt_src_foxbit_js_WEBPACK_IMPORTED_MODULE_57_ = __webpack_require__(448);
+/* harmony import */ var ccxt_src_gate_js_WEBPACK_IMPORTED_MODULE_58_ = __webpack_require__(9403);
+/* harmony import */ var ccxt_src_gateio_js_WEBPACK_IMPORTED_MODULE_59_ = __webpack_require__(784);
+/* harmony import */ var ccxt_src_gemini_js_WEBPACK_IMPORTED_MODULE_60_ = __webpack_require__(8823);
+/* harmony import */ var ccxt_src_hashkey_js_WEBPACK_IMPORTED_MODULE_61_ = __webpack_require__(2937);
+/* harmony import */ var ccxt_src_hibachi_js_WEBPACK_IMPORTED_MODULE_62_ = __webpack_require__(5106);
+/* harmony import */ var ccxt_src_hitbtc_js_WEBPACK_IMPORTED_MODULE_63_ = __webpack_require__(7996);
+/* harmony import */ var ccxt_src_hollaex_js_WEBPACK_IMPORTED_MODULE_64_ = __webpack_require__(4455);
+/* harmony import */ var ccxt_src_htx_js_WEBPACK_IMPORTED_MODULE_65_ = __webpack_require__(9946);
+/* harmony import */ var ccxt_src_huobi_js_WEBPACK_IMPORTED_MODULE_66_ = __webpack_require__(63);
+/* harmony import */ var ccxt_src_hyperliquid_js_WEBPACK_IMPORTED_MODULE_67_ = __webpack_require__(1936);
+/* harmony import */ var ccxt_src_independentreserve_js_WEBPACK_IMPORTED_MODULE_68_ = __webpack_require__(4162);
+/* harmony import */ var ccxt_src_indodax_js_WEBPACK_IMPORTED_MODULE_69_ = __webpack_require__(7325);
+/* harmony import */ var ccxt_src_kraken_js_WEBPACK_IMPORTED_MODULE_70_ = __webpack_require__(8042);
+/* harmony import */ var ccxt_src_krakenfutures_js_WEBPACK_IMPORTED_MODULE_71_ = __webpack_require__(2300);
+/* harmony import */ var ccxt_src_kucoin_js_WEBPACK_IMPORTED_MODULE_72_ = __webpack_require__(1397);
+/* harmony import */ var ccxt_src_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_73_ = __webpack_require__(6217);
+/* harmony import */ var ccxt_src_latoken_js_WEBPACK_IMPORTED_MODULE_74_ = __webpack_require__(8146);
+/* harmony import */ var ccxt_src_lbank_js_WEBPACK_IMPORTED_MODULE_75_ = __webpack_require__(3144);
+/* harmony import */ var ccxt_src_luno_js_WEBPACK_IMPORTED_MODULE_76_ = __webpack_require__(9248);
+/* harmony import */ var ccxt_src_mercado_js_WEBPACK_IMPORTED_MODULE_77_ = __webpack_require__(6419);
+/* harmony import */ var ccxt_src_mexc_js_WEBPACK_IMPORTED_MODULE_78_ = __webpack_require__(2403);
+/* harmony import */ var ccxt_src_modetrade_js_WEBPACK_IMPORTED_MODULE_79_ = __webpack_require__(5345);
+/* harmony import */ var ccxt_src_myokx_js_WEBPACK_IMPORTED_MODULE_80_ = __webpack_require__(8982);
+/* harmony import */ var ccxt_src_ndax_js_WEBPACK_IMPORTED_MODULE_81_ = __webpack_require__(4460);
+/* harmony import */ var ccxt_src_novadax_js_WEBPACK_IMPORTED_MODULE_82_ = __webpack_require__(8473);
+/* harmony import */ var ccxt_src_oceanex_js_WEBPACK_IMPORTED_MODULE_83_ = __webpack_require__(3805);
+/* harmony import */ var ccxt_src_okcoin_js_WEBPACK_IMPORTED_MODULE_84_ = __webpack_require__(7915);
+/* harmony import */ var ccxt_src_okx_js_WEBPACK_IMPORTED_MODULE_85_ = __webpack_require__(3660);
+/* harmony import */ var ccxt_src_okxus_js_WEBPACK_IMPORTED_MODULE_86_ = __webpack_require__(3536);
+/* harmony import */ var ccxt_src_onetrading_js_WEBPACK_IMPORTED_MODULE_87_ = __webpack_require__(3573);
+/* harmony import */ var ccxt_src_oxfun_js_WEBPACK_IMPORTED_MODULE_88_ = __webpack_require__(6358);
+/* harmony import */ var ccxt_src_p2b_js_WEBPACK_IMPORTED_MODULE_89_ = __webpack_require__(4998);
+/* harmony import */ var ccxt_src_paradex_js_WEBPACK_IMPORTED_MODULE_90_ = __webpack_require__(6993);
+/* harmony import */ var ccxt_src_paymium_js_WEBPACK_IMPORTED_MODULE_91_ = __webpack_require__(3280);
+/* harmony import */ var ccxt_src_phemex_js_WEBPACK_IMPORTED_MODULE_92_ = __webpack_require__(9075);
+/* harmony import */ var ccxt_src_poloniex_js_WEBPACK_IMPORTED_MODULE_93_ = __webpack_require__(288);
+/* harmony import */ var ccxt_src_probit_js_WEBPACK_IMPORTED_MODULE_94_ = __webpack_require__(5037);
+/* harmony import */ var ccxt_src_timex_js_WEBPACK_IMPORTED_MODULE_95_ = __webpack_require__(6213);
+/* harmony import */ var ccxt_src_tokocrypto_js_WEBPACK_IMPORTED_MODULE_96_ = __webpack_require__(2490);
 /* harmony import */ var ccxt_src_upbit_js_WEBPACK_IMPORTED_MODULE_97_ = __webpack_require__(930);
 /* harmony import */ var ccxt_src_wavesexchange_js_WEBPACK_IMPORTED_MODULE_98_ = __webpack_require__(7073);
 /* harmony import */ var ccxt_src_whitebit_js_WEBPACK_IMPORTED_MODULE_99_ = __webpack_require__(5336);
@@ -408686,70 +419831,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ccxt_src_pro_alpaca_js_WEBPACK_IMPORTED_MODULE_106_ = __webpack_require__(6810);
 /* harmony import */ var ccxt_src_pro_apex_js_WEBPACK_IMPORTED_MODULE_107_ = __webpack_require__(136);
 /* harmony import */ var ccxt_src_pro_ascendex_js_WEBPACK_IMPORTED_MODULE_108_ = __webpack_require__(1657);
-/* harmony import */ var ccxt_src_pro_bequant_js_WEBPACK_IMPORTED_MODULE_109_ = __webpack_require__(9338);
-/* harmony import */ var ccxt_src_pro_binance_js_WEBPACK_IMPORTED_MODULE_110_ = __webpack_require__(9544);
-/* harmony import */ var ccxt_src_pro_binancecoinm_js_WEBPACK_IMPORTED_MODULE_111_ = __webpack_require__(902);
-/* harmony import */ var ccxt_src_pro_binanceus_js_WEBPACK_IMPORTED_MODULE_112_ = __webpack_require__(8788);
-/* harmony import */ var ccxt_src_pro_binanceusdm_js_WEBPACK_IMPORTED_MODULE_113_ = __webpack_require__(8251);
-/* harmony import */ var ccxt_src_pro_bingx_js_WEBPACK_IMPORTED_MODULE_114_ = __webpack_require__(9456);
-/* harmony import */ var ccxt_src_pro_bitfinex_js_WEBPACK_IMPORTED_MODULE_115_ = __webpack_require__(1038);
-/* harmony import */ var ccxt_src_pro_bitget_js_WEBPACK_IMPORTED_MODULE_116_ = __webpack_require__(205);
-/* harmony import */ var ccxt_src_pro_bithumb_js_WEBPACK_IMPORTED_MODULE_117_ = __webpack_require__(6181);
-/* harmony import */ var ccxt_src_pro_bitmart_js_WEBPACK_IMPORTED_MODULE_118_ = __webpack_require__(3069);
-/* harmony import */ var ccxt_src_pro_bitmex_js_WEBPACK_IMPORTED_MODULE_119_ = __webpack_require__(3731);
-/* harmony import */ var ccxt_src_pro_bitopro_js_WEBPACK_IMPORTED_MODULE_120_ = __webpack_require__(4401);
-/* harmony import */ var ccxt_src_pro_bitrue_js_WEBPACK_IMPORTED_MODULE_121_ = __webpack_require__(3333);
-/* harmony import */ var ccxt_src_pro_bitstamp_js_WEBPACK_IMPORTED_MODULE_122_ = __webpack_require__(3326);
-/* harmony import */ var ccxt_src_pro_bittrade_js_WEBPACK_IMPORTED_MODULE_123_ = __webpack_require__(2391);
-/* harmony import */ var ccxt_src_pro_bitvavo_js_WEBPACK_IMPORTED_MODULE_124_ = __webpack_require__(1327);
-/* harmony import */ var ccxt_src_pro_blockchaincom_js_WEBPACK_IMPORTED_MODULE_125_ = __webpack_require__(8693);
-/* harmony import */ var ccxt_src_pro_blofin_js_WEBPACK_IMPORTED_MODULE_126_ = __webpack_require__(1672);
-/* harmony import */ var ccxt_src_pro_bybit_js_WEBPACK_IMPORTED_MODULE_127_ = __webpack_require__(8518);
-/* harmony import */ var ccxt_src_pro_cex_js_WEBPACK_IMPORTED_MODULE_128_ = __webpack_require__(3774);
-/* harmony import */ var ccxt_src_pro_coinbase_js_WEBPACK_IMPORTED_MODULE_129_ = __webpack_require__(8160);
-/* harmony import */ var ccxt_src_pro_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_130_ = __webpack_require__(5918);
-/* harmony import */ var ccxt_src_pro_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_131_ = __webpack_require__(1925);
-/* harmony import */ var ccxt_src_pro_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_132_ = __webpack_require__(998);
-/* harmony import */ var ccxt_src_pro_coincatch_js_WEBPACK_IMPORTED_MODULE_133_ = __webpack_require__(3242);
-/* harmony import */ var ccxt_src_pro_coincheck_js_WEBPACK_IMPORTED_MODULE_134_ = __webpack_require__(5317);
-/* harmony import */ var ccxt_src_pro_coinex_js_WEBPACK_IMPORTED_MODULE_135_ = __webpack_require__(9088);
-/* harmony import */ var ccxt_src_pro_coinone_js_WEBPACK_IMPORTED_MODULE_136_ = __webpack_require__(8673);
-/* harmony import */ var ccxt_src_pro_cryptocom_js_WEBPACK_IMPORTED_MODULE_137_ = __webpack_require__(6292);
-/* harmony import */ var ccxt_src_pro_defx_js_WEBPACK_IMPORTED_MODULE_138_ = __webpack_require__(8717);
-/* harmony import */ var ccxt_src_pro_deribit_js_WEBPACK_IMPORTED_MODULE_139_ = __webpack_require__(7791);
-/* harmony import */ var ccxt_src_pro_derive_js_WEBPACK_IMPORTED_MODULE_140_ = __webpack_require__(2127);
-/* harmony import */ var ccxt_src_pro_exmo_js_WEBPACK_IMPORTED_MODULE_141_ = __webpack_require__(5233);
-/* harmony import */ var ccxt_src_pro_gate_js_WEBPACK_IMPORTED_MODULE_142_ = __webpack_require__(9195);
-/* harmony import */ var ccxt_src_pro_gateio_js_WEBPACK_IMPORTED_MODULE_143_ = __webpack_require__(5843);
-/* harmony import */ var ccxt_src_pro_gemini_js_WEBPACK_IMPORTED_MODULE_144_ = __webpack_require__(375);
-/* harmony import */ var ccxt_src_pro_hashkey_js_WEBPACK_IMPORTED_MODULE_145_ = __webpack_require__(1481);
-/* harmony import */ var ccxt_src_pro_hitbtc_js_WEBPACK_IMPORTED_MODULE_146_ = __webpack_require__(4524);
-/* harmony import */ var ccxt_src_pro_hollaex_js_WEBPACK_IMPORTED_MODULE_147_ = __webpack_require__(8247);
-/* harmony import */ var ccxt_src_pro_htx_js_WEBPACK_IMPORTED_MODULE_148_ = __webpack_require__(3898);
-/* harmony import */ var ccxt_src_pro_huobi_js_WEBPACK_IMPORTED_MODULE_149_ = __webpack_require__(6335);
-/* harmony import */ var ccxt_src_pro_hyperliquid_js_WEBPACK_IMPORTED_MODULE_150_ = __webpack_require__(3984);
-/* harmony import */ var ccxt_src_pro_independentreserve_js_WEBPACK_IMPORTED_MODULE_151_ = __webpack_require__(98);
-/* harmony import */ var ccxt_src_pro_kraken_js_WEBPACK_IMPORTED_MODULE_152_ = __webpack_require__(9050);
-/* harmony import */ var ccxt_src_pro_krakenfutures_js_WEBPACK_IMPORTED_MODULE_153_ = __webpack_require__(6396);
-/* harmony import */ var ccxt_src_pro_kucoin_js_WEBPACK_IMPORTED_MODULE_154_ = __webpack_require__(4965);
-/* harmony import */ var ccxt_src_pro_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_155_ = __webpack_require__(905);
-/* harmony import */ var ccxt_src_pro_lbank_js_WEBPACK_IMPORTED_MODULE_156_ = __webpack_require__(1736);
-/* harmony import */ var ccxt_src_pro_luno_js_WEBPACK_IMPORTED_MODULE_157_ = __webpack_require__(2208);
-/* harmony import */ var ccxt_src_pro_mexc_js_WEBPACK_IMPORTED_MODULE_158_ = __webpack_require__(9219);
-/* harmony import */ var ccxt_src_pro_modetrade_js_WEBPACK_IMPORTED_MODULE_159_ = __webpack_require__(49);
-/* harmony import */ var ccxt_src_pro_myokx_js_WEBPACK_IMPORTED_MODULE_160_ = __webpack_require__(3062);
-/* harmony import */ var ccxt_src_pro_ndax_js_WEBPACK_IMPORTED_MODULE_161_ = __webpack_require__(3887);
-/* harmony import */ var ccxt_src_pro_okcoin_js_WEBPACK_IMPORTED_MODULE_162_ = __webpack_require__(6187);
-/* harmony import */ var ccxt_src_pro_okx_js_WEBPACK_IMPORTED_MODULE_163_ = __webpack_require__(8588);
-/* harmony import */ var ccxt_src_pro_okxus_js_WEBPACK_IMPORTED_MODULE_164_ = __webpack_require__(3296);
-/* harmony import */ var ccxt_src_pro_onetrading_js_WEBPACK_IMPORTED_MODULE_165_ = __webpack_require__(4357);
-/* harmony import */ var ccxt_src_pro_oxfun_js_WEBPACK_IMPORTED_MODULE_166_ = __webpack_require__(550);
-/* harmony import */ var ccxt_src_pro_p2b_js_WEBPACK_IMPORTED_MODULE_167_ = __webpack_require__(4934);
-/* harmony import */ var ccxt_src_pro_paradex_js_WEBPACK_IMPORTED_MODULE_168_ = __webpack_require__(1057);
-/* harmony import */ var ccxt_src_pro_phemex_js_WEBPACK_IMPORTED_MODULE_169_ = __webpack_require__(1619);
-/* harmony import */ var ccxt_src_pro_poloniex_js_WEBPACK_IMPORTED_MODULE_170_ = __webpack_require__(3456);
-/* harmony import */ var ccxt_src_pro_probit_js_WEBPACK_IMPORTED_MODULE_171_ = __webpack_require__(5738);
-/* harmony import */ var ccxt_src_pro_tradeogre_js_WEBPACK_IMPORTED_MODULE_172_ = __webpack_require__(8719);
+/* harmony import */ var ccxt_src_pro_backpack_js_WEBPACK_IMPORTED_MODULE_109_ = __webpack_require__(4034);
+/* harmony import */ var ccxt_src_pro_bequant_js_WEBPACK_IMPORTED_MODULE_110_ = __webpack_require__(9338);
+/* harmony import */ var ccxt_src_pro_binance_js_WEBPACK_IMPORTED_MODULE_111_ = __webpack_require__(9544);
+/* harmony import */ var ccxt_src_pro_binancecoinm_js_WEBPACK_IMPORTED_MODULE_112_ = __webpack_require__(902);
+/* harmony import */ var ccxt_src_pro_binanceus_js_WEBPACK_IMPORTED_MODULE_113_ = __webpack_require__(8788);
+/* harmony import */ var ccxt_src_pro_binanceusdm_js_WEBPACK_IMPORTED_MODULE_114_ = __webpack_require__(8251);
+/* harmony import */ var ccxt_src_pro_bingx_js_WEBPACK_IMPORTED_MODULE_115_ = __webpack_require__(9456);
+/* harmony import */ var ccxt_src_pro_bitfinex_js_WEBPACK_IMPORTED_MODULE_116_ = __webpack_require__(1038);
+/* harmony import */ var ccxt_src_pro_bitget_js_WEBPACK_IMPORTED_MODULE_117_ = __webpack_require__(205);
+/* harmony import */ var ccxt_src_pro_bithumb_js_WEBPACK_IMPORTED_MODULE_118_ = __webpack_require__(6181);
+/* harmony import */ var ccxt_src_pro_bitmart_js_WEBPACK_IMPORTED_MODULE_119_ = __webpack_require__(3069);
+/* harmony import */ var ccxt_src_pro_bitmex_js_WEBPACK_IMPORTED_MODULE_120_ = __webpack_require__(3731);
+/* harmony import */ var ccxt_src_pro_bitopro_js_WEBPACK_IMPORTED_MODULE_121_ = __webpack_require__(4401);
+/* harmony import */ var ccxt_src_pro_bitrue_js_WEBPACK_IMPORTED_MODULE_122_ = __webpack_require__(3333);
+/* harmony import */ var ccxt_src_pro_bitstamp_js_WEBPACK_IMPORTED_MODULE_123_ = __webpack_require__(3326);
+/* harmony import */ var ccxt_src_pro_bittrade_js_WEBPACK_IMPORTED_MODULE_124_ = __webpack_require__(2391);
+/* harmony import */ var ccxt_src_pro_bitvavo_js_WEBPACK_IMPORTED_MODULE_125_ = __webpack_require__(1327);
+/* harmony import */ var ccxt_src_pro_blockchaincom_js_WEBPACK_IMPORTED_MODULE_126_ = __webpack_require__(8693);
+/* harmony import */ var ccxt_src_pro_blofin_js_WEBPACK_IMPORTED_MODULE_127_ = __webpack_require__(1672);
+/* harmony import */ var ccxt_src_pro_bybit_js_WEBPACK_IMPORTED_MODULE_128_ = __webpack_require__(8518);
+/* harmony import */ var ccxt_src_pro_cex_js_WEBPACK_IMPORTED_MODULE_129_ = __webpack_require__(3774);
+/* harmony import */ var ccxt_src_pro_coinbase_js_WEBPACK_IMPORTED_MODULE_130_ = __webpack_require__(8160);
+/* harmony import */ var ccxt_src_pro_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_131_ = __webpack_require__(5918);
+/* harmony import */ var ccxt_src_pro_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_132_ = __webpack_require__(1925);
+/* harmony import */ var ccxt_src_pro_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_133_ = __webpack_require__(998);
+/* harmony import */ var ccxt_src_pro_coincatch_js_WEBPACK_IMPORTED_MODULE_134_ = __webpack_require__(3242);
+/* harmony import */ var ccxt_src_pro_coincheck_js_WEBPACK_IMPORTED_MODULE_135_ = __webpack_require__(79);
+/* harmony import */ var ccxt_src_pro_coinex_js_WEBPACK_IMPORTED_MODULE_136_ = __webpack_require__(9088);
+/* harmony import */ var ccxt_src_pro_coinone_js_WEBPACK_IMPORTED_MODULE_137_ = __webpack_require__(8673);
+/* harmony import */ var ccxt_src_pro_cryptocom_js_WEBPACK_IMPORTED_MODULE_138_ = __webpack_require__(6292);
+/* harmony import */ var ccxt_src_pro_defx_js_WEBPACK_IMPORTED_MODULE_139_ = __webpack_require__(8717);
+/* harmony import */ var ccxt_src_pro_deribit_js_WEBPACK_IMPORTED_MODULE_140_ = __webpack_require__(7791);
+/* harmony import */ var ccxt_src_pro_derive_js_WEBPACK_IMPORTED_MODULE_141_ = __webpack_require__(2127);
+/* harmony import */ var ccxt_src_pro_exmo_js_WEBPACK_IMPORTED_MODULE_142_ = __webpack_require__(5233);
+/* harmony import */ var ccxt_src_pro_gate_js_WEBPACK_IMPORTED_MODULE_143_ = __webpack_require__(9195);
+/* harmony import */ var ccxt_src_pro_gateio_js_WEBPACK_IMPORTED_MODULE_144_ = __webpack_require__(5843);
+/* harmony import */ var ccxt_src_pro_gemini_js_WEBPACK_IMPORTED_MODULE_145_ = __webpack_require__(375);
+/* harmony import */ var ccxt_src_pro_hashkey_js_WEBPACK_IMPORTED_MODULE_146_ = __webpack_require__(1481);
+/* harmony import */ var ccxt_src_pro_hitbtc_js_WEBPACK_IMPORTED_MODULE_147_ = __webpack_require__(4524);
+/* harmony import */ var ccxt_src_pro_hollaex_js_WEBPACK_IMPORTED_MODULE_148_ = __webpack_require__(8247);
+/* harmony import */ var ccxt_src_pro_htx_js_WEBPACK_IMPORTED_MODULE_149_ = __webpack_require__(3898);
+/* harmony import */ var ccxt_src_pro_huobi_js_WEBPACK_IMPORTED_MODULE_150_ = __webpack_require__(6335);
+/* harmony import */ var ccxt_src_pro_hyperliquid_js_WEBPACK_IMPORTED_MODULE_151_ = __webpack_require__(3984);
+/* harmony import */ var ccxt_src_pro_independentreserve_js_WEBPACK_IMPORTED_MODULE_152_ = __webpack_require__(98);
+/* harmony import */ var ccxt_src_pro_kraken_js_WEBPACK_IMPORTED_MODULE_153_ = __webpack_require__(9050);
+/* harmony import */ var ccxt_src_pro_krakenfutures_js_WEBPACK_IMPORTED_MODULE_154_ = __webpack_require__(6396);
+/* harmony import */ var ccxt_src_pro_kucoin_js_WEBPACK_IMPORTED_MODULE_155_ = __webpack_require__(4965);
+/* harmony import */ var ccxt_src_pro_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_156_ = __webpack_require__(905);
+/* harmony import */ var ccxt_src_pro_lbank_js_WEBPACK_IMPORTED_MODULE_157_ = __webpack_require__(1736);
+/* harmony import */ var ccxt_src_pro_luno_js_WEBPACK_IMPORTED_MODULE_158_ = __webpack_require__(2208);
+/* harmony import */ var ccxt_src_pro_mexc_js_WEBPACK_IMPORTED_MODULE_159_ = __webpack_require__(9219);
+/* harmony import */ var ccxt_src_pro_modetrade_js_WEBPACK_IMPORTED_MODULE_160_ = __webpack_require__(49);
+/* harmony import */ var ccxt_src_pro_myokx_js_WEBPACK_IMPORTED_MODULE_161_ = __webpack_require__(3062);
+/* harmony import */ var ccxt_src_pro_ndax_js_WEBPACK_IMPORTED_MODULE_162_ = __webpack_require__(3887);
+/* harmony import */ var ccxt_src_pro_okcoin_js_WEBPACK_IMPORTED_MODULE_163_ = __webpack_require__(6187);
+/* harmony import */ var ccxt_src_pro_okx_js_WEBPACK_IMPORTED_MODULE_164_ = __webpack_require__(8588);
+/* harmony import */ var ccxt_src_pro_okxus_js_WEBPACK_IMPORTED_MODULE_165_ = __webpack_require__(3296);
+/* harmony import */ var ccxt_src_pro_onetrading_js_WEBPACK_IMPORTED_MODULE_166_ = __webpack_require__(4357);
+/* harmony import */ var ccxt_src_pro_oxfun_js_WEBPACK_IMPORTED_MODULE_167_ = __webpack_require__(550);
+/* harmony import */ var ccxt_src_pro_p2b_js_WEBPACK_IMPORTED_MODULE_168_ = __webpack_require__(4934);
+/* harmony import */ var ccxt_src_pro_paradex_js_WEBPACK_IMPORTED_MODULE_169_ = __webpack_require__(1057);
+/* harmony import */ var ccxt_src_pro_phemex_js_WEBPACK_IMPORTED_MODULE_170_ = __webpack_require__(1619);
+/* harmony import */ var ccxt_src_pro_poloniex_js_WEBPACK_IMPORTED_MODULE_171_ = __webpack_require__(3456);
+/* harmony import */ var ccxt_src_pro_probit_js_WEBPACK_IMPORTED_MODULE_172_ = __webpack_require__(5738);
 /* harmony import */ var ccxt_src_pro_upbit_js_WEBPACK_IMPORTED_MODULE_173_ = __webpack_require__(5794);
 /* harmony import */ var ccxt_src_pro_whitebit_js_WEBPACK_IMPORTED_MODULE_174_ = __webpack_require__(4712);
 /* harmony import */ var ccxt_src_pro_woo_js_WEBPACK_IMPORTED_MODULE_175_ = __webpack_require__(5869);
@@ -408789,7 +419934,7 @@ SOFTWARE.
 
 //-----------------------------------------------------------------------------
 // this is updated by vss.js when building
-const ccxt_version = '4.5.3';
+const ccxt_version = '4.5.5';
 ccxt_src_base_Exchange_js_WEBPACK_IMPORTED_MODULE_0_/* .Exchange */ .k.ccxtVersion = ccxt_version;
 //-----------------------------------------------------------------------------
 
@@ -408974,99 +420119,99 @@ const ccxt_exchanges = {
     'alpaca': ccxt_src_alpaca_js_WEBPACK_IMPORTED_MODULE_1_/* ["default"] */ .A,
     'apex': ccxt_src_apex_js_WEBPACK_IMPORTED_MODULE_2_/* ["default"] */ .A,
     'ascendex': ccxt_src_ascendex_js_WEBPACK_IMPORTED_MODULE_3_/* ["default"] */ .A,
-    'bequant': ccxt_src_bequant_js_WEBPACK_IMPORTED_MODULE_4_/* ["default"] */ .A,
-    'bigone': ccxt_src_bigone_js_WEBPACK_IMPORTED_MODULE_5_/* ["default"] */ .A,
-    'binance': ccxt_src_binance_js_WEBPACK_IMPORTED_MODULE_6_/* ["default"] */ .A,
-    'binancecoinm': ccxt_src_binancecoinm_js_WEBPACK_IMPORTED_MODULE_7_/* ["default"] */ .A,
-    'binanceus': ccxt_src_binanceus_js_WEBPACK_IMPORTED_MODULE_8_/* ["default"] */ .A,
-    'binanceusdm': ccxt_src_binanceusdm_js_WEBPACK_IMPORTED_MODULE_9_/* ["default"] */ .A,
-    'bingx': ccxt_src_bingx_js_WEBPACK_IMPORTED_MODULE_10_/* ["default"] */ .A,
-    'bit2c': ccxt_src_bit2c_js_WEBPACK_IMPORTED_MODULE_11_/* ["default"] */ .A,
-    'bitbank': ccxt_src_bitbank_js_WEBPACK_IMPORTED_MODULE_12_/* ["default"] */ .A,
-    'bitbns': ccxt_src_bitbns_js_WEBPACK_IMPORTED_MODULE_13_/* ["default"] */ .A,
-    'bitfinex': ccxt_src_bitfinex_js_WEBPACK_IMPORTED_MODULE_14_/* ["default"] */ .A,
-    'bitflyer': ccxt_src_bitflyer_js_WEBPACK_IMPORTED_MODULE_15_/* ["default"] */ .A,
-    'bitget': ccxt_src_bitget_js_WEBPACK_IMPORTED_MODULE_16_/* ["default"] */ .A,
-    'bithumb': ccxt_src_bithumb_js_WEBPACK_IMPORTED_MODULE_17_/* ["default"] */ .A,
-    'bitmart': ccxt_src_bitmart_js_WEBPACK_IMPORTED_MODULE_18_/* ["default"] */ .A,
-    'bitmex': ccxt_src_bitmex_js_WEBPACK_IMPORTED_MODULE_19_/* ["default"] */ .A,
-    'bitopro': ccxt_src_bitopro_js_WEBPACK_IMPORTED_MODULE_20_/* ["default"] */ .A,
-    'bitrue': ccxt_src_bitrue_js_WEBPACK_IMPORTED_MODULE_21_/* ["default"] */ .A,
-    'bitso': ccxt_src_bitso_js_WEBPACK_IMPORTED_MODULE_22_/* ["default"] */ .A,
-    'bitstamp': ccxt_src_bitstamp_js_WEBPACK_IMPORTED_MODULE_23_/* ["default"] */ .A,
-    'bitteam': ccxt_src_bitteam_js_WEBPACK_IMPORTED_MODULE_24_/* ["default"] */ .A,
-    'bittrade': ccxt_src_bittrade_js_WEBPACK_IMPORTED_MODULE_25_/* ["default"] */ .A,
-    'bitvavo': ccxt_src_bitvavo_js_WEBPACK_IMPORTED_MODULE_26_/* ["default"] */ .A,
-    'blockchaincom': ccxt_src_blockchaincom_js_WEBPACK_IMPORTED_MODULE_27_/* ["default"] */ .A,
-    'blofin': ccxt_src_blofin_js_WEBPACK_IMPORTED_MODULE_28_/* ["default"] */ .A,
-    'btcalpha': ccxt_src_btcalpha_js_WEBPACK_IMPORTED_MODULE_29_/* ["default"] */ .A,
-    'btcbox': ccxt_src_btcbox_js_WEBPACK_IMPORTED_MODULE_30_/* ["default"] */ .A,
-    'btcmarkets': ccxt_src_btcmarkets_js_WEBPACK_IMPORTED_MODULE_31_/* ["default"] */ .A,
-    'btcturk': ccxt_src_btcturk_js_WEBPACK_IMPORTED_MODULE_32_/* ["default"] */ .A,
-    'bybit': ccxt_src_bybit_js_WEBPACK_IMPORTED_MODULE_33_/* ["default"] */ .A,
-    'cex': ccxt_src_cex_js_WEBPACK_IMPORTED_MODULE_34_/* ["default"] */ .A,
-    'coinbase': ccxt_src_coinbase_js_WEBPACK_IMPORTED_MODULE_35_/* ["default"] */ .A,
-    'coinbaseadvanced': ccxt_src_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_36_/* ["default"] */ .A,
-    'coinbaseexchange': ccxt_src_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_37_/* ["default"] */ .A,
-    'coinbaseinternational': ccxt_src_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_38_/* ["default"] */ .A,
-    'coincatch': ccxt_src_coincatch_js_WEBPACK_IMPORTED_MODULE_39_/* ["default"] */ .A,
-    'coincheck': ccxt_src_coincheck_js_WEBPACK_IMPORTED_MODULE_40_/* ["default"] */ .A,
-    'coinex': ccxt_src_coinex_js_WEBPACK_IMPORTED_MODULE_41_/* ["default"] */ .A,
-    'coinmate': ccxt_src_coinmate_js_WEBPACK_IMPORTED_MODULE_42_/* ["default"] */ .A,
-    'coinmetro': ccxt_src_coinmetro_js_WEBPACK_IMPORTED_MODULE_43_/* ["default"] */ .A,
-    'coinone': ccxt_src_coinone_js_WEBPACK_IMPORTED_MODULE_44_/* ["default"] */ .A,
-    'coinsph': ccxt_src_coinsph_js_WEBPACK_IMPORTED_MODULE_45_/* ["default"] */ .A,
-    'coinspot': ccxt_src_coinspot_js_WEBPACK_IMPORTED_MODULE_46_/* ["default"] */ .A,
-    'cryptocom': ccxt_src_cryptocom_js_WEBPACK_IMPORTED_MODULE_47_/* ["default"] */ .A,
-    'cryptomus': ccxt_src_cryptomus_js_WEBPACK_IMPORTED_MODULE_48_/* ["default"] */ .A,
-    'defx': ccxt_src_defx_js_WEBPACK_IMPORTED_MODULE_49_/* ["default"] */ .A,
-    'delta': ccxt_src_delta_js_WEBPACK_IMPORTED_MODULE_50_/* ["default"] */ .A,
-    'deribit': ccxt_src_deribit_js_WEBPACK_IMPORTED_MODULE_51_/* ["default"] */ .A,
-    'derive': ccxt_src_derive_js_WEBPACK_IMPORTED_MODULE_52_/* ["default"] */ .A,
-    'digifinex': ccxt_src_digifinex_js_WEBPACK_IMPORTED_MODULE_53_/* ["default"] */ .A,
-    'exmo': ccxt_src_exmo_js_WEBPACK_IMPORTED_MODULE_54_/* ["default"] */ .A,
-    'fmfwio': ccxt_src_fmfwio_js_WEBPACK_IMPORTED_MODULE_55_/* ["default"] */ .A,
-    'foxbit': ccxt_src_foxbit_js_WEBPACK_IMPORTED_MODULE_56_/* ["default"] */ .A,
-    'gate': ccxt_src_gate_js_WEBPACK_IMPORTED_MODULE_57_/* ["default"] */ .A,
-    'gateio': ccxt_src_gateio_js_WEBPACK_IMPORTED_MODULE_58_/* ["default"] */ .A,
-    'gemini': ccxt_src_gemini_js_WEBPACK_IMPORTED_MODULE_59_/* ["default"] */ .A,
-    'hashkey': ccxt_src_hashkey_js_WEBPACK_IMPORTED_MODULE_60_/* ["default"] */ .A,
-    'hibachi': ccxt_src_hibachi_js_WEBPACK_IMPORTED_MODULE_61_/* ["default"] */ .A,
-    'hitbtc': ccxt_src_hitbtc_js_WEBPACK_IMPORTED_MODULE_62_/* ["default"] */ .A,
-    'hollaex': ccxt_src_hollaex_js_WEBPACK_IMPORTED_MODULE_63_/* ["default"] */ .A,
-    'htx': ccxt_src_htx_js_WEBPACK_IMPORTED_MODULE_64_/* ["default"] */ .A,
-    'huobi': ccxt_src_huobi_js_WEBPACK_IMPORTED_MODULE_65_/* ["default"] */ .A,
-    'hyperliquid': ccxt_src_hyperliquid_js_WEBPACK_IMPORTED_MODULE_66_/* ["default"] */ .A,
-    'independentreserve': ccxt_src_independentreserve_js_WEBPACK_IMPORTED_MODULE_67_/* ["default"] */ .A,
-    'indodax': ccxt_src_indodax_js_WEBPACK_IMPORTED_MODULE_68_/* ["default"] */ .A,
-    'kraken': ccxt_src_kraken_js_WEBPACK_IMPORTED_MODULE_69_/* ["default"] */ .A,
-    'krakenfutures': ccxt_src_krakenfutures_js_WEBPACK_IMPORTED_MODULE_70_/* ["default"] */ .A,
-    'kucoin': ccxt_src_kucoin_js_WEBPACK_IMPORTED_MODULE_71_/* ["default"] */ .A,
-    'kucoinfutures': ccxt_src_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_72_/* ["default"] */ .A,
-    'latoken': ccxt_src_latoken_js_WEBPACK_IMPORTED_MODULE_73_/* ["default"] */ .A,
-    'lbank': ccxt_src_lbank_js_WEBPACK_IMPORTED_MODULE_74_/* ["default"] */ .A,
-    'luno': ccxt_src_luno_js_WEBPACK_IMPORTED_MODULE_75_/* ["default"] */ .A,
-    'mercado': ccxt_src_mercado_js_WEBPACK_IMPORTED_MODULE_76_/* ["default"] */ .A,
-    'mexc': ccxt_src_mexc_js_WEBPACK_IMPORTED_MODULE_77_/* ["default"] */ .A,
-    'modetrade': ccxt_src_modetrade_js_WEBPACK_IMPORTED_MODULE_78_/* ["default"] */ .A,
-    'myokx': ccxt_src_myokx_js_WEBPACK_IMPORTED_MODULE_79_/* ["default"] */ .A,
-    'ndax': ccxt_src_ndax_js_WEBPACK_IMPORTED_MODULE_80_/* ["default"] */ .A,
-    'novadax': ccxt_src_novadax_js_WEBPACK_IMPORTED_MODULE_81_/* ["default"] */ .A,
-    'oceanex': ccxt_src_oceanex_js_WEBPACK_IMPORTED_MODULE_82_/* ["default"] */ .A,
-    'okcoin': ccxt_src_okcoin_js_WEBPACK_IMPORTED_MODULE_83_/* ["default"] */ .A,
-    'okx': ccxt_src_okx_js_WEBPACK_IMPORTED_MODULE_84_/* ["default"] */ .A,
-    'okxus': ccxt_src_okxus_js_WEBPACK_IMPORTED_MODULE_85_/* ["default"] */ .A,
-    'onetrading': ccxt_src_onetrading_js_WEBPACK_IMPORTED_MODULE_86_/* ["default"] */ .A,
-    'oxfun': ccxt_src_oxfun_js_WEBPACK_IMPORTED_MODULE_87_/* ["default"] */ .A,
-    'p2b': ccxt_src_p2b_js_WEBPACK_IMPORTED_MODULE_88_/* ["default"] */ .A,
-    'paradex': ccxt_src_paradex_js_WEBPACK_IMPORTED_MODULE_89_/* ["default"] */ .A,
-    'paymium': ccxt_src_paymium_js_WEBPACK_IMPORTED_MODULE_90_/* ["default"] */ .A,
-    'phemex': ccxt_src_phemex_js_WEBPACK_IMPORTED_MODULE_91_/* ["default"] */ .A,
-    'poloniex': ccxt_src_poloniex_js_WEBPACK_IMPORTED_MODULE_92_/* ["default"] */ .A,
-    'probit': ccxt_src_probit_js_WEBPACK_IMPORTED_MODULE_93_/* ["default"] */ .A,
-    'timex': ccxt_src_timex_js_WEBPACK_IMPORTED_MODULE_94_/* ["default"] */ .A,
-    'tokocrypto': ccxt_src_tokocrypto_js_WEBPACK_IMPORTED_MODULE_95_/* ["default"] */ .A,
-    'tradeogre': ccxt_src_tradeogre_js_WEBPACK_IMPORTED_MODULE_96_/* ["default"] */ .A,
+    'backpack': ccxt_src_backpack_js_WEBPACK_IMPORTED_MODULE_4_/* ["default"] */ .A,
+    'bequant': ccxt_src_bequant_js_WEBPACK_IMPORTED_MODULE_5_/* ["default"] */ .A,
+    'bigone': ccxt_src_bigone_js_WEBPACK_IMPORTED_MODULE_6_/* ["default"] */ .A,
+    'binance': ccxt_src_binance_js_WEBPACK_IMPORTED_MODULE_7_/* ["default"] */ .A,
+    'binancecoinm': ccxt_src_binancecoinm_js_WEBPACK_IMPORTED_MODULE_8_/* ["default"] */ .A,
+    'binanceus': ccxt_src_binanceus_js_WEBPACK_IMPORTED_MODULE_9_/* ["default"] */ .A,
+    'binanceusdm': ccxt_src_binanceusdm_js_WEBPACK_IMPORTED_MODULE_10_/* ["default"] */ .A,
+    'bingx': ccxt_src_bingx_js_WEBPACK_IMPORTED_MODULE_11_/* ["default"] */ .A,
+    'bit2c': ccxt_src_bit2c_js_WEBPACK_IMPORTED_MODULE_12_/* ["default"] */ .A,
+    'bitbank': ccxt_src_bitbank_js_WEBPACK_IMPORTED_MODULE_13_/* ["default"] */ .A,
+    'bitbns': ccxt_src_bitbns_js_WEBPACK_IMPORTED_MODULE_14_/* ["default"] */ .A,
+    'bitfinex': ccxt_src_bitfinex_js_WEBPACK_IMPORTED_MODULE_15_/* ["default"] */ .A,
+    'bitflyer': ccxt_src_bitflyer_js_WEBPACK_IMPORTED_MODULE_16_/* ["default"] */ .A,
+    'bitget': ccxt_src_bitget_js_WEBPACK_IMPORTED_MODULE_17_/* ["default"] */ .A,
+    'bithumb': ccxt_src_bithumb_js_WEBPACK_IMPORTED_MODULE_18_/* ["default"] */ .A,
+    'bitmart': ccxt_src_bitmart_js_WEBPACK_IMPORTED_MODULE_19_/* ["default"] */ .A,
+    'bitmex': ccxt_src_bitmex_js_WEBPACK_IMPORTED_MODULE_20_/* ["default"] */ .A,
+    'bitopro': ccxt_src_bitopro_js_WEBPACK_IMPORTED_MODULE_21_/* ["default"] */ .A,
+    'bitrue': ccxt_src_bitrue_js_WEBPACK_IMPORTED_MODULE_22_/* ["default"] */ .A,
+    'bitso': ccxt_src_bitso_js_WEBPACK_IMPORTED_MODULE_23_/* ["default"] */ .A,
+    'bitstamp': ccxt_src_bitstamp_js_WEBPACK_IMPORTED_MODULE_24_/* ["default"] */ .A,
+    'bitteam': ccxt_src_bitteam_js_WEBPACK_IMPORTED_MODULE_25_/* ["default"] */ .A,
+    'bittrade': ccxt_src_bittrade_js_WEBPACK_IMPORTED_MODULE_26_/* ["default"] */ .A,
+    'bitvavo': ccxt_src_bitvavo_js_WEBPACK_IMPORTED_MODULE_27_/* ["default"] */ .A,
+    'blockchaincom': ccxt_src_blockchaincom_js_WEBPACK_IMPORTED_MODULE_28_/* ["default"] */ .A,
+    'blofin': ccxt_src_blofin_js_WEBPACK_IMPORTED_MODULE_29_/* ["default"] */ .A,
+    'btcalpha': ccxt_src_btcalpha_js_WEBPACK_IMPORTED_MODULE_30_/* ["default"] */ .A,
+    'btcbox': ccxt_src_btcbox_js_WEBPACK_IMPORTED_MODULE_31_/* ["default"] */ .A,
+    'btcmarkets': ccxt_src_btcmarkets_js_WEBPACK_IMPORTED_MODULE_32_/* ["default"] */ .A,
+    'btcturk': ccxt_src_btcturk_js_WEBPACK_IMPORTED_MODULE_33_/* ["default"] */ .A,
+    'bybit': ccxt_src_bybit_js_WEBPACK_IMPORTED_MODULE_34_/* ["default"] */ .A,
+    'cex': ccxt_src_cex_js_WEBPACK_IMPORTED_MODULE_35_/* ["default"] */ .A,
+    'coinbase': ccxt_src_coinbase_js_WEBPACK_IMPORTED_MODULE_36_/* ["default"] */ .A,
+    'coinbaseadvanced': ccxt_src_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_37_/* ["default"] */ .A,
+    'coinbaseexchange': ccxt_src_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_38_/* ["default"] */ .A,
+    'coinbaseinternational': ccxt_src_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_39_/* ["default"] */ .A,
+    'coincatch': ccxt_src_coincatch_js_WEBPACK_IMPORTED_MODULE_40_/* ["default"] */ .A,
+    'coincheck': ccxt_src_coincheck_js_WEBPACK_IMPORTED_MODULE_41_/* ["default"] */ .A,
+    'coinex': ccxt_src_coinex_js_WEBPACK_IMPORTED_MODULE_42_/* ["default"] */ .A,
+    'coinmate': ccxt_src_coinmate_js_WEBPACK_IMPORTED_MODULE_43_/* ["default"] */ .A,
+    'coinmetro': ccxt_src_coinmetro_js_WEBPACK_IMPORTED_MODULE_44_/* ["default"] */ .A,
+    'coinone': ccxt_src_coinone_js_WEBPACK_IMPORTED_MODULE_45_/* ["default"] */ .A,
+    'coinsph': ccxt_src_coinsph_js_WEBPACK_IMPORTED_MODULE_46_/* ["default"] */ .A,
+    'coinspot': ccxt_src_coinspot_js_WEBPACK_IMPORTED_MODULE_47_/* ["default"] */ .A,
+    'cryptocom': ccxt_src_cryptocom_js_WEBPACK_IMPORTED_MODULE_48_/* ["default"] */ .A,
+    'cryptomus': ccxt_src_cryptomus_js_WEBPACK_IMPORTED_MODULE_49_/* ["default"] */ .A,
+    'defx': ccxt_src_defx_js_WEBPACK_IMPORTED_MODULE_50_/* ["default"] */ .A,
+    'delta': ccxt_src_delta_js_WEBPACK_IMPORTED_MODULE_51_/* ["default"] */ .A,
+    'deribit': ccxt_src_deribit_js_WEBPACK_IMPORTED_MODULE_52_/* ["default"] */ .A,
+    'derive': ccxt_src_derive_js_WEBPACK_IMPORTED_MODULE_53_/* ["default"] */ .A,
+    'digifinex': ccxt_src_digifinex_js_WEBPACK_IMPORTED_MODULE_54_/* ["default"] */ .A,
+    'exmo': ccxt_src_exmo_js_WEBPACK_IMPORTED_MODULE_55_/* ["default"] */ .A,
+    'fmfwio': ccxt_src_fmfwio_js_WEBPACK_IMPORTED_MODULE_56_/* ["default"] */ .A,
+    'foxbit': ccxt_src_foxbit_js_WEBPACK_IMPORTED_MODULE_57_/* ["default"] */ .A,
+    'gate': ccxt_src_gate_js_WEBPACK_IMPORTED_MODULE_58_/* ["default"] */ .A,
+    'gateio': ccxt_src_gateio_js_WEBPACK_IMPORTED_MODULE_59_/* ["default"] */ .A,
+    'gemini': ccxt_src_gemini_js_WEBPACK_IMPORTED_MODULE_60_/* ["default"] */ .A,
+    'hashkey': ccxt_src_hashkey_js_WEBPACK_IMPORTED_MODULE_61_/* ["default"] */ .A,
+    'hibachi': ccxt_src_hibachi_js_WEBPACK_IMPORTED_MODULE_62_/* ["default"] */ .A,
+    'hitbtc': ccxt_src_hitbtc_js_WEBPACK_IMPORTED_MODULE_63_/* ["default"] */ .A,
+    'hollaex': ccxt_src_hollaex_js_WEBPACK_IMPORTED_MODULE_64_/* ["default"] */ .A,
+    'htx': ccxt_src_htx_js_WEBPACK_IMPORTED_MODULE_65_/* ["default"] */ .A,
+    'huobi': ccxt_src_huobi_js_WEBPACK_IMPORTED_MODULE_66_/* ["default"] */ .A,
+    'hyperliquid': ccxt_src_hyperliquid_js_WEBPACK_IMPORTED_MODULE_67_/* ["default"] */ .A,
+    'independentreserve': ccxt_src_independentreserve_js_WEBPACK_IMPORTED_MODULE_68_/* ["default"] */ .A,
+    'indodax': ccxt_src_indodax_js_WEBPACK_IMPORTED_MODULE_69_/* ["default"] */ .A,
+    'kraken': ccxt_src_kraken_js_WEBPACK_IMPORTED_MODULE_70_/* ["default"] */ .A,
+    'krakenfutures': ccxt_src_krakenfutures_js_WEBPACK_IMPORTED_MODULE_71_/* ["default"] */ .A,
+    'kucoin': ccxt_src_kucoin_js_WEBPACK_IMPORTED_MODULE_72_/* ["default"] */ .A,
+    'kucoinfutures': ccxt_src_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_73_/* ["default"] */ .A,
+    'latoken': ccxt_src_latoken_js_WEBPACK_IMPORTED_MODULE_74_/* ["default"] */ .A,
+    'lbank': ccxt_src_lbank_js_WEBPACK_IMPORTED_MODULE_75_/* ["default"] */ .A,
+    'luno': ccxt_src_luno_js_WEBPACK_IMPORTED_MODULE_76_/* ["default"] */ .A,
+    'mercado': ccxt_src_mercado_js_WEBPACK_IMPORTED_MODULE_77_/* ["default"] */ .A,
+    'mexc': ccxt_src_mexc_js_WEBPACK_IMPORTED_MODULE_78_/* ["default"] */ .A,
+    'modetrade': ccxt_src_modetrade_js_WEBPACK_IMPORTED_MODULE_79_/* ["default"] */ .A,
+    'myokx': ccxt_src_myokx_js_WEBPACK_IMPORTED_MODULE_80_/* ["default"] */ .A,
+    'ndax': ccxt_src_ndax_js_WEBPACK_IMPORTED_MODULE_81_/* ["default"] */ .A,
+    'novadax': ccxt_src_novadax_js_WEBPACK_IMPORTED_MODULE_82_/* ["default"] */ .A,
+    'oceanex': ccxt_src_oceanex_js_WEBPACK_IMPORTED_MODULE_83_/* ["default"] */ .A,
+    'okcoin': ccxt_src_okcoin_js_WEBPACK_IMPORTED_MODULE_84_/* ["default"] */ .A,
+    'okx': ccxt_src_okx_js_WEBPACK_IMPORTED_MODULE_85_/* ["default"] */ .A,
+    'okxus': ccxt_src_okxus_js_WEBPACK_IMPORTED_MODULE_86_/* ["default"] */ .A,
+    'onetrading': ccxt_src_onetrading_js_WEBPACK_IMPORTED_MODULE_87_/* ["default"] */ .A,
+    'oxfun': ccxt_src_oxfun_js_WEBPACK_IMPORTED_MODULE_88_/* ["default"] */ .A,
+    'p2b': ccxt_src_p2b_js_WEBPACK_IMPORTED_MODULE_89_/* ["default"] */ .A,
+    'paradex': ccxt_src_paradex_js_WEBPACK_IMPORTED_MODULE_90_/* ["default"] */ .A,
+    'paymium': ccxt_src_paymium_js_WEBPACK_IMPORTED_MODULE_91_/* ["default"] */ .A,
+    'phemex': ccxt_src_phemex_js_WEBPACK_IMPORTED_MODULE_92_/* ["default"] */ .A,
+    'poloniex': ccxt_src_poloniex_js_WEBPACK_IMPORTED_MODULE_93_/* ["default"] */ .A,
+    'probit': ccxt_src_probit_js_WEBPACK_IMPORTED_MODULE_94_/* ["default"] */ .A,
+    'timex': ccxt_src_timex_js_WEBPACK_IMPORTED_MODULE_95_/* ["default"] */ .A,
+    'tokocrypto': ccxt_src_tokocrypto_js_WEBPACK_IMPORTED_MODULE_96_/* ["default"] */ .A,
     'upbit': ccxt_src_upbit_js_WEBPACK_IMPORTED_MODULE_97_/* ["default"] */ .A,
     'wavesexchange': ccxt_src_wavesexchange_js_WEBPACK_IMPORTED_MODULE_98_/* ["default"] */ .A,
     'whitebit': ccxt_src_whitebit_js_WEBPACK_IMPORTED_MODULE_99_/* ["default"] */ .A,
@@ -409081,70 +420226,70 @@ const ccxt_pro = {
     'alpaca': ccxt_src_pro_alpaca_js_WEBPACK_IMPORTED_MODULE_106_/* ["default"] */ .A,
     'apex': ccxt_src_pro_apex_js_WEBPACK_IMPORTED_MODULE_107_/* ["default"] */ .A,
     'ascendex': ccxt_src_pro_ascendex_js_WEBPACK_IMPORTED_MODULE_108_/* ["default"] */ .A,
-    'bequant': ccxt_src_pro_bequant_js_WEBPACK_IMPORTED_MODULE_109_/* ["default"] */ .A,
-    'binance': ccxt_src_pro_binance_js_WEBPACK_IMPORTED_MODULE_110_/* ["default"] */ .A,
-    'binancecoinm': ccxt_src_pro_binancecoinm_js_WEBPACK_IMPORTED_MODULE_111_/* ["default"] */ .A,
-    'binanceus': ccxt_src_pro_binanceus_js_WEBPACK_IMPORTED_MODULE_112_/* ["default"] */ .A,
-    'binanceusdm': ccxt_src_pro_binanceusdm_js_WEBPACK_IMPORTED_MODULE_113_/* ["default"] */ .A,
-    'bingx': ccxt_src_pro_bingx_js_WEBPACK_IMPORTED_MODULE_114_/* ["default"] */ .A,
-    'bitfinex': ccxt_src_pro_bitfinex_js_WEBPACK_IMPORTED_MODULE_115_/* ["default"] */ .A,
-    'bitget': ccxt_src_pro_bitget_js_WEBPACK_IMPORTED_MODULE_116_/* ["default"] */ .A,
-    'bithumb': ccxt_src_pro_bithumb_js_WEBPACK_IMPORTED_MODULE_117_/* ["default"] */ .A,
-    'bitmart': ccxt_src_pro_bitmart_js_WEBPACK_IMPORTED_MODULE_118_/* ["default"] */ .A,
-    'bitmex': ccxt_src_pro_bitmex_js_WEBPACK_IMPORTED_MODULE_119_/* ["default"] */ .A,
-    'bitopro': ccxt_src_pro_bitopro_js_WEBPACK_IMPORTED_MODULE_120_/* ["default"] */ .A,
-    'bitrue': ccxt_src_pro_bitrue_js_WEBPACK_IMPORTED_MODULE_121_/* ["default"] */ .A,
-    'bitstamp': ccxt_src_pro_bitstamp_js_WEBPACK_IMPORTED_MODULE_122_/* ["default"] */ .A,
-    'bittrade': ccxt_src_pro_bittrade_js_WEBPACK_IMPORTED_MODULE_123_/* ["default"] */ .A,
-    'bitvavo': ccxt_src_pro_bitvavo_js_WEBPACK_IMPORTED_MODULE_124_/* ["default"] */ .A,
-    'blockchaincom': ccxt_src_pro_blockchaincom_js_WEBPACK_IMPORTED_MODULE_125_/* ["default"] */ .A,
-    'blofin': ccxt_src_pro_blofin_js_WEBPACK_IMPORTED_MODULE_126_/* ["default"] */ .A,
-    'bybit': ccxt_src_pro_bybit_js_WEBPACK_IMPORTED_MODULE_127_/* ["default"] */ .A,
-    'cex': ccxt_src_pro_cex_js_WEBPACK_IMPORTED_MODULE_128_/* ["default"] */ .A,
-    'coinbase': ccxt_src_pro_coinbase_js_WEBPACK_IMPORTED_MODULE_129_/* ["default"] */ .A,
-    'coinbaseadvanced': ccxt_src_pro_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_130_/* ["default"] */ .A,
-    'coinbaseexchange': ccxt_src_pro_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_131_/* ["default"] */ .A,
-    'coinbaseinternational': ccxt_src_pro_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_132_/* ["default"] */ .A,
-    'coincatch': ccxt_src_pro_coincatch_js_WEBPACK_IMPORTED_MODULE_133_/* ["default"] */ .A,
-    'coincheck': ccxt_src_pro_coincheck_js_WEBPACK_IMPORTED_MODULE_134_/* ["default"] */ .A,
-    'coinex': ccxt_src_pro_coinex_js_WEBPACK_IMPORTED_MODULE_135_/* ["default"] */ .A,
-    'coinone': ccxt_src_pro_coinone_js_WEBPACK_IMPORTED_MODULE_136_/* ["default"] */ .A,
-    'cryptocom': ccxt_src_pro_cryptocom_js_WEBPACK_IMPORTED_MODULE_137_/* ["default"] */ .A,
-    'defx': ccxt_src_pro_defx_js_WEBPACK_IMPORTED_MODULE_138_/* ["default"] */ .A,
-    'deribit': ccxt_src_pro_deribit_js_WEBPACK_IMPORTED_MODULE_139_/* ["default"] */ .A,
-    'derive': ccxt_src_pro_derive_js_WEBPACK_IMPORTED_MODULE_140_/* ["default"] */ .A,
-    'exmo': ccxt_src_pro_exmo_js_WEBPACK_IMPORTED_MODULE_141_/* ["default"] */ .A,
-    'gate': ccxt_src_pro_gate_js_WEBPACK_IMPORTED_MODULE_142_/* ["default"] */ .A,
-    'gateio': ccxt_src_pro_gateio_js_WEBPACK_IMPORTED_MODULE_143_/* ["default"] */ .A,
-    'gemini': ccxt_src_pro_gemini_js_WEBPACK_IMPORTED_MODULE_144_/* ["default"] */ .A,
-    'hashkey': ccxt_src_pro_hashkey_js_WEBPACK_IMPORTED_MODULE_145_/* ["default"] */ .A,
-    'hitbtc': ccxt_src_pro_hitbtc_js_WEBPACK_IMPORTED_MODULE_146_/* ["default"] */ .A,
-    'hollaex': ccxt_src_pro_hollaex_js_WEBPACK_IMPORTED_MODULE_147_/* ["default"] */ .A,
-    'htx': ccxt_src_pro_htx_js_WEBPACK_IMPORTED_MODULE_148_/* ["default"] */ .A,
-    'huobi': ccxt_src_pro_huobi_js_WEBPACK_IMPORTED_MODULE_149_/* ["default"] */ .A,
-    'hyperliquid': ccxt_src_pro_hyperliquid_js_WEBPACK_IMPORTED_MODULE_150_/* ["default"] */ .A,
-    'independentreserve': ccxt_src_pro_independentreserve_js_WEBPACK_IMPORTED_MODULE_151_/* ["default"] */ .A,
-    'kraken': ccxt_src_pro_kraken_js_WEBPACK_IMPORTED_MODULE_152_/* ["default"] */ .A,
-    'krakenfutures': ccxt_src_pro_krakenfutures_js_WEBPACK_IMPORTED_MODULE_153_/* ["default"] */ .A,
-    'kucoin': ccxt_src_pro_kucoin_js_WEBPACK_IMPORTED_MODULE_154_/* ["default"] */ .A,
-    'kucoinfutures': ccxt_src_pro_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_155_/* ["default"] */ .A,
-    'lbank': ccxt_src_pro_lbank_js_WEBPACK_IMPORTED_MODULE_156_/* ["default"] */ .A,
-    'luno': ccxt_src_pro_luno_js_WEBPACK_IMPORTED_MODULE_157_/* ["default"] */ .A,
-    'mexc': ccxt_src_pro_mexc_js_WEBPACK_IMPORTED_MODULE_158_/* ["default"] */ .A,
-    'modetrade': ccxt_src_pro_modetrade_js_WEBPACK_IMPORTED_MODULE_159_/* ["default"] */ .A,
-    'myokx': ccxt_src_pro_myokx_js_WEBPACK_IMPORTED_MODULE_160_/* ["default"] */ .A,
-    'ndax': ccxt_src_pro_ndax_js_WEBPACK_IMPORTED_MODULE_161_/* ["default"] */ .A,
-    'okcoin': ccxt_src_pro_okcoin_js_WEBPACK_IMPORTED_MODULE_162_/* ["default"] */ .A,
-    'okx': ccxt_src_pro_okx_js_WEBPACK_IMPORTED_MODULE_163_/* ["default"] */ .A,
-    'okxus': ccxt_src_pro_okxus_js_WEBPACK_IMPORTED_MODULE_164_/* ["default"] */ .A,
-    'onetrading': ccxt_src_pro_onetrading_js_WEBPACK_IMPORTED_MODULE_165_/* ["default"] */ .A,
-    'oxfun': ccxt_src_pro_oxfun_js_WEBPACK_IMPORTED_MODULE_166_/* ["default"] */ .A,
-    'p2b': ccxt_src_pro_p2b_js_WEBPACK_IMPORTED_MODULE_167_/* ["default"] */ .A,
-    'paradex': ccxt_src_pro_paradex_js_WEBPACK_IMPORTED_MODULE_168_/* ["default"] */ .A,
-    'phemex': ccxt_src_pro_phemex_js_WEBPACK_IMPORTED_MODULE_169_/* ["default"] */ .A,
-    'poloniex': ccxt_src_pro_poloniex_js_WEBPACK_IMPORTED_MODULE_170_/* ["default"] */ .A,
-    'probit': ccxt_src_pro_probit_js_WEBPACK_IMPORTED_MODULE_171_/* ["default"] */ .A,
-    'tradeogre': ccxt_src_pro_tradeogre_js_WEBPACK_IMPORTED_MODULE_172_/* ["default"] */ .A,
+    'backpack': ccxt_src_pro_backpack_js_WEBPACK_IMPORTED_MODULE_109_/* ["default"] */ .A,
+    'bequant': ccxt_src_pro_bequant_js_WEBPACK_IMPORTED_MODULE_110_/* ["default"] */ .A,
+    'binance': ccxt_src_pro_binance_js_WEBPACK_IMPORTED_MODULE_111_/* ["default"] */ .A,
+    'binancecoinm': ccxt_src_pro_binancecoinm_js_WEBPACK_IMPORTED_MODULE_112_/* ["default"] */ .A,
+    'binanceus': ccxt_src_pro_binanceus_js_WEBPACK_IMPORTED_MODULE_113_/* ["default"] */ .A,
+    'binanceusdm': ccxt_src_pro_binanceusdm_js_WEBPACK_IMPORTED_MODULE_114_/* ["default"] */ .A,
+    'bingx': ccxt_src_pro_bingx_js_WEBPACK_IMPORTED_MODULE_115_/* ["default"] */ .A,
+    'bitfinex': ccxt_src_pro_bitfinex_js_WEBPACK_IMPORTED_MODULE_116_/* ["default"] */ .A,
+    'bitget': ccxt_src_pro_bitget_js_WEBPACK_IMPORTED_MODULE_117_/* ["default"] */ .A,
+    'bithumb': ccxt_src_pro_bithumb_js_WEBPACK_IMPORTED_MODULE_118_/* ["default"] */ .A,
+    'bitmart': ccxt_src_pro_bitmart_js_WEBPACK_IMPORTED_MODULE_119_/* ["default"] */ .A,
+    'bitmex': ccxt_src_pro_bitmex_js_WEBPACK_IMPORTED_MODULE_120_/* ["default"] */ .A,
+    'bitopro': ccxt_src_pro_bitopro_js_WEBPACK_IMPORTED_MODULE_121_/* ["default"] */ .A,
+    'bitrue': ccxt_src_pro_bitrue_js_WEBPACK_IMPORTED_MODULE_122_/* ["default"] */ .A,
+    'bitstamp': ccxt_src_pro_bitstamp_js_WEBPACK_IMPORTED_MODULE_123_/* ["default"] */ .A,
+    'bittrade': ccxt_src_pro_bittrade_js_WEBPACK_IMPORTED_MODULE_124_/* ["default"] */ .A,
+    'bitvavo': ccxt_src_pro_bitvavo_js_WEBPACK_IMPORTED_MODULE_125_/* ["default"] */ .A,
+    'blockchaincom': ccxt_src_pro_blockchaincom_js_WEBPACK_IMPORTED_MODULE_126_/* ["default"] */ .A,
+    'blofin': ccxt_src_pro_blofin_js_WEBPACK_IMPORTED_MODULE_127_/* ["default"] */ .A,
+    'bybit': ccxt_src_pro_bybit_js_WEBPACK_IMPORTED_MODULE_128_/* ["default"] */ .A,
+    'cex': ccxt_src_pro_cex_js_WEBPACK_IMPORTED_MODULE_129_/* ["default"] */ .A,
+    'coinbase': ccxt_src_pro_coinbase_js_WEBPACK_IMPORTED_MODULE_130_/* ["default"] */ .A,
+    'coinbaseadvanced': ccxt_src_pro_coinbaseadvanced_js_WEBPACK_IMPORTED_MODULE_131_/* ["default"] */ .A,
+    'coinbaseexchange': ccxt_src_pro_coinbaseexchange_js_WEBPACK_IMPORTED_MODULE_132_/* ["default"] */ .A,
+    'coinbaseinternational': ccxt_src_pro_coinbaseinternational_js_WEBPACK_IMPORTED_MODULE_133_/* ["default"] */ .A,
+    'coincatch': ccxt_src_pro_coincatch_js_WEBPACK_IMPORTED_MODULE_134_/* ["default"] */ .A,
+    'coincheck': ccxt_src_pro_coincheck_js_WEBPACK_IMPORTED_MODULE_135_/* ["default"] */ .A,
+    'coinex': ccxt_src_pro_coinex_js_WEBPACK_IMPORTED_MODULE_136_/* ["default"] */ .A,
+    'coinone': ccxt_src_pro_coinone_js_WEBPACK_IMPORTED_MODULE_137_/* ["default"] */ .A,
+    'cryptocom': ccxt_src_pro_cryptocom_js_WEBPACK_IMPORTED_MODULE_138_/* ["default"] */ .A,
+    'defx': ccxt_src_pro_defx_js_WEBPACK_IMPORTED_MODULE_139_/* ["default"] */ .A,
+    'deribit': ccxt_src_pro_deribit_js_WEBPACK_IMPORTED_MODULE_140_/* ["default"] */ .A,
+    'derive': ccxt_src_pro_derive_js_WEBPACK_IMPORTED_MODULE_141_/* ["default"] */ .A,
+    'exmo': ccxt_src_pro_exmo_js_WEBPACK_IMPORTED_MODULE_142_/* ["default"] */ .A,
+    'gate': ccxt_src_pro_gate_js_WEBPACK_IMPORTED_MODULE_143_/* ["default"] */ .A,
+    'gateio': ccxt_src_pro_gateio_js_WEBPACK_IMPORTED_MODULE_144_/* ["default"] */ .A,
+    'gemini': ccxt_src_pro_gemini_js_WEBPACK_IMPORTED_MODULE_145_/* ["default"] */ .A,
+    'hashkey': ccxt_src_pro_hashkey_js_WEBPACK_IMPORTED_MODULE_146_/* ["default"] */ .A,
+    'hitbtc': ccxt_src_pro_hitbtc_js_WEBPACK_IMPORTED_MODULE_147_/* ["default"] */ .A,
+    'hollaex': ccxt_src_pro_hollaex_js_WEBPACK_IMPORTED_MODULE_148_/* ["default"] */ .A,
+    'htx': ccxt_src_pro_htx_js_WEBPACK_IMPORTED_MODULE_149_/* ["default"] */ .A,
+    'huobi': ccxt_src_pro_huobi_js_WEBPACK_IMPORTED_MODULE_150_/* ["default"] */ .A,
+    'hyperliquid': ccxt_src_pro_hyperliquid_js_WEBPACK_IMPORTED_MODULE_151_/* ["default"] */ .A,
+    'independentreserve': ccxt_src_pro_independentreserve_js_WEBPACK_IMPORTED_MODULE_152_/* ["default"] */ .A,
+    'kraken': ccxt_src_pro_kraken_js_WEBPACK_IMPORTED_MODULE_153_/* ["default"] */ .A,
+    'krakenfutures': ccxt_src_pro_krakenfutures_js_WEBPACK_IMPORTED_MODULE_154_/* ["default"] */ .A,
+    'kucoin': ccxt_src_pro_kucoin_js_WEBPACK_IMPORTED_MODULE_155_/* ["default"] */ .A,
+    'kucoinfutures': ccxt_src_pro_kucoinfutures_js_WEBPACK_IMPORTED_MODULE_156_/* ["default"] */ .A,
+    'lbank': ccxt_src_pro_lbank_js_WEBPACK_IMPORTED_MODULE_157_/* ["default"] */ .A,
+    'luno': ccxt_src_pro_luno_js_WEBPACK_IMPORTED_MODULE_158_/* ["default"] */ .A,
+    'mexc': ccxt_src_pro_mexc_js_WEBPACK_IMPORTED_MODULE_159_/* ["default"] */ .A,
+    'modetrade': ccxt_src_pro_modetrade_js_WEBPACK_IMPORTED_MODULE_160_/* ["default"] */ .A,
+    'myokx': ccxt_src_pro_myokx_js_WEBPACK_IMPORTED_MODULE_161_/* ["default"] */ .A,
+    'ndax': ccxt_src_pro_ndax_js_WEBPACK_IMPORTED_MODULE_162_/* ["default"] */ .A,
+    'okcoin': ccxt_src_pro_okcoin_js_WEBPACK_IMPORTED_MODULE_163_/* ["default"] */ .A,
+    'okx': ccxt_src_pro_okx_js_WEBPACK_IMPORTED_MODULE_164_/* ["default"] */ .A,
+    'okxus': ccxt_src_pro_okxus_js_WEBPACK_IMPORTED_MODULE_165_/* ["default"] */ .A,
+    'onetrading': ccxt_src_pro_onetrading_js_WEBPACK_IMPORTED_MODULE_166_/* ["default"] */ .A,
+    'oxfun': ccxt_src_pro_oxfun_js_WEBPACK_IMPORTED_MODULE_167_/* ["default"] */ .A,
+    'p2b': ccxt_src_pro_p2b_js_WEBPACK_IMPORTED_MODULE_168_/* ["default"] */ .A,
+    'paradex': ccxt_src_pro_paradex_js_WEBPACK_IMPORTED_MODULE_169_/* ["default"] */ .A,
+    'phemex': ccxt_src_pro_phemex_js_WEBPACK_IMPORTED_MODULE_170_/* ["default"] */ .A,
+    'poloniex': ccxt_src_pro_poloniex_js_WEBPACK_IMPORTED_MODULE_171_/* ["default"] */ .A,
+    'probit': ccxt_src_pro_probit_js_WEBPACK_IMPORTED_MODULE_172_/* ["default"] */ .A,
     'upbit': ccxt_src_pro_upbit_js_WEBPACK_IMPORTED_MODULE_173_/* ["default"] */ .A,
     'whitebit': ccxt_src_pro_whitebit_js_WEBPACK_IMPORTED_MODULE_174_/* ["default"] */ .A,
     'woo': ccxt_src_pro_woo_js_WEBPACK_IMPORTED_MODULE_175_/* ["default"] */ .A,
